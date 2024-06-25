@@ -15,7 +15,10 @@
     ../../system/security/gpg.nix
     ../../system/wm/fonts.nix
     ../../system/hardware/systemdboot-t2.nix
-    ../../system/pkgs/basepkgs.nix
+    ../../system/apps/basepkgs.nix
+    ../../system/apps/docker.nix
+    ../../system/apps/flatpak.nix
+    ../../system/apps/virtualization.nix
     ../../system/security/users.nix
     (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
     #../../system/style/stylix.nix

@@ -15,7 +15,7 @@
       userSettings = {
         username = "matteocavestri";
         name = "Matteo Cavestri";
-        mail = "matteo.cavestri@protonmail.ch";
+        email = "matteo.cavestri@protonmail.ch";
         theme = "catppuccin-mocha"; # Not available
         wm = "gnome"; # only gnome
         font = "Inconsolata Nerd Font";
@@ -30,7 +30,6 @@
         modules = [
           nixos-hardware.nixosModules.apple-t2
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
-          #./profile/apple-t2/configuration.nix
         ];
         specialArgs = {
           inherit systemSettings;
