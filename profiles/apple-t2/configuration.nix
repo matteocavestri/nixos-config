@@ -21,6 +21,9 @@
     ../../system/apps/virtualization.nix
     ../../system/security/users.nix
     (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
-    #../../system/style/stylix.nix
-  ];
+  ] ++
+  (if (userSettings.wm == "hyprland") then
+      [ (import ../../system/style/stylix.nix) ]
+    else
+  []);
 }

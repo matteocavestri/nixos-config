@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, userSettings, ... }:
 
 {
   imports = [ ../hardware/pipewire.nix
@@ -24,7 +24,7 @@
   services.xserver = {
     enable = true;
     xkb = {
-      layout = "us";
+      layout = userSettings.keymap;
       variant = "";
       options = "caps:escape";
     };

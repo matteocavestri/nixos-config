@@ -13,12 +13,12 @@
   };
   
   imports = [ 
-    ../../user/app/editor/neovim.nix
-    ../../user/app/terminal/alacritty.nix
-    ../../user/app/terminal/kitty.nix
-    ../../user/app/git/git.nix
-    ../../user/app/flatpak/flatpak.nix
-    ../../user/app/virtualization/virtualization.nix
+    ../../user/apps/editor/neovim.nix
+    ../../user/apps/terminal/alacritty.nix
+    ../../user/apps/terminal/kitty.nix
+    ../../user/apps/git/git.nix
+    ../../user/apps/flatpak/flatpak.nix
+    ../../user/apps/virtualization/virtualization.nix
     ../../user/lang/cc.nix
     ../../user/lang/go.nix
     ../../user/lang/lua.nix
@@ -35,8 +35,6 @@
     tree
     libreoffice-fresh
     protonmail-bridge
-    wine
-    bottles
     gimp
     krita
     kdenlive

@@ -20,6 +20,8 @@
         wm = "gnome"; # only gnome
         font = "Inconsolata Nerd Font";
         fontPkg = "inconsolata-nerdfont";
+        term = "kitty";
+        browser = "firefox";
       };
       lib = nixpkgs.lib;
       pkgs = import nixpkgs { system = systemSettings.system; };
@@ -63,7 +65,24 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+      rev = "ea2501d4556f84d3de86a4ae2f4b22a474555b9f";
+    };
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins/151102b7d7c4f61ff42f275e72008d28318dac96";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    hycov.url = "github:DreamMaoMao/hycov/3d144a79f8b5468656de88a005be55f3317d295b";
+    hycov.inputs.hyprland.follows = "hyprland";
+    
+    stylix.url = "github:danth/stylix";
+
+    rust-overlay.url = "github:oxalica/rust-overlay";
   };
 }

@@ -14,6 +14,5 @@
     tmux
     pinentry-gtk2
     gnupg
-    distrobox
   ];
 }
