@@ -15,17 +15,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, nixos-hardware, home-manager, ... }: 
+  outputs = { nixpkgs, nixos-hardware, home-manager, self, ... }: 
     let
+      systemSettings = {
+        system = "x86_64-linux";
+        hostname = "nixos-t2";
+        timezone = "Europe/Rome";
+        locale = "it_IT.UTF-8";
+      };
+      userSettings = {
+        username = "matteocavestri";
+      };
       lib = nixpkgs.lib;
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-      username = "matteocavestri";
+      pkgs = import nixpkgs { system = systemSettings.system; };
+      #pkgs = nixpkgs.legacyPackages.system.${systemSetting.system};
     in {
+
     nixosConfigurations = {
-# nixos-t2 configuration
       nixos-t2 = lib.nixosSystem {
-        inherit system;
         modules = [
           ./system/configuration.nix
           ./nix/substituter.nix
@@ -38,11 +45,15 @@
           ./system/hardware/locale.nix
           ./system/security/gpg.nix
         ];
+        specialArgs = {
+          inherit systemSettings;
+          inherit userSettings;
+        };
       };
     };
+
     homeConfigurations = {
-# matteocavestri configuration --> home-manager
-      matteocavestri = home-manager.lib.homeManagerConfiguration {
+      ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
 	        ./user/home.nix
