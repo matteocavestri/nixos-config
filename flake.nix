@@ -30,6 +30,7 @@
           ./system/configuration.nix
           ./nix/substituter.nix
           nixos-hardware.nixosModules.apple-t2
+          ./system/wm/gnome/gnome.nix
         ];
       };
     };
