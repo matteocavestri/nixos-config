@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let 
   MyAliases = {
     ll = "ls -l";
@@ -25,7 +25,6 @@ in
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    pkgs.hello
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -73,7 +72,7 @@ in
   #  /etc/profiles/per-user/matteocavestri/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
 
   programs.bash = {
@@ -81,13 +80,6 @@ in
     shellAliases = MyAliases;
   };
   
-  programs.zsh = {
-    enable= true;
-    shellAliases = MyAliases;
-  };
-
-  home.file.".zshrc".source = ./zshrc;
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }

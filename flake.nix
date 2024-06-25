@@ -27,7 +27,7 @@
       nixos-t2 = lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration.nix
+          ./system/configuration.nix
           ./nix/substituter.nix
           nixos-hardware.nixosModules.apple-t2
         ];
@@ -37,7 +37,19 @@
 # matteocavestri configuration --> home-manager
       matteocavestri = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ 
+	        ./user/home.nix
+	        ./user/app/terminal/alacritty.nix
+	        ./user/shell/sh.nix
+          ./user/shell/cli-collection.nix
+          ./user/app/editor/neovim.nix
+          ./user/lang/cc.nix
+          ./user/lang/python.nix
+          ./user/lang/rust.nix
+          ./user/lang/javascript.nix
+          ./user/lang/go.nix
+          ./user/lang/lua.nix
+	      ];
       };
     };
   };

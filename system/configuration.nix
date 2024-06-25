@@ -67,6 +67,11 @@
 # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+     enableSSHSupport = true;
+  };
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matteocavestri = {
@@ -79,21 +84,36 @@
   };
 
 
-# Packages
+# System Packages
   nixpkgs.config.allowUnfree = true;
   services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
     vim
+    neovim
+    emacs
     wget
     git
     tmux
-    neovim
-    emacs
-    btop
-    neofetch
-    starship
+    pinentry-gtk2
+    gnupg
   ];
 
+# Font settings
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [ 
+      jetbrains-mono
+      inconsolata-nerdfont
+      #(nerdfonts.override { fonts = [ "Inconsolata" ]; })
+    ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [  "Inconsolata Nerd Font" ];
+        sansSerif = [ "Inconsolata Nerd Font" ];
+        monospace = [ "Inconsolata Nerd Font Mono" ];
+      };
+    };
+  };
 
 # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;
