@@ -1,33 +1,38 @@
-{ inputs, pkgs, lib, ... }: let
-  pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
+{ pkgs, ... }:
+
 {
-  # Import wayland config
-  imports = [ ./wayland.nix
-              ../hardware/pipewire.nix
-              ./dbus.nix
-            ];
+  imports = [
+    ../hardware/pipewire.nix
+    ./fonts.nix
+  ];
 
-  # Security
-  security = {
-    pam.services.login.enableGnomeKeyring = true;
+  programs.hyprland = {
+    enable = true;
+    #nvidiaPatches = true;
+    xwayland.enable = true;
   };
 
-  services.gnome.gnome-keyring.enable = true;
+  environment.sessionVariables = {
+    # If your cursor becomes invisible
+    WLR_NO_HARDWARE_CURSORS = "1";
+    # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1";
+  };
 
-  programs = {
-    hyprland = {
-      enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      xwayland = {
-        enable = true;
-      };
-      portalPackage = pkgs-hyprland.xdg-desktop-portal-hyprland;
-    };
+  hardware = {
+    # Opengl
+    graphics.enable = true;
   };
-  environment = {
-    plasma5.excludePackages = [ pkgs.kdePackages.systemsettings ];
-    plasma6.excludePackages = [ pkgs.kdePackages.systemsettings ];
-  };
-  services.xserver.excludePackages = [ pkgs.xterm ];
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+  environment.systemPackages = with pkgs; [
+    waybar
+    dunst
+    libnotify
+    kitty
+    alacritty
+    rofi-wayland
+  ];
 }

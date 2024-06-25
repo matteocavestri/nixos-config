@@ -1,6 +1,6 @@
 {
 
-  outputs = { nixpkgs, nixos-hardware, home-manager, self, ... }: 
+  outputs = { nixpkgs, nixos-hardware, home-manager, self, stylix, ... }: 
     let
 # Your System Settings
       systemSettings = {
