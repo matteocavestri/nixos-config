@@ -1,8 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, systemSettings, ... }:
 {
 # Networking Configuration
-  networking.hostName = "nixos-t2";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   # Apple WiFi Firmware
   hardware.firmware = [

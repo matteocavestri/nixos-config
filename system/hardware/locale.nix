@@ -1,10 +1,10 @@
-{ ... }:
+{ systemSettings, ... }:
 
 {
 # General settings
-  time.timeZone = "Europe/Rome";
-  i18n.defaultLocale = "it_IT.UTF-8";
+  time.timeZone = systemSettings.timezone;
+  i18n.defaultLocale = systemSettings.locale ;
   console = {
-    keyMap = "it";
+    keyMap = systemSettings.keymap;
   };
 }

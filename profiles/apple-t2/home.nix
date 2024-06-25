@@ -23,9 +23,12 @@
     ../../user/lang/javascript.nix
     ../../user/shell/sh.nix
     ../../user/shell/cli-collection.nix
+    (./. + "../../../user/wm"+("/"+userSettings.wm)+".nix")
   ];
 
   home.packages = with pkgs; [
+    firefox
+    tree
     libreoffice-fresh
     protonmail-bridge
     wine

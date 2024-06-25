@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
 # Shell configuration
@@ -14,10 +14,9 @@
     ../../system/hardware/touchpad.nix
     ../../system/security/gpg.nix
     ../../system/wm/fonts.nix
-    ../../system/wm/gnome.nix
-    # ../../system/configuration.nix
     ../../system/hardware/systemdboot-t2.nix
     ../../system/pkgs/basepkgs.nix
     ../../system/security/users.nix
+    (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
   ];
 }
