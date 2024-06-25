@@ -22,8 +22,8 @@
       pkgs = nixpkgs.legacyPackages.${system};
       username = "matteocavestri";
     in {
-    #formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt-classic;
     nixosConfigurations = {
+# nixos-t2 configuration
       nixos-t2 = lib.nixosSystem {
         inherit system;
         modules = [
@@ -34,6 +34,7 @@
       };
     };
     homeConfigurations = {
+# matteocavestri configuration --> home-manager
       matteocavestri = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./home.nix ];
