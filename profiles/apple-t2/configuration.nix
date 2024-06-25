@@ -18,5 +18,6 @@
     ../../system/pkgs/basepkgs.nix
     ../../system/security/users.nix
     (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")
+    #../../system/style/stylix.nix
   ];
 }

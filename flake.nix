@@ -16,9 +16,10 @@
         username = "matteocavestri";
         name = "Matteo Cavestri";
         mail = "matteo.cavestri@protonmail.ch";
-        theme = "catppuccin"; # Not available
+        theme = "catppuccin-mocha"; # Not available
         wm = "gnome"; # only gnome
-
+        font = "Inconsolata Nerd Font";
+        fontPkg = "inconsolata-nerdfont";
       };
       lib = nixpkgs.lib;
       pkgs = import nixpkgs { system = systemSettings.system; };
