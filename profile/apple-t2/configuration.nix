@@ -1,4 +1,5 @@
-{ ... }:
+{ pkgs, ... }:
+
 {
 # Shell configuration
   environment.shells = with pkgs; [zsh];
