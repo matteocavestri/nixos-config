@@ -30,7 +30,13 @@
           ./system/configuration.nix
           ./nix/substituter.nix
           nixos-hardware.nixosModules.apple-t2
-          ./system/wm/gnome/gnome.nix
+          ./system/wm/gnome.nix
+          ./system/wm/fonts.nix
+          ./system/hardware/pipewire.nix
+          ./system/hardware/touchpad.nix
+          ./system/hardware/networking.nix
+          ./system/hardware/locale.nix
+          ./system/security/gpg.nix
         ];
       };
     };

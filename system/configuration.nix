@@ -20,57 +20,6 @@
   };
 
 
-# Networking Configuration
-  networking.hostName = "nixos-t2";
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  # Apple WiFi Firmware
-  hardware.firmware = [
-    (pkgs.stdenv.mkDerivation (final: {
-      name = "brcm-firmware";
-      src = /lib/firmware/brcm;
-      installPhase = ''
-        mkdir -p $out/lib/firmware/brcm
-        cp ${final.src}/* "$out/lib/firmware/brcm"
-      '';
-    }))
-  ];
-
-
-# General settings
-  time.timeZone = "Europe/Rome";
-  i18n.defaultLocale = "it_IT.UTF-8";
-  console = {
-    keyMap = "it";
-  };
-
-
-# Enable the X11 windowing system.
-  services.xserver.enable = true;  
-  services.xserver.xkb.layout = "it";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-
-# Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = lib.mkForce false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-  };
-
-  
-# Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
-  services.pcscd.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-     enableSSHSupport = true;
-  };
-
 # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.matteocavestri = {
     isNormalUser = true;
@@ -96,22 +45,6 @@
     gnupg
   ];
 
-# Font settings
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [ 
-      jetbrains-mono
-      inconsolata-nerdfont
-      #(nerdfonts.override { fonts = [ "Inconsolata" ]; })
-    ];
-    fontconfig = {
-      defaultFonts = {
-        serif = [  "Inconsolata Nerd Font" ];
-        sansSerif = [ "Inconsolata Nerd Font" ];
-        monospace = [ "Inconsolata Nerd Font Mono" ];
-      };
-    };
-  };
 
 # Some programs need SUID wrappers, can be configured further or are started in user sessions.
   # programs.mtr.enable = true;
