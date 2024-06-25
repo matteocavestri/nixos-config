@@ -11,20 +11,33 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
+    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, nixos-hardware, ... }: 
+  outputs = { nixpkgs, nixos-hardware, home-manager, ... }: 
     let
       lib = nixpkgs.lib;
-    in {
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-classic;
-    nixosConfigurations.nixos-t2 = lib.nixosSystem {
       system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        ./nix/substituter.nix
-        nixos-hardware.nixosModules.apple-t2
-      ];
+      pkgs = nixpkgs.legacyPackages.${system};
+      username = "matteocavestri";
+    in {
+    #formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt-classic;
+    nixosConfigurations = {
+      nixos-t2 = lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./configuration.nix
+          ./nix/substituter.nix
+          nixos-hardware.nixosModules.apple-t2
+        ];
+      };
+    };
+    homeConfigurations = {
+      matteocavestri = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home.nix ];
+      };
     };
   };
 }
