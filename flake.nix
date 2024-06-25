@@ -34,16 +34,17 @@
     nixosConfigurations = {
       nixos-t2 = lib.nixosSystem {
         modules = [
-          ./system/configuration.nix
-          ./nix/substituter.nix
+          #./system/configuration.nix
+          #./system/hardware/substituter-t2.nix
           nixos-hardware.nixosModules.apple-t2
-          ./system/wm/gnome.nix
-          ./system/wm/fonts.nix
-          ./system/hardware/pipewire.nix
-          ./system/hardware/touchpad.nix
-          ./system/hardware/networking.nix
-          ./system/hardware/locale.nix
-          ./system/security/gpg.nix
+          #./system/wm/gnome.nix
+          #./system/wm/fonts.nix
+          #./system/hardware/pipewire.nix
+          #./system/hardware/touchpad.nix
+          #./system/hardware/networking-t2.nix
+          #./system/hardware/locale.nix
+          #./system/security/gpg.nix
+          ./profile/apple-t2/configuration.nix
         ];
         specialArgs = {
           inherit systemSettings;
@@ -56,18 +57,23 @@
       ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
-	        ./user/home.nix
-	        ./user/app/terminal/alacritty.nix
-	        ./user/shell/sh.nix
-          ./user/shell/cli-collection.nix
-          ./user/app/editor/neovim.nix
-          ./user/lang/cc.nix
-          ./user/lang/python.nix
-          ./user/lang/rust.nix
-          ./user/lang/javascript.nix
-          ./user/lang/go.nix
-          ./user/lang/lua.nix
+          ./profile/apple-t2/home.nix
+	        #./user/home.nix
+	        #./user/app/terminal/alacritty.nix
+	        #./user/shell/sh.nix
+          #./user/shell/cli-collection.nix
+          #./user/app/editor/neovim.nix
+          #./user/lang/cc.nix
+          #./user/lang/python.nix
+          #./user/lang/rust.nix
+          #./user/lang/javascript.nix
+          #./user/lang/go.nix
+          #./user/lang/lua.nix
 	      ];
+        extraSpecialArgs = {
+          inherit userSettings;
+          inherit systemSettings;
+        };
       };
     };
   };
