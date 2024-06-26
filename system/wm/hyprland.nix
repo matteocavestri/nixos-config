@@ -29,9 +29,10 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
 
   environment.systemPackages = with pkgs; [
+    polkit-kde-agent
     waybar
     dunst
     libnotify

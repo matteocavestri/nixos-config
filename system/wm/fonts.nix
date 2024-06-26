@@ -7,6 +7,9 @@
     packages = with pkgs; [ 
       jetbrains-mono
       inconsolata-nerdfont
+      font-awesome
+      noto-fonts
+      noto-fonts-emoji
       #(nerdfonts.override { fonts = [ "Inconsolata" ]; })
     ];
     fontconfig = {

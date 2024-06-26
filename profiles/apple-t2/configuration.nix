@@ -20,9 +20,11 @@
     ../../system/security/users.nix
 # Apps imports
     ../../system/apps/basepkgs.nix
-    ../../system/apps/docker.nix
+    ../../system/apps/container.nix
     ../../system/apps/flatpak.nix
     ../../system/apps/virtualization.nix
+# Style imports
+    ../../system/style/stylix.nix
 # Window manager imports
     ../../system/wm/fonts.nix
     (./. + "../../../system/wm"+("/"+userSettings.wm)+".nix")

@@ -6,7 +6,7 @@
             ];
 # Configure wayland
   environment.systemPackages = with pkgs;
-    [ wayland waydroid
+    [ wayland
       (sddm-chili-theme.override {
         themeConfig = {
           #background = config.stylix.image;

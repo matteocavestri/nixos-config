@@ -20,11 +20,13 @@
       monitor=,preferred,auto,2
       $terminal = kitty
       $fileManager = dolphin
-      $menu = wofi --show drun
+      $menu = rofi -show drun
       env = XCURSOR_SIZE,36
       env = HYPRCURSOR_SIZE,36
 
       exec-once = waybar
+      exec-once = /usr/lib/polkit-kde-authentication-agent-1
+      exec-once = dunst
     
     # General Settings
       general { 

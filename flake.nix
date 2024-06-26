@@ -1,6 +1,6 @@
 {
 
-  outputs = { nixpkgs, nixos-hardware, home-manager, self, ... }: 
+  outputs = inputs@{ nixpkgs, nixos-hardware, home-manager, self, stylix, ... }: 
     let
 # Your System Settings
       systemSettings = {
@@ -17,7 +17,7 @@
         name = "Matteo Cavestri";
         email = "matteo.cavestri@protonmail.ch";
         theme = "catppuccin-mocha"; # Not available
-        wm = "hyprland"; # only gnome
+        wm = "gnome"; # only gnome
         font = "Inconsolata Nerd Font";
         fontPkg = "inconsolata-nerdfont";
         term = "kitty";
@@ -31,6 +31,7 @@
       ${systemSettings.hostname} = lib.nixosSystem {
         modules = [
           nixos-hardware.nixosModules.apple-t2
+          inputs.stylix.nixosModules.stylix
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
         ];
         specialArgs = {
@@ -70,6 +71,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
     hyprland.url = "github:hyprwm/Hyprland";
+
+    stylix.url = "github:danth/stylix";
     #plugin_name = {
     #  url = "github:hyprwm/hyprland-plugins/151102b7d7c4f61ff42f275e72008d28318dac96";
     #  inputs.hyprland.follows = "hyprland";

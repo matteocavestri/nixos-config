@@ -12,5 +12,7 @@
     docker
     docker-compose
     lazydocker
+    distrobox
+    podman
   ];
 }
