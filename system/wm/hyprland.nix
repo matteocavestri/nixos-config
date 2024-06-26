@@ -1,26 +1,30 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   imports = [
     ../hardware/pipewire.nix
+    ./wayland.nix
     ./fonts.nix
   ];
 
   programs.hyprland = {
     enable = true;
-    #nvidiaPatches = true;
     xwayland.enable = true;
+    #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
   environment.sessionVariables = {
-    # If your cursor becomes invisible
     WLR_NO_HARDWARE_CURSORS = "1";
-    # Hint electron apps to use wayland
     NIXOS_OZONE_WL = "1";
+    QT_QPA_PLATFORM = "wayland";
+    GDK_BACKEND = "wayland";
+  };
+
+  security = {
+    pam.services.login.enableGnomeKeyring = true;
   };
 
   hardware = {
-    # Opengl
     graphics.enable = true;
   };
 
@@ -31,8 +35,14 @@
     waybar
     dunst
     libnotify
-    kitty
-    alacritty
     rofi-wayland
+    wl-clipboard   
+    grim           
+    slurp
+    swaylock
+    wofi
+    bemenu
+    dolphin
   ];
+  services.xserver.excludePackages = [ pkgs.xterm ];
 }
