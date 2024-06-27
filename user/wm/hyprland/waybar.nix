@@ -9,22 +9,50 @@ with lib;
     settings = {
       mainBar = {
         layer = "top"; # Waybar at top layer
-        position = "bottom"; # Waybar position (top|bottom|left|right)
+        position = "top"; # Waybar position (top|bottom|left|right)
         height = 24; # Waybar height (to be removed for auto height)
         # width = 1280; # Waybar width
         # spacing = 4; # Gaps between modules (4px)
 
         # Choose the order of the modules
-        modules-left = [ "hyprland/workspaces" "sway/mode" "sway/scratchpad" "custom/media" ];
-        modules-center = [ "sway/window" ];
-        modules-right = [ "mpd" "idle_inhibitor" "temperature" "cpu" "memory" "network" "pulseaudio" "backlight" "keyboard-state" "battery" "battery#bat2" "tray" "clock" "custom/power" ];
+        modules-left = [ "hyprland/workspaces" "tray" "clock" ];
+        modules-center = [ "hyprland/window" ];
+        modules-right = [ "network" "pulseaudio" "backlight" "battery" "custom/power" ];
+        #modules-left = [ "hyprland/workspaces" "sway/mode" "sway/scratchpad" "custom/media" ];
+        #modules-center = [ "hyprland/window" ];
+        #modules-right = [ "mpd" "idle_inhibitor" "temperature" "cpu" "memory"   "keyboard-state"  "battery#bat2"   ];
 
         # Modules configuration
         "custom/power" = {
-          format = " ⏻ ";
+          format = "⏻ ";
           tooltip = false;
           on-click = "wlogout";
         };
+
+        "hyprland/window" = {
+           format = "👉 {}";
+           rewrite = {
+             "(.*) — Mozilla Firefox" = "🌎 $1";
+             "(.*) - zsh" = "> [$1]";
+           };
+           separate-outputs = true;
+        };
+        "hyprland/workspaces" = {
+          format = "{icon} ";
+          format-icons = {
+            "1" = "";
+            "2" = "";
+            "3" = "";
+            "4" = "";
+            "5" = "";
+            active = "";
+            default = "";
+          };
+          persistent-workspaces = {
+            "*" = 5;
+          };
+        };
+
 
         "keyboard-state" = {
           numlock = true;
@@ -93,6 +121,7 @@ with lib;
         "clock" = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format = "{:L%d-%m-%Y <small>[%a]</small> <tt><small>%p</small></tt>%H:%M}";
+          #format = "{%H:%M}";
         };
 
         "cpu" = {
@@ -122,10 +151,10 @@ with lib;
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
-          format-alt = "{icon} {time}";
+          format = "{icon} {capacity}% ";
+          format-charging = " {capacity}% ";
+          format-plugged = " {capacity}% ";
+          format-alt = "{icon} {time} ";
           format-icons = ["" "" "" "" ""];
         };
 
@@ -134,22 +163,22 @@ with lib;
         };
 
         "network" = {
-          format-wifi = "{essid} ({signalStrength}%) ";
-          format-ethernet = " {ifname}";
-          tooltip-format = " {ifname} via {gwaddr}";
-          format-linked = " {ifname} (No IP)";
-          format-disconnected = "Disconnected ⚠ {ifname}";
-          format-alt = " {ifname}: {ipaddr}/{cidr}";
+          format-wifi = "{essid} ({signalStrength}%)  ";
+          format-ethernet = " {ifname} ";
+          tooltip-format = " {ifname} via {gwaddr} ";
+          format-linked = " {ifname} (No IP) ";
+          format-disconnected = "Disconnected ⚠ {ifname} ";
+          format-alt = " {ifname}: {ipaddr}/{cidr} ";
         };
 
         "pulseaudio" = {
           scroll-step = 5; # %, can be a float
-          format = "{icon} {volume}% {format_source}";
-          format-bluetooth = " {icon} {volume}% {format_source}";
-          format-bluetooth-muted = "  {icon} {format_source}";
-          format-muted = "  {format_source}";
-          format-source = " {volume}%";
-          format-source-muted = "";
+          format = "{icon} {volume}%";
+          format-bluetooth = " {icon} {volume}% ";
+          format-bluetooth-muted = "  {icon} ";
+          format-muted = "  {format_source} ";
+          #format-source = " {volume}%";
+          #format-source-muted = "";
           format-icons = {
             default = ["" "" ""];
           };
@@ -173,7 +202,7 @@ with lib;
       };
     };
     style = ''
-      * {
+       * {
         /* `otf-font-awesome` is required to be installed for icons */
         font-family: "Noto Sans CJK KR Regular";
         font-size: 13px;
@@ -198,6 +227,12 @@ with lib;
       }
 
       #workspaces {
+        margin: 2;
+        padding-left: 8;
+        padding-right: 8;
+        background-color: rgba(0,0,0,0.3);
+        font-size:14px;
+        font-weight: bold;
       }
 
       #window {
@@ -223,15 +258,17 @@ with lib;
         border-top: 2px solid #c9545d;
       }
 
-      #workspaces button {
+      #workspaces button.empty {
         padding: 0 4px;
         /*    background-color: rgba(0,0,0,0.3); */
+        color: #ffffff;
       }
 
-      #workspaces button:hover {
+      #workspaces button.visible {
+        color: #ffffff;
       }
 
-      #workspaces button.focused {
+      #workspaces button.active {
         /*    box-shadow: inset 0 -2px #c9545d; */
         background-color: rgba(0,0,0,0.3);
         color:#c9545d;
@@ -262,6 +299,8 @@ with lib;
       #mode,
       #idle_inhibitor,
       #scratchpad,
+      #custom-power,
+      #workspaces
       #mpd {
         margin: 2px;
         padding-left: 4px;
@@ -276,7 +315,7 @@ with lib;
       }
 
       /* If workspaces is the rightmost module, omit right margin */
-      .modules-right > widget:last-child > #workspaces {
+      .modules-right > widget:last-child > #custom-power {
         margin-right: 0;
       }
 
@@ -362,6 +401,6 @@ with lib;
       border: none;
       }
        */
-    '';
+   '';
   };
 }
