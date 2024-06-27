@@ -2,31 +2,77 @@
 
 {
   imports = [
-    ./rofi.nix
+    ./wofi.nix
     ./waybar.nix
+    ./hyprpaper.nix
+    ./wlogout.nix
   ];
 
-  gtk.cursorTheme = {
-    package = pkgs.quintom-cursor-theme;
-    name = "Quintom_Snow";
-    size = 36;
-  };
+  home.packages = with pkgs; [
+    mpd
+    hyprpaper
+    waybar 
+    xorg.xev
+    brightnessctl
+    pamixer
+    hyprlock
+    wlogout
+    numix-cursor-theme
+    gnome.adwaita-icon-theme
+    hyprcursor
+    dunst
+    libnotify
+    wl-clipboard   
+    wofi
+    xorg.xcursorthemes
+    xfce.thunar
+  ];
+
+  #home.pointerCursor = {
+  #  gtk.enable = true;
+  #  x11.enable = true;
+  #  x11.defaultCursor = "Numix-Cursor";
+  #  package = pkgs.numix-cursor-theme;
+  #  name = "Numix-Cursor";
+  #  size = 24;
+  #};
+
+  #gtk.cursorTheme = {
+  #  package = pkgs.numix-cursor-theme;
+  #  name = "Numix-Cursor";
+  #  size = 24;
+  #};
 
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [ ];
     settings = { };
     extraConfig = ''
-      monitor=,preferred,auto,2
+      monitor=,2560x1600@60,auto,2
       $terminal = kitty
-      $fileManager = dolphin
-      $menu = rofi -show drun
-      env = XCURSOR_SIZE,36
-      env = HYPRCURSOR_SIZE,36
+      $fileManager = thunar
+      $menu = wofi --show drun
+      
+      env = XDG_CURRENT_DESKTOP,Hyprland
+      env = XDG_SESSION_TYPE,wayland
+      env = XDG_SESSION_DESKTOP,Hyprland
+      #env = WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1
+      env = GDK_BACKEND,wayland,x11,*
+      env = QT_QPA_PLATFORM,wayland;xcb
+      #env = QT_QPA_PLATFORMTHEME,qt5ct
+      env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+      env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+      env = CLUTTER_BACKEND,wayland
+      #env = XCURSOR_THEME,Numix-Cursor
+      env = XCURSOR_SIZE,24
+      env = HYPRCURSOR_SIZE,24
+      #env = HYPRCURSOR_THEME,Numix-Cursor
 
       exec-once = waybar
-      exec-once = /usr/lib/polkit-kde-authentication-agent-1
+      exec-once = hyprctl setcursor Numix-Cursor 36
+      exec-once = lxqt-policykit-agent
       exec-once = dunst
+      exec-once = hyprpaper
     
     # General Settings
       general { 
@@ -97,8 +143,8 @@
     # Bindings
       $mainMod = SUPER
     # Example binds,
-      bind = $mainMod, Q, exec, $terminal
-      bind = $mainMod, C, killactive,
+      bind = $mainMod, T, exec, $terminal
+      bind = $mainMod, Q, killactive,
       bind = $mainMod, M, exit,
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, V, togglefloating,
@@ -143,6 +189,14 @@
       bindm = $mainMod, mouse:273, resizewindow
     # Other Bindings
       bind = $mainMod SHIFT, B, exec, waybar
+    
+    # MBP Apple T2 Bindings
+      bind = ,XF86MonBrightnessUp, exec, brightnessctl set +10%
+      bind = ,XF86MonBrightnessDown, exec, brightnessctl set 10%-
+      bind = ,XF86KbdBrightnessUp, exec, brightnessctl --device=:white:kbd_backlight set +10%
+      bind = ,XF86KbdBrightnessDown, exec, brightnessctl --device=:white:kbd_backlight set 10%-
+      bind = ,XF86AudioRaiseVolume, exec, pamixer -i 10
+      bind = ,XF86AudioLowerVolume, exec, pamixer -d 10
 
     # Other Setup
       windowrulev2 = suppressevent maximize, class:.*
@@ -154,8 +208,8 @@
         new_is_master = true
       }
       misc { 
-        force_default_wallpaper = -1
-        disable_hyprland_logo = false
+        force_default_wallpaper = 0
+        disable_hyprland_logo = true
       }
     '';
   };

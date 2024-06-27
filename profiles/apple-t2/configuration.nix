@@ -13,8 +13,10 @@
     ../../system/hardware/locale.nix
     ../../system/hardware/touchpad.nix
     ../../system/hardware/networking.nix
+    ../../system/hardware/graphics.nix
 # Driver imports
     ../../system/driver/apple-t2.nix
+    ../../system/driver/intelgpu.nix
 # Security imports
     ../../system/security/gpg.nix
     ../../system/security/users.nix

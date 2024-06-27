@@ -5,6 +5,7 @@
     gimp
     krita
     kdenlive
+    glaxnimate
     inkscape
     obs-studio
     ardour

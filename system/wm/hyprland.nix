@@ -22,28 +22,19 @@
 
   security = {
     pam.services.login.enableGnomeKeyring = true;
+    polkit.enable = true;
   };
 
-  hardware = {
-    graphics.enable = true;
+  environment = {
+    plasma5.excludePackages = [ pkgs.kdePackages.systemsettings ];
+    plasma6.excludePackages = [ pkgs.kdePackages.systemsettings ];
   };
 
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
 
   environment.systemPackages = with pkgs; [
-    polkit-kde-agent
-    waybar
-    dunst
-    libnotify
-    rofi-wayland
-    wl-clipboard   
-    grim           
-    slurp
-    swaylock
-    wofi
-    bemenu
-    dolphin
+    lxqt.lxqt-policykit
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 }

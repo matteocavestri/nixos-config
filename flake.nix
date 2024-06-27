@@ -17,7 +17,7 @@
         name = "Matteo Cavestri";
         email = "matteo.cavestri@protonmail.ch";
         theme = "catppuccin-mocha"; # Not available
-        wm = "gnome"; # only gnome
+        wm = "hyprland"; # only gnome
         font = "Inconsolata Nerd Font";
         fontPkg = "inconsolata-nerdfont";
         term = "kitty";
