@@ -19,7 +19,7 @@
         theme = "catppuccin-mocha"; # Not available
         wm = "hyprland"; # only gnome
         font = "Inconsolata Nerd Font";
-        fontPkg = "inconsolata-nerdfont";
+        fontPkg = pkgs.inconsolata-nerdfont;
         term = "kitty";
         browser = "firefox";
       };
@@ -45,7 +45,9 @@
       ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ 
+          inputs.stylix.homeManagerModules.stylix
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+
 	      ];
         extraSpecialArgs = {
           inherit userSettings;

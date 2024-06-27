@@ -37,6 +37,7 @@ with lib;
            };
            separate-outputs = true;
         };
+
         "hyprland/workspaces" = {
           format = "{icon} ";
           format-icons = {
@@ -53,6 +54,12 @@ with lib;
           };
         };
 
+        "backlight/slider" = {
+          min = 0;
+          max = 100;
+          orientation = "horizontal";
+          device = "intel_backlight";
+        };
 
         "keyboard-state" = {
           numlock = true;

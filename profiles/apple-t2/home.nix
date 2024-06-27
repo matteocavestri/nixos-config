@@ -35,7 +35,7 @@
     ../../user/shell/cli-collection.nix
     ../../user/shell/tmux.nix
 # Style imports
-    #../../user/style/stylix.nix
+    ../../user/style/stylix.nix
 # Window manager imports
     (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix")
   ];

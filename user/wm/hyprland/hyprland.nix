@@ -1,10 +1,12 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [
-    ./wofi.nix
+    #./wofi.nix
+    #./rofi.nix
+    ./fuzzel.nix
     ./waybar.nix
-    ./hyprpaper.nix
+    #./hyprpaper.nix
     ./wlogout.nix
   ];
 
@@ -23,35 +25,34 @@
     dunst
     libnotify
     wl-clipboard   
-    wofi
+    #wofi
+    #rofi
     xorg.xcursorthemes
     xfce.thunar
+    fuzzel
   ];
 
-  #home.pointerCursor = {
-  #  gtk.enable = true;
-  #  x11.enable = true;
-  #  x11.defaultCursor = "Numix-Cursor";
-  #  package = pkgs.numix-cursor-theme;
-  #  name = "Numix-Cursor";
-  #  size = 24;
-  #};
+  gtk.cursorTheme = {
+    package = pkgs.numix-cursor-theme;
+    name = "Numix-Cursor";
+    size = 24;
+  };
 
-  #gtk.cursorTheme = {
-  #  package = pkgs.numix-cursor-theme;
-  #  name = "Numix-Cursor";
-  #  size = 24;
-  #};
 
   wayland.windowManager.hyprland = {
     enable = true;
     plugins = [ ];
     settings = { };
+    xwayland = { enable = true; };
+    systemd.enable = true;
     extraConfig = ''
+      exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
+      exec-once = hyprctl setcursor '' + config.gtk.cursorTheme.name + " " + builtins.toString config.gtk.cursorTheme.size + ''
+
       monitor=,2560x1600@60,auto,2
       $terminal = kitty
       $fileManager = thunar
-      $menu = wofi --show drun
+      $menu = fuzzel
       
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_TYPE,wayland
@@ -59,17 +60,13 @@
       #env = WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1
       env = GDK_BACKEND,wayland,x11,*
       env = QT_QPA_PLATFORM,wayland;xcb
-      #env = QT_QPA_PLATFORMTHEME,qt5ct
+      env = QT_QPA_PLATFORMTHEME,qt5ct
       env = QT_AUTO_SCREEN_SCALE_FACTOR,1
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
       env = CLUTTER_BACKEND,wayland
-      #env = XCURSOR_THEME,Numix-Cursor
-      env = XCURSOR_SIZE,24
-      env = HYPRCURSOR_SIZE,24
       #env = HYPRCURSOR_THEME,Numix-Cursor
 
       exec-once = waybar
-      exec-once = hyprctl setcursor Numix-Cursor 36
       exec-once = lxqt-policykit-agent
       exec-once = dunst
       exec-once = hyprpaper
@@ -79,8 +76,10 @@
         gaps_in = 5
         gaps_out = 20
         border_size = 2
-        col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-        col.inactive_border = rgba(595959aa)
+        col.active_border = 0xff'' + config.lib.stylix.colors.base08 + " " + ''0xff'' + config.lib.stylix.colors.base09 + " " + ''0xff'' + config.lib.stylix.colors.base0A + " " + ''0xff'' + config.lib.stylix.colors.base0B + " " + ''0xff'' + config.lib.stylix.colors.base0C + " " + ''0xff'' + config.lib.stylix.colors.base0D + " " + ''0xff'' + config.lib.stylix.colors.base0E + " " + ''0xff'' + config.lib.stylix.colors.base0F + " " + ''270deg
+        col.inactive_border = 0xaa'' + config.lib.stylix.colors.base02 + ''
+        #col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+        #col.inactive_border = rgba(595959aa)
         resize_on_border = true
         allow_tearing = false
        layout = dwindle
@@ -111,9 +110,12 @@
         col.shadow = rgba(1a1a1aee)
         blur {
           enabled = true
-          size = 3
-          passes = 1
-          vibrancy = 0.1696
+           size = 5
+           passes = 2
+           ignore_opacity = true
+           contrast = 1.17
+          brightness = '' + (if (config.stylix.polarity == "dark") then "0.8" else "1.25") + ''
+          xray = true
         }
       }
 

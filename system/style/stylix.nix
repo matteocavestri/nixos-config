@@ -17,24 +17,24 @@ in
    sha256 = backgroundSha256;
   };
   stylix.base16Scheme = ./. + themePath;
-  #stylix.targets.gnome.enable = true;
-  #stylix.targets.gtk.enable = true;
-  #stylix.fonts = {
-  #  monospace = {
-  #    name = userSettings.font;
-  #    package = userSettings.fontPkg;
-  #  };
-  #  serif = {
-  #    name = userSettings.font;
-  #    package = userSettings.fontPkg;
-  #  };
-  #  sansSerif = {
-  #    name = userSettings.font;
-  #    package = userSettings.fontPkg;
-  #  };
-  #  emoji = {
-  #    name = "Noto Color Emoji";
-  #    package = pkgs.noto-fonts-emoji-blob-bin;
-  #  };
-  #};
+  stylix.targets.gnome.enable = true;
+  stylix.targets.gtk.enable = true;
+  stylix.fonts = {
+    monospace = {
+      name = userSettings.font;
+      package = userSettings.fontPkg;
+    };
+    serif = {
+      name = userSettings.font;
+      package = userSettings.fontPkg;
+    };
+    sansSerif = {
+      name = userSettings.font;
+      package = userSettings.fontPkg;
+    };
+    emoji = {
+      name = "Noto Color Emoji";
+      package = pkgs.noto-fonts-emoji-blob-bin;
+    };
+  };
 }
