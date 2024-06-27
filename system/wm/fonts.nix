@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
 # Font settings
@@ -6,6 +6,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [ 
       jetbrains-mono
+      intel-one-mono
       inconsolata-nerdfont
       font-awesome
       noto-fonts
@@ -14,9 +15,9 @@
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [  "Inconsolata Nerd Font" ];
-        sansSerif = [ "Inconsolata Nerd Font" ];
-        monospace = [ "Inconsolata Nerd Font Mono" ];
+        serif = [ "${userSettings.font}" ];
+        sansSerif = [ "${userSettings.font}" ];
+        monospace = [ "Intel One Mono" ];
       };
     };
   };

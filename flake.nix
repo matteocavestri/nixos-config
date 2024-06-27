@@ -2,27 +2,28 @@
 
   outputs = inputs@{ nixpkgs, nixos-hardware, home-manager, self, stylix, ... }: 
     let
-# Your System Settings
+# -------------------- SYSTEM SETTINGS ------------------------------
       systemSettings = {
-        system = "x86_64-linux";
-        hostname = "nixos-t2";
-        timezone = "Europe/Rome";
-        locale = "it_IT.UTF-8";
-        keymap = "it";
+        system = "x86_64-linux"; # Your arch 
+        hostname = "nixos-t2"; # Your hostname (fix scripts)
+        timezone = "Europe/Rome"; # Timezone config
+        locale = "it_IT.UTF-8"; # Locale config
+        keymap = "it"; # Global keymap (Fix hyprland)
         profile = "apple-t2"; # only apple-t2
       };
-# Your User Settings
+# -------------------- USER SETTINGS --------------------------------
       userSettings = {
-        username = "matteocavestri";
-        name = "Matteo Cavestri";
-        email = "matteo.cavestri@protonmail.ch";
-        theme = "catppuccin-mocha"; # Not available
-        wm = "hyprland"; # only gnome
-        font = "Inconsolata Nerd Font";
-        fontPkg = pkgs.inconsolata-nerdfont;
-        term = "kitty";
-        browser = "firefox";
+        username = "matteocavestri"; # Your username (fix-scripts)
+        name = "Matteo Cavestri"; # For git config
+        email = "matteo.cavestri@protonmail.ch"; # For git config
+        theme = "catppuccin-mocha"; # See ./themes
+        wm = "hyprland"; # gnome / hyprland
+        font = "Inconsolata Nerd Font"; # Your font name
+        fontPkg = pkgs.inconsolata-nerdfont; # Your font package
+        term = "kitty"; # Your default term (fix hyprland)
+        browser = "firefox"; # TODO
       };
+# -------------------------------------------------------------------
       lib = nixpkgs.lib;
       pkgs = import nixpkgs { system = systemSettings.system; };
     in {

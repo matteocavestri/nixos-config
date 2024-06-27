@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, userSettings, ... }:
 
 with lib;
 { 
@@ -15,31 +15,31 @@ with lib;
         # spacing = 4; # Gaps between modules (4px)
 
         # Choose the order of the modules
-        modules-left = [ "hyprland/workspaces" "tray" "clock" ];
-        modules-center = [ "hyprland/window" ];
-        modules-right = [ "network" "pulseaudio" "backlight" "battery" "custom/power" ];
+        modules-left = [ "custom/os" "hyprland/window" ];
+        modules-center = [ "hyprland/workspaces" ];
+        modules-right = [ "tray" "network" "pulseaudio" "backlight" "battery" "clock" "custom/power" ];
         #modules-left = [ "hyprland/workspaces" "sway/mode" "sway/scratchpad" "custom/media" ];
         #modules-center = [ "hyprland/window" ];
         #modules-right = [ "mpd" "idle_inhibitor" "temperature" "cpu" "memory"   "keyboard-state"  "battery#bat2"   ];
 
         # Modules configuration
         "custom/power" = {
-          format = "⏻ ";
+          format = "⏻";
           tooltip = false;
           on-click = "wlogout";
         };
 
         "hyprland/window" = {
-           format = "👉 {}";
+           format = "| {}";
            rewrite = {
-             "(.*) — Mozilla Firefox" = "🌎 $1";
+             "(.*) — Mozilla Firefox" = "🌐 $1";
              "(.*) - zsh" = "> [$1]";
            };
            separate-outputs = true;
         };
 
         "hyprland/workspaces" = {
-          format = "{icon} ";
+          format = "{icon}";
           format-icons = {
             "1" = "";
             "2" = "";
@@ -52,6 +52,16 @@ with lib;
           persistent-workspaces = {
             "*" = 5;
           };
+          "on-click" = "activate";
+          #"on-scroll-up" = "hyprctl dispatch workspace e+1";
+          #"on-scroll-down" = "hyprctl dispatch workspace e-1";
+        };
+
+        "custom/os" = {
+          format = " {} ";
+          exec = ''echo "" '';
+          interval = "once";
+          on-click = "fuzzel";
         };
 
         "backlight/slider" = {
@@ -127,8 +137,8 @@ with lib;
 
         "clock" = {
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format = "{:L%d-%m-%Y <small>[%a]</small> <tt><small>%p</small></tt>%H:%M}";
-          #format = "{%H:%M}";
+          #format = "{:L%d-%m-%Y <small>[%a]</small> <tt><small>%p</small></tt>%H:%M}";
+          format = "{:%a %d-%m-%Y %H:%M}";
         };
 
         "cpu" = {
@@ -158,9 +168,9 @@ with lib;
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}% ";
-          format-charging = " {capacity}% ";
-          format-plugged = " {capacity}% ";
+          format = "{icon} {capacity}%";
+          format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
           format-alt = "{icon} {time} ";
           format-icons = ["" "" "" "" ""];
         };
@@ -170,20 +180,21 @@ with lib;
         };
 
         "network" = {
-          format-wifi = "{essid} ({signalStrength}%)  ";
-          format-ethernet = " {ifname} ";
-          tooltip-format = " {ifname} via {gwaddr} ";
-          format-linked = " {ifname} (No IP) ";
-          format-disconnected = "Disconnected ⚠ {ifname} ";
-          format-alt = " {ifname}: {ipaddr}/{cidr} ";
+          #format-wifi = "{essid} ({signalStrength}%)  ";
+          format-wifi = " ";
+          format-ethernet = " {ifname}";
+          tooltip-format = " {ifname} via {gwaddr}";
+          format-linked = " {ifname} (No IP)";
+          format-disconnected = "Disconnected ⚠ {ifname}";
+          format-alt = " {ifname}: {ipaddr}/{cidr}";
         };
 
         "pulseaudio" = {
           scroll-step = 5; # %, can be a float
           format = "{icon} {volume}%";
-          format-bluetooth = " {icon} {volume}% ";
-          format-bluetooth-muted = "  {icon} ";
-          format-muted = "  {format_source} ";
+          format-bluetooth = " {icon} {volume}%";
+          format-bluetooth-muted = "  {icon}";
+          format-muted = "  {format_source}";
           #format-source = " {volume}%";
           #format-source-muted = "";
           format-icons = {
@@ -211,84 +222,74 @@ with lib;
     style = ''
        * {
         /* `otf-font-awesome` is required to be installed for icons */
-        font-family: "Noto Sans CJK KR Regular";
+        font-family: FontAwsome, ''+userSettings.font+'';
         font-size: 13px;
-        min-height: 0;
       }
 
       window#waybar {
         background: transparent;
-        /*    background-color: rgba(43, 48, 59, 0.5); */
+        background-color: rgba('' + config.lib.stylix.colors.base00-rgb-r + "," + config.lib.stylix.colors.base00-rgb-g + "," + config.lib.stylix.colors.base00-rgb-b + "," + ''0.55);
         /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-        color: #ffffff;
+        color: #'' + config.lib.stylix.colors.base07 + '';
         transition-property: background-color;
         transition-duration: .5s;
       }
 
+      tooltip {
+        color: #'' + config.lib.stylix.colors.base07 + '';
+        background-color: rgba('' + config.lib.stylix.colors.base00-rgb-r + "," + config.lib.stylix.colors.base00-rgb-g + "," + config.lib.stylix.colors.base00-rgb-b + "," + ''0.9);
+        border-style: solid;
+        border-width: 3px;
+        border-radius: 8px;
+        border-color: #'' + config.lib.stylix.colors.base08 + '';
+      }
+
+      tooltip * {
+        color: #'' + config.lib.stylix.colors.base07 + '';
+        background-color: rgba('' + config.lib.stylix.colors.base00-rgb-r + "," + config.lib.stylix.colors.base00-rgb-g + "," + config.lib.stylix.colors.base00-rgb-b + "," + ''0.0);
+      }
+
+      window > box {
+          border-radius: 8px;
+          opacity: 0.94;
+      }
+
       window#waybar.hidden {
-        opacity: 0.2;
-      }
-
-      #waybar.empty #window {
-        background-color: transparent;
-      }
-
-      #workspaces {
-        margin: 2;
-        padding-left: 8;
-        padding-right: 8;
-        background-color: rgba(0,0,0,0.3);
-        font-size:14px;
-        font-weight: bold;
-      }
-
-      #window {
-        margin: 2;
-        padding-left: 8;
-        padding-right: 8;
-        background-color: rgba(0,0,0,0.3);
-        font-size:14px;
-        font-weight: bold;
+          opacity: 0.2;
       }
 
       button {
-        /* Use box-shadow instead of border so the text isn't offset */
-        box-shadow: inset 0 -3px transparent;
-        /* Avoid rounded borders under each button name */
-        border: none;
-        border-radius: 0;
+          border: none;
       }
 
-      /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
       button:hover {
-        background: inherit;
-        border-top: 2px solid #c9545d;
+          background: inherit;
       }
 
-      #workspaces button.empty {
-        padding: 0 4px;
-        /*    background-color: rgba(0,0,0,0.3); */
-        color: #ffffff;
+      #workspaces button {
+          padding: 0 7px;
+          background-color: transparent;
+          color: #'' + config.lib.stylix.colors.base04 + '';
       }
 
-      #workspaces button.visible {
-        color: #ffffff;
+      #workspaces button:hover {
+          color: #'' + config.lib.stylix.colors.base07 + '';
       }
 
       #workspaces button.active {
-        /*    box-shadow: inset 0 -2px #c9545d; */
-        background-color: rgba(0,0,0,0.3);
-        color:#c9545d;
-        border-top: 2px solid #c9545d;
+          color: #'' + config.lib.stylix.colors.base08 + '';
+      }
+
+      #workspaces button.focused {
+          color: #'' + config.lib.stylix.colors.base0A + '';
+      }
+
+      #workspaces button.visible {
+          color: #'' + config.lib.stylix.colors.base05 + '';
       }
 
       #workspaces button.urgent {
-        background-color: #eb4d4b;
-      }
-
-      #mode {
-        background-color: #64727D;
-        border-bottom: 3px solid #ffffff;
+          color: #'' + config.lib.stylix.colors.base09 + '';
       }
 
       #clock,
@@ -307,107 +308,106 @@ with lib;
       #idle_inhibitor,
       #scratchpad,
       #custom-power,
-      #workspaces
+      #custom-nixos,
+      #window,
+      #workspaces,
       #mpd {
-        margin: 2px;
-        padding-left: 4px;
-        padding-right: 4px;
-        background-color: rgba(0,0,0,0.3);
-        color: #ffffff;
+          padding: 0 10px;
+          color: #'' + config.lib.stylix.colors.base07 + '';
+          border: none;
+          border-radius: 8px;
       }
 
       /* If workspaces is the leftmost module, omit left margin */
       .modules-left > widget:first-child > #workspaces {
-        margin-left: 0;
+          margin-left: 0;
       }
 
       /* If workspaces is the rightmost module, omit right margin */
-      .modules-right > widget:last-child > #custom-power {
-        margin-right: 0;
+      .modules-right > widget:last-child > #workspaces {
+          margin-right: 0;
       }
 
       #clock {
-        font-size:14px;
-        font-weight: bold;
+          color: #'' + config.lib.stylix.colors.base0D + '';
       }
 
-      #battery icon {
-        color: red;
+      #battery {
+          color: #'' + config.lib.stylix.colors.base0B + '';
       }
 
       #battery.charging, #battery.plugged {
-        color: #ffffff;
-        background-color: #26A65B;
+          color: #'' + config.lib.stylix.colors.base0C + '';
       }
 
       @keyframes blink {
-        to {
-          background-color: #ffffff;
-          color: #000000;
-        }
-      }
-
-      #battery.warning:not(.charging) {
-        background-color: #f53c3c;
-        color: #ffffff;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+          to {
+              background-color: #'' + config.lib.stylix.colors.base07 + '';
+              color: #'' + config.lib.stylix.colors.base00 + '';
+          }
       }
 
       #battery.critical:not(.charging) {
-        background-color: #f53c3c;
-        color: #ffffff;
-        animation-name: blink;
-        animation-duration: 0.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
+          background-color: #'' + config.lib.stylix.colors.base08 + '';
+          color: #'' + config.lib.stylix.colors.base07 + '';
+          animation-name: blink;
+          animation-duration: 0.5s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
       }
 
       label:focus {
-        background-color: #000000;
+          background-color: #'' + config.lib.stylix.colors.base00 + '';
       }
 
-      #network.disconnected {
-        background-color: #f53c3c;
+      #network {
+          color: #'' + config.lib.stylix.colors.base0D + '';
       }
 
-      #temperature.critical {
-        background-color: #eb4d4b;
+      #memory {
+          color: #'' + config.lib.stylix.colors.base0E + '';
       }
 
-      #idle_inhibitor.activated {
-        background-color: #ecf0f1;
-        color: #2d3436;
+      #disk {
+          color: #'' + config.lib.stylix.colors.base0F + '';
+      }
+
+      #backlight {
+          color: #'' + config.lib.stylix.colors.base0A + '';
+      }
+
+      label.numlock {
+          color: #'' + config.lib.stylix.colors.base04 + '';
+      }
+
+      label.numlock.locked {
+          color: #'' + config.lib.stylix.colors.base0F + '';
+      }
+
+      #pulseaudio {
+          color: #'' + config.lib.stylix.colors.base0C + '';
+      }
+
+      #pulseaudio.muted {
+          color: #'' + config.lib.stylix.colors.base04 + '';
       }
 
       #tray > .passive {
-        -gtk-icon-effect: dim;
+          -gtk-icon-effect: dim;
       }
 
       #tray > .needs-attention {
-        -gtk-icon-effect: highlight;
-        background-color: #eb4d4b;
+          -gtk-icon-effect: highlight;
       }
 
-      /*
-
-      window#waybar.solo {
-      background-color: #FFFFFF;
+      #idle_inhibitor {
+          color: #'' + config.lib.stylix.colors.base04 + '';
       }
 
-      window#waybar.termite {
-      background-color: #3F3F3F;
+      #idle_inhibitor.activated {
+          color: #'' + config.lib.stylix.colors.base0F + '';
       }
-
-      window#waybar.chromium {
-      background-color: #000000;
-      border: none;
-      }
-       */
-   '';
+     '';
   };
 }

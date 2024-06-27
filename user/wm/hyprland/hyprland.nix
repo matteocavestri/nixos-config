@@ -2,17 +2,12 @@
 
 {
   imports = [
-    #./wofi.nix
-    #./rofi.nix
     ./fuzzel.nix
     ./waybar.nix
-    #./hyprpaper.nix
     ./wlogout.nix
   ];
 
   home.packages = with pkgs; [
-    mpd
-    hyprpaper
     waybar 
     xorg.xev
     brightnessctl
@@ -24,12 +19,39 @@
     hyprcursor
     dunst
     libnotify
-    wl-clipboard   
-    #wofi
-    #rofi
-    xorg.xcursorthemes
-    xfce.thunar
+    gnome.nautilus
+    libva-utils
+    libinput-gestures
+    gsettings-desktop-schemas
+    gnome.zenity
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
+    xdg-utils
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
+    wlr-randr
+    wtype
+    ydotool
+    wl-clipboard
+    hyprland-protocols
+    hyprpicker
+    hypridle
+    hyprpaper
+    fnott
     fuzzel
+    keepmenu
+    pinentry-gnome3
+    wev
+    grim
+    slurp
+    wlsunset
+    alacritty
+    kitty
+    feh
+    killall
+    nwg-launchers
+    papirus-icon-theme
   ];
 
   gtk.cursorTheme = {
@@ -51,7 +73,7 @@
 
       monitor=,2560x1600@60,auto,2
       $terminal = kitty
-      $fileManager = thunar
+      $fileManager = nautilus
       $menu = fuzzel
       
       env = XDG_CURRENT_DESKTOP,Hyprland
@@ -199,6 +221,26 @@
       bind = ,XF86KbdBrightnessDown, exec, brightnessctl --device=:white:kbd_backlight set 10%-
       bind = ,XF86AudioRaiseVolume, exec, pamixer -i 10
       bind = ,XF86AudioLowerVolume, exec, pamixer -d 10
+
+      windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
+      windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
+
+      layerrule = blur,waybar
+      layerrule = xray,waybar
+      blurls = waybar
+      layerrule = blur,launcher # fuzzel
+      blurls = launcher # fuzzel
+      layerrule = blur,gtk-layer-shell
+      layerrule = xray,gtk-layer-shell
+      blurls = gtk-layer-shell
+
+      xwayland {
+         force_zero_scaling = true
+       }
+
+      binds {
+         movefocus_cycles_fullscreen = false
+       }
 
     # Other Setup
       windowrulev2 = suppressevent maximize, class:.*
