@@ -1,10 +1,11 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 {
   imports = [
     ./fuzzel.nix
     ./waybar.nix
     ./wlogout.nix
+    ./hyprlock.nix
   ];
 
   home.packages = with pkgs; [
@@ -15,6 +16,7 @@
     hyprpicker
     hypridle
     hyprpaper
+    hyprland-protocols
 # Bar, Notification, Launchers
     wlogout
     dunst
@@ -27,6 +29,9 @@
 # Controls
     brightnessctl
     pamixer
+    grim
+    slurp
+    killall
 # Programs
     gnome.nautilus
     gnome.gnome-calendar
@@ -34,32 +39,33 @@
     iotas
     alacritty
     kitty
-
-    xorg.xev
-    tree
-    libva-utils
-    libinput-gestures
-    gsettings-desktop-schemas
-    gnome.zenity
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland
+# xdg desktop
     xdg-utils
     xdg-desktop-portal
     xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
+    gsettings-desktop-schemas
+# Wayland
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
+# Utility
+    #feh
+    killall
+    libinput-gestures
+
+
+    xorg.xev
+    tree
+    libva-utils
+    gnome.zenity
     wlr-randr
     wtype
     ydotool
     wl-clipboard
-    hyprland-protocols
     fnott
     keepmenu
     wev
-    grim
-    slurp
     wlsunset
-    feh
-    killall
     nwg-launchers
   ];
 
@@ -69,6 +75,18 @@
     size = 24;
   };
 
+  xdg = {
+    enable = true;
+    mimeApps = {
+      defaultApplications = {
+        "image/jpeg" = "eog.desktop";
+        "image/png" = "eog.desktop";
+        "image/gif" = "eog.desktop";
+        "image/bmp" = "eog.desktop";
+        "image/tiff" = "eog.desktop";
+      };
+    };
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -100,11 +118,13 @@
       exec-once = lxqt-policykit-agent
       exec-once = dunst
       exec-once = hyprpaper
+
+      exec-once = sleep 5 && libinput-gestures
     
     # General Settings
       general { 
-        gaps_in = 5
-        gaps_out = 20
+        gaps_in = 7
+        gaps_out = 7
         border_size = 2
         col.active_border = 0xff'' + config.lib.stylix.colors.base08 + " " + ''0xff'' + config.lib.stylix.colors.base09 + " " + ''0xff'' + config.lib.stylix.colors.base0A + " " + ''0xff'' + config.lib.stylix.colors.base0B + " " + ''0xff'' + config.lib.stylix.colors.base0C + " " + ''0xff'' + config.lib.stylix.colors.base0D + " " + ''0xff'' + config.lib.stylix.colors.base0E + " " + ''0xff'' + config.lib.stylix.colors.base0F + " " + ''270deg
         col.inactive_border = 0xaa'' + config.lib.stylix.colors.base02 + ''

@@ -11,5 +11,6 @@
     ardour
     mpv
     delfin
+    gnome.eog
   ];
 }

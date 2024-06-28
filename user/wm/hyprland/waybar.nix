@@ -26,7 +26,7 @@ with lib;
         "custom/power" = {
           format = "⏻";
           tooltip = false;
-          on-click = "wlogout";
+          on-click = "wlogout -p layer-shell";
         };
 
         "hyprland/window" = {
@@ -81,6 +81,7 @@ with lib;
           #format = "{:L%d-%m-%Y <small>[%a]</small> <tt><small>%p</small></tt>%H:%M}";
           #format = "{:%a %d-%m-%Y %H:%M}";
           format = "{:%a %H:%M}";
+          on-click = "gnome-calendar";
         };
 
         "backlight" = {

@@ -9,7 +9,7 @@
     [ wayland
       (sddm-chili-theme.override {
         themeConfig = {
-          #background = config.stylix.image;
+          background = config.stylix.image;
           ScreenWidth = 2560;
           ScreenHeight = 1600;
           blur = true;

@@ -35,6 +35,10 @@
 
   environment.systemPackages = with pkgs; [
     lxqt.lxqt-policykit
+    xdg-utils
+    xdg-desktop-portal
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-hyprland
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 }

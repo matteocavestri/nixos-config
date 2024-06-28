@@ -7,5 +7,6 @@
     libreoffice-fresh
     nextcloud-client
     protonmail-bridge
+    whatsapp-for-linux
   ];
 }
