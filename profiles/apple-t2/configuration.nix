@@ -25,6 +25,7 @@
     ../../system/apps/container.nix
     ../../system/apps/flatpak.nix
     ../../system/apps/virtualization.nix
+    ../../system/apps/gaming.nix
 # Style imports
     ../../system/style/stylix.nix
 # Window manager imports

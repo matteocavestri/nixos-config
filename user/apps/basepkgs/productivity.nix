@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     firefox
-    tree
+    thunderbird
     libreoffice-fresh
     nextcloud-client
     protonmail-bridge

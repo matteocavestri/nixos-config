@@ -3,6 +3,8 @@
 {
   home.packages = with pkgs; [
     freecad
-    octave
+    octaveFull
+    kicad
+    paraview
   ];
 }

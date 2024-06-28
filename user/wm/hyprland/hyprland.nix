@@ -8,18 +8,35 @@
   ];
 
   home.packages = with pkgs; [
+# Hypr
     waybar 
-    xorg.xev
-    brightnessctl
-    pamixer
     hyprlock
-    wlogout
-    numix-cursor-theme
-    gnome.adwaita-icon-theme
     hyprcursor
+    hyprpicker
+    hypridle
+    hyprpaper
+# Bar, Notification, Launchers
+    wlogout
     dunst
     libnotify
+    fuzzel
+# Themes
+    numix-cursor-theme
+    gnome.adwaita-icon-theme
+    papirus-icon-theme
+# Controls
+    brightnessctl
+    pamixer
+# Programs
     gnome.nautilus
+    gnome.gnome-calendar
+    endeavour
+    iotas
+    alacritty
+    kitty
+
+    xorg.xev
+    tree
     libva-utils
     libinput-gestures
     gsettings-desktop-schemas
@@ -35,23 +52,15 @@
     ydotool
     wl-clipboard
     hyprland-protocols
-    hyprpicker
-    hypridle
-    hyprpaper
     fnott
-    fuzzel
     keepmenu
-    pinentry-gnome3
     wev
     grim
     slurp
     wlsunset
-    alacritty
-    kitty
     feh
     killall
     nwg-launchers
-    papirus-icon-theme
   ];
 
   gtk.cursorTheme = {
@@ -79,7 +88,6 @@
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_TYPE,wayland
       env = XDG_SESSION_DESKTOP,Hyprland
-      #env = WLR_DRM_DEVICES,/dev/dri/card2:/dev/dri/card1
       env = GDK_BACKEND,wayland,x11,*
       env = QT_QPA_PLATFORM,wayland;xcb
       env = QT_QPA_PLATFORMTHEME,qt5ct

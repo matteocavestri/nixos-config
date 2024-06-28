@@ -7,6 +7,7 @@
     storageDriver = "overlay2";
     autoPrune.enable = true;
   };
+  virtualisation.containers.enable = true;
   users.users.${userSettings.username}.extraGroups = [ "docker" ];
   environment.systemPackages = with pkgs; [
     docker

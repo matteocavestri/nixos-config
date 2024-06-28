@@ -10,5 +10,6 @@
     obs-studio
     ardour
     mpv
+    delfin
   ];
 }
