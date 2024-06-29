@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, lib, config, inputs, userSettings, ... }:
 
 {
   imports = [
@@ -25,7 +25,7 @@
 # Themes
     numix-cursor-theme
     gnome.adwaita-icon-theme
-    papirus-icon-theme
+    #"${userSettings.iconsPkg}"
 # Controls
     brightnessctl
     pamixer
@@ -39,6 +39,7 @@
     iotas
     alacritty
     kitty
+    ranger
 # xdg desktop
     xdg-utils
     xdg-desktop-portal
@@ -49,7 +50,7 @@
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
 # Utility
-    #feh
+    feh
     killall
     libinput-gestures
 
@@ -70,8 +71,8 @@
   ];
 
   gtk.cursorTheme = {
-    package = pkgs.numix-cursor-theme;
-    name = "Numix-Cursor";
+    package = userSettings.cursorPkg; 
+    name = userSettings.cursor;
     size = 24;
   };
 
@@ -112,7 +113,6 @@
       env = QT_AUTO_SCREEN_SCALE_FACTOR,1
       env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
       env = CLUTTER_BACKEND,wayland
-      #env = HYPRCURSOR_THEME,Numix-Cursor
 
       exec-once = waybar
       exec-once = lxqt-policykit-agent

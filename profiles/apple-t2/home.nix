@@ -23,6 +23,8 @@
     ../../user/apps/basepkgs/productivity.nix
     ../../user/apps/basepkgs/media.nix
     ../../user/apps/basepkgs/engineering.nix
+    ../../user/apps/ranger/ranger.nix
+    #../../user/apps/browsers/firefox.nix
 # Development imports
     ../../user/lang/cc.nix
     ../../user/lang/go.nix

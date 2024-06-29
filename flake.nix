@@ -16,10 +16,12 @@
         username = "matteocavestri"; # Your username (fix-scripts)
         name = "Matteo Cavestri"; # For git config
         email = "matteo.cavestri@protonmail.ch"; # For git config
-        theme = "catppuccin-mocha"; # See ./themes
         wm = "hyprland"; # gnome / hyprland
+        theme = "atelier-forest"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
+        cursor = "Numix-Cursor"; # Your cursor theme name 
+        cursorPkg = pkgs.numix-cursor-theme; # Your cursor theme package
         term = "kitty"; # Your default term (fix hyprland)
         browser = "firefox"; # TODO
       };
@@ -76,7 +78,8 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     stylix.url = "github:danth/stylix";
-    #plugin_name = {
+
+   #plugin_name = {
     #  url = "github:hyprwm/hyprland-plugins/151102b7d7c4f61ff42f275e72008d28318dac96";
     #  inputs.hyprland.follows = "hyprland";
     #};
