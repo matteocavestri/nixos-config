@@ -6,6 +6,12 @@
     package = pkgs.wlogout;
     layout = [
       {
+        label = "lock";
+        action = "hyprlock";
+        text = "        ";
+        keybind = "l";
+      }
+      {
         label = "logout";
         action = "hyprctl dispatch exit";
         #text = "Logout";
@@ -25,12 +31,6 @@
         #text = "Reboot";
         text = "        ";
         keybind = "r";
-      }
-      {
-        label = "lock";
-        action = "hyprlock";
-        text = "        ";
-        keybind = "l";
       }
     ];
     style = ''

@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, userSettings, ... }:
+{ pkgs, lib, config, inputs, userSettings, hyprscratch, ... }:
 
 {
   imports = [
@@ -6,6 +6,9 @@
     ./waybar.nix
     ./wlogout.nix
     ./hyprlock.nix
+    (import ../../apps/dmenu-scripts/networkmanager-dmenu.nix {
+      dmenu_command = "fuzzel -d"; inherit config lib pkgs;
+    })
   ];
 
   home.packages = with pkgs; [
@@ -17,11 +20,13 @@
     hypridle
     hyprpaper
     hyprland-protocols
+    #pyprland
 # Bar, Notification, Launchers
     wlogout
     dunst
     libnotify
     fuzzel
+    rofi
 # Themes
     numix-cursor-theme
     gnome.adwaita-icon-theme
@@ -32,8 +37,10 @@
     grim
     slurp
     killall
+    blueman
 # Programs
     gnome.nautilus
+    xfce.thunar
     gnome.gnome-calendar
     endeavour
     iotas
@@ -44,6 +51,7 @@
     xdg-utils
     xdg-desktop-portal
     xdg-desktop-portal-gtk
+    xdg-desktop-portal-wlr
     xdg-desktop-portal-hyprland
     gsettings-desktop-schemas
 # Wayland
@@ -53,7 +61,7 @@
     feh
     killall
     libinput-gestures
-
+    gnome.gvfs
 
     xorg.xev
     tree
@@ -68,7 +76,7 @@
     wev
     wlsunset
     nwg-launchers
-  ];
+  ]; 
 
   gtk.cursorTheme = {
     package = userSettings.cursorPkg; 
@@ -101,7 +109,7 @@
 
       monitor=,2560x1600@60,auto,2
       $terminal = kitty
-      $fileManager = nautilus
+      $fileManager = thunar
       $menu = fuzzel
       
       env = XDG_CURRENT_DESKTOP,Hyprland
@@ -115,10 +123,11 @@
       env = CLUTTER_BACKEND,wayland
 
       exec-once = waybar
-      exec-once = lxqt-policykit-agent
       exec-once = dunst
       exec-once = hyprpaper
-
+      exec-once = nm-applet
+      exec-once = blueman-applet
+      exec-once = hypridle
       exec-once = sleep 5 && libinput-gestures
     
     # General Settings
@@ -128,11 +137,8 @@
         border_size = 2
         col.active_border = 0xff'' + config.lib.stylix.colors.base08 + " " + ''0xff'' + config.lib.stylix.colors.base09 + " " + ''0xff'' + config.lib.stylix.colors.base0A + " " + ''0xff'' + config.lib.stylix.colors.base0B + " " + ''0xff'' + config.lib.stylix.colors.base0C + " " + ''0xff'' + config.lib.stylix.colors.base0D + " " + ''0xff'' + config.lib.stylix.colors.base0E + " " + ''0xff'' + config.lib.stylix.colors.base0F + " " + ''270deg
         col.inactive_border = 0xaa'' + config.lib.stylix.colors.base02 + ''
-        #col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-        #col.inactive_border = rgba(595959aa)
         resize_on_border = true
         allow_tearing = false
-       layout = dwindle
       }
 
     # Input Settings
@@ -146,6 +152,7 @@
         sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
         touchpad {
           natural_scroll = true
+          clickfinger_behavior = 1
         }
       }
 
@@ -241,6 +248,10 @@
       bindm = $mainMod, mouse:273, resizewindow
     # Other Bindings
       bind = $mainMod SHIFT, B, exec, waybar
+      #bind = $mainMod, Z, exec, pypr toggle term && hyprctl dispatch bringactivetotop
+      #bind = $mainMod, F, exec, pypr toggle ranger && hyprctl dispatch bringactivetotop
+      #bind = $mainMod, B, exec, pypr toggle btm && hyprctl dispatch bringactivetotop
+      bind=SUPER,I,exec,networkmanager_dmenu
     
     # MBP Apple T2 Bindings
       bind = ,XF86MonBrightnessUp, exec, brightnessctl set +10%
@@ -252,6 +263,7 @@
 
       windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
       windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
+
 
       layerrule = blur,waybar
       layerrule = xray,waybar
@@ -271,18 +283,53 @@
        }
 
     # Other Setup
-      windowrulev2 = suppressevent maximize, class:.*
-      dwindle {
-        pseudotile = true
-        preserve_split = true
-      }
-      master {
-        new_is_master = true
-      }
+      #windowrulev2 = suppressevent maximize, class:.*
+
+      #master {
+      #  new_is_master = true
+      #}
       misc { 
         force_default_wallpaper = 0
         disable_hyprland_logo = true
       }
     '';
   };
+  home.file.".config/hypr/pyprland.toml".text = ''
+    [pyprland]
+    plugins = ["scratchpads", "magnify"]
+
+    [scratchpads.term]
+    command = "alacritty --class scratchpad"
+    margin = 50
+
+    [scratchpads.ranger]
+    command = "kitty --class scratchpad -e ranger"
+    margin = 50
+
+    [scratchpads.btm]
+    command = "alacritty --class scratchpad -e btm"
+    margin = 50
+
+    [scratchpads.pavucontrol]
+    command = "pavucontrol"
+    margin = 50
+    unfocus = "hide"
+    animation = "fromTop"
+  '';
+  home.file.".config/hypr/hypridle.conf".text = ''
+    general {
+      lock_cmd = pgrep hyprlock || hyprlock
+      before_sleep_cmd = loginctl lock-session
+      ignore_dbus_inhibit = false
+    }
+
+    listener {
+      timeout = 300 # in seconds
+      on-timeout = loginctl lock-session
+    }
+    listener {
+      timeout = 600 # in seconds
+      on-timeout = systemctl suspend
+    }
+  '';
 }

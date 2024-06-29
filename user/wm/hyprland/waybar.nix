@@ -11,13 +11,15 @@ with lib;
         layer = "top"; # Waybar at top layer
         position = "top"; # Waybar position (top|bottom|left|right)
         height = 24; # Waybar height (to be removed for auto height)
+        margin = "7 7 3 7";
+        spacing = 2;
         # width = 1280; # Waybar width
         # spacing = 4; # Gaps between modules (4px)
 
         # Choose the order of the modules
-        modules-left = [ "custom/os" "hyprland/window" ];
-        modules-center = [ "hyprland/workspaces" ];
-        modules-right = [ "tray" "network" "pulseaudio" "backlight" "battery" "clock" "custom/power" ];
+        modules-left = [ "custom/os" "cpu" "memory" "battery" "pulseaudio" "backlight" ];
+        modules-center = [ "idle_inhibitor" "hyprland/workspaces" ];
+        modules-right = [ "tray" "clock" "custom/power" ];
         #modules-left = [ "hyprland/workspaces" "sway/mode" "sway/scratchpad" "custom/media" ];
         #modules-center = [ "hyprland/window" ];
         #modules-right = [ "mpd" "idle_inhibitor" "temperature" "cpu" "memory"   "keyboard-state"  "battery#bat2"   ];
@@ -41,16 +43,26 @@ with lib;
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
+            #"1" = "";
+            #"2" = "";
+            #"3" = "";
+            #"4" = "";
+            #"5" = "";
+            "1" = "󱚌";
+            "2" = "󰖟";
+            "3" = "";
+            "4" = "󰎄";
+            "5" = "󰋩";
+            "6" = "";
+            "7" = "󰄖";
+            "8" = "󰑴";
+            "9" = "󱎓";
             active = "";
             default = "";
           };
+          ignore-workspaces = ["scratch" "-"];
           persistent-workspaces = {
-            "*" = 5;
+            "*" = 9;
           };
           "on-click" = "activate";
           #"on-scroll-up" = "hyprctl dispatch workspace e+1";
@@ -64,6 +76,12 @@ with lib;
           on-click = "fuzzel";
         };
 
+        "custom/spacer" = {
+          format = "{}";
+          exec = ''echo "|"'';
+          interval = "once";
+        };
+
         "idle_inhibitor" = {
           format = "{icon}";
           format-icons = {
@@ -71,6 +89,12 @@ with lib;
             deactivated = "";
           };
         };
+
+        cpu = {
+          "format" = "{usage}% ";
+        };
+
+        memory = { "format" = "{}% "; };
 
         "tray" = {
           spacing = 10;
@@ -80,67 +104,57 @@ with lib;
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           #format = "{:L%d-%m-%Y <small>[%a]</small> <tt><small>%p</small></tt>%H:%M}";
           #format = "{:%a %d-%m-%Y %H:%M}";
-          format = "{:%a %H:%M}";
+          format = "{:%a %d:%m:%Y %H:%M}";
           on-click = "gnome-calendar";
         };
 
         "backlight" = {
-          format = "{icon} {percent}%";
+          format = "{percent}% {icon}";
           format-icons = ["" "" "" "" "" "" "" "" ""];
         };
 
-        "battery" = {
+        battery = {
           states = {
+            good = 95;
             warning = 30;
             critical = 15;
           };
-          format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
-          format-alt = "{icon} {time} ";
-          format-icons = ["" "" "" "" ""];
-        };
-
-        "network" = {
-          #format-wifi = "{essid} ({signalStrength}%)  ";
-          format-wifi = " ";
-          format-ethernet = " {ifname}";
-          tooltip-format = " {ifname} via {gwaddr}";
-          format-linked = " {ifname} (No IP)";
-          format-disconnected = "Disconnected ⚠ {ifname}";
-          format-alt = " {ifname}: {ipaddr}/{cidr}";
+          format = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
+          format-icons = [ "" "" "" "" "" ];
         };
 
         "pulseaudio" = {
-          scroll-step = 5; # %, can be a float
-          format = "{icon} {volume}%";
-          format-bluetooth = " {icon} {volume}%";
+          scroll-step = 1; # %, can be a float
+          format = "{volume}% {icon}";
+          format-bluetooth = "{volume}%  {icon}";
           format-bluetooth-muted = "  {icon}";
-          format-muted = "  {format_source}";
+          #format-muted = "  {format_source}";
           #format-source = " {volume}%";
           #format-source-muted = "";
           format-icons = {
             default = ["" "" ""];
           };
           "on-click" = "pavucontrol";
-          "on-click-right" = "foot -a pw-top pw-top";
         };
       };
     };
     style = ''
-       * {
+        * {
         /* `otf-font-awesome` is required to be installed for icons */
         font-family: FontAwsome, ''+userSettings.font+'';
         font-size: 13px;
+        /*border-radius: 8;*/
       }
 
       window#waybar {
         background: transparent;
         background-color: rgba('' + config.lib.stylix.colors.base00-rgb-r + "," + config.lib.stylix.colors.base00-rgb-g + "," + config.lib.stylix.colors.base00-rgb-b + "," + ''0.55);
-        /*    border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
         color: #'' + config.lib.stylix.colors.base07 + '';
         transition-property: background-color;
         transition-duration: .5s;
+        /*border-radius: 8px;*/
       }
 
       tooltip {
@@ -158,7 +172,6 @@ with lib;
       }
 
       window > box {
-          border-radius: 8px;
           opacity: 0.94;
       }
 
@@ -200,44 +213,36 @@ with lib;
           color: #'' + config.lib.stylix.colors.base09 + '';
       }
 
-      #clock,
       #battery,
       #cpu,
       #memory,
-      #disk,
-      #temperature,
       #backlight,
-      #network,
       #pulseaudio,
-      #wireplumber,
-      #custom-media,
+      #clock,
       #tray,
-      #mode,
       #idle_inhibitor,
-      #scratchpad,
       #custom-power,
-      #custom-nixos,
-      #window,
-      #workspaces,
-      #mpd {
-          padding: 0 10px;
+      #workspaces {
           color: #'' + config.lib.stylix.colors.base07 + '';
+          padding: 0 10px;
           border: none;
           border-radius: 8px;
       }
 
-      /* If workspaces is the leftmost module, omit left margin */
-      .modules-left > widget:first-child > #workspaces {
-          margin-left: 0;
+      .modules-right {
+        border-radius: 8px;
       }
 
-      /* If workspaces is the rightmost module, omit right margin */
-      .modules-right > widget:last-child > #workspaces {
-          margin-right: 0;
-      }
+      .modules-left {
+        border-radius: 8px;
+      }     
 
-      #clock {
+      #cpu {
           color: #'' + config.lib.stylix.colors.base0D + '';
+      }
+
+      #memory {
+          color: #'' + config.lib.stylix.colors.base0E + '';
       }
 
       #battery {
@@ -269,36 +274,24 @@ with lib;
           background-color: #'' + config.lib.stylix.colors.base00 + '';
       }
 
-      #network {
-          color: #'' + config.lib.stylix.colors.base0D + '';
-      }
-
-      #custom-power {
-          color: #'' + config.lib.stylix.colors.base0E + '';
-      }
-
-      #disk {
-          color: #'' + config.lib.stylix.colors.base0F + '';
-      }
-
-      #backlight {
-          color: #'' + config.lib.stylix.colors.base0A + '';
-      }
-
-      label.numlock {
-          color: #'' + config.lib.stylix.colors.base04 + '';
-      }
-
-      label.numlock.locked {
-          color: #'' + config.lib.stylix.colors.base0F + '';
-      }
-
       #pulseaudio {
           color: #'' + config.lib.stylix.colors.base0C + '';
       }
 
       #pulseaudio.muted {
           color: #'' + config.lib.stylix.colors.base04 + '';
+      }
+
+      #backlight {
+          color: #'' + config.lib.stylix.colors.base0A + '';
+      }
+
+      #idle_inhibitor {
+          color: #'' + config.lib.stylix.colors.base04 + '';
+      }
+
+      #idle_inhibitor.activated {
+          color: #'' + config.lib.stylix.colors.base0F + '';
       }
 
       #tray > .passive {
@@ -309,13 +302,13 @@ with lib;
           -gtk-icon-effect: highlight;
       }
 
-      #idle_inhibitor {
-          color: #'' + config.lib.stylix.colors.base04 + '';
+      #clock {
+          color: #'' + config.lib.stylix.colors.base0D + '';
       }
 
-      #idle_inhibitor.activated {
-          color: #'' + config.lib.stylix.colors.base0F + '';
+      #custom-power {
+          color: #'' + config.lib.stylix.colors.base0E + '';
       }
-     '';
+    '';
   };
 }

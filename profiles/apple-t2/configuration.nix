@@ -14,6 +14,7 @@
     ../../system/hardware/touchpad.nix
     ../../system/hardware/networking.nix
     ../../system/hardware/graphics.nix
+    ../../system/hardware/bluetooth.nix
 # Driver imports
     ../../system/driver/apple-t2.nix
     ../../system/driver/intelgpu.nix

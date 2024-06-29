@@ -10,7 +10,6 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    #package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   };
 
   environment.sessionVariables = {
@@ -25,6 +24,11 @@
     polkit.enable = true;
   };
 
+  #services.gvfs = {
+  #  enable = true;
+  #  package = pkgs.gnome.gvfs;
+  #};
+
   environment = {
     plasma5.excludePackages = [ pkgs.kdePackages.systemsettings ];
     plasma6.excludePackages = [ pkgs.kdePackages.systemsettings ];
@@ -34,7 +38,7 @@
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
 
   environment.systemPackages = with pkgs; [
-    lxqt.lxqt-policykit
+    polkit_gnome
     xdg-utils
     xdg-desktop-portal
     xdg-desktop-portal-gtk

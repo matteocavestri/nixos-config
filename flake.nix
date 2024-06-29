@@ -1,6 +1,6 @@
 {
 
-  outputs = inputs@{ nixpkgs, nixos-hardware, home-manager, self, stylix, ... }: 
+  outputs = { nixpkgs, nixos-hardware, home-manager, stylix, ... }@inputs: 
     let
 # -------------------- SYSTEM SETTINGS ------------------------------
       systemSettings = {
@@ -10,6 +10,7 @@
         locale = "it_IT.UTF-8"; # Locale config
         keymap = "it"; # Global keymap (Fix hyprland)
         profile = "apple-t2"; # only apple-t2
+        hardware ="apple-t2"; # TODO
       };
 # -------------------- USER SETTINGS --------------------------------
       userSettings = {
@@ -33,7 +34,7 @@
     nixosConfigurations = {
       ${systemSettings.hostname} = lib.nixosSystem {
         modules = [
-          nixos-hardware.nixosModules.apple-t2
+          nixos-hardware.nixosModules.${systemSettings.hardware}
           inputs.stylix.nixosModules.stylix
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
         ];
@@ -55,6 +56,7 @@
         extraSpecialArgs = {
           inherit userSettings;
           inherit systemSettings;
+          inherit inputs;
         };
       };
     };
@@ -78,6 +80,14 @@
     hyprland.url = "github:hyprwm/Hyprland";
 
     stylix.url = "github:danth/stylix";
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nurpkgs.url = "github:nix-community/NUR";
+
 
    #plugin_name = {
     #  url = "github:hyprwm/hyprland-plugins/151102b7d7c4f61ff42f275e72008d28318dac96";
