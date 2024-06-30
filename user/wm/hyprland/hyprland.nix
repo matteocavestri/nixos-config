@@ -129,6 +129,7 @@
       exec-once = blueman-applet
       exec-once = hypridle
       exec-once = sleep 5 && libinput-gestures
+      exec-once = emacs --daemon
     
     # General Settings
       general { 
@@ -264,6 +265,8 @@
       windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
       windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
 
+      #windowrulev2 = opacity 0.85,class:^(firefox)$
+      #windowrulev2 = opacity 0.85,class:^(firefox)$
 
       layerrule = blur,waybar
       layerrule = xray,waybar
@@ -326,10 +329,10 @@
     listener {
       timeout = 300 # in seconds
       on-timeout = loginctl lock-session
-    }
-    listener {
-      timeout = 600 # in seconds
-      on-timeout = systemctl suspend
-    }
+    #}
+    #listener {
+    #  timeout = 600 # in seconds
+    #  on-timeout = systemctl suspend
+    #}
   '';
 }

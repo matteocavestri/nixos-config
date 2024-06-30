@@ -9,12 +9,15 @@
   programs.home-manager.enable = true;
 
   home.sessionVariables = {
-    EDITOR = "nvim";
+    EDITOR = userSettings.editor;
+    #SPAWNEDITOR = userSettings.spawnEditor;
+    TERM = userSettings.term;
+    BROWSER = userSettings.browser;
   };
   
   imports = [ 
 # Apps imports
-    ../../user/apps/editor/neovim.nix
+    ../../user/apps/editors/neovim.nix
     ../../user/apps/terminal/alacritty.nix
     ../../user/apps/terminal/kitty.nix
     ../../user/apps/git/git.nix

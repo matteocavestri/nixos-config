@@ -1,6 +1,6 @@
 {
 
-  outputs = { nixpkgs, nixos-hardware, home-manager, stylix, ... }@inputs: 
+  outputs = { nixpkgs, nixos-hardware, self, home-manager, stylix, ... }@inputs: 
     let
 # -------------------- SYSTEM SETTINGS ------------------------------
       systemSettings = {
@@ -18,17 +18,30 @@
         name = "Matteo Cavestri"; # For git config
         email = "matteo.cavestri@protonmail.ch"; # For git config
         wm = "hyprland"; # gnome / hyprland
-        theme = "atelier-forest"; # See ./themes
+        wmType = "wayland";
+        theme = "catppuccin-mocha"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
-        cursor = "Numix-Cursor"; # Your cursor theme name 
-        cursorPkg = pkgs.numix-cursor-theme; # Your cursor theme package
-        term = "kitty"; # Your default term (fix hyprland)
+        cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name 
+        cursorPkg = pkgs.catppuccin-cursors.mochaDark; # Your cursor theme package
+        term = "alacrity"; # Your default term (fix hyprland)
         browser = "firefox"; # TODO
+        dotfilesDir = ".dotfiles";
+        editor = "nvim";
+        #spawnEditor = if (editor == "emacsclient") then
+        #              "emacsclient -c -a 'emacs'"
+        #            else
+        #              (if ((editor == "vim") ||
+        #                   (editor == "nvim") ||
+        #                   (editor == "nano")) then
+        #                     "exec " + term + " -e " + editor
+        #               else
+        #                 editor);
       };
 # -------------------------------------------------------------------
       lib = nixpkgs.lib;
       pkgs = import nixpkgs { system = systemSettings.system; };
+      pkgs-emacs = import inputs.emacs-pin-nixpkgs { system = systemSettings.system; };
     in {
 
     nixosConfigurations = {
@@ -57,6 +70,7 @@
           inherit userSettings;
           inherit systemSettings;
           inherit inputs;
+          inherit pkgs-emacs;
         };
       };
     };
@@ -88,22 +102,49 @@
 
     nurpkgs.url = "github:nix-community/NUR";
 
+    emacs-pin-nixpkgs.url = "nixpkgs/f72123158996b8d4449de481897d855bc47c7bf6";
 
-   #plugin_name = {
-    #  url = "github:hyprwm/hyprland-plugins/151102b7d7c4f61ff42f275e72008d28318dac96";
-    #  inputs.hyprland.follows = "hyprland";
-    #};
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+    nix-doom-emacs.inputs.nixpkgs.follows = "emacs-pin-nixpkgs";
 
-    #hyprland = {
-    #  type = "git";
-    #  url = "https://github.com/hyprwm/Hyprland";
-    #  submodules = true;
-    #  rev = "ea2501d4556f84d3de86a4ae2f4b22a474555b9f";
-    #};
-    #hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    #hyprland-plugins.url = "github:hyprwm/hyprland-plugins/151102b7d7c4f61ff42f275e72008d28318dac96";
-    #hyprland-plugins.inputs.hyprland.follows = "hyprland";
-    #hycov.url = "github:DreamMaoMao/hycov/3d144a79f8b5468656de88a005be55f3317d295b";
-    #hycov.inputs.hyprland.follows = "hyprland";
+    doom-emacs = {
+      url = "https://github.com/doomemacs/doomemacs.git";
+      flake = false;
+    };
+
+    org-yaap = {
+      url = "gitlab:tygrdev/org-yaap";
+      flake = false;
+    };
+
+    org-side-tree = {
+      url = "github:localauthor/org-side-tree";
+      flake = false;
+    };
+
+    org-timeblock = {
+      url = "github:ichernyshovvv/org-timeblock";
+      flake = false;
+    };
+
+    org-nursery = {
+      url = "github:chrisbarrett/nursery";
+      flake = false;
+    };
+
+    org-krita = {
+      url = "github:librephoenix/org-krita";
+      flake = false;
+    };
+
+    phscroll = {
+      url = "github:misohena/phscroll";
+      flake = false;
+
+    };
+    mini-frame = {
+      url = "github:muffinmad/emacs-mini-frame";
+      flake = false;
+    };
   };
 }
