@@ -109,8 +109,9 @@
 
       monitor=,2560x1600@60,auto,2
       $terminal = kitty
-      $fileManager = thunar
+      $fileManager = nautilus
       $menu = fuzzel
+      $editor = neovide
       
       env = XDG_CURRENT_DESKTOP,Hyprland
       env = XDG_SESSION_TYPE,wayland
@@ -205,11 +206,12 @@
       bind = $mainMod, T, exec, $terminal
       bind = $mainMod, Q, killactive,
       bind = $mainMod, M, exit,
-      bind = $mainMod, E, exec, $fileManager
+      bind = $mainMod, F, exec, $fileManager
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, J, togglesplit, # dwindle
+      bind = $mainMod, E, exec, $editor
     # Move focus with mainMod + arrow keys
       bind = $mainMod, left, movefocus, l
       bind = $mainMod, right, movefocus, r

@@ -594,11 +594,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1719792095,
-        "narHash": "sha256-J11gtKL68uR3v8u8lxRee9mcarLVcntaKkNSx85QI7g=",
+        "lastModified": 1719794163,
+        "narHash": "sha256-F3km1FCujQB+vMERaCJLrtASQA6iLUpZPlYPngDXMXo=",
         "owner": "matteocavestri",
         "repo": "Neve",
-        "rev": "451a3d2ea1885838ab51473a3c83c48e00f3f5f4",
+        "rev": "64235666d1e7dc1aff7b0fd320eb2006de7d71b5",
         "type": "github"
       },
       "original": {
