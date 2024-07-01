@@ -129,7 +129,6 @@
       exec-once = blueman-applet
       exec-once = hypridle
       exec-once = sleep 5 && libinput-gestures
-      exec-once = emacs --daemon
     
     # General Settings
       general { 

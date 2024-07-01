@@ -17,7 +17,8 @@
   
   imports = [ 
 # Apps imports
-    ../../user/apps/editors/neovim.nix
+    #../../user/apps/editors/neovim.nix
+    ../../user/apps/editors/neve.nix
     ../../user/apps/terminal/alacritty.nix
     ../../user/apps/terminal/kitty.nix
     ../../user/apps/git/git.nix

@@ -41,9 +41,8 @@
 # -------------------------------------------------------------------
       lib = nixpkgs.lib;
       pkgs = import nixpkgs { system = systemSettings.system; };
-      pkgs-emacs = import inputs.emacs-pin-nixpkgs { system = systemSettings.system; };
     in {
-
+# -------------------- NixOS Configuration --------------------------
     nixosConfigurations = {
       ${systemSettings.hostname} = lib.nixosSystem {
         modules = [
@@ -57,7 +56,7 @@
         };
       };
     };
-
+# ------------------- Home Manager Configuration ---------------------
     homeConfigurations = {
       ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -70,11 +69,11 @@
           inherit userSettings;
           inherit systemSettings;
           inherit inputs;
-          inherit pkgs-emacs;
         };
       };
     };
   };
+# -------------------------------------------------------------------
   nixConfig = {
     extra-substituters = [
       # "https://hydra.soopy.moe"
@@ -83,7 +82,7 @@
     extra-trusted-public-keys =
       [ "hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q=" ];
   };
-
+# -------------------------------------------------------------------
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
@@ -100,51 +99,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    neve.url = "github:matteocavestri/Neve";
+
     nurpkgs.url = "github:nix-community/NUR";
 
-    emacs-pin-nixpkgs.url = "nixpkgs/f72123158996b8d4449de481897d855bc47c7bf6";
-
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
-    nix-doom-emacs.inputs.nixpkgs.follows = "emacs-pin-nixpkgs";
-
-    doom-emacs = {
-      url = "https://github.com/doomemacs/doomemacs.git";
-      flake = false;
-    };
-
-    org-yaap = {
-      url = "gitlab:tygrdev/org-yaap";
-      flake = false;
-    };
-
-    org-side-tree = {
-      url = "github:localauthor/org-side-tree";
-      flake = false;
-    };
-
-    org-timeblock = {
-      url = "github:ichernyshovvv/org-timeblock";
-      flake = false;
-    };
-
-    org-nursery = {
-      url = "github:chrisbarrett/nursery";
-      flake = false;
-    };
-
-    org-krita = {
-      url = "github:librephoenix/org-krita";
-      flake = false;
-    };
-
-    phscroll = {
-      url = "github:misohena/phscroll";
-      flake = false;
-
-    };
-    mini-frame = {
-      url = "github:muffinmad/emacs-mini-frame";
-      flake = false;
-    };
   };
 }

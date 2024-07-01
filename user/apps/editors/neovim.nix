@@ -12,6 +12,13 @@
   };
   
   home.file.".config/nvim".source = ./nvim;
+  
+  home.packages = with pkgs; [
+    ripgrep
+    bottom
+    gdu
+    
+  ];
 }
 
 
