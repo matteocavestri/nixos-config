@@ -8,6 +8,14 @@ Questa repository contiene le mie configurazioni per NixOS e Home Manager. L'obi
 
 Configurare i parametri di `userSettings` e `systemSettings`nel file flake.nix per configurare il sistema
 
+### Editor --> Nvim
+
+Pieno supporto per i seguenti linguaggi:
+
+- Go
+- Bash ( no debugger )
+- Python
+
 ### System Settings
 
 | Setting  | Value e.g.     |
@@ -100,3 +108,11 @@ nixos-config
 - Can customize everything from flake.nix --> Cursor, Icons
 - Make gropus of packages (work, code ...)
 - Control power profile from waybar
+
+## Neve Status
+
+- WIP | C/Cpp: lsp, formatter, !!debugger.
+- BAD | Java: !!lsp, !!formatter, !!debugger.
+- WIP | Javascript/Typescript: lsp (wip), formatter, !!debugger.
+- WIP | Docker: !!lsp, !!lsp docker compose
+- WIP | Rust: lsp, formatter, !!debugger.

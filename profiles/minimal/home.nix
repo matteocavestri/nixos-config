@@ -21,6 +21,7 @@
     ../../user/lang/cc.nix
     ../../user/lang/go.nix
     ../../user/lang/python.nix
+    ../../user/lang/java.nix
 # Shell and CLI imports
     ../../user/shell/sh.nix
     ../../user/shell/tmux.nix

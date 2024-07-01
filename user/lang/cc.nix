@@ -9,5 +9,10 @@
       autoconf
       automake
       libtool
+      cmake
+      gnupatch
+      # astyle
+      # cpplint
+      clang-tools
   ];
 }

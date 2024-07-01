@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    lua
-    luarocks
+    lua # Lua programming language
+    luajitPackages.luarocks-nix # Package manager for Lua on Nix
   ];
 }

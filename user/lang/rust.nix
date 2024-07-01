@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-      # Rust setup
-      rustup
+      cargo # Downloads your Rust project's dependencies and builds your project
+      rustc # Compiler for rust
   ];
 }
