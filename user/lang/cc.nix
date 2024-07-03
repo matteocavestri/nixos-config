@@ -14,5 +14,8 @@
       # astyle
       # cpplint
       clang-tools
+
+
+      libGLU
   ];
 }

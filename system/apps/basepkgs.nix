@@ -7,11 +7,8 @@
   #services.flatpak.enable = true;
   environment.systemPackages = with pkgs; [
     vim
-    neovim
     wget
     git
-    tmux
-    pinentry-gtk2
     gnupg
   ];
 }

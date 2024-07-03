@@ -10,7 +10,7 @@ with lib;
       mainBar = {
         layer = "top"; # Waybar at top layer
         position = "top"; # Waybar position (top|bottom|left|right)
-        height = 24; # Waybar height (to be removed for auto height)
+        height = 30; # Waybar height (to be removed for auto height)
         margin = "7 7 3 7";
         spacing = 2;
         # width = 1280; # Waybar width
@@ -115,7 +115,7 @@ with lib;
 
         battery = {
           states = {
-            good = 95;
+            good = 60;
             warning = 30;
             critical = 15;
           };
@@ -144,7 +144,7 @@ with lib;
         * {
         /* `otf-font-awesome` is required to be installed for icons */
         font-family: FontAwsome, ''+userSettings.font+'';
-        font-size: 13px;
+        font-size: 16px;
         /*border-radius: 8;*/
       }
 

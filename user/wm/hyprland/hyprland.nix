@@ -1,101 +1,21 @@
-{ pkgs, lib, config, inputs, userSettings, hyprscratch, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   imports = [
+    ./config.nix
+    ./packages.nix
+    ./hypridle.nix
     ./fuzzel.nix
     ./waybar.nix
     ./wlogout.nix
     ./hyprlock.nix
+    ./dunst.nix
     (import ../../apps/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d"; inherit config lib pkgs;
     })
+    ../../style/stylix.nix
   ];
 
-  home.packages = with pkgs; [
-# Hypr
-    waybar 
-    hyprlock
-    hyprcursor
-    hyprpicker
-    hypridle
-    hyprpaper
-    hyprland-protocols
-    #pyprland
-# Bar, Notification, Launchers
-    wlogout
-    dunst
-    libnotify
-    fuzzel
-    rofi
-# Themes
-    numix-cursor-theme
-    gnome.adwaita-icon-theme
-    #"${userSettings.iconsPkg}"
-# Controls
-    brightnessctl
-    pamixer
-    grim
-    slurp
-    killall
-    blueman
-# Programs
-    gnome.nautilus
-    xfce.thunar
-    gnome.gnome-calendar
-    endeavour
-    iotas
-    alacritty
-    kitty
-    ranger
-# xdg desktop
-    xdg-utils
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-hyprland
-    gsettings-desktop-schemas
-# Wayland
-    libsForQt5.qt5.qtwayland
-    qt6.qtwayland
-# Utility
-    feh
-    killall
-    libinput-gestures
-    gnome.gvfs
-
-    xorg.xev
-    tree
-    libva-utils
-    gnome.zenity
-    wlr-randr
-    wtype
-    ydotool
-    wl-clipboard
-    fnott
-    keepmenu
-    wev
-    wlsunset
-    nwg-launchers
-  ]; 
-
-  gtk.cursorTheme = {
-    package = userSettings.cursorPkg; 
-    name = userSettings.cursor;
-    size = 24;
-  };
-
-  xdg = {
-    enable = true;
-    mimeApps = {
-      defaultApplications = {
-        "image/jpeg" = "eog.desktop";
-        "image/png" = "eog.desktop";
-        "image/gif" = "eog.desktop";
-        "image/bmp" = "eog.desktop";
-        "image/tiff" = "eog.desktop";
-      };
-    };
-  };
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -107,7 +27,8 @@
       exec-once = dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
       exec-once = hyprctl setcursor '' + config.gtk.cursorTheme.name + " " + builtins.toString config.gtk.cursorTheme.size + ''
 
-      monitor=,2560x1600@60,auto,2
+      #monitor=,2560x1600@60,auto,2
+      monitor=,2560x1600@60,auto,1.666667
       $terminal = kitty
       $fileManager = nautilus
       $menu = fuzzel
@@ -298,42 +219,5 @@
       }
     '';
   };
-  home.file.".config/hypr/pyprland.toml".text = ''
-    [pyprland]
-    plugins = ["scratchpads", "magnify"]
 
-    [scratchpads.term]
-    command = "alacritty --class scratchpad"
-    margin = 50
-
-    [scratchpads.ranger]
-    command = "kitty --class scratchpad -e ranger"
-    margin = 50
-
-    [scratchpads.btm]
-    command = "alacritty --class scratchpad -e btm"
-    margin = 50
-
-    [scratchpads.pavucontrol]
-    command = "pavucontrol"
-    margin = 50
-    unfocus = "hide"
-    animation = "fromTop"
-  '';
-  home.file.".config/hypr/hypridle.conf".text = ''
-    general {
-      lock_cmd = pgrep hyprlock || hyprlock
-      before_sleep_cmd = loginctl lock-session
-      ignore_dbus_inhibit = false
-    }
-
-    listener {
-      timeout = 300 # in seconds
-      on-timeout = loginctl lock-session
-    #}
-    #listener {
-    #  timeout = 600 # in seconds
-    #  on-timeout = systemctl suspend
-    #}
-  '';
 }

@@ -9,6 +9,6 @@
     ardour
     mpv
     delfin
-    gnome.eog
+    vlc
   ];
 }

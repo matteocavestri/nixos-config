@@ -5,6 +5,7 @@
     ../hardware/pipewire.nix
     ./wayland.nix
     ./fonts.nix
+    ../style/stylix.nix
   ];
 
   programs.hyprland = {
@@ -17,6 +18,7 @@
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
+    XDG_CURRENT_DESKTOP= "Hyprland";
   };
 
   security = {

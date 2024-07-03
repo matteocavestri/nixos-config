@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
   home.packages = with pkgs; [
@@ -6,6 +6,8 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-to-dock
     gnomeExtensions.user-themes
+    tmux
+    pinentry-gtk2
   ];
   dconf.settings = {
   #   "org/gnome/shell" = {

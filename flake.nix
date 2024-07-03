@@ -17,14 +17,16 @@
         username = "matteocavestri"; # Your username (fix-scripts)
         name = "Matteo Cavestri"; # For git config
         email = "matteo.cavestri@protonmail.ch"; # For git config
-        wm = "hyprland"; # gnome / hyprland
+        wm = "hyprland"; # gnome / hyprland / cinnamon
         wmType = "wayland";
-        theme = "catppuccin-mocha"; # See ./themes
+        theme = "everforest"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
         cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name 
         cursorPkg = pkgs.catppuccin-cursors.mochaDark; # Your cursor theme package
-        term = "alacrity"; # Your default term (fix hyprland)
+        icons = "Papirus";
+        iconsPkg = pkgs.papirus-icon-theme;
+        term = "alacritty"; # Your default term (fix hyprland)
         browser = "firefox"; # TODO
         dotfilesDir = ".dotfiles";
         editor = "nvim";
@@ -98,6 +100,8 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim.url = "github:nix-community/nixvim";
 
     neve.url = "github:matteocavestri/Neve";
 

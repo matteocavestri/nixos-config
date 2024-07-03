@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, ... }:
+{ pkgs, userSettings, ... }:
 
 {
   home.username = userSettings.username;
@@ -13,18 +13,16 @@
   };
   
   imports = [ 
+# Default import
+    ../../user/config.nix
 # Apps imports
     ../../user/apps/editors/neovim.nix
     ../../user/apps/git/git.nix
     ../../user/apps/ranger/ranger.nix
 # Development imports
     ../../user/lang/cc.nix
-    ../../user/lang/go.nix
     ../../user/lang/python.nix
-    ../../user/lang/java.nix
-# Shell and CLI imports
-    ../../user/shell/sh.nix
-    ../../user/shell/tmux.nix
+
   ];
 
   # home.packages = with pkgs; [ ];

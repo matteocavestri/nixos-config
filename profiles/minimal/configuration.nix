@@ -1,4 +1,4 @@
-{ pkgs, userSettings, ... }:
+{ pkgs, ... }:
 
 {
 # Shell configuration
@@ -7,13 +7,9 @@
   programs.zsh.enable = true;
 
  imports = [
+# Default import
+  ../../system/config.nix
 # Hardware
-  ../../system/hardware/locale.nix
-  ../../system/hardware/networking.nix
   ../../system/hardware/systemdboot.nix
-  ../../system/hardware-configuration.nix
-# Security
-  ../../system/security/gpg.nix
-  ../../system/security/users.nix
  ]; 
 }
