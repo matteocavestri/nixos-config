@@ -20,6 +20,7 @@
 # Themes
     numix-cursor-theme
     gnome.adwaita-icon-theme
+    adwaita-qt
 # Controls
     brightnessctl
     pamixer
