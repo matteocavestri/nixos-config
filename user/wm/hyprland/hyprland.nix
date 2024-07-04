@@ -10,6 +10,8 @@
     ./wlogout.nix
     ./hyprlock.nix
     ./dunst.nix
+    #./pyprland.nix
+    ./eww/eww.nix
     (import ../../apps/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d"; inherit config lib pkgs;
     })
@@ -51,6 +53,7 @@
       exec-once = blueman-applet
       exec-once = hypridle
       exec-once = sleep 5 && libinput-gestures
+      #exec-once = pypr
     
     # General Settings
       general { 
@@ -127,8 +130,8 @@
       bind = $mainMod, T, exec, $terminal
       bind = $mainMod, Q, killactive,
       bind = $mainMod, M, exit,
-      bind = $mainMod, F, exec, $fileManager
-      bind = $mainMod, V, togglefloating,
+      bind = $mainMod, W, exec, $fileManager
+      bind = $mainMod, F, togglefloating,
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, J, togglesplit, # dwindle
@@ -175,6 +178,10 @@
       #bind = $mainMod, F, exec, pypr toggle ranger && hyprctl dispatch bringactivetotop
       #bind = $mainMod, B, exec, pypr toggle btm && hyprctl dispatch bringactivetotop
       bind=SUPER,I,exec,networkmanager_dmenu
+      #bind = $mainMod,V,exec,pypr toggle volume
+      #bind = $mainMod,A,exec,pypr toggle term
+      #bind = $mainMod,Y,exec,pypr attach
+      #bind = $mainMod, B, exec, pypr expose
     
     # MBP Apple T2 Bindings
       bind = ,XF86MonBrightnessUp, exec, brightnessctl set +10%
@@ -207,7 +214,7 @@
          movefocus_cycles_fullscreen = false
        }
 
-    # Other Setup
+# Other Setup
       #windowrulev2 = suppressevent maximize, class:.*
 
       #master {
@@ -217,7 +224,23 @@
         force_default_wallpaper = 0
         disable_hyprland_logo = true
       }
+
+# Pyprland
+      
+       #$pavucontrol = class:^(pavucontrol)$
+       #windowrulev2 = float,$pavucontrol
+       #windowrulev2 = size 86% 40%,$pavucontrol
+       #windowrulev2 = move 50% 6%,$pavucontrol
+       #windowrulev2 = workspace special silent,$pavucontrol
+       #windowrulev2 = opacity 0.80,$pavucontrol
+       
+       #$scratchpadsize = size 80% 85%
+       
+       #$scratchpad = class:^(scratchpad)$
+       #windowrulev2 = float,$scratchpad
+       #windowrulev2 = $scratchpadsize,$scratchpad
+       #windowrulev2 = workspace special silent,$scratchpad
+       #windowrulev2 = center,$scratchpad
     '';
   };
-
 }

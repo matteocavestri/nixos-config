@@ -1,16 +1,17 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   home.packages = with pkgs; [
 # Hypr
     waybar 
+    eww
     hyprlock
     hyprcursor
     hyprpicker
     hypridle
     hyprpaper
     hyprland-protocols
-    #pyprland
+    inputs.pyprland.packages.${pkgs.system}.pyprland
 # Bar, Notification, Launchers
     wlogout
     dunst
@@ -42,6 +43,8 @@
     alacritty
     kitty
     ranger
+    mpd
+    mpc-cli
 # xdg desktop
     xdg-utils
     xdg-desktop-portal
@@ -60,7 +63,10 @@
     flameshot
 # Services
     pinentry-gtk2
-    
+
+    gobject-introspection
+    glib
+
     tmux
     xorg.xev
     tree

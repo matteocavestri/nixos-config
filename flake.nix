@@ -94,6 +94,8 @@
     
     hyprland.url = "github:hyprwm/Hyprland";
 
+    pyprland.url = "github:hyprland-community/pyprland";
+
     stylix.url = "github:danth/stylix";
 
     firefox-addons = {

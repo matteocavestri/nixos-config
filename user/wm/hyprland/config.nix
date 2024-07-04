@@ -24,4 +24,8 @@
       };
     };
   };
+  
+  #services.mpd = {
+  #  enable = true;
+  #};
 }
