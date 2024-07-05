@@ -1,5 +1,6 @@
-{ pkgs, lib, ... }:
-
+{ pkgs, lib, inputs, ... }:let
+  pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   imports = [
     ../hardware/pipewire.nix
@@ -11,6 +12,8 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    portalPackage = pkgs-hyprland.xdg-desktop-portal-hyprland;
   };
 
   environment.sessionVariables = {
@@ -37,13 +40,11 @@
   };
 
   xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
+  #xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-hyprland ];
 
   environment.systemPackages = with pkgs; [
     polkit_gnome
     xdg-utils
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
     xdg-desktop-portal-hyprland
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];

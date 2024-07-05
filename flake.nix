@@ -55,6 +55,7 @@
         specialArgs = {
           inherit systemSettings;
           inherit userSettings;
+          inherit inputs;
         };
       };
     };
@@ -91,8 +92,19 @@
     
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    
-    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    }; 
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins/3ae670253a5a3ae1e3a3104fb732a8c990a31487";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    hycov.url = "github:DreamMaoMao/hycov/de15cdd6bf2e46cbc69735307f340b57e2ce3dd0";
+    hycov.inputs.hyprland.follows = "hyprland";
+    hyprgrass.url = "github:horriblename/hyprgrass/736119f828eecaed2deaae1d6ff1f50d6dabaaba";
+    hyprgrass.inputs.hyprland.follows = "hyprland";
 
     pyprland.url = "github:hyprland-community/pyprland";
 

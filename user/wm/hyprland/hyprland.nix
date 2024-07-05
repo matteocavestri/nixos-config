@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 {
   imports = [
@@ -12,6 +12,7 @@
     ./dunst.nix
     #./pyprland.nix
     ./eww/eww.nix
+    ../../apps/nh/nh.nix
     (import ../../apps/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d"; inherit config lib pkgs;
     })
@@ -21,7 +22,12 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    plugins = [ ];
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    plugins = [ 
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      inputs.hycov.packages.${pkgs.system}.hycov
+      inputs.hyprgrass.packages.${pkgs.system}.default
+    ];
     settings = { };
     xwayland = { enable = true; };
     systemd.enable = true;
@@ -122,6 +128,7 @@
     # Gesture Settings
       gestures {
         workspace_swipe = true
+        workspace_swipe_cancel_ratio = 0.15
       }
 
     # Bindings
@@ -182,6 +189,12 @@
       #bind = $mainMod,A,exec,pypr toggle term
       #bind = $mainMod,Y,exec,pypr attach
       #bind = $mainMod, B, exec, pypr expose
+      bind = SUPER, N, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
+      bind=SUPER,TAB,hycov:toggleoverview
+      bind=SUPER,left,hycov:movefocus,leftcross
+      bind=SUPER,right,hycov:movefocus,rightcross
+      bind=SUPER,up,hycov:movefocus,upcross
+      bind=SUPER,down,hycov:movefocus,downcross
     
     # MBP Apple T2 Bindings
       bind = ,XF86MonBrightnessUp, exec, brightnessctl set +10%
@@ -216,13 +229,74 @@
 
 # Other Setup
       #windowrulev2 = suppressevent maximize, class:.*
-
-      #master {
-      #  new_is_master = true
-      #}
       misc { 
         force_default_wallpaper = 0
         disable_hyprland_logo = true
+      }
+
+# Plugins
+      plugin {
+        hyprexpo {
+          columns = 3
+          gap_size = 5
+          bg_col = rgba(''+config.lib.stylix.colors.base08+''55)
+          workspace_method = center first # [center/first] [workspace] e.g. first 1 or center m+1
+          enable_gesture = false # laptop touchpad
+          gesture_fingers = 3  # 3 or 4
+          gesture_distance = 300 # how far is the "max"
+          gesture_positive = false # positive = swipe down. Negative = swipe up.
+        }
+        hyprtrails {
+          color = rgba(''+config.lib.stylix.colors.base08+''55)
+        }
+        hycov {
+          overview_gappo = 40 # gaps width from screen edge
+          overview_gappi = 20 # gaps width from clients
+          enable_hotarea = 0 # enable mouse cursor hotarea, when cursor enter hotarea, it will toggle overview
+          enable_click_action = 1 # enable mouse left button jump and right button kill in overview mode
+          hotarea_monitor = all # monitor name which hotarea is in, default is all
+          hotarea_pos = 1 # position of hotarea (1: bottom left, 2: bottom right, 3: top left, 4: top right)
+          hotarea_size = 10 # hotarea size, 10x10
+          swipe_fingers = 3 # finger number of gesture,move any directory
+          move_focus_distance = 100 # distance for movefocus,only can use 3 finger to move
+          enable_gesture = 0 # enable gesture
+          auto_exit = 1 # enable auto exit when no client in overview
+          auto_fullscreen = 0 # auto make active window maximize after exit overview
+          only_active_workspace = 0 # only overview the active workspace
+          only_active_monitor = 0 # only overview the active monitor
+          enable_alt_release_exit = 0 # alt swith mode arg,see readme for detail
+          alt_replace_key = Super_L # alt swith mode arg,see readme for detail
+          alt_toggle_auto_next = 0 # auto focus next window when toggle overview in alt swith mode
+          click_in_cursor = 1 # when click to jump,the target windwo is find by cursor, not the current foucus window.
+          hight_of_titlebar = 0 # height deviation of title bar height
+          show_special = 0 # show windwos in special workspace in overview.
+
+        }
+        touch_gestures {
+          sensitivity = 4.0
+          long_press_delay = 260
+          workspace_swipe_fingers = 3
+          #hyprgrass-bind = , edge:r:l, exec, hyprnome
+          #hyprgrass-bind = , edge:l:r, exec, hyprnome --previous
+          #hyprgrass-bind = , swipe:3:d, exec, nwggrid-wrapper
+
+          hyprgrass-bind = , swipe:3:u, hycov:toggleoverview
+          #hyprgrass-bind = , swipe:3:d, exec, nwggrid-wrapper
+
+          #hyprgrass-bind = , swipe:3:l, exec, hyprnome --previous
+          #hyprgrass-bind = , swipe:3:r, exec, hyprnome
+
+          #hyprgrass-bind = , swipe:4:u, movewindow,u
+          #hyprgrass-bind = , swipe:4:d, movewindow,d
+          hyprgrass-bind = , swipe:3:l, movewindow,l
+          hyprgrass-bind = , swipe:3:r, movewindow,r
+
+          #hyprgrass-bind = , tap:3, fullscreen,1
+          #hyprgrass-bind = , tap:4, fullscreen,0
+
+          #hyprgrass-bindm = , longpress:2, movewindow
+          #hyprgrass-bindm = , longpress:3, resizewindow
+         }
       }
 
 # Pyprland

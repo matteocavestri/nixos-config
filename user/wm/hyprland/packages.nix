@@ -20,7 +20,7 @@
     rofi
 # Themes
     numix-cursor-theme
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
     adwaita-qt
 # Controls
     brightnessctl
@@ -31,15 +31,15 @@
     blueman
     wl-clipboard
 # Programs
-    gnome.nautilus
-    gnome.gnome-calendar
+    nautilus
+    gnome-calendar
     endeavour
     iotas
-    gnome.gnome-calculator
+    gnome-calculator
     gnome-connections
     evince
     gnome.gnome-software
-    gnome.eog
+    eog
     alacritty
     kitty
     ranger
@@ -71,7 +71,7 @@
     xorg.xev
     tree
     libva-utils
-    gnome.zenity
+    zenity
     wlr-randr
     wtype
     ydotool
