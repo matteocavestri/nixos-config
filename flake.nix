@@ -71,24 +71,21 @@
       };
     };
   };
-# -------------------------------------------------------------------
-  nixConfig = {
-    extra-substituters = [
-      # "https://hydra.soopy.moe"
-      "https://cache.soopy.moe" # toggle these if this one doesn't work.
-    ];
-    extra-trusted-public-keys =
-      [ "hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q=" ];
-  };
-# -------------------------------------------------------------------
+
+# -------------------Inputs -----------------------------------------
   inputs = {
+# ------------------ NixOS Hardware ---------------------------------
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+# ------------------ NixPkgs ----------------------------------------
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs.url = "nixpkgs/nixos-24.05";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    
+    nurpkgs.url = "github:nix-community/NUR";
+
+# ------------------ Home Manager ----------------------------------- 
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+# ------------------ Hyprland ---------------------------------------
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -101,21 +98,31 @@
     hycov.inputs.hyprland.follows = "hyprland";
     hyprgrass.url = "github:horriblename/hyprgrass/736119f828eecaed2deaae1d6ff1f50d6dabaaba";
     hyprgrass.inputs.hyprland.follows = "hyprland";
-
+# ------------------ Pyprland ----------------------------------------
     pyprland.url = "github:hyprland-community/pyprland";
 
+# ------------------ Stylix ------------------------------------------
     stylix.url = "github:danth/stylix";
 
+# ------------------ Firefox Addons ----------------------------------
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+# ------------------ Nixvim ------------------------------------------
     nixvim.url = "github:nix-community/nixvim";
-
+# ------------------ Neve --------------------------------------------
     neve.url = "github:matteocavestri/Neve";
+  };
 
-    nurpkgs.url = "github:nix-community/NUR";
-
+# ------------------ NixOS Config ------------------------------------
+  nixConfig = {
+    extra-substituters = [
+      # "https://hydra.soopy.moe"
+      "https://cache.soopy.moe" # toggle these if this one doesn't work.
+    ];
+    extra-trusted-public-keys =
+      [ "hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q=" ];
   };
 }

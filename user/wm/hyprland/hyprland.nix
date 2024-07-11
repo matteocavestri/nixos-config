@@ -60,6 +60,7 @@
       exec-once = hypridle
       exec-once = sleep 5 && libinput-gestures
       #exec-once = pypr
+      #exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     
     # General Settings
       general { 

@@ -8,7 +8,7 @@
       libvdpau-va-gl
       intel-media-driver
       intel-ocl
-      #mesa
+      libGLU
     ];
   };
   environment.variables = {

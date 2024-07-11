@@ -58,12 +58,10 @@
     gnome.gvfs
     flameshot
 # Services
-    pinentry-gtk2
 
     gobject-introspection
     glib
 
-    tmux
     xorg.xev
     tree
     libva-utils

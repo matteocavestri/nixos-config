@@ -2,7 +2,6 @@
 
 {
   home.packages = with pkgs; [
-      # CC
       gcc
       gnumake
       cmake
@@ -11,11 +10,6 @@
       libtool
       cmake
       gnupatch
-      # astyle
-      # cpplint
       clang-tools
-
-
-      libGLU
   ];
 }

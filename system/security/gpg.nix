@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
 # gnupg
@@ -7,4 +7,8 @@
     enable = true;
      enableSSHSupport = true;
   };
+  environment.systemPackages = with pkgs; [
+     gnupg
+    pinentry-gtk2
+  ];
 }

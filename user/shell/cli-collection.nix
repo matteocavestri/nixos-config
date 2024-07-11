@@ -3,7 +3,10 @@
   # Collection of useful CLI apps
   home.packages = with pkgs; [
     # Command Line
-    disfetch lolcat cowsay
+    disfetch 
+    lolcat 
+    cowsay
+    onefetch
     starfetch
     cava
     killall
@@ -11,7 +14,13 @@
     timer
     brightnessctl
     gnugrep
-    bat eza fd bottom ripgrep
+    gnused
+    bat 
+    eza 
+    fd 
+    bc
+    bottom 
+    ripgrep
     fzf
     tree-sitter
     rsync
@@ -23,7 +32,9 @@
     numbat
     pass
     wl-clipboard-x11
-    #(pkgs.callPackage ../pkgs/pokemon-colorscripts.nix { })
+    direnv
+    nix-direnv
+    tmux
     (pkgs.writeShellScriptBin "airplane-mode" ''
       #!/bin/sh
       connectivity="$(nmcli n connectivity)"

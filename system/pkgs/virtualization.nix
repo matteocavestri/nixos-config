@@ -9,6 +9,6 @@
     ];
     enable = true;
     qemu.runAsRoot = false;
-    #users.users.${userSettings.username}.extraGroups = [ "kvm" ];
   };
+  users.users.${userSettings.username}.extraGroups = [ "kvm" ];
 }

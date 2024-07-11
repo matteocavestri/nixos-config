@@ -1,7 +1,6 @@
 { pkgs, ... }:
 
 {
-  # Feral GameMode
   environment.systemPackages = with pkgs; [ 
     gamemode 
     steam

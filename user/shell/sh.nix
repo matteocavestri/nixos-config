@@ -14,6 +14,9 @@ let
   };
 in
 {
+  imports = [
+    ./cli-collection.nix
+  ];
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -33,13 +36,6 @@ in
     enableCompletion = true;
     shellAliases = myAliases;
   };
-
-  home.packages = with pkgs; [
-    disfetch lolcat cowsay onefetch
-    gnugrep gnused
-    bat eza bottom fd bc
-    direnv nix-direnv fzf
-  ];
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
