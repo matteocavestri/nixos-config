@@ -1,12 +1,13 @@
-{ pkgs, userSettings, ... }:
+{ pkgs, inputs, ... }:
 
 {
   system.stateVersion = "24.05";
 # System Packages
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    git
+  environment.systemPackages = [
+    pkgs.vim
+    pkgs.wget
+    pkgs.git
+    inputs.cave.packages.${pkgs.system}.cave
   ];
 }

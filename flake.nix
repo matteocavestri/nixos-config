@@ -114,6 +114,9 @@
     nixvim.url = "github:nix-community/nixvim";
 # ------------------ Neve --------------------------------------------
     neve.url = "github:matteocavestri/Neve";
+
+# ------------------ Cave --------------------------------------------
+    cave.url = "github:matteocavestri/cave";
   };
 
 # ------------------ NixOS Config ------------------------------------
