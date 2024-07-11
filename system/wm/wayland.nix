@@ -2,7 +2,7 @@
 
 {
   imports = [ ../hardware/pipewire.nix
-              ./fonts.nix
+              ../config/fonts.nix
             ];
 # Configure wayland
   environment.systemPackages = with pkgs;

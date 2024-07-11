@@ -2,6 +2,6 @@
 
 {
   hardware = {
-    graphics.enable = true;
+    opengl.enable = true;
   };
 }

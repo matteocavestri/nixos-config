@@ -2,8 +2,8 @@
 
 {
   hardware = {
-    graphics.enable = true;
-    graphics.extraPackages = with pkgs; [
+    opengl.enable = true;
+    opengl.extraPackages = with pkgs; [
       (if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11") then vaapiIntel else intel-vaapi-driver)
       libvdpau-va-gl
       intel-media-driver
@@ -12,6 +12,6 @@
     ];
   };
   environment.variables = {
-    VDPAU_DRIVER = lib.mkIf config.hardware.graphics.enable (lib.mkDefault "va_gl");
+    VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
   };
 }

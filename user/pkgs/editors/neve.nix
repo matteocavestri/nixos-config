@@ -13,7 +13,7 @@
 # LSPs
     pkgs.sumneko-lua-language-server# Lua
     pkgs.java-language-server # Java
-    pkgs.bash-language-server # Bash
+    #pkgs.bash-language-server # Bash
     pkgs.gopls # Go
     pkgs.dockerfile-language-server-nodejs # Dockerfile
     pkgs.docker-compose-language-service # Docker Compose

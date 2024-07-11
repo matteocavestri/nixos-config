@@ -12,8 +12,8 @@
     ./dunst.nix
     #./pyprland.nix
     ./eww/eww.nix
-    ../../apps/nh/nh.nix
-    (import ../../apps/dmenu-scripts/networkmanager-dmenu.nix {
+    ../../pkgs/nh/nh.nix
+    (import ../../pkgs/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d"; inherit config lib pkgs;
     })
     ../../style/stylix.nix

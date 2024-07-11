@@ -20,7 +20,7 @@
     rofi
 # Themes
     numix-cursor-theme
-    adwaita-icon-theme
+    #adwaita-icon-theme
     adwaita-qt
 # Controls
     brightnessctl
@@ -31,15 +31,15 @@
     blueman
     wl-clipboard
 # Programs
-    nautilus
-    gnome-calendar
+    gnome.nautilus
+    gnome.gnome-calendar
     endeavour
     iotas
-    gnome-calculator
+    gnome.gnome-calculator
     gnome-connections
     evince
     gnome.gnome-software
-    eog
+    gnome.eog
     alacritty
     kitty
     ranger
@@ -47,10 +47,6 @@
     mpc-cli
 # xdg desktop
     xdg-utils
-    xdg-desktop-portal
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-wlr
-    xdg-desktop-portal-hyprland
     gsettings-desktop-schemas
 # Wayland
     libsForQt5.qt5.qtwayland
@@ -71,7 +67,7 @@
     xorg.xev
     tree
     libva-utils
-    zenity
+    gnome.zenity
     wlr-randr
     wtype
     ydotool

@@ -1,6 +1,6 @@
 {
 
-  outputs = { nixpkgs, nixos-hardware, self, home-manager, stylix, ... }@inputs: 
+  outputs = { nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, stylix, self, ... }@inputs: 
     let
 # -------------------- SYSTEM SETTINGS ------------------------------
       systemSettings = {
@@ -9,8 +9,9 @@
         timezone = "Europe/Rome"; # Timezone config
         locale = "it_IT.UTF-8"; # Locale config
         keymap = "it"; # Global keymap (Fix hyprland)
-        profile = "apple-t2"; # only apple-t2
-        hardware ="apple-t2"; # TODO
+        profile = "personal"; # only personal
+        hardware = "mbp-16-2"; # your hardware config
+        nixhw = "apple-t2"; # Your Nixos hardware
       };
 # -------------------- USER SETTINGS --------------------------------
       userSettings = {
@@ -30,25 +31,17 @@
         browser = "firefox"; # TODO
         dotfilesDir = ".dotfiles";
         editor = "nvim";
-        #spawnEditor = if (editor == "emacsclient") then
-        #              "emacsclient -c -a 'emacs'"
-        #            else
-        #              (if ((editor == "vim") ||
-        #                   (editor == "nvim") ||
-        #                   (editor == "nano")) then
-        #                     "exec " + term + " -e " + editor
-        #               else
-        #                 editor);
       };
 # -------------------------------------------------------------------
       lib = nixpkgs.lib;
       pkgs = import nixpkgs { system = systemSettings.system; };
+      pkgs-unstable = import nixpkgs-unstable { system = systemSettings.system; };
     in {
 # -------------------- NixOS Configuration --------------------------
     nixosConfigurations = {
       ${systemSettings.hostname} = lib.nixosSystem {
         modules = [
-          nixos-hardware.nixosModules.${systemSettings.hardware}
+          nixos-hardware.nixosModules.${systemSettings.nixhw}
           inputs.stylix.nixosModules.stylix
           (./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")
         ];
@@ -56,6 +49,7 @@
           inherit systemSettings;
           inherit userSettings;
           inherit inputs;
+          inherit pkgs-unstable;
         };
       };
     };
@@ -72,6 +66,7 @@
           inherit userSettings;
           inherit systemSettings;
           inherit inputs;
+          inherit pkgs-unstable;
         };
       };
     };
@@ -87,10 +82,11 @@
   };
 # -------------------------------------------------------------------
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-24.05";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     
-    home-manager.url = "github:nix-community/home-manager/master";
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     hyprland = {

@@ -1,6 +1,16 @@
 { pkgs, ... }:
 let substituters = [ "https://cache.soopy.moe" ];
 in {
+  imports = [
+    ./hardware-configuration.nix
+    ../../system/driver/intelgpu.nix
+    ../../system/hardware/bluetooth.nix
+    ../../system/hardware/locale.nix
+    ../../system/hardware/networking.nix
+    ../../system/hardware/pipewire.nix
+    ../../system/hardware/systemdboot.nix
+    ../../system/hardware/touchpad.nix
+  ];
 # Nix settings
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" "repl-flake" ];

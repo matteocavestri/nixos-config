@@ -5,7 +5,7 @@ in
   imports = [
     ../hardware/pipewire.nix
     ./wayland.nix
-    ./fonts.nix
+    ../config/fonts.nix
     ../style/stylix.nix
   ];
 
@@ -44,8 +44,6 @@ in
 
   environment.systemPackages = with pkgs; [
     polkit_gnome
-    xdg-utils
-    xdg-desktop-portal-hyprland
   ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 }
