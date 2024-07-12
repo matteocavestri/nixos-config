@@ -21,12 +21,6 @@ in {
       [ "hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q=" ];
   };
 
-# Use the systemd-boot EFI boot loader.
-  boot.loader = {
-    efi.efiSysMountPoint = "/boot";
-    systemd-boot.enable = true;
-  };
-
 # Apple T2 WiFi Firmware
   hardware.firmware = [
     (pkgs.stdenv.mkDerivation (final: {

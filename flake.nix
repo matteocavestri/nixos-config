@@ -19,7 +19,6 @@
         name = "Matteo Cavestri"; # For git config
         email = "matteo.cavestri@protonmail.ch"; # For git config
         wm = "hyprland"; # gnome / hyprland / cinnamon
-        wmType = "wayland";
         theme = "everforest"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
@@ -115,6 +114,9 @@
 
 # ------------------ Cave --------------------------------------------
     cave.url = "github:matteocavestri/cave";
+
+# ------------------ Ags ---------------------------------------------
+    ags.url = "github:Aylur/ags";
   };
 
 # ------------------ NixOS Config ------------------------------------

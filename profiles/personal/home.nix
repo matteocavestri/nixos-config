@@ -30,6 +30,7 @@
     ../../user/pkgs/basepkgs/media.nix # Media pkgs
     ../../user/pkgs/basepkgs/productivity.nix # Productivity pkgs
     ../../user/pkgs/basepkgs/tools.nix # tools pkgs
+    ../../user/pkgs/graphics/graphics.nix
     (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # Window manager import
 
     ../../user/lang/cc.nix

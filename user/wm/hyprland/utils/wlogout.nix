@@ -68,19 +68,19 @@
       }
 
       #logout {
-        background-image: url("'' + ../../style/arrow-right-from-bracket-solid.svg + ''");
+        background-image: url("'' + ../../../style/arrow-right-from-bracket-solid.svg + ''");
       }
 
       #shutdown {
-        background-image: url("'' + ../../style/power-off-solid.svg + ''");
+        background-image: url("'' + ../../../style/power-off-solid.svg + ''");
       }
 
       #reboot {
-        background-image: url("'' + ../../style/rotate-right-solid.svg + ''");
+        background-image: url("'' + ../../../style/rotate-right-solid.svg + ''");
       }
 
       #lock {
-        background-image: url("'' + ../../style/lock-solid.svg + ''");
+        background-image: url("'' + ../../../style/lock-solid.svg + ''");
       }
     '';
   };

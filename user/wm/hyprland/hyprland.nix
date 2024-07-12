@@ -2,16 +2,17 @@
 
 {
   imports = [
-    ./config.nix
-    ./packages.nix
-    ./hypridle.nix
-    ./fuzzel.nix
-    ./waybar.nix
-    ./wlogout.nix
-    ./hyprlock.nix
-    ./dunst.nix
+    ./hypr/config.nix
+    ./hypr/packages.nix
+    ./hypr/hypridle.nix
+    ./utils/fuzzel.nix
+    ./utils/waybar.nix
+    ./utils/wlogout.nix
+    ./hypr/hyprlock.nix
+    ./utils/dunst.nix
     #./pyprland.nix
-    ./eww/eww.nix
+    #./eww/eww.nix
+    ./ags/ags.nix
     ../../pkgs/nh/nh.nix
     (import ../../pkgs/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d"; inherit config lib pkgs;

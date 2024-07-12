@@ -11,10 +11,6 @@
       intel-media-driver
       intel-ocl
       libGLU
-      nvtopPackages.intel
-      clinfo
-      libva-utils
-      vulkan-tools
     ];
   };
   environment.variables = {
