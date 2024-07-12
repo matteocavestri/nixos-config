@@ -3,12 +3,18 @@
 {
   hardware = {
     opengl.enable = true;
+    opengl.driSupport = true;
+    opengl.driSupport32Bit = true;
     opengl.extraPackages = with pkgs; [
       (if (lib.versionOlder (lib.versions.majorMinor lib.version) "23.11") then vaapiIntel else intel-vaapi-driver)
       libvdpau-va-gl
       intel-media-driver
       intel-ocl
       libGLU
+      nvtopPackages.intel
+      clinfo
+      libva-utils
+      vulkan-tools
     ];
   };
   environment.variables = {

@@ -1,9 +1,6 @@
 { inputs, pkgs, ... }:
 
 {
- # imports = [
- #   ./neve/default.nix
- # ];
   home.packages = [
 # Neve editor
     inputs.neve.packages.${pkgs.system}.default # Neve editor

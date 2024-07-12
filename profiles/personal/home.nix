@@ -22,9 +22,10 @@
     ../../user/pkgs/nh/nh.nix # nh (nixos/homemanager) config
     ../../user/pkgs/terminal/kitty.nix # Kitty config
     ../../user/pkgs/terminal/alacritty.nix # Alacritty config
+    ../../user/pkgs/lf/lf.nix
     ../../user/pkgs/virtualization/virtualization.nix # Virtualization config
     ../../user/pkgs/editors/neve.nix # Neve editor import
-    #../../user/pkgs/editors/neovim.nix # Neovim custom config import
+    ../../user/pkgs/gaming/gaming.nix
     ../../user/pkgs/basepkgs/engineering.nix # Engineering pkgs
     ../../user/pkgs/basepkgs/media.nix # Media pkgs
     ../../user/pkgs/basepkgs/productivity.nix # Productivity pkgs

@@ -4,10 +4,13 @@
   environment.systemPackages = with pkgs; [ 
     gamemode 
     steam
-    prismlauncher
     gamescope
-    mangohud
   ];
-  programs.gamemode.enable = true;
-  programs.steam.enable = true;
+  programs = {
+    gamemode.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+  };
 }
