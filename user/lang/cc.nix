@@ -3,11 +3,5 @@
     gcc
     gnumake
     cmake
-    autoconf
-    automake
-    libtool
-    cmake
-    gnupatch
-    clang-tools
   ];
 }
