@@ -1,14 +1,12 @@
-{ pkgs, ... }:
-
-{
-# gnupg
+{pkgs, ...}: {
+  # gnupg
   services.pcscd.enable = true;
   programs.gnupg.agent = {
     enable = true;
-     enableSSHSupport = true;
+    enableSSHSupport = true;
   };
   environment.systemPackages = with pkgs; [
-     gnupg
+    gnupg
     pinentry-gtk2
   ];
 }

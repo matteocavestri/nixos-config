@@ -1,8 +1,10 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   system.stateVersion = "24.05";
-# System Packages
+  # System Packages
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = [
     pkgs.vim

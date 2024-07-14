@@ -1,7 +1,10 @@
-{ pkgs, lib, home-manager, ... }:
-
 {
-  home.packages = [ pkgs.alacritty ];
+  pkgs,
+  lib,
+  home-manager,
+  ...
+}: {
+  home.packages = [pkgs.alacritty];
 
   programs.alacritty.enable = true;
   programs.alacritty.settings = {

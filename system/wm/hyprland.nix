@@ -1,7 +1,11 @@
-{ pkgs, lib, inputs, ... }:let
-  pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in
 {
+  pkgs,
+  lib,
+  inputs,
+  ...
+}: let
+  pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
   imports = [
     ../hardware/pipewire.nix
     ./wayland.nix
@@ -21,7 +25,7 @@ in
     NIXOS_OZONE_WL = "1";
     QT_QPA_PLATFORM = "wayland";
     GDK_BACKEND = "wayland";
-    XDG_CURRENT_DESKTOP= "Hyprland";
+    XDG_CURRENT_DESKTOP = "Hyprland";
   };
 
   security = {
@@ -32,9 +36,9 @@ in
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
       description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
+      wantedBy = ["graphical-session.target"];
+      wants = ["graphical-session.target"];
+      after = ["graphical-session.target"];
       serviceConfig = {
         Type = "simple";
         ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -51,12 +55,12 @@ in
   #};
 
   environment = {
-    plasma5.excludePackages = [ pkgs.kdePackages.systemsettings ];
-    plasma6.excludePackages = [ pkgs.kdePackages.systemsettings ];
+    plasma5.excludePackages = [pkgs.kdePackages.systemsettings];
+    plasma6.excludePackages = [pkgs.kdePackages.systemsettings];
   };
 
   xdg.portal.enable = true;
 
-  environment.systemPackages = with pkgs; [  ];
-  services.xserver.excludePackages = [ pkgs.xterm ];
+  environment.systemPackages = with pkgs; [];
+  services.xserver.excludePackages = [pkgs.xterm];
 }

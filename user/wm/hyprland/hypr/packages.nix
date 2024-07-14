@@ -1,9 +1,11 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
-# Hypr
-    waybar 
+    # Hypr
+    waybar
     eww
     hyprlock
     hyprcursor
@@ -12,17 +14,16 @@
     hyprpaper
     hyprland-protocols
     inputs.pyprland.packages.${pkgs.system}.pyprland
-# Bar, Notification, Launchers
+    # Bar, Notification, Launchers
     wlogout
     dunst
     libnotify
     fuzzel
-    rofi
-# Themes
+    # Themes
     numix-cursor-theme
     gnome.adwaita-icon-theme
     adwaita-qt
-# Controls
+    # Controls
     brightnessctl
     pamixer
     grim
@@ -30,7 +31,7 @@
     killall
     blueman
     wl-clipboard
-# Programs
+    # Programs
     gnome.nautilus
     gnome.gnome-calendar
     endeavour
@@ -40,16 +41,18 @@
     evince
     gnome.gnome-software
     gnome.eog
-# xdg desktop
+    # xdg desktop
     xdg-utils
     gsettings-desktop-schemas
-# Wayland
+    # Wayland
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
-# Utility
+    # Utility
     killall
     libinput-gestures
-# Services
+    pavucontrol
+    playerctl
+    # Services
     gnome.zenity
     wlr-randr
     wtype
@@ -58,5 +61,6 @@
     keepmenu
     wev
     wlsunset
-  ]; 
+    zed-editor
+  ];
 }

@@ -1,24 +1,29 @@
-{ config, pkgs, systemSettings, ... }:
-
 {
-  imports = [ ../hardware/pipewire.nix
-              ../config/fonts.nix
-            ];
-# Configure wayland
-  environment.systemPackages = with pkgs;
-    [ wayland
-      (sddm-chili-theme.override {
-        themeConfig = {
-          background = config.stylix.image;
-          ScreenWidth = 2560;
-          ScreenHeight = 1600;
-          blur = true;
-          recursiveBlurLoops = 3;
-          recursiveBlurRadius = 5;
-        };})
-    ];
+  config,
+  pkgs,
+  systemSettings,
+  ...
+}: {
+  imports = [
+    ../hardware/pipewire.nix
+    ../config/fonts.nix
+  ];
+  # Configure wayland
+  environment.systemPackages = with pkgs; [
+    wayland
+    (sddm-chili-theme.override {
+      themeConfig = {
+        background = config.stylix.image;
+        ScreenWidth = 2560;
+        ScreenHeight = 1600;
+        blur = true;
+        recursiveBlurLoops = 3;
+        recursiveBlurRadius = 5;
+      };
+    })
+  ];
 
-# Configure xwayland
+  # Configure xwayland
   services.xserver = {
     enable = true;
     xkb = {
@@ -28,7 +33,7 @@
     };
   };
 
-# Configure display display manager
+  # Configure display display manager
   services.displayManager = {
     sddm = {
       enable = true;
@@ -39,17 +44,17 @@
     };
   };
 
-# Configure dbus
+  # Configure dbus
   services.dbus = {
     enable = true;
-    packages = [ pkgs.dconf ];
+    packages = [pkgs.dconf];
   };
 
   programs.dconf = {
     enable = true;
   };
 
-# Configure Gnome keyring
+  # Configure Gnome keyring
   services.gnome = {
     gnome-keyring.enable = true;
   };

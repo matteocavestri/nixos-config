@@ -1,9 +1,12 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services.xserver.desktopManager.cde.enable = true;
   services.xserver.desktopManager.cde.extraPackages = with pkgs;
-    options.services.xserver.desktopManager.cde.extraPackages.default ++ [
-      fsv cde-icons cde-gtk-theme cde-battery
+    options.services.xserver.desktopManager.cde.extraPackages.default
+    ++ [
+      fsv
+      cde-icons
+      cde-gtk-theme
+      cde-battery
     ];
   environment.etc."xdg/gtk-2.0/gtkrc".text = ''
     gtk-theme-name="cdetheme"

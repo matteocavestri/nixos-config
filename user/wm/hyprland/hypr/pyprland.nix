@@ -1,7 +1,5 @@
-{ ... }:
-
-{
-    home.file.".config/hypr/pyprland.toml".text = ''
+{...}: {
+  home.file.".config/hypr/pyprland.toml".text = ''
     [pyprland]
     plugins = ["expose"]
 

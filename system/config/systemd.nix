@@ -1,5 +1,4 @@
-{ pkgs, ... }:
- {
+{pkgs, ...}: {
   systemd = {
     tmpfiles = {
       rules = [
@@ -8,4 +7,4 @@
       ];
     };
   };
- }
+}

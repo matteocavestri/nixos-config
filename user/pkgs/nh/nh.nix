@@ -1,5 +1,9 @@
-{ config, pkgs, userSettings, ... }:
 {
+  config,
+  pkgs,
+  userSettings,
+  ...
+}: {
   home.packages = with pkgs; [
     nh
   ];

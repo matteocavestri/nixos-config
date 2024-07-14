@@ -1,8 +1,10 @@
-{ pkgs, userSettings, ... }:
-
 {
+  pkgs,
+  userSettings,
+  ...
+}: {
   home.username = userSettings.username;
-  home.homeDirectory = "/home/"+userSettings.username;
+  home.homeDirectory = "/home/" + userSettings.username;
 
   home.stateVersion = "24.05";
 
@@ -13,10 +15,10 @@
     TERM = userSettings.term;
     BROWSER = userSettings.browser;
   };
-  
-  imports = [ 
+
+  imports = [
     ../../user/shell/sh.nix # Shell config
-    (./. + "../../../user/pkgs/browsers"+ ("/"+userSettings.browser)+".nix") # Browser definition
+    (./. + "../../../user/pkgs/browsers" + ("/" + userSettings.browser) + ".nix") # Browser definition
     ../../user/pkgs/flatpak/flatpak.nix # Flatpak config
     ../../user/pkgs/git/git.nix # Git config
     ../../user/pkgs/nh/nh.nix # nh (nixos/homemanager) config
@@ -24,14 +26,14 @@
     ../../user/pkgs/terminal/alacritty.nix # Alacritty config
     ../../user/pkgs/lf/lf.nix
     ../../user/pkgs/virtualization/virtualization.nix # Virtualization config
-    ../../user/pkgs/editors/neve.nix # Neve editor import
+    ../../user/pkgs/editors/nevica.nix # Nevica editor import
     ../../user/pkgs/gaming/gaming.nix
     ../../user/pkgs/basepkgs/engineering.nix # Engineering pkgs
     ../../user/pkgs/basepkgs/media.nix # Media pkgs
     ../../user/pkgs/basepkgs/productivity.nix # Productivity pkgs
     ../../user/pkgs/basepkgs/tools.nix # tools pkgs
     ../../user/pkgs/graphics/graphics.nix
-    (./. + "../../../user/wm"+("/"+userSettings.wm+"/"+userSettings.wm)+".nix") # Window manager import
+    (./. + "../../../user/wm" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
 
     ../../user/lang/cc.nix
     ../../user/lang/go.nix

@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-let substituters = [ "https://cache.soopy.moe" ];
+{pkgs, ...}: let
+  substituters = ["https://cache.soopy.moe"];
 in {
   imports = [
     ./hardware-configuration.nix
@@ -11,17 +11,16 @@ in {
     ../../system/hardware/systemdboot.nix
     ../../system/hardware/touchpad.nix
   ];
-# Nix settings
+  # Nix settings
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+    experimental-features = ["nix-command" "flakes" "repl-flake"];
 
     inherit substituters;
     trusted-substituters = substituters;
-    trusted-public-keys =
-      [ "hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q=" ];
+    trusted-public-keys = ["hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q="];
   };
 
-# Apple T2 WiFi Firmware
+  # Apple T2 WiFi Firmware
   hardware.firmware = [
     (pkgs.stdenv.mkDerivation (final: {
       name = "brcm-firmware";

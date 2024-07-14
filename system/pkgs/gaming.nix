@@ -1,9 +1,9 @@
-{ pkgs, ... }:
-
-{
-  environment.systemPackages = with pkgs; [ 
-    gamemode 
+{pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    gamemode
     steam
+    steamPackages.steam-runtime
+    steam-run
     gamescope
   ];
   programs = {
@@ -11,6 +11,8 @@
     steam = {
       enable = true;
       gamescopeSession.enable = true;
+      remotePlay.openFirewall = true;
+      localNetworkGameTransfers.openFirewall = true;
     };
   };
 }

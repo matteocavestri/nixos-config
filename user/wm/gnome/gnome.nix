@@ -1,6 +1,8 @@
-{ pkgs, userSettings, ... }:
-
 {
+  pkgs,
+  userSettings,
+  ...
+}: {
   home.packages = with pkgs; [
     gnome.gnome-tweaks
     gnomeExtensions.blur-my-shell
@@ -8,12 +10,12 @@
     gnomeExtensions.user-themes
   ];
   dconf.settings = {
-  #   "org/gnome/shell" = {
-  #    disable-user-extensions = false;
-  #    enabled-extensions = [
-  #      "user-theme@gnome-shell-extensions.gcampax.github.com"
-  #      "dash-to-dock@micxgx.gmail.com"
-  #    ];
-  #  };
+    #   "org/gnome/shell" = {
+    #    disable-user-extensions = false;
+    #    enabled-extensions = [
+    #      "user-theme@gnome-shell-extensions.gcampax.github.com"
+    #      "dash-to-dock@micxgx.gmail.com"
+    #    ];
+    #  };
   };
 }

@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   # Collection of useful CLI apps
   home.packages = with pkgs; [
     # Command Line
-    disfetch 
-    lolcat 
+    disfetch
+    lolcat
     cowsay
     onefetch
     starfetch
@@ -15,11 +14,11 @@
     brightnessctl
     gnugrep
     gnused
-    bat 
-    eza 
-    fd 
+    bat
+    eza
+    fd
     bc
-    bottom 
+    bottom
     ripgrep
     fzf
     tree-sitter

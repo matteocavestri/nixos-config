@@ -1,8 +1,6 @@
-{ userSettings, ... }:
-
-{
+{userSettings, ...}: {
   gtk.cursorTheme = {
-    package = userSettings.cursorPkg; 
+    package = userSettings.cursorPkg;
     name = userSettings.cursor;
     size = 24;
   };
@@ -24,7 +22,7 @@
       };
     };
   };
-  
+
   #services.mpd = {
   #  enable = true;
   #};

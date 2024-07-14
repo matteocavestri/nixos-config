@@ -1,6 +1,10 @@
-{ pkgs, userSettings, systemSettings, inputs, ... }:
-
 {
+  pkgs,
+  userSettings,
+  systemSettings,
+  inputs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
@@ -32,7 +36,7 @@
         proton-vpn
         darkreader
         ff2mpv
-      #  # auto-accepts cookies, use only with privacy-badger & ublock-origin
+        #  # auto-accepts cookies, use only with privacy-badger & ublock-origin
         i-dont-care-about-cookies
         link-cleaner
         privacy-badger
@@ -59,15 +63,17 @@
         "widget.gtk.ignore-bogus-leave-notify" = 1;
         "browser.search.defaultenginename" = "DuckDuckGo";
         "browser.search.order.1" = "DuckDuckGo";
-        "browser.newtabpage.pinned" = [{
-          title = "NixOS";
-          url = "https://nixos.org";
-        }];
-      }; 
+        "browser.newtabpage.pinned" = [
+          {
+            title = "NixOS";
+            url = "https://nixos.org";
+          }
+        ];
+      };
       search = {
         force = true;
         default = "DuckDuckGo";
-        order = [ "DuckDuckGo" "Google" ];
+        order = ["DuckDuckGo" "Google"];
       };
       userChrome = ''
         /*Reference https://www.userchrome.org/*/

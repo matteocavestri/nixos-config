@@ -1,5 +1,2 @@
-{  userSettings, ...  }:
-
-{
-
+{userSettings, ...}: {
 }

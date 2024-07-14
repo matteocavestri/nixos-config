@@ -1,7 +1,10 @@
-{ config, pkgs, userSettings, ... }:
-
 {
-  environment.systemPackages = with pkgs; [ virt-manager ];
+  config,
+  pkgs,
+  userSettings,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [virt-manager];
   virtualisation.libvirtd = {
     allowedBridges = [
       "nm-bridge"
@@ -10,5 +13,5 @@
     enable = true;
     qemu.runAsRoot = false;
   };
-  users.users.${userSettings.username}.extraGroups = [ "kvm" ];
+  users.users.${userSettings.username}.extraGroups = ["kvm"];
 }

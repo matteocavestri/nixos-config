@@ -1,6 +1,8 @@
-{ userSettings, config, ... }:
-
 {
+  userSettings,
+  config,
+  ...
+}: {
   services.dunst = {
     enable = true;
     settings = {
@@ -19,6 +21,6 @@
         foreground = "#${config.lib.stylix.colors.base05}";
         timeout = 5;
       };
-        };
-      };
+    };
+  };
 }
