@@ -41,5 +41,6 @@
     ../../user/lang/rust.nix
     ../../user/lang/python.nix
     ../../user/lang/javascript.nix
+    ../../user/lang/java.nix
   ];
 }

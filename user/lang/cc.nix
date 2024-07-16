@@ -3,5 +3,6 @@
     gcc
     gnumake
     cmake
+    gdb
   ];
 }
