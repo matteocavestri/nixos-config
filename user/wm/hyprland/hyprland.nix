@@ -19,7 +19,6 @@
     #./pyprland.nix
     #./eww/eww.nix
     ./ags/ags.nix
-    ../../pkgs/nh/nh.nix
     (import ../../pkgs/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
@@ -53,7 +52,7 @@
           $fileManager = kitty -e lf
           $menu = rofi -show drun
           $editor = kitty -e nvim
-          
+        
           env = XDG_CURRENT_DESKTOP,Hyprland
           env = XDG_SESSION_TYPE,wayland
           env = XDG_SESSION_DESKTOP,Hyprland
@@ -72,7 +71,7 @@
           exec-once = hypridle
           exec-once = sleep 5 && libinput-gestures
           #exec-once = pypr
-            
+          
         # General Settings
           general { 
             gaps_in = 7

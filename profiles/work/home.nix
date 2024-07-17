@@ -21,7 +21,7 @@
     (./. + "../../../user/pkgs/browsers" + ("/" + userSettings.browser) + ".nix") # Browser definition
     ../../user/pkgs/flatpak/flatpak.nix # Flatpak config
     ../../user/pkgs/git/git.nix # Git config
-    ../../user/pkgs/nh/nh.nix # nh (nixos/homemanager) config
+    ../../user/pkgs/terminal/nh.nix # nh (nixos/homemanager) config
     ../../user/pkgs/terminal/kitty.nix # Kitty config
     ../../user/pkgs/terminal/alacritty.nix # Alacritty config
     ../../user/pkgs/virtualization/virtualization.nix # Virtualization config

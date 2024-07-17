@@ -1,12 +1,8 @@
 {pkgs, ...}: {
   # Collection of useful CLI apps
   home.packages = with pkgs; [
-    # Command Line
     disfetch
-    lolcat
-    cowsay
     onefetch
-    starfetch
     cava
     killall
     libnotify
@@ -24,16 +20,13 @@
     tree-sitter
     rsync
     unzip
-    w3m
     pandoc
     hwinfo
     pciutils
     numbat
     pass
-    wl-clipboard-x11
     direnv
     nix-direnv
-    tmux
     (pkgs.writeShellScriptBin "airplane-mode" ''
       #!/bin/sh
       connectivity="$(nmcli n connectivity)"

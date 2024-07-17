@@ -21,15 +21,17 @@
     (./. + "../../../user/pkgs/browsers" + ("/" + userSettings.browser) + ".nix") # Browser definition
     ../../user/pkgs/flatpak/flatpak.nix # Flatpak config
     ../../user/pkgs/git/git.nix # Git config
-    ../../user/pkgs/nh/nh.nix # nh (nixos/homemanager) config
+    ../../user/pkgs/terminal/nh.nix # nh (nixos/homemanager) config
     ../../user/pkgs/terminal/kitty.nix # Kitty config
     ../../user/pkgs/terminal/alacritty.nix # Alacritty config
-    ../../user/pkgs/lf/lf.nix
+    ../../user/pkgs/terminal/lf.nix
     ../../user/pkgs/virtualization/virtualization.nix # Virtualization config
     ../../user/pkgs/editors/nevica.nix # Nevica editor import
     ../../user/pkgs/gaming/gaming.nix
-    ../../user/pkgs/basepkgs/engineering.nix # Engineering pkgs
-    ../../user/pkgs/basepkgs/media.nix # Media pkgs
+    ../../user/pkgs/engineering/freecad.nix # Engineering pkgs
+    ../../user/pkgs/media/kdenlive.nix # Media pkgs
+    ../../user/pkgs/media/obs.nix
+    ../../user/pkgs/media/mpv.nix
     ../../user/pkgs/basepkgs/productivity.nix # Productivity pkgs
     ../../user/pkgs/basepkgs/tools.nix # tools pkgs
     ../../user/pkgs/graphics/graphics.nix
