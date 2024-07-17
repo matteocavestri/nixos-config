@@ -1,3 +1,7 @@
 {pkgs, ...}: {
-  home.packages = [];
+  home.packages = [
+    pkgs.kubectl
+    pkgs.talosctl
+    pkgs.k9s
+  ];
 }

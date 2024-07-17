@@ -15,6 +15,7 @@
     ./utils/wlogout.nix
     ./hypr/hyprlock.nix
     ./utils/dunst.nix
+    ./utils/swappy.nix
     #./pyprland.nix
     #./eww/eww.nix
     ./ags/ags.nix
@@ -52,7 +53,7 @@
           $fileManager = kitty -e lf
           $menu = rofi -show drun
           $editor = kitty -e nvim
-            
+          
           env = XDG_CURRENT_DESKTOP,Hyprland
           env = XDG_SESSION_TYPE,wayland
           env = XDG_SESSION_DESKTOP,Hyprland
@@ -71,7 +72,7 @@
           exec-once = hypridle
           exec-once = sleep 5 && libinput-gestures
           #exec-once = pypr
-              
+            
         # General Settings
           general { 
             gaps_in = 7
@@ -186,6 +187,7 @@
               bind = $mainMod, P, pseudo, # dwindle
               bind = $mainMod, J, togglesplit, # dwindle
               bind = $mainMod, E, exec, $editor
+              bind = $mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -
             # Move focus with mainMod + arrow keys
               bind = $mainMod, left, movefocus, l
               bind = $mainMod, right, movefocus, r
@@ -202,7 +204,7 @@
               bind = $mainMod, 8, workspace, 8
               bind = $mainMod, 9, workspace, 9
               bind = $mainMod, 0, workspace, 10
-            # Move active window to a workspace with mainMod + SHIFT + [0-9]
+            # Move active window to a workspace with mainMod + SHIFT + [0-9]#windowrulev2 = suppressevent maximize, class:.*
               bind = $mainMod SHIFT, 1, movetoworkspace, 1
               bind = $mainMod SHIFT, 2, movetoworkspace, 2
               bind = $mainMod SHIFT, 3, movetoworkspace, 3
@@ -224,22 +226,8 @@
               bindm = $mainMod, mouse:273, resizewindow
             # Other Bindings
               bind = $mainMod SHIFT, B, exec, waybar
-              #bind = $mainMod, Z, exec, pypr toggle term && hyprctl dispatch bringactivetotop
-              #bind = $mainMod, F, exec, pypr toggle ranger && hyprctl dispatch bringactivetotop
-              #bind = $mainMod, B, exec, pypr toggle btm && hyprctl dispatch bringactivetotop
               bind=SUPER,I,exec,networkmanager_dmenu
-              #bind = $mainMod,V,exec,pypr toggle volume
-              #bind = $mainMod,A,exec,pypr toggle term
-              #bind = $mainMod,Y,exec,pypr attach
-              #bind = $mainMod, B, exec, pypr expose
-              #bind = SUPER, N, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
-              #bind=SUPER,TAB,hycov:toggleoverview
-              #bind=SUPER,left,hycov:movefocus,leftcross
-              #bind=SUPER,right,hycov:movefocus,rightcross
-              #bind=SUPER,up,hycov:movefocus,upcross
-              #bind=SUPER,down,hycov:movefocus,downcross
-              
-            # MBP Apple T2 Bindings
+            # Audio-Brightness controls 
               bind = ,XF86MonBrightnessUp, exec, brightnessctl set +10%
               bind = ,XF86MonBrightnessDown, exec, brightnessctl set 10%-
               bind = ,XF86KbdBrightnessUp, exec, brightnessctl --device=:white:kbd_backlight set +10%
@@ -252,15 +240,16 @@
 
               #windowrulev2 = opacity 0.85,class:^(firefox)$
               #windowrulev2 = opacity 0.85,class:^(firefox)$
+              #windowrulev2 = suppressevent maximize, class:.*
 
-              layerrule = blur,waybar
-              layerrule = xray,waybar
-              blurls = waybar
-              layerrule = blur,launcher # fuzzel
-              blurls = launcher # fuzzel
-              layerrule = blur,gtk-layer-shell
-              layerrule = xray,gtk-layer-shell
-              blurls = gtk-layer-shell
+              #layerrule = blur,waybar
+              #layerrule = xray,waybar
+              #blurls = waybar
+              #layerrule = blur,launcher # fuzzel
+              #blurls = launcher # fuzzel
+              #layerrule = blur,gtk-layer-shell
+              #layerrule = xray,gtk-layer-shell
+              #blurls = gtk-layer-shell
 
               xwayland {
                  force_zero_scaling = true
@@ -271,7 +260,6 @@
                }
 
         # Other Setup
-              #windowrulev2 = suppressevent maximize, class:.*
               misc { 
                 force_default_wallpaper = 0
                 disable_hyprland_logo = true

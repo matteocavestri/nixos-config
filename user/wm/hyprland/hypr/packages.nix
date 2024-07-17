@@ -13,14 +13,14 @@
     hypridle
     hyprpaper
     hyprland-protocols
-    inputs.pyprland.packages.${pkgs.system}.pyprland
+    #inputs.pyprland.packages.${pkgs.system}.pyprland
     # Bar, Notification, Launchers
     wlogout
     dunst
     libnotify
     fuzzel
     # Themes
-    numix-cursor-theme
+    #numix-cursor-theme
     gnome.adwaita-icon-theme
     adwaita-qt
     # Controls
@@ -28,6 +28,7 @@
     pamixer
     grim
     slurp
+    swappy
     killall
     blueman
     wl-clipboard
@@ -48,19 +49,10 @@
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     # Utility
-    killall
     libinput-gestures
     pavucontrol
     playerctl
     # Services
-    gnome.zenity
-    wlr-randr
-    wtype
-    ydotool
-    fnott
-    keepmenu
-    wev
-    wlsunset
     zed-editor
   ];
 }

@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  services.picom.enable = true;
   services.xserver.desktopManager.cde.enable = true;
   services.xserver.desktopManager.cde.extraPackages = with pkgs;
     options.services.xserver.desktopManager.cde.extraPackages.default
