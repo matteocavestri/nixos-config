@@ -44,6 +44,7 @@
     gnome.gnome-software
     gnome.eog
     zed-editor
+    delfin
 
     # Themes
     gnome.adwaita-icon-theme

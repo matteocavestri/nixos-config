@@ -115,6 +115,7 @@ with lib; {
           actions = {
             on-click-right = "mode";
           };
+          # TODO: fix calendar tooltip
           calendar = {
             format = {
               days = "<span color='#ecc6d9'><b>{}</b></span>";
@@ -409,6 +410,12 @@ with lib; {
               #custom-power {
                   color: #''
       + config.lib.stylix.colors.base0E
+      + ''        ;
+              }
+
+              #custom-os {
+                  color: #''
+      + config.lib.stylix.colors.base0C
       + ''        ;
               }
       '';

@@ -8,5 +8,6 @@
     pkgs.clippy
     pkgs.rustfmt
     pkgs.lldb_18
+    pkgs.neovide
   ];
 }

@@ -13,6 +13,7 @@
 in {
   imports = [
     ./cli-collection.nix
+    ./zellij.nix
   ];
   programs.zsh = {
     enable = true;
