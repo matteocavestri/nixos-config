@@ -26,6 +26,6 @@ To use CDE, select `cde` in the `wm` option in the `flake.nix` file. The configu
 
 # Window Managers
 
-# Hyprland
+## Hyprland
 
 To use Hyprland, select `hyprland` in the `wm` option in the `flake.nix` file. The configuration of Hyprland is the default offered by the community and supports only wayland. Hyprland supports integration with `Stylix` so that you can modify the `theme` parameter in `flake.nix`.

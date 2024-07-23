@@ -4,6 +4,10 @@
 
 This repository contains my configurations for NixOS and Home Manager. The goal of the project is to build a modular system that can adapt to servers, desktops, and laptops.
 
+## Getting Started
+
+To start using this configuration, it is necessary to create a hardware configuration in the `hardware` directory. The configuration imports the `hardware-configuration.nix` and all the necessary modules for that specific hardware (located in the `./hardware` directory). Once the hardware is configured for the machine, other settings can be set from the `flake.nix` file as follows.
+
 ## Configuration
 
 Set the parameters of `userSettings` and `systemSettings` in the flake.nix file to configure the system.
