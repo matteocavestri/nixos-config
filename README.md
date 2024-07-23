@@ -6,7 +6,7 @@ This repository contains my configurations for NixOS and Home Manager. The goal 
 
 ## Getting Started
 
-To start using this configuration, it is necessary to create a hardware configuration in the `hardware` directory. The configuration imports the `hardware-configuration.nix` and all the necessary modules for that specific hardware (located in the `./hardware` directory). Once the hardware is configured for the machine, other settings can be set from the `flake.nix` file as follows.
+To start using this configuration, it is necessary to create a hardware configuration in the `hardware` directory. The configuration imports the `hardware-configuration.nix` and all the necessary modules for that specific hardware (located in the `./hardware` directory). Once the hardware is configured for the machine, other settings can be set from the `flake.nix` file as follows. If you want to use your `/etc/nixos/hardware-configuration.nix` you have to rebuild your system using `--impure` attribute.
 
 ## Configuration
 
@@ -26,16 +26,16 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 
 ### System Settings
 
-| Setting  | Value             |
-| -------- | ----------------- |
-| system   | e.g. x86_64-linux |
-| hostname | e.g. nixos-t2     |
-| timezone | e.g. Europe/Rome  |
-| locale   | e.g. it_IT.UTF-8  |
-| keymap   | e.g. it           |
-| profile  | see ./profiles    |
-| hardware | WIP               |
-| nixhw    | WIP               |
+| Setting  | Value                  |
+| -------- | ---------------------- |
+| system   | e.g. x86_64-linux      |
+| hostname | e.g. nixos-t2          |
+| timezone | e.g. Europe/Rome       |
+| locale   | e.g. it_IT.UTF-8       |
+| keymap   | e.g. it                |
+| profile  | see ./profiles         |
+| hardware | your machine hw config |
+| nixhw    | WIP                    |
 
 </td>
 <td valign="top">
@@ -55,8 +55,8 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 | cursorPkg   | e.g. pkgs.numix-cursor-theme   |
 | icons       | e.g. Papirus                   |
 | iconsPkg    | e.g. pkgs.papirus-icon-theme   |
-| term        | WIP                            |
-| browser     | WIP                            |
+| term        | e.g. kitty                     |
+| browser     | e.g. firefox                   |
 | editor      | e.g. nvim                      |
 | dotfilesDir | e.g, .dotfiles (useful for nh) |
 

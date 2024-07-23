@@ -118,9 +118,9 @@
     };
 
     # ------------------ Nixvim ------------------------------------------
-    nixvim.url = "github:nix-community/nixvim";
+    # nixvim.url = "github:nix-community/nixvim"; # Deprecated
     # ------------------ Neve --------------------------------------------
-    neve.url = "github:matteocavestri/Neve";
+    # neve.url = "github:matteocavestri/Neve"; # Deprecated
     # ------------------ Nevica ------------------------------------------
     nevica.url = "github:matteocavestri/nevica";
 
@@ -128,7 +128,7 @@
     cave.url = "github:matteocavestri/cave";
 
     # ------------------ Ags ---------------------------------------------
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:Aylur/ags"; # Unused
   };
 
   # ------------------ NixOS Config ------------------------------------
