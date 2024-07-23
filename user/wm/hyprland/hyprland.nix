@@ -16,7 +16,7 @@
     ./hypr/hyprlock.nix
     ./utils/dunst.nix
     ./utils/swappy.nix
-    #./pyprland.nix
+    ./hypr/pyprland.nix
     #./eww/eww.nix
     ./ags/ags.nix
     (import ../../pkgs/dmenu-scripts/networkmanager-dmenu.nix {
@@ -52,7 +52,7 @@
           $fileManager = kitty -e lf
           $menu = rofi -show drun
           $editor = kitty -e nvim
-        
+            
           env = XDG_CURRENT_DESKTOP,Hyprland
           env = XDG_SESSION_TYPE,wayland
           env = XDG_SESSION_DESKTOP,Hyprland
@@ -70,8 +70,8 @@
           exec-once = blueman-applet
           exec-once = hypridle
           exec-once = sleep 5 && libinput-gestures
-          #exec-once = pypr
-          
+          exec-once = pypr
+              
         # General Settings
           general { 
             gaps_in = 7
@@ -234,6 +234,13 @@
               bind = ,XF86AudioRaiseVolume, exec, pamixer -i 10
               bind = ,XF86AudioLowerVolume, exec, pamixer -d 10
 
+              bind=SUPER,Z,exec,pypr toggle term && hyprctl dispatch bringactivetotop
+              bind=SUPER,Y,exec,pypr toggle lf && hyprctl dispatch bringactivetotop
+              bind=SUPER,N,exec,pypr toggle numbat && hyprctl dispatch bringactivetotop
+              bind=SUPER,B,exec,pypr toggle btm && hyprctl dispatch bringactivetotop
+              bind=SUPER,D,exec,hypr-element
+              #bind=SUPER,code:172,exec,pypr toggle pavucontrol && hyprctl dispatch bringactivetotop
+
               windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
               windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
 
@@ -287,20 +294,20 @@
 
         # Pyprland
 
-               #$pavucontrol = class:^(pavucontrol)$
-               #windowrulev2 = float,$pavucontrol
-               #windowrulev2 = size 86% 40%,$pavucontrol
-               #windowrulev2 = move 50% 6%,$pavucontrol
-               #windowrulev2 = workspace special silent,$pavucontrol
-               #windowrulev2 = opacity 0.80,$pavucontrol
+               $pavucontrol = class:^(pavucontrol)$
+               windowrulev2 = float,$pavucontrol
+               windowrulev2 = size 86% 40%,$pavucontrol
+               windowrulev2 = move 50% 6%,$pavucontrol
+               windowrulev2 = workspace special silent,$pavucontrol
+               windowrulev2 = opacity 0.80,$pavucontrol
 
-               #$scratchpadsize = size 80% 85%
+               $scratchpadsize = size 80% 85%
 
-               #$scratchpad = class:^(scratchpad)$
-               #windowrulev2 = float,$scratchpad
-               #windowrulev2 = $scratchpadsize,$scratchpad
-               #windowrulev2 = workspace special silent,$scratchpad
-               #windowrulev2 = center,$scratchpad
+               $scratchpad = class:^(scratchpad)$
+               windowrulev2 = float,$scratchpad
+               windowrulev2 = $scratchpadsize,$scratchpad
+               windowrulev2 = workspace special silent,$scratchpad
+               windowrulev2 = center,$scratchpad
       '';
   };
 }

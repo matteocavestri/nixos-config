@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     # Hypr
     waybar
@@ -13,7 +17,8 @@
     dunst
     libnotify
     fuzzel
-    #inputs.pyprland.packages.${pkgs.system}.pyprland
+    inputs.pyprland.packages.${pkgs.system}.pyprland
+    python312Packages.aiofiles
 
     # Controls
     brightnessctl
@@ -45,6 +50,7 @@
     gnome.eog
     zed-editor
     delfin
+    btrfs-assistant
 
     # Themes
     gnome.adwaita-icon-theme

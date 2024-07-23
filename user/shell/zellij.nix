@@ -2,7 +2,7 @@
   programs.zellij = {
     enable = true;
     package = pkgs.zellij;
-    enableZshIntegration = true;
+    #enableZshIntegration = true;
   };
   home.file.".config/zellij/config.kdl".text = ''
     // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
