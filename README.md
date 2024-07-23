@@ -8,21 +8,12 @@ This repository contains my configurations for NixOS and Home Manager. The goal 
 
 Set the parameters of `userSettings` and `systemSettings` in the flake.nix file to configure the system.
 
-## Desktop Environments
+<details><summary>Extra Config</summary>
+    - See [Desktop Environments](https://github.com/matteocavestri/nixos-config/blob/main/docs/desktop.md)
+    - See [Themes](https://github.com/matteocavestri/nixos-config/blob/main/docs/themes.md)
+    - See [Profiles](https://github.com/matteocavestri/nixos-config/blob/main/docs/profiles.md)
 
-See [Desktop Environments](https://github.com/matteocavestri/nixos-config/blob/main/docs/desktop.md)
-
-## Themes
-
-See [Themes](https://github.com/matteocavestri/nixos-config/blob/main/docs/themes.md)
-
-## Profiles
-
-See [Profiles](https://github.com/matteocavestri/nixos-config/blob/main/docs/profiles.md)
-
-## Editor
-
-I have implemented my text editor based on Nixvim, which is available [here](https://github.com/matteocavestri/nevica)
+</details>
 
 ### System Settings
 
@@ -56,3 +47,7 @@ I have implemented my text editor based on Nixvim, which is available [here](htt
 | browser     | WIP                            |
 | editor      | e.g. nvim                      |
 | dotfilesDir | e.g, .dotfiles (useful for nh) |
+
+## Editor
+
+I have implemented my text editor based on Nixvim, which is available [here](https://github.com/matteocavestri/nevica)
