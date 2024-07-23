@@ -14,8 +14,10 @@
         then vaapiIntel
         else intel-vaapi-driver
       )
-      libvdpau-va-gl
+      # libvdpau-va-gl
+      vaapiVdpau
       intel-media-driver
+      intel-media-sdk
       intel-ocl
       libGLU
     ];

@@ -14,8 +14,8 @@
     (sddm-chili-theme.override {
       themeConfig = {
         background = config.stylix.image;
-        ScreenWidth = 2560;
-        ScreenHeight = 1600;
+        ScreenWidth = 1536;
+        ScreenHeight = 960;
         blur = true;
         recursiveBlurLoops = 3;
         recursiveBlurRadius = 5;

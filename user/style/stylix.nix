@@ -113,7 +113,7 @@ in {
   qt = {
     enable = true;
     style.package = pkgs.adwaita-qt;
-    style.name = "Adwaita-Dark";
+    style.name = "adwaita-dark";
     platformTheme.name = "kde";
   };
   fonts.fontconfig.defaultFonts = {

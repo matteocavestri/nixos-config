@@ -164,7 +164,7 @@ with lib; {
           format-icons = {
             default = ["" "" ""];
           };
-          "on-click" = "pypr toggle pavucontrol && hyprctl dispatch bringactivetotop";
+          "on-click" = "pavucontrol";
         };
       };
     };

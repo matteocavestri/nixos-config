@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     disfetch
     onefetch
-    neofetch
     cava
     killall
     libnotify

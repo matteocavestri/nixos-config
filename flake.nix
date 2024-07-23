@@ -24,7 +24,7 @@
       username = "matteocavestri"; # Your username (fix-scripts)
       name = "Matteo Cavestri"; # For git config
       email = "matteo.cavestri@protonmail.ch"; # For git config
-      wm = "hyprland"; # gnome / hyprland / cinnamon
+      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce
       theme = "catppuccin-mocha"; # See ./themes
       font = "Inconsolata Nerd Font"; # Your font name
       fontPkg = pkgs.inconsolata-nerdfont; # Your font package

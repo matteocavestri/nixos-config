@@ -1,10 +1,13 @@
 {systemSettings, ...}: {
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.xserver = {
-    enable = true;
-    xkb.layout = systemSettings.keymap;
+  services = {
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
+    xserver = {
+      enable = true;
+      xkb.layout = systemSettings.keymap;
+    };
   };
+  programs.dconf.enable = true;
   qt = {
     enable = true;
     platformTheme = "gnome";

@@ -5,6 +5,7 @@
     cat = "bat";
     htop = "btm";
     fd = "fd -Lu";
+    neofetch = "fastfetch";
     fetch = "disfetch";
     gitfetch = "onefetch";
   };
@@ -12,6 +13,7 @@ in {
   imports = [
     ./cli-collection.nix
     ./zellij.nix
+    ./fastfetch.nix
   ];
   programs.zsh = {
     enable = true;

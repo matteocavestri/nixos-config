@@ -34,6 +34,7 @@
     zed-editor
     delfin
     btrfs-assistant
+    mission-center
 
     # Themes
     gnome.adwaita-icon-theme
