@@ -1,8 +1,8 @@
 # NixOS Config
 
-## Purpose
-
 This repository contains my configurations for NixOS and Home Manager. The goal of the project is to build a modular system that can adapt to servers, desktops, and laptops.
+
+![Hyprland 1](https://raw.githubusercontent.com/matteocavestri/images/main/screenshots/hyprland-nixos-1.png?raw=true)
 
 ## Getting Started
 
