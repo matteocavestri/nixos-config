@@ -4,6 +4,9 @@
   userSettings,
   ...
 }: {
+  home.packages = with pkgs; [
+    fuzzel
+  ];
   programs.fuzzel.enable = true;
   programs.fuzzel.settings = {
     main = {

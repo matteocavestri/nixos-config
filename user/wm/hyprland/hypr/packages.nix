@@ -1,31 +1,14 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # Hypr
-    waybar
-    eww
-    hyprlock
     hyprcursor
     hyprpicker
-    hypridle
     hyprpaper
     hyprland-protocols
-    wlogout
-    dunst
-    libnotify
-    fuzzel
-    inputs.pyprland.packages.${pkgs.system}.pyprland
-    python312Packages.aiofiles
 
     # Controls
     brightnessctl
     pamixer
-    grim
-    slurp
-    swappy
     killall
     blueman
     wl-clipboard
