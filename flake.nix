@@ -31,12 +31,12 @@
       cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name
       cursorPkg =
         pkgs.catppuccin-cursors.mochaDark; # Your cursor theme package
-      icons = "Papirus";
-      iconsPkg = pkgs.papirus-icon-theme;
-      term = "alacritty"; # Your default term (fix hyprland)
-      browser = "firefox"; # TODO
-      dotfilesDir = ".dotfiles";
-      editor = "nvim";
+      icons = "Papirus"; # See docs
+      iconsPkg = pkgs.papirus-icon-theme; # Your icons package
+      term = "kitty"; # Your default term (fix hyprland)
+      browser = "firefox"; # Only firefox
+      dotfilesDir = ".dotfiles"; # Your dotfiles dir
+      editor = "nvim"; # Only neovim
     };
     # -------------------------------------------------------------------
     lib = nixpkgs.lib;

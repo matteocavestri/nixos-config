@@ -68,3 +68,10 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 ## Editor
 
 I have implemented my text editor based on Nixvim, which is available [here](https://github.com/matteocavestri/nevica)
+
+## Known Issues
+
+- Freecad tries to use `cursor.pcf` --> see [Freecad Issue](https://github.com/FreeCAD/FreeCAD/issues/10514)
+  - Solution: Change font --> `FreeCAD -> Edit -> Preferences -> Python -> Editor -> Display Items -> Text -> Family -> [SOME OTHER FONT]`
+- Missing glaxnimate module for kdenlive
+- Fix `nixhw` prop to be either string or null

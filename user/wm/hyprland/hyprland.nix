@@ -4,8 +4,11 @@
   config,
   inputs,
   ...
-}: {
+}: let
+  hyprCursorSize = 2 * config.gtk.cursorTheme.size;
+in {
   imports = [
+    ../config.nix
     ./hypr/config.nix
     ./hypr/packages.nix
     ./hypr/hypridle.nix
@@ -43,25 +46,29 @@
         exec-once = hyprctl setcursor ''
       + config.gtk.cursorTheme.name
       + " "
-      + builtins.toString config.gtk.cursorTheme.size
+      + builtins.toString hyprCursorSize
       + ''
 
-          #monitor=,2560x1600@60,auto,2
-          monitor=,2560x1600@60,auto,1.666667
-          $terminal = kitty
-          $fileManager = kitty -e lf
-          $menu = rofi -show drun
-          $editor = kitty -e nvim
+        #monitor=,2560x1600@60,auto,2
+        monitor=,2560x1600@60,auto,1.6
+        $terminal = kitty
+        $fileManager = kitty -e lf
+        $menu = rofi -show drun
+        $editor = kitty -e nvim
               
-          env = XDG_CURRENT_DESKTOP,Hyprland
-          env = XDG_SESSION_TYPE,wayland
-          env = XDG_SESSION_DESKTOP,Hyprland
-          env = GDK_BACKEND,wayland,x11,*
-          env = QT_QPA_PLATFORM,wayland;xcb
-          env = QT_QPA_PLATFORMTHEME,qt5ct
-          env = QT_AUTO_SCREEN_SCALE_FACTOR,1
-          env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
-          env = CLUTTER_BACKEND,wayland
+        env = XDG_CURRENT_DESKTOP,Hyprland
+        env = XDG_SESSION_TYPE,wayland
+        env = XDG_SESSION_DESKTOP,Hyprland
+        env = GDK_BACKEND,wayland,x11,*
+        env = QT_QPA_PLATFORM,wayland;xcb
+        env = QT_QPA_PLATFORMTHEME,qt5ct
+        env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+        env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+        env = CLUTTER_BACKEND,wayland
+        env = SDL_VIDEODRIVER,wayland
+        env = QT_SCALE_FACTOR,1.6
+        env = GDK_SCALE,1.6
+        env = ELM_SCALE,1.6
 
           exec-once = waybar
           exec-once = dunst
@@ -71,7 +78,7 @@
           exec-once = hypridle
           exec-once = sleep 5 && libinput-gestures
           #exec-once = pypr
-        
+          
         # General Settings
           general { 
             gaps_in = 7

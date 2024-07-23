@@ -1,15 +1,4 @@
-{userSettings, ...}: {
-  gtk.cursorTheme = {
-    package = userSettings.cursorPkg;
-    name = userSettings.cursor;
-    size = 24;
-  };
-
-  gtk.iconTheme = {
-    package = userSettings.iconsPkg;
-    name = userSettings.icons;
-  };
-
+{
   xdg = {
     enable = true;
     mimeApps = {
@@ -22,8 +11,4 @@
       };
     };
   };
-
-  #services.mpd = {
-  #  enable = true;
-  #};
 }

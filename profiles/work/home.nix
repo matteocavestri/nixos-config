@@ -10,12 +10,6 @@
 
   programs.home-manager.enable = true;
 
-  home.sessionVariables = {
-    EDITOR = userSettings.editor;
-    TERM = userSettings.term;
-    BROWSER = userSettings.browser;
-  };
-
   imports = [
     ../../user/shell/sh.nix # Shell config
     (./. + "../../../user/pkgs/browsers" + ("/" + userSettings.browser) + ".nix") # Browser definition
