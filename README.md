@@ -1,118 +1,58 @@
-# My NixOS and Home Manager config
+# NixOS Config
 
-## Scopi
+## Purpose
 
-Questa repository contiene le mie configurazioni per NixOS e Home Manager. L'obiettivo del progetto è costruire un sistema modulare che possa adattarsi a server, desktop e laptop.
+This repository contains my configurations for NixOS and Home Manager. The goal of the project is to build a modular system that can adapt to servers, desktops, and laptops.
 
-## Configurazione
+## Configuration
 
-Configurare i parametri di `userSettings` e `systemSettings`nel file flake.nix per configurare il sistema
+Set the parameters of `userSettings` and `systemSettings` in the flake.nix file to configure the system.
 
-### Editor --> Nvim
+## Desktop Environments
 
-Pieno supporto per i seguenti linguaggi:
+See [Desktop Environments](https://github.com/matteocavestri/nixos-config/blob/main/docs/desktop.md)
 
-- Go
-- Bash ( no debugger )
-- Python
+## Themes
+
+See [Themes](https://github.com/matteocavestri/nixos-config/blob/main/docs/themes.md)
+
+## Profiles
+
+See [Profiles](https://github.com/matteocavestri/nixos-config/blob/main/docs/profiles.md)
+
+## Editor
+
+I have implemented my text editor based on Nixvim, which is available [here](https://github.com/matteocavestri/nevica)
 
 ### System Settings
 
-| Setting  | Value e.g.     |
-| -------- | -------------- |
-| system   | x86_64-linux   |
-| hostname | nixos-t2       |
-| timezone | Europe/Rome    |
-| locale   | it_IT.UTF-8    |
-| keymap   | it             |
-| profile  | see ./profiles |
-| hardware | WIP            |
+| Setting  | Value             |
+| -------- | ----------------- |
+| system   | e.g. x86_64-linux |
+| hostname | e.g. nixos-t2     |
+| timezone | e.g. Europe/Rome  |
+| locale   | e.g. it_IT.UTF-8  |
+| keymap   | e.g. it           |
+| profile  | see ./profiles    |
+| hardware | WIP               |
+| nixhw    | WIP               |
 
 ### User Settings
 
-| Setting   | Value                          |
-| --------- | ------------------------------ |
-| username  | Your username                  |
-| name      | Your name (for git)            |
-| email     | Your emain (for git)           |
-| wm        | e.g. hyprland                  |
-| theme     | see ./themes                   |
-| font      | e.g. Inconsolata Nerd Font     |
-| fontPkg   | e.g. pkgs.inconsolata-nerdfont |
-| cursor    | e.g. Numix-Cursor              |
-| cursorPkg | e.g. pkgs.numix-cursor-theme   |
-| term      | WIP                            |
-| browser   | WIP                            |
-
-## Struttura della repository
-
-```plaintext
-nixos-config
- |
- |--> flake.nix
- |--> flake.lock
- |----> system/
- |       |----> apps/
- |       |       |----> system-packages.nix
- |       |
- |       |----> driver/
- |       |       |----> driver-configs.nix
- |       |
- |       |----> hardware/
- |       |       |----> hardware-configs.nix
- |       |
- |       |----> security/
- |       |       |----> system-security.nix
- |       |
- |       |----> style/
- |       |       |----> system-style-config.nix
- |       |
- |       |----> vm/
- |       |       |----> window-manager-system-config.nix
- |       |
- |       |----> hardware-configuration.nix
- |
- |----> user/
- |       |----> apps/
- |       |       |----> appGroup1/
- |       |                |----> app.nix
- |       |
- |       |----> lang/
- |       |       |----> programmingLanguage/
- |       |                |----> programming-language-user-pkgs.nix
- |       |
- |       |----> shell/
- |       |       |----> user-shell-configs.nix
- |       |
- |       |----> style/
- |       |       |----> user-style-config.nix
- |       |
- |       |----> wm/
- |               |----> windowManager1/
- |                       |----> window-manager-user-config.nix
- |
- |----> themes/
- |       |----> theme1/
- |               |----> theme.yaml
- |               |----> background.txt
- |
- |----> profiles/
-         |----> profile1/
-                 |----> home.nix
-                 |----> configuration.nix
-```
-
-## Todos
-
-- Migrate my old dotfiles
-- Can customize everything from flake.nix --> Cursor, Icons
-- Make gropus of packages (work, code ...)
-- Control power profile from waybar
-
-## Neve Status
-
-- WIP | C/Cpp: lsp, formatter, !!debugger.
-- BAD | Java: !!lsp, !!formatter, !!debugger.
-- WIP | Javascript/Typescript: lsp (wip), formatter, !!debugger.
-- WIP | Docker: !!lsp, !!lsp docker compose
-- WIP | Rust: lsp, formatter, !!debugger.
+| Setting     | Value                          |
+| ----------- | ------------------------------ |
+| username    | Your username                  |
+| name        | Your name (for git)            |
+| email       | Your emain (for git)           |
+| wm          | e.g. hyprland                  |
+| theme       | see ./themes                   |
+| font        | e.g. Inconsolata Nerd Font     |
+| fontPkg     | e.g. pkgs.inconsolata-nerdfont |
+| cursor      | e.g. Numix-Cursor              |
+| cursorPkg   | e.g. pkgs.numix-cursor-theme   |
+| icons       | e.g. Papirus                   |
+| iconsPkg    | e.g. pkgs.papirus-icon-theme   |
+| term        | WIP                            |
+| browser     | WIP                            |
+| editor      | e.g. nvim                      |
+| dotfilesDir | e.g, .dotfiles (useful for nh) |
