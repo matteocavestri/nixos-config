@@ -9,9 +9,10 @@ This repository contains my configurations for NixOS and Home Manager. The goal 
 Set the parameters of `userSettings` and `systemSettings` in the flake.nix file to configure the system.
 
 <details><summary>Extra Config</summary>
-    - See [Desktop Environments](https://github.com/matteocavestri/nixos-config/blob/main/docs/desktop.md)
-    - See [Themes](https://github.com/matteocavestri/nixos-config/blob/main/docs/themes.md)
-    - See [Profiles](https://github.com/matteocavestri/nixos-config/blob/main/docs/profiles.md)
+
+- See [Desktop Environments](https://github.com/matteocavestri/nixos-config/blob/main/docs/desktop.md)
+- See [Themes](https://github.com/matteocavestri/nixos-config/blob/main/docs/themes.md)
+- See [Profiles](https://github.com/matteocavestri/nixos-config/blob/main/docs/profiles.md)
 
 </details>
 
