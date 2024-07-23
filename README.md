@@ -18,7 +18,7 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 
 <table>
   <tr>
-    <td>
+    <td valign="top">
 
 ### System Settings
 
@@ -34,7 +34,7 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 | nixhw    | WIP               |
 
 </td>
-<td>
+<td valign="top">
 
 ### User Settings
 
