@@ -16,6 +16,10 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 
 </details>
 
+<table>
+  <tr>
+    <td>
+
 ### System Settings
 
 | Setting  | Value             |
@@ -28,6 +32,9 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 | profile  | see ./profiles    |
 | hardware | WIP               |
 | nixhw    | WIP               |
+
+    </td>
+    <td>
 
 ### User Settings
 
@@ -48,6 +55,11 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 | browser     | WIP                            |
 | editor      | e.g. nvim                      |
 | dotfilesDir | e.g, .dotfiles (useful for nh) |
+
+    </td>
+
+  </tr>
+</table>
 
 ## Editor
 
