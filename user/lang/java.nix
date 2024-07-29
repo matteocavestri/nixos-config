@@ -1,6 +1,1 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    jdk
-    maven
-  ];
-}
+{ pkgs, ... }: { home.packages = with pkgs; [ jdk gradle ]; }

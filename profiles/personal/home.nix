@@ -29,6 +29,7 @@
     ../../user/pkgs/editors/nevica.nix # Nevica editor import
     ../../user/pkgs/gaming/gaming.nix
     ../../user/pkgs/engineering/freecad.nix # Engineering pkgs
+    ../../user/pkgs/engineering/octave.nix
     ../../user/pkgs/media/kdenlive.nix # Media pkgs
     ../../user/pkgs/media/obs.nix
     ../../user/pkgs/media/mpv.nix
@@ -44,5 +45,6 @@
     ../../user/lang/python.nix
     ../../user/lang/javascript.nix
     ../../user/lang/java.nix
+    ../../user/lang/zig.nix
   ];
 }
