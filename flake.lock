@@ -215,11 +215,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1722321366,
-        "narHash": "sha256-9wJm7CJvL7El3SHZ1CPeLKv+7I+UdXN/oFhXCmEn+5o=",
+        "lastModified": 1722409221,
+        "narHash": "sha256-d2iy/IHir6Ows5Sr0TtxXcv8eOcRRxBQUMlwwMkIOtY=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "3ef6393661a32c8fd5e63d636411960cd28b2e4b",
+        "rev": "0e5b8da37ecb37a2051cc2e9337eb5a31d1633e5",
         "type": "gitlab"
       },
       "original": {
@@ -562,11 +562,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1722366828,
-        "narHash": "sha256-grUcMvIZs3ncEg2irrFJtTPxR0YaOYO4D1CgUB+u0dg=",
+        "lastModified": 1722375236,
+        "narHash": "sha256-8yrkwPN3TbCrtZSD/7GSV2kW9hruIZUQymnpyV15TI4=",
         "ref": "refs/heads/main",
-        "rev": "8ec3dc4c09c30aab7669f99ba6359be320023fa8",
-        "revCount": 5028,
+        "rev": "3b9b5346b830554aa7470ccf1202a7f3be72d1b4",
+        "revCount": 5029,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -720,11 +720,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1722369504,
-        "narHash": "sha256-8eW3vH3QY1RxJB835n3onpuVG48rEQP8EazVZ4L/peQ=",
+        "lastModified": 1722419650,
+        "narHash": "sha256-vPmDtKN/DsfTL7h8k/Kj2M9p5V0lYy3F4dSI7+EWi8c=",
         "owner": "matteocavestri",
         "repo": "nevica",
-        "rev": "e47d9ed24b15dee596bf6fe57fdb8bbb5439d0e1",
+        "rev": "aba97ae328816aabccafb6778c2dd1b49ceba879",
         "type": "github"
       },
       "original": {
@@ -958,11 +958,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1722368740,
-        "narHash": "sha256-oYXUTzFGDqlZo0u+pHQ8jmmsjJjxpLKYG1ou3yyZuX8=",
+        "lastModified": 1722415350,
+        "narHash": "sha256-YiAEzp39fp4DBzKVtpsgg0feYyAqyKpI8gAD8OwBwpc=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c1edc6df5b9eeb2f2f9d780b2f87de190fc15ba5",
+        "rev": "37eb139cf80798ecdb946d1cf8c3e6cee7e9d0d9",
         "type": "github"
       },
       "original": {
