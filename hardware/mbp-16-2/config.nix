@@ -6,7 +6,7 @@ in {
     ../../system/driver/intelgpu.nix
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/locale.nix
-    ../../system/hardware/networking.nix
+    ../../system/hardware/networkmanager.nix
     ../../system/hardware/pipewire.nix
     ../../system/hardware/systemdboot.nix
     ../../system/hardware/touchpad.nix
