@@ -103,8 +103,7 @@
     hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
-    #hycov.url = "github:DreamMaoMao/hycov/de15cdd6bf2e46cbc69735307f340b57e2ce3dd0";
-    #hycov.inputs.hyprland.follows = "hyprland";
+
     # ------------------ Pyprland ----------------------------------------
     pyprland.url = "github:hyprland-community/pyprland";
 
@@ -117,10 +116,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ------------------ Nixvim ------------------------------------------
-    # nixvim.url = "github:nix-community/nixvim"; # Deprecated
-    # ------------------ Neve --------------------------------------------
-    # neve.url = "github:matteocavestri/Neve"; # Deprecated
     # ------------------ Nevica ------------------------------------------
     nevica.url = "github:matteocavestri/nevica";
 
@@ -129,14 +124,5 @@
 
     # ------------------ Ags ---------------------------------------------
     ags.url = "github:Aylur/ags"; # Unused
-  };
-
-  # ------------------ NixOS Config ------------------------------------
-  nixConfig = {
-    extra-substituters = [
-      # "https://hydra.soopy.moe"
-      "https://cache.soopy.moe" # toggle these if this one doesn't work.
-    ];
-    extra-trusted-public-keys = ["hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q="];
   };
 }

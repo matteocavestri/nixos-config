@@ -9,29 +9,28 @@
   ];
 
   # Configure X11
-  services.xserver = {
-    enable = true;
-    excludePackages = [pkgs.xterm];
-    xkb.layout = systemSettings.keymap;
-    displayManager = {
-      lightdm.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      excludePackages = [pkgs.xterm];
+      xkb.layout = systemSettings.keymap;
+      displayManager = {
+        lightdm.enable = true;
+      };
+      libinput = {
+        touchpad.disableWhileTyping = true;
+      };
     };
-    libinput = {
-      touchpad.disableWhileTyping = true;
+    dbus = {
+      enable = true;
+      packages = [pkgs.dconf];
     };
-  };
-  # Configure dbus
-  services.dbus = {
-    enable = true;
-    packages = [pkgs.dconf];
+    gnome = {
+      gnome-keyring.enable = true;
+    };
   };
 
   programs.dconf = {
     enable = true;
-  };
-
-  # Configure Gnome keyring
-  services.gnome = {
-    gnome-keyring.enable = true;
   };
 }

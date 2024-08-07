@@ -19,12 +19,16 @@ in {
     portalPackage = pkgs-hyprland.xdg-desktop-portal-hyprland;
   };
 
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-    QT_QPA_PLATFORM = "wayland";
-    GDK_BACKEND = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
+  environment = {
+    sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+      QT_QPA_PLATFORM = "wayland";
+      GDK_BACKEND = "wayland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+    };
+    plasma5.excludePackages = [pkgs.kdePackages.systemsettings];
+    plasma6.excludePackages = [pkgs.kdePackages.systemsettings];
   };
 
   security = {
@@ -48,18 +52,7 @@ in {
     };
   };
 
-  #services.gvfs = {
-  #  enable = true;
-  #  package = pkgs.gnome.gvfs;
-  #};
-
-  environment = {
-    plasma5.excludePackages = [pkgs.kdePackages.systemsettings];
-    plasma6.excludePackages = [pkgs.kdePackages.systemsettings];
-  };
-
   xdg.portal.enable = true;
 
-  environment.systemPackages = with pkgs; [];
   services.xserver.excludePackages = [pkgs.xterm];
 }

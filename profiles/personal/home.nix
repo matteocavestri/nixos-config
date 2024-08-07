@@ -1,20 +1,16 @@
-{
-  pkgs,
-  userSettings,
-  ...
-}: {
-  home.username = userSettings.username;
-  home.homeDirectory = "/home/" + userSettings.username;
-
-  home.stateVersion = "24.05";
+{userSettings, ...}: {
+  home = {
+    username = userSettings.username;
+    homeDirectory = "/home/" + userSettings.username;
+    stateVersion = "24.05";
+    sessionVariables = {
+      EDITOR = userSettings.editor;
+      TERM = userSettings.term;
+      BROWSER = userSettings.browser;
+    };
+  };
 
   programs.home-manager.enable = true;
-
-  home.sessionVariables = {
-    EDITOR = userSettings.editor;
-    TERM = userSettings.term;
-    BROWSER = userSettings.browser;
-  };
 
   imports = [
     ../../user/shell/sh.nix # Shell config
@@ -38,13 +34,7 @@
     ../../user/pkgs/graphics/graphics.nix
     (./. + "../../../user/wm" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
 
-    ../../user/lang/cc.nix
-    ../../user/lang/go.nix
-    ../../user/lang/lua.nix
-    ../../user/lang/rust.nix
-    ../../user/lang/python.nix
-    ../../user/lang/javascript.nix
-    ../../user/lang/java.nix
-    ../../user/lang/zig.nix
+    ../../user/pkgs/coding/compiler.nix
+    ../../user/pkgs/coding/tools.nix
   ];
 }

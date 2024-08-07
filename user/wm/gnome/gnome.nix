@@ -1,8 +1,4 @@
-{
-  pkgs,
-  userSettings,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     gnome.gnome-tweaks
     gnomeExtensions.blur-my-shell

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    nvtopPackages.intel
+    nvtopPackages.full
     clinfo
     libva-utils
     vulkan-tools

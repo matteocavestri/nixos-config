@@ -24,38 +24,34 @@
   ];
 
   # Configure xwayland
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = systemSettings.keymap;
-      variant = "";
-      options = "caps:escape";
-    };
-  };
-
-  # Configure display display manager
-  services.displayManager = {
-    sddm = {
+  services = {
+    xserver = {
       enable = true;
-      wayland.enable = true;
-      enableHidpi = true;
-      theme = "chili";
-      package = pkgs.sddm;
+      xkb = {
+        layout = systemSettings.keymap;
+        variant = "";
+        options = "caps:escape";
+      };
     };
-  };
-
-  # Configure dbus
-  services.dbus = {
-    enable = true;
-    packages = [pkgs.dconf];
+    displayManager = {
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+        enableHidpi = true;
+        theme = "chili";
+        package = pkgs.sddm;
+      };
+    };
+    dbus = {
+      enable = true;
+      packages = [pkgs.dconf];
+    };
+    gnome = {
+      gnome-keyring.enable = true;
+    };
   };
 
   programs.dconf = {
     enable = true;
-  };
-
-  # Configure Gnome keyring
-  services.gnome = {
-    gnome-keyring.enable = true;
   };
 }

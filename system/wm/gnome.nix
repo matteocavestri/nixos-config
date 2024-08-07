@@ -3,10 +3,12 @@
   systemSettings,
   ...
 }: {
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.xkb.layout = systemSettings.keymap;
+  services.xserver = {
+    enable = true;
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
+    xkb.layout = systemSettings.keymap;
+  };
   environment.gnome.excludePackages =
     (with pkgs; [
       gnome-photos
@@ -28,5 +30,4 @@
       atomix # puzzle game
     ]);
   programs.dconf.enable = true;
-  #environment.systemPackages = with pkgs; [ gnome.gnome-tweaks ]
 }
