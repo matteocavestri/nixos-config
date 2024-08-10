@@ -720,11 +720,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1723291395,
-        "narHash": "sha256-49jM1PU7HrBTLRxdxXHVyrOPgG9bvmRzZFUxeVQ5SL4=",
+        "lastModified": 1723312550,
+        "narHash": "sha256-Pchn5DHPakY10tI+DaekRGmQ5uw29miifCIsc6bw94w=",
         "owner": "matteocavestri",
         "repo": "nevica",
-        "rev": "f4fba5da50e2b17d3ab5126e8c8633a62c2d3365",
+        "rev": "50e05ef2c83f7d372982508920446bd7c14b73ab",
         "type": "github"
       },
       "original": {
@@ -779,11 +779,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1723149858,
-        "narHash": "sha256-3u51s7jdhavmEL1ggtd8wqrTH2clTy5yaZmhLvAXTqc=",
+        "lastModified": 1723310128,
+        "narHash": "sha256-IiH8jG6PpR4h9TxSGMYh+2/gQiJW9MwehFvheSb5rPc=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "107bb46eef1f05e86fc485ee8af9b637e5157988",
+        "rev": "c54cf53e022b0b3c1d3b8207aa0f9b194c24f0cf",
         "type": "github"
       },
       "original": {
@@ -958,11 +958,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1723291300,
-        "narHash": "sha256-viTbaLSZVz+kjJdoNR6gY0BGVHSjodk3MH/VNk/sHp8=",
+        "lastModified": 1723307312,
+        "narHash": "sha256-UcvsWK+vM/Cc8lGlqDpSa+75hAQY0LWa6n06VpVZCGQ=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "5087817dda64e63c1835a262e771a427adb75deb",
+        "rev": "0572e827f7bde034f478125ea5a932ff32715616",
         "type": "github"
       },
       "original": {
