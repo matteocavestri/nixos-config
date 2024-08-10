@@ -1,7 +1,9 @@
-let
+{pkgs, ...}: let
   # My shell aliases
   myAliases = {
-    ls = "eza --icons -l -T -L=1";
+    l = "eza -l --icons --git -a";
+    lt = "eza --tree --level=2 --long --icons --git";
+    ls = "ls --color";
     cat = "bat";
     htop = "btm";
     fd = "fd -Lu";
@@ -14,7 +16,9 @@ in {
     ./cli-collection.nix
     ./zellij.nix
     ./fastfetch.nix
+    ./opm.nix
   ];
+  # TODO: Edit colors in ls LS_COLORS
   programs = {
     zsh = {
       enable = true;
@@ -23,10 +27,36 @@ in {
       enableCompletion = true;
       shellAliases = myAliases;
       initExtra = ''
-        PROMPT=" ◉ %U%F{magenta}%n%f%u@%U%F{blue}%m%f%u:%F{yellow}%~%f
-         %F{green}→%f "
-        RPROMPT="%F{red}▂%f%F{yellow}▄%f%F{green}▆%f%F{cyan}█%f%F{blue}▆%f%F{magenta}▄%f%F{white}▂%f"
-        [ $TERM = "dumb" ] && unsetopt zle && PS1='$ '
+        # History
+        HISTSIZE=5000
+        HISTFILE=~/.zsh_history
+        SAVEHIST=$HISTSIZE
+        HISTDUP=erase
+        setopt appendhistory
+        setopt sharehistory
+        setopt hist_ignore_space
+        setopt hist_ignore_all_dups
+        setopt hist_save_no_dups
+        setopt hist_ignore_dups
+        setopt hist_find_no_dups
+
+        # Keybindings
+        bindkey -e
+        bindkey '^z' history-search-backward
+        bindkey '^y' history-search-forward
+
+        # Completion styling
+        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+        # zstyle ':completion:*' list-colors "''${s.:. LS_COLORS}"
+        zstyle ':completion:*' menu no
+        zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+        zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+
+        # Shell integrations
+        eval "$(fzf --zsh)"
+        eval "$(zoxide init --cmd cd zsh)"
+        eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
+        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       '';
     };
     bash = {

@@ -219,7 +219,7 @@
     //    - true
     //    - false (Default)
     //
-    simplified_ui true
+    // simplified_ui true
 
     // Choose the path to the default shell that zellij will use for opening new panes
     // Default: $SHELL
@@ -303,8 +303,9 @@
 
     // The name of the default layout to load on startup
     // Default: "default"
+    // Compact
     //
-    default_layout "compact"
+    default_layout "default"
 
     // Choose the mode that zellij uses when starting up.
     // Default: normal

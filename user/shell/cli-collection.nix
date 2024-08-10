@@ -17,6 +17,12 @@
     bottom
     ripgrep
     fzf
+    atac
+    sshs
+    termshark
+    lazygit
+    zoxide
+    oh-my-posh
     tree-sitter
     rsync
     unzip

@@ -54,5 +54,8 @@ in {
 
   xdg.portal.enable = true;
 
-  services.xserver.excludePackages = [pkgs.xterm];
+  services = {
+    xserver.excludePackages = [pkgs.xterm];
+    gvfs.enable = true;
+  };
 }
