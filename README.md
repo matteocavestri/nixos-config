@@ -65,6 +65,21 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
   </tr>
 </table>
 
+## DE/WM
+
+- Gnome
+- Hyprland
+- Cinnamon
+- Pantheon
+- CDE
+- XFCE
+- Plasma
+- Cosmic
+- Mate
+- Budgie
+- Deepin
+- Lumina
+
 ## Editor
 
 I have implemented my text editor based on Nixvim, which is available [here](https://github.com/matteocavestri/nevica)

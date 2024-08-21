@@ -3,6 +3,10 @@
   config,
   ...
 }: {
+  imports = [
+    ../style/stylix.nix
+  ];
+
   gtk.cursorTheme = {
     package = userSettings.cursorPkg;
     name = userSettings.cursor;

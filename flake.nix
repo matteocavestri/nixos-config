@@ -24,7 +24,7 @@
       username = "matteocavestri"; # Your username (fix-scripts)
       name = "Matteo Cavestri"; # For git config
       email = "matteo.cavestri@protonmail.ch"; # For git config
-      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce
+      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       theme = "catppuccin-mocha"; # See ./themes
       font = "Inconsolata Nerd Font"; # Your font name
       fontPkg = pkgs.inconsolata-nerdfont; # Your font package
@@ -50,6 +50,7 @@
         modules = [
           nixos-hardware.nixosModules.${systemSettings.nixhw}
           inputs.stylix.nixosModules.stylix
+          inputs.nixos-cosmic.nixosModules.default
           (./.
             + "/profiles"
             + ("/" + systemSettings.profile)
@@ -124,5 +125,11 @@
 
     # ------------------ Ags ---------------------------------------------
     ags.url = "github:Aylur/ags"; # Unused
+
+    # ------------------ Cosmic ------------------------------------------
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 }

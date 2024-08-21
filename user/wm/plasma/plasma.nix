@@ -1,2 +1,5 @@
 {
+  imports = [
+    ../config.nix
+  ];
 }

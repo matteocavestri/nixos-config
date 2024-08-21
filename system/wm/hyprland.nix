@@ -6,9 +6,8 @@
   pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 in {
   imports = [
-    ../hardware/pipewire.nix
-    ./wayland.nix
-    ../config/fonts.nix
+    ./servers/wayland.nix
+    ./displaymanager/sddm.nix
     ../style/stylix.nix
   ];
 

@@ -1,7 +1,13 @@
-{
+{systemSettings, ...}: {
   imports = [
-    ./x11.nix
+    ./servers/x11.nix
+    ./displaymanager/lightdm.nix
   ];
-  services.xserver.desktopManager.cde.enable = true;
-  services.xserver.desktopManager.cde.extraPackages = [];
+  services.xserver = {
+    desktopManager.cde = {
+      enable = true;
+      extraPackages = [];
+    };
+    xkb.layout = systemSettings.keymap;
+  };
 }

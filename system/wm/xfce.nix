@@ -1,6 +1,7 @@
 {...}: {
   imports = [
-    ./x11.nix
+    ./servers/x11.nix
+    ./displaymanager/lightdm.nix
   ];
   # if you use pulseaudio
   nixpkgs.config.pulseaudio = true;

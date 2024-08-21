@@ -1,7 +1,13 @@
 {...}: {
   imports = [
-    ./x11.nix
+    ./servers/x11.nix
+    ./displaymanager/lightdm.nix
   ];
-  services.xserver.desktopManager.pantheon.enable = true;
-  services.pantheon.apps.enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      desktopManager.pantheon.enable = true;
+    };
+    pantheon.apps.enable = true;
+  };
 }

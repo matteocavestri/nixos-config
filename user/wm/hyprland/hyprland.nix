@@ -26,7 +26,6 @@ in {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
     })
-    ../../style/stylix.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -55,7 +54,7 @@ in {
         $fileManager = kitty -e lf
         $menu = rofi -show drun
         $editor = kitty -e nvim
-        
+            
         env = XDG_CURRENT_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
         env = XDG_SESSION_DESKTOP,Hyprland
@@ -78,7 +77,7 @@ in {
           exec-once = hypridle
           exec-once = sleep 5 && libinput-gestures
           #exec-once = pypr
-            
+        
         # General Settings
           general { 
             gaps_in = 7
@@ -250,6 +249,9 @@ in {
 
               windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
               windowrulev2 = opacity 0.85,class:^(org.gnome.Nautilus)$
+
+              windowrulev2 = opacity 0.85,class:^(neovide)$
+              windowrulev2 = opacity 0.85,class:^(neovide)$
 
               #windowrulev2 = opacity 0.85,class:^(firefox)$
               #windowrulev2 = opacity 0.85,class:^(firefox)$

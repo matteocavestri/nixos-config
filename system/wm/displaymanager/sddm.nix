@@ -1,16 +1,9 @@
 {
-  config,
   pkgs,
-  systemSettings,
+  config,
   ...
 }: {
-  imports = [
-    ../hardware/pipewire.nix
-    ../config/fonts.nix
-  ];
-  # Configure wayland
   environment.systemPackages = with pkgs; [
-    wayland
     (sddm-chili-theme.override {
       themeConfig = {
         background = config.stylix.image;
@@ -22,16 +15,10 @@
       };
     })
   ];
-
   # Configure xwayland
   services = {
     xserver = {
       enable = true;
-      xkb = {
-        layout = systemSettings.keymap;
-        variant = "";
-        options = "caps:escape";
-      };
     };
     displayManager = {
       sddm = {
@@ -42,16 +29,5 @@
         package = pkgs.sddm;
       };
     };
-    dbus = {
-      enable = true;
-      packages = [pkgs.dconf];
-    };
-    gnome = {
-      gnome-keyring.enable = true;
-    };
-  };
-
-  programs.dconf = {
-    enable = true;
   };
 }
