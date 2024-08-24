@@ -55,7 +55,7 @@ in {
         # $menu = rofi -show drun
         $menu = fuzzel
         $editor = kitty -e nvim
-            
+          
         env = XDG_CURRENT_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
         env = XDG_SESSION_DESKTOP,Hyprland
@@ -78,7 +78,7 @@ in {
         exec-once = hypridle
         exec-once = sleep 5 && libinput-gestures
         #exec-once = pypr
-        
+              
         # General Settings
           general { 
             gaps_in = 7
@@ -118,7 +118,7 @@ in {
 
         # Input Settings
           input {
-            kb_layout = us
+            kb_layout = it
             kb_variant =
             kb_model =
             kb_options =
