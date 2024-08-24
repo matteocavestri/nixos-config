@@ -22,8 +22,6 @@
     ../../user/pkgs/editors/nevica.nix # Nevica editor import
     ../../user/pkgs/media/mpv.nix
     ../../user/pkgs/basepkgs/productivity.nix # Productivity pkgs
-    ../../user/pkgs/virtualization/virtualization-arm.nix
-    ../../user/pkgs/flatpak/flatpak.nix
     ../../user/pkgs/coding/compiler.nix
     ../../user/pkgs/coding/tools.nix
     (./. + "../../../user/wm" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
