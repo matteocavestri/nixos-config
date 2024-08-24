@@ -1,7 +1,11 @@
-{ pkgs, userSettings, systemSettings, ... }:
 {
+  pkgs,
+  userSettings,
+  systemSettings,
+  ...
+}: {
   environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;     
+  users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
 
   imports = [
@@ -10,6 +14,7 @@
     ../../system/config/fonts.nix
     ../../system/config/users.nix
     ../../system/pkgs/base.nix
-    (./. + "../../../system/wm" + ( "/" + userSettings.wm) + ".nix")
+    ../../system/config/systemd.nix
+    (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix")
   ];
 }

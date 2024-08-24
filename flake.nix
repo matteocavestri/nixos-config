@@ -15,7 +15,7 @@
       timezone = "Europe/Rome"; # Timezone config
       locale = "it_IT.UTF-8"; # Locale config
       keymap = "us"; # Global keymap (Fix hyprland)
-      profile = "minimal"; # only personal
+      profile = "work"; # personal / minimal-gui / work
       hardware = "macmini-m1"; # your hardware config
       # nixhw = "apple-t2"; # Your Nixos hardware
     };
