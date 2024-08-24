@@ -6,7 +6,6 @@
     virt-manager
     qemu
     uefi-run
-    lxc
     swtpm
     bottles
     # Filesystems
@@ -14,6 +13,6 @@
   ];
 
   home.file.".config/libvirt/qemu.conf".text = ''
-    nvram = ["/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd"]
+    nvram = ["/run/libvirt/nix-ovmf/OVMF_CODE.fd:/run/libvirt/nix-ovmf/OVMF_VARS.fd", "/run/libvirt/nix-ovmf/AAVMF_CODE.fd:/run/libvirt/nix-ovmf/AAVMF_VARS.fd"]
   '';
 }
