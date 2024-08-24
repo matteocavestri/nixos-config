@@ -21,6 +21,7 @@
     ../../user/pkgs/engineering/freecad.nix # Engineering pkgs
     ../../user/pkgs/engineering/octave.nix
     ../../user/pkgs/media/kdenlive.nix # Media pkgs
+    ../../user/pkgs/media/gimp.nix
     ../../user/pkgs/media/obs.nix
     ../../user/pkgs/media/mpv.nix
     ../../user/pkgs/basepkgs/productivity.nix # Productivity pkgs

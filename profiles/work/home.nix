@@ -22,5 +22,6 @@
     ../../user/pkgs/engineering/octave.nix
     # ../../user/pkgs/media/obs.nix
     ../../user/pkgs/media/kdenlive.nix
+    ../../user/pkgs/media/gimp.nix
   ];
 }

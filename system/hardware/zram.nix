@@ -1,7 +1,7 @@
 {
   zramSwap = {
     enable = true;
-    memoryMax = 16384000000; # 16GB
+    memoryMax = 32768000000; # 32GB
     algorithm = "zstd";
     memoryPercent = 200;
   };
