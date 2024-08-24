@@ -13,14 +13,8 @@
   programs.home-manager.enable = true;
 
   imports = [
-    ../../user/shell/sh.nix # Shell config
-    (./. + "../../../user/pkgs/browsers" + ("/" + userSettings.browser) + ".nix") # Browser definition
+    ../minimal-gui/home.nix
     ../../user/pkgs/flatpak/flatpak.nix # Flatpak config
-    ../../user/pkgs/git/git.nix # Git config
-    ../../user/pkgs/terminal/nh.nix # nh (nixos/homemanager) config
-    ../../user/pkgs/terminal/kitty.nix # Kitty config
-    ../../user/pkgs/terminal/alacritty.nix # Alacritty config
-    ../../user/pkgs/terminal/lf.nix
     ../../user/pkgs/virtualization/virtualization.nix # Virtualization config
     ../../user/pkgs/editors/nevica.nix # Nevica editor import
     ../../user/pkgs/gaming/gaming.nix
@@ -32,9 +26,5 @@
     ../../user/pkgs/basepkgs/productivity.nix # Productivity pkgs
     ../../user/pkgs/basepkgs/tools.nix # tools pkgs
     ../../user/pkgs/graphics/graphics.nix
-    (./. + "../../../user/wm" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
-
-    ../../user/pkgs/coding/compiler.nix
-    ../../user/pkgs/coding/tools.nix
   ];
 }

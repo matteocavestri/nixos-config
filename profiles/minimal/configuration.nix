@@ -16,6 +16,5 @@
     ../../system/pkgs/base.nix
     ../../system/config/systemd.nix
     ../../system/config/optimize.nix
-    (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix")
   ];
 }
