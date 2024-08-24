@@ -55,7 +55,7 @@ in {
         # $menu = rofi -show drun
         $menu = fuzzel
         $editor = kitty -e nvim
-          
+              
         env = XDG_CURRENT_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
         env = XDG_SESSION_DESKTOP,Hyprland
@@ -70,15 +70,15 @@ in {
         #env = GDK_SCALE,1.6
         #env = ELM_SCALE,1.6
 
-          exec-once = waybar
-          exec-once = dunst
-          exec-once = hyprpaper
-          exec-once = nm-applet
-          exec-once = blueman-applet
-          exec-once = hypridle
-          exec-once = sleep 5 && libinput-gestures
-          #exec-once = pypr
-              
+        exec-once = waybar
+        exec-once = dunst
+        exec-once = hyprpaper
+        exec-once = nm-applet
+        exec-once = blueman-applet
+        exec-once = hypridle
+        exec-once = sleep 5 && libinput-gestures
+        #exec-once = pypr
+          
         # General Settings
           general { 
             gaps_in = 7
