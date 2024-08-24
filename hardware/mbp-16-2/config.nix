@@ -10,6 +10,7 @@ in {
     ../../system/hardware/pipewire.nix
     ../../system/hardware/systemdboot.nix
     ../../system/hardware/touchpad.nix
+    ../../system/hardware/zram.nix
   ];
   # Nix settings
   nix.settings = {

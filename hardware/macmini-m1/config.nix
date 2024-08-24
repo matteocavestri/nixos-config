@@ -1,10 +1,12 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
+    ../../system/driver/applegpu.nix
     ../../system/driver/apple-silicon/default.nix
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/locale.nix
     ../../system/hardware/iwd.nix
+    ../../system/hardware/zram.nix
   ];
   # Nix settings
   nix.settings = {
@@ -13,15 +15,4 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
-
-  # Apple Silicon formware
-  hardware = {
-    asahi = {
-      enable = true;
-      peripheralFirmwareDirectory = /etc/nixos/firmware;
-      useExperimentalGPUDriver = true;
-      experimentalGPUInstallMode = "replace";
-      setupAsahiSound = true;
-    };
-  };
 }
