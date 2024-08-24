@@ -16,4 +16,10 @@
 
   # Apple Silicon formware
   hardware.asahi.peripheralFirmwareDirectory = /etc/nixos/firmware;
+
+  environment.systemPackages = [
+    pkgs.vim
+    pkgs.wget
+    pkgs.git
+  ];
 }

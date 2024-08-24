@@ -52,9 +52,10 @@ in {
         monitor=,2560x1600@60,auto,1.6
         $terminal = kitty
         $fileManager = kitty -e lf
-        $menu = rofi -show drun
+        # $menu = rofi -show drun
+        $menu = fuzzel
         $editor = kitty -e nvim
-            
+              
         env = XDG_CURRENT_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
         env = XDG_SESSION_DESKTOP,Hyprland
@@ -77,7 +78,7 @@ in {
           exec-once = hypridle
           exec-once = sleep 5 && libinput-gestures
           #exec-once = pypr
-        
+          
         # General Settings
           general { 
             gaps_in = 7

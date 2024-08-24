@@ -70,7 +70,10 @@
         inherit pkgs;
         modules = [
           inputs.stylix.homeManagerModules.stylix
-          (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix")
+          (./.
+            + "/profiles"
+            + ("/" + systemSettings.profile)
+            + "/home.nix")
         ];
         extraSpecialArgs = {
           inherit userSettings;
@@ -131,5 +134,8 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # ------------------ Doom Emacs --------------------------------------
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 }

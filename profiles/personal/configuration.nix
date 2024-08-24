@@ -22,6 +22,7 @@
     ../../system/pkgs/flatpak.nix
     ../../system/pkgs/virtualization.nix
     ../../system/pkgs/gaming.nix
+    ../../system/pkgs/wine.nix
     # Window manager imports
     (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix")
   ];

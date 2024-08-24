@@ -8,7 +8,6 @@
     uefi-run
     lxc
     swtpm
-    wine
     bottles
     # Filesystems
     dosfstools
