@@ -10,6 +10,6 @@
     pkgs.vim
     pkgs.wget
     pkgs.git
-    inputs.cave.packages.${pkgs.system}.cave
+    #inputs.cave.packages.${pkgs.system}.cave
   ];
 }

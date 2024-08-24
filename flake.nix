@@ -10,21 +10,21 @@
   } @ inputs: let
     # -------------------- SYSTEM SETTINGS ------------------------------
     systemSettings = {
-      system = "x86_64-linux"; # Your arch
-      hostname = "nixos-t2"; # Your hostname (fix scripts)
+      system = "aarch64-linux"; # Your arch
+      hostname = "nixos-asahi"; # Your hostname (fix scripts)
       timezone = "Europe/Rome"; # Timezone config
       locale = "it_IT.UTF-8"; # Locale config
-      keymap = "it"; # Global keymap (Fix hyprland)
-      profile = "personal"; # only personal
-      hardware = "mbp-16-2"; # your hardware config
-      nixhw = "apple-t2"; # Your Nixos hardware
+      keymap = "us"; # Global keymap (Fix hyprland)
+      profile = "minimal"; # only personal
+      hardware = "macmini-m1"; # your hardware config
+      # nixhw = "apple-t2"; # Your Nixos hardware
     };
     # -------------------- USER SETTINGS --------------------------------
     userSettings = {
       username = "matteocavestri"; # Your username (fix-scripts)
       name = "Matteo Cavestri"; # For git config
       email = "matteo.cavestri@protonmail.ch"; # For git config
-      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
+      wm = "cinnamon"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       theme = "catppuccin-mocha"; # See ./themes
       font = "Inconsolata Nerd Font"; # Your font name
       fontPkg = pkgs.inconsolata-nerdfont; # Your font package
@@ -48,7 +48,7 @@
     nixosConfigurations = {
       ${systemSettings.hostname} = lib.nixosSystem {
         modules = [
-          nixos-hardware.nixosModules.${systemSettings.nixhw}
+          # nixos-hardware.nixosModules.${systemSettings.nixhw}
           inputs.stylix.nixosModules.stylix
           inputs.nixos-cosmic.nixosModules.default
           (./.

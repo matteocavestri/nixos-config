@@ -49,10 +49,10 @@ in {
       + ''
 
         #monitor=,2560x1600@60,auto,2
-        monitor=,2560x1600@60,auto,1.6
+        monitor=,1920x1080@60,auto,1
         $terminal = kitty
         $fileManager = kitty -e lf
-        $menu = rofi -show drun
+        $menu = fuzzel
         $editor = kitty -e nvim
             
         env = XDG_CURRENT_DESKTOP,Hyprland
@@ -117,7 +117,7 @@ in {
 
         # Input Settings
           input {
-            kb_layout = it
+            kb_layout = us
             kb_variant =
             kb_model =
             kb_options =
