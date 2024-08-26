@@ -2,6 +2,7 @@
   pkgs,
   lib,
   config,
+  pkgs-unstable,
   ...
 }: let
   hyprCursorSize = config.gtk.cursorTheme.size;
@@ -26,7 +27,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pkgs.hyprland;
+    package = pkgs-unstable.hyprland;
     plugins = [
       #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
@@ -51,7 +52,7 @@ in {
         # $menu = rofi -show drun
         $menu = fuzzel
         $editor = kitty -e nvim
-            
+              
         env = XDG_CURRENT_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
         env = XDG_SESSION_DESKTOP,Hyprland
@@ -74,7 +75,7 @@ in {
         exec-once = hypridle
         exec-once = sleep 5 && libinput-gestures
         #exec-once = pypr
-        
+          
         # General Settings
           general { 
             gaps_in = 7

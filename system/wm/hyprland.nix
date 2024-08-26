@@ -32,7 +32,12 @@ in {
   };
 
   security = {
-    pam.services.login.enableGnomeKeyring = true;
+    pam = {
+      services = {
+        login.enableGnomeKeyring = true;
+        swaylock = {};
+      };
+    };
     polkit.enable = true;
   };
 
