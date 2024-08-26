@@ -8,9 +8,15 @@
     ../../config/fonts.nix
   ];
   # Configure wayland
-  environment.systemPackages = with pkgs; [
-    wayland
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      wayland
+    ];
+    sessionVariables = {
+      XDG_SESSION_TYPE = "wayland";
+      NIXOS_OZONE_WL = "1";
+    };
+  };
 
   # Configure xwayland
   services = {

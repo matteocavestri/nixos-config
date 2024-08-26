@@ -23,5 +23,6 @@
     # ../../user/pkgs/media/obs.nix
     ../../user/pkgs/media/kdenlive.nix
     ../../user/pkgs/media/gimp.nix
+    ../../user/pkgs/gaming/gaming-arm.nix
   ];
 }
