@@ -2,27 +2,22 @@
   pkgs,
   lib,
   config,
-  inputs,
-  systemSettings,
   ...
 }: let
   hyprCursorSize = config.gtk.cursorTheme.size;
 in {
   imports = [
     ../config.nix
-    ./hypr/config.nix
-    ./hypr/packages.nix
-    ./hypr/hypridle.nix
-    ./utils/fuzzel.nix
-    ./utils/rofi.nix
-    ./utils/waybar.nix
-    ./utils/wlogout.nix
-    ./hypr/hyprlock.nix
-    ./utils/dunst.nix
-    ./utils/swappy.nix
-    #./hypr/pyprland.nix
-    #./eww/eww.nix
-    ./ags/ags.nix
+    ../hyprland/hypr/config.nix
+    ../hyprland/hypr/packages.nix
+    ../hyprland/hypr/hypridle.nix
+    ../hyprland/utils/fuzzel.nix
+    ../hyprland/utils/rofi.nix
+    ../hyprland/utils/waybar.nix
+    ../hyprland/utils/wlogout.nix
+    ../hyprland/hypr/hyprlock.nix
+    ../hyprland/utils/dunst.nix
+    ../hyprland/utils/swappy.nix
     (import ../../pkgs/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
@@ -31,7 +26,7 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = pkgs.hyprland;
     plugins = [
       #inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       #inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
@@ -56,7 +51,7 @@ in {
         # $menu = rofi -show drun
         $menu = fuzzel
         $editor = kitty -e nvim
-        
+            
         env = XDG_CURRENT_DESKTOP,Hyprland
         env = XDG_SESSION_TYPE,wayland
         env = XDG_SESSION_DESKTOP,Hyprland
@@ -79,7 +74,7 @@ in {
         exec-once = hypridle
         exec-once = sleep 5 && libinput-gestures
         #exec-once = pypr
-            
+        
         # General Settings
           general { 
             gaps_in = 7
