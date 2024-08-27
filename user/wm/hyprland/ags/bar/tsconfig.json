@@ -9,6 +9,7 @@
     "noImplicitAny": false,
     "baseUrl": ".",
     "typeRoots": ["./types"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true
   }
 }

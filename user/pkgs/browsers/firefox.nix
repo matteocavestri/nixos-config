@@ -60,7 +60,7 @@
         "gfx.webrender.enabled" = true;
         "layout.css.backdrop-filter.enabled" = true;
         "svg.context-properties.content.enabled" = true;
-        "widget.wayland.fractional-scale.enabled" = true;
+        "widget.wayland.fractional-scale.enabled" = false;
         "widget.gtk.ignore-bogus-leave-notify" = 1;
         "browser.search.defaultenginename" = "DuckDuckGo";
         "browser.search.order.1" = "DuckDuckGo";
