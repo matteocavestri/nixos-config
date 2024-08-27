@@ -8,7 +8,6 @@
     enableOnBoot = true;
     storageDriver = "overlay2";
     autoPrune.enable = true;
-    enableNvidia = true;
   };
   virtualisation.containers.enable = true;
   users.users.${userSettings.username}.extraGroups = ["docker"];
@@ -19,4 +18,5 @@
     distrobox
     podman
   ];
+  hardware.nvidia-container-toolkit.enable = true;
 }
