@@ -9,5 +9,6 @@
     ../../system/pkgs/virtualization.nix
     ../../system/services/openssh.nix
     ../../system/services/cockpit.nix
+    ../../system/pkgs/servermonitor.nix
   ];
 }
