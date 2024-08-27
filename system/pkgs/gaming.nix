@@ -1,4 +1,9 @@
 {pkgs, ...}: {
+  environment.systemPackages = with pkgs; [
+    steam
+    steamPackages.steam-runtime
+    steam-run
+  ];
   programs = {
     gamemode.enable = true;
     steam = {

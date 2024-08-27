@@ -31,7 +31,6 @@
     evince
     gnome.gnome-software
     gnome.eog
-    zed-editor
     delfin
     btrfs-assistant
     mission-center
