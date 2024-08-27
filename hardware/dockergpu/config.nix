@@ -21,6 +21,7 @@
     22 # ssh
     2375 # docker sock (nextcloud)
     7860 # stable diffusion
+    8095 # owncast
     8096 # jellyfin
     9001 # portainer agent
     9090 # prometheus
