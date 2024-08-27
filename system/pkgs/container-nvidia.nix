@@ -8,6 +8,8 @@
     enableOnBoot = true;
     storageDriver = "overlay2";
     autoPrune.enable = true;
+    # TODO: deprecated, move to hardware.nvidia-container-toolkit.enable
+    enableNvidia = true;
   };
   virtualisation.containers.enable = true;
   users.users.${userSettings.username}.extraGroups = ["docker"];
@@ -18,5 +20,5 @@
     distrobox
     podman
   ];
-  hardware.nvidia-container-toolkit.enable = true;
+  # hardware.nvidia-container-toolkit.enable = true;
 }
