@@ -80,6 +80,22 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 - Deepin
 - Lumina
 
+## Profiles (Only nix)
+
+**Base Profiles**:
+
+- Minimal:
+  - hardware
+  - gpg config
+  - fonts config
+  - users config
+  - base pkgs
+  - systemd config
+  - optimization
+- Minimal GUI:
+  - all minimal modules
+  - window manager config
+
 ## Editor
 
 I have implemented my text editor based on Nixvim, which is available [here](https://github.com/matteocavestri/nevica)
