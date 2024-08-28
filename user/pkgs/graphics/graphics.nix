@@ -3,5 +3,6 @@
     clinfo
     libva-utils
     vulkan-tools
+    mesa-demos
   ];
 }

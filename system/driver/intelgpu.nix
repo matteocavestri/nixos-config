@@ -15,17 +15,21 @@
           then vaapiIntel
           else intel-vaapi-driver
         )
-        # libvdpau-va-gl
-        vaapiVdpau
+        libvdpau-va-gl
+        libGLU
         intel-media-driver
         intel-media-sdk
         intel-ocl
-        libGLU
+      ];
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        intel-vaapi-driver
       ];
     };
   };
   environment.variables = {
     VDPAU_DRIVER = lib.mkIf config.hardware.opengl.enable (lib.mkDefault "va_gl");
+    LIBVA_DRIVER_NAME = "iHD";
+    OCL_ICD_VENDORS = "/run/opengl-driver/etc/OpenCL/vendors";
   };
   environment.systemPackages = with pkgs; [
     nvtopPackages.intel

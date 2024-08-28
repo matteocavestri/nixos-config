@@ -1,7 +1,13 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  inputs,
+  systemSettings,
+  ...
+}: let
   substituters = ["https://cache.soopy.moe"];
 in {
   imports = [
+    inputs.nixos-hardware.nixosModules.${systemSettings.nixhw}
     ./hardware-configuration.nix
     ../../system/driver/intelgpu.nix
     ../../system/hardware/bluetooth.nix

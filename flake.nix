@@ -10,21 +10,21 @@
   } @ inputs: let
     # -------------------- SYSTEM SETTINGS ------------------------------
     systemSettings = {
-      system = "aarch64-linux"; # Your arch
-      hostname = "nixos-asahi"; # Your hostname (fix scripts)
+      system = "x86_64-linux"; # Your arch
+      hostname = "nixos-t2"; # Your hostname
       timezone = "Europe/Rome"; # Timezone config
       locale = "it_IT.UTF-8"; # Locale config
-      keymap = "us"; # Global keymap (Fix hyprland)
-      profile = "work"; # personal / minimal-gui / work
-      hardware = "macmini-m1"; # your hardware config
-      # nixhw = "apple-t2"; # Your Nixos hardware
+      keymap = "it"; # Global keymap
+      profile = "personal"; # personal / server / work / hypervisor
+      hardware = "mbp-16-2"; # your hardware config
+      nixhw = "apple-t2"; # Your Nixos hardware (Only affects apple-t2)
     };
     # -------------------- USER SETTINGS --------------------------------
     userSettings = {
-      username = "matteocavestri"; # Your username (fix-scripts)
+      username = "matteocavestri"; # Your username
       name = "Matteo Cavestri"; # For git config
       email = "matteo.cavestri@protonmail.ch"; # For git config
-      wm = "budgie"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
+      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       theme = "catppuccin-mocha"; # See ./themes
       font = "Inconsolata Nerd Font"; # Your font name
       fontPkg = pkgs.inconsolata-nerdfont; # Your font package
@@ -35,7 +35,7 @@
       iconsPkg = pkgs.papirus-icon-theme; # Your icons package
       term = "kitty"; # Your default term (fix hyprland)
       browser = "firefox"; # Only firefox
-      dotfilesDir = ".dotfiles"; # Your dotfiles dir
+      dotfilesDir = ".dotfiles"; # Your dotfiles dir (for cave helper)
       editor = "nvim"; # Only neovim
     };
     # -------------------------------------------------------------------
@@ -48,9 +48,6 @@
     nixosConfigurations = {
       ${systemSettings.hostname} = lib.nixosSystem {
         modules = [
-          # nixos-hardware.nixosModules.${systemSettings.nixhw}
-          inputs.stylix.nixosModules.stylix
-          inputs.nixos-cosmic.nixosModules.default
           (./.
             + "/profiles"
             + ("/" + systemSettings.profile)
@@ -69,7 +66,6 @@
       ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          inputs.stylix.homeManagerModules.stylix
           (./.
             + "/profiles"
             + ("/" + systemSettings.profile)

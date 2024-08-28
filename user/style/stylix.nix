@@ -3,6 +3,7 @@
   lib,
   pkgs,
   userSettings,
+  inputs,
   ...
 }: let
   themePath = "../../../themes" + ("/" + userSettings.theme + "/" + userSettings.theme) + ".yaml";
@@ -10,6 +11,10 @@
   backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/backgroundurl.txt");
   backgroundSha256 = builtins.readFile (./. + "../../../themes/" + ("/" + userSettings.theme) + "/backgroundsha256.txt");
 in {
+  imports = [
+    inputs.stylix.homeManagerModules.stylix
+  ];
+
   stylix = {
     autoEnable = false;
     polarity = themePolarity;
