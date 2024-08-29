@@ -10,11 +10,12 @@
 
   imports = [
     (./. + "../../../hardware" + ("/" + systemSettings.hardware) + "/config.nix")
+    ../../system/hardware/kernel.nix
     ../../system/security/gpg.nix
     ../../system/config/fonts.nix
     ../../system/config/users.nix
-    ../../system/pkgs/base.nix
     ../../system/config/systemd.nix
     ../../system/config/optimize.nix
+    ../../system/pkgs/base.nix
   ];
 }
