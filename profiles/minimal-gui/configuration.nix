@@ -9,14 +9,9 @@
   programs.zsh.enable = true;
 
   imports = [
-    (./. + "../../../hardware" + ("/" + systemSettings.hardware) + "/config.nix")
-    ../../system/hardware/kernel.nix
-    ../../system/security/gpg.nix
-    ../../system/config/fonts.nix
-    ../../system/config/users.nix
-    ../../system/config/systemd.nix
-    ../../system/config/optimize.nix
-    ../../system/pkgs/base.nix
     (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix")
+    ../minimal/configuration.nix
+    ../../system/hardware/pipewire.nix
+    ../../system/style/stylix.nix
   ];
 }

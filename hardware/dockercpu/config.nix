@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../system/driver/qemuguest.nix
-    ../../system/hardware/locale.nix
     ../../system/hardware/networkmanager.nix
     ../../system/hardware/zram.nix
   ];

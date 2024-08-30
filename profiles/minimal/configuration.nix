@@ -1,6 +1,5 @@
 {
   pkgs,
-  userSettings,
   systemSettings,
   ...
 }: {
@@ -10,12 +9,13 @@
 
   imports = [
     (./. + "../../../hardware" + ("/" + systemSettings.hardware) + "/config.nix")
-    ../../system/hardware/kernel.nix
     ../../system/security/gpg.nix
     ../../system/config/fonts.nix
     ../../system/config/users.nix
     ../../system/config/systemd.nix
     ../../system/config/optimize.nix
+    ../../system/config/kernel.nix
+    ../../system/config/locale.nix
     ../../system/pkgs/base.nix
   ];
 }

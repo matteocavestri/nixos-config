@@ -11,8 +11,7 @@ in {
     ./hardware-configuration.nix
     ../../system/driver/intelgpu.nix
     ../../system/hardware/bluetooth.nix
-    ../../system/hardware/locale.nix
-    ../../system/hardware/networkmanager.nix
+    ../../system/hardware/wpa_supplicant.nix
     ../../system/hardware/pipewire.nix
     ../../system/hardware/systemdboot.nix
     ../../system/hardware/touchpad.nix

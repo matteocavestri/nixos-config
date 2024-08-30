@@ -4,7 +4,6 @@
     ../../system/driver/applegpu.nix
     ../../system/driver/apple-silicon/default.nix
     ../../system/hardware/bluetooth.nix
-    ../../system/hardware/locale.nix
     ../../system/hardware/iwd.nix
     ../../system/hardware/zram.nix
   ];

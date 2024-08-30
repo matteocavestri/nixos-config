@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     ../../system/driver/nvidiagpu.nix
     ../../system/driver/qemuguest.nix
-    ../../system/hardware/locale.nix
     ../../system/hardware/networkmanager.nix
     ../../system/hardware/zram.nix
     ../../system/services/nvidia-monitoring.nix
