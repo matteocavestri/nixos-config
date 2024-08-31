@@ -7,6 +7,7 @@
   home.packages = [pkgs.git];
   programs.git = {
     enable = true;
+    lfs.enable = true;
     userName = userSettings.name;
     userEmail = userSettings.email;
     extraConfig = {

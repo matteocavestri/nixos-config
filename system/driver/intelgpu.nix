@@ -19,6 +19,7 @@
         libGLU
         intel-media-driver
         intel-media-sdk
+        intel-compute-runtime
         intel-ocl
       ];
       extraPackages32 = with pkgs.pkgsi686Linux; [

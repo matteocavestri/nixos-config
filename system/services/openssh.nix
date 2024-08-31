@@ -1,5 +1,8 @@
 {
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    PermitRootLogin = "yes";
+  };
   networking.firewall.allowedTCPPorts = [
     22
   ];
