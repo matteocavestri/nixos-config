@@ -100,7 +100,7 @@
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
     };
-    hyprland.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
 

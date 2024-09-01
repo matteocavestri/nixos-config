@@ -14,7 +14,10 @@
     ];
     sessionVariables = {
       XDG_SESSION_TYPE = "wayland";
+      XDG_BACKEND = "wayland";
       NIXOS_OZONE_WL = "1";
+      GDK_BACKEND = "wayland";
+      QT_QPA_PLATFORM = "wayland";
     };
   };
 
