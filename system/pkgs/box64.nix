@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  environment.systemPackages = [
-    pkgs.box64
+  environment.systemPackages = with pkgs; [
+    box64
   ];
 }

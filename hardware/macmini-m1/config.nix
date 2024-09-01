@@ -6,7 +6,7 @@
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/iwd.nix
     ../../system/hardware/zram.nix
-    ../../system/pkgs/box64.nix
+    ../../system/pkgs/box64-16k.nix
   ];
   # Nix settings
   nix.settings = {
