@@ -3,7 +3,17 @@
   userSettings,
   ...
 }: {
-  environment.systemPackages = with pkgs; [virt-manager];
+  imports = [
+    ../services/dconf.nix
+  ];
+  environment.systemPackages = with pkgs; [
+    virt-manager
+    virt-viewer
+    spice
+    spice-protocol
+    win-virtio
+    win-spice
+  ];
   virtualisation = {
     libvirtd = {
       enable = true;
@@ -29,5 +39,6 @@
     };
     spiceUSBRedirection.enable = true;
   };
+  services.spice-vdagentd.enable = true;
   users.users.${userSettings.username}.extraGroups = ["libvirtd"];
 }

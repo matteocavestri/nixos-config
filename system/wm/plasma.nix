@@ -1,5 +1,9 @@
 {systemSettings, ...}: {
   services = {
+    imports = [
+      ./servers/wayland.nix
+      ../services/dconf.nix
+    ];
     displayManager.sddm.wayland.enable = true;
     desktopManager.plasma6.enable = true;
     xserver = {
@@ -7,7 +11,6 @@
       xkb.layout = systemSettings.keymap;
     };
   };
-  programs.dconf.enable = true;
   qt = {
     enable = true;
     platformTheme = "gnome";

@@ -6,6 +6,7 @@
   imports = [
     ../../hardware/pipewire.nix
     ../../config/fonts.nix
+    ../../services/dconf.nix
   ];
 
   # Configure X11
@@ -18,16 +19,5 @@
     libinput = {
       touchpad.disableWhileTyping = true;
     };
-    dbus = {
-      enable = true;
-      packages = [pkgs.dconf];
-    };
-    gnome = {
-      gnome-keyring.enable = true;
-    };
-  };
-
-  programs.dconf = {
-    enable = true;
   };
 }

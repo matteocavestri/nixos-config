@@ -5,6 +5,7 @@
 }: {
   imports = [
     inputs.nixos-cosmic.nixosModules.default
+    ./servers/wayland.nix
   ];
   nix.settings = {
     substituters = ["https://cosmic.cachix.org/"];
