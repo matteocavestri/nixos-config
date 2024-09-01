@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  inputs,
   systemSettings,
   userSettings,
   ...
@@ -21,7 +20,7 @@ in {
     ./hypr/hyprlock.nix
     ./utils/dunst.nix
     ./utils/swappy.nix
-    ./ags/ags.nix
+    # ./ags/ags.nix
     (import ../../pkgs/dmenu-scripts/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
@@ -30,7 +29,6 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     package = pkgs.hyprland;
     plugins = [];
     xwayland.enable = true;

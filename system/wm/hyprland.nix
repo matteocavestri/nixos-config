@@ -1,22 +1,13 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
-  pkgs-hyprland = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+{pkgs, ...}: {
   imports = [
     ./servers/wayland.nix
     ./displaymanager/sddm.nix
-    # ./displaymanager/greetd.nix
     ../style/stylix.nix
   ];
 
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    # portalPackage = pkgs-hyprland.xdg-desktop-portal-hyprland;
     package = pkgs.hyprland;
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
