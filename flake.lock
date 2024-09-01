@@ -818,11 +818,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1725203654,
-        "narHash": "sha256-H7WBli0+RacAmJOoZ+sYmeaV0OqrzB95AlJsY+yli90=",
+        "lastModified": 1725209073,
+        "narHash": "sha256-1miFtjWh3UhDS85y1Lt1MLEG9LwU9lIwQ2ij/4qm4L8=",
         "ref": "refs/heads/main",
-        "rev": "4b5b8a763073593ac48af3bdcf04cf65b219120b",
-        "revCount": 5175,
+        "rev": "8bbeee20414bc0e20992076632d7d44ede443a1c",
+        "revCount": 5177,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1125,11 +1125,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1725154541,
-        "narHash": "sha256-8dKBfeqgshyVkfzo1tSiWGbnHhmrdFureEPPzHsd08k=",
+        "lastModified": 1725206085,
+        "narHash": "sha256-rqkynqF1Wqk8mSVto/+hL7Ua1K7ohTqwGrf8qJqFRSU=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "f0a82e0051235990bbd717e8c8bebe6049c018c4",
+        "rev": "a5617e2b50bb17dd26d2ff040f209a1be111975a",
         "type": "github"
       },
       "original": {
@@ -1366,11 +1366,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1725202003,
-        "narHash": "sha256-7TlKSBSOoUC7DEPVnvrUxum4Vm2fvruxV5JE8unz0oM=",
+        "lastModified": 1725205518,
+        "narHash": "sha256-8ON8L/Rh/2jOgJSZrngL0tqIBBAguulV+LUJUPX6Kc8=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "c33262d74031bf88582b6fb2e7f7d30a3f2501a5",
+        "rev": "1f576dea9f0750f4877b012a70fb47a1c063491a",
         "type": "github"
       },
       "original": {
@@ -1880,11 +1880,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725203619,
-        "narHash": "sha256-Am4gwnu5q+6GFKQ3NnEkXeZYKIZ9rv9mRLk+DYqX9Zs=",
+        "lastModified": 1725203932,
+        "narHash": "sha256-VLULC/OnI+6R9KEP2OIGk+uLJJsfRlaLouZ5gyFd2+Y=",
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
-        "rev": "8e5ca2a299e95a3bdcdb84cfbe08f31b0690ecd5",
+        "rev": "2425e8f541525fa7409d9f26a8ffaf92a3767251",
         "type": "github"
       },
       "original": {
