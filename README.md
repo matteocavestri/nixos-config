@@ -9,13 +9,13 @@
       <p></p>
       <div align="center">
          <a href="/https://github.com/matteocavestri/nixos-config/stargazers">
-            <img src="https://img.shields.io/github/stars/Frost-Phoenix/nixos-config?color=FABD2F&labelColor=282828&style=for-the-badge&logo=starship&logoColor=FABD2F">
+            <img src="https://img.shields.io/github/stars/matteocavestri/nixos-config?color=FABD2F&labelColor=282828&style=for-the-badge&logo=starship&logoColor=FABD2F">
          </a>
          <a href="https://github.com/matteocavestri/nixos-config">
-            <img src="https://img.shields.io/github/repo-size/Frost-Phoenix/nixos-config?color=B16286&labelColor=282828&style=for-the-badge&logo=github&logoColor=B16286">
+            <img src="https://img.shields.io/github/repo-size/matteocavestri/nixos-config?color=B16286&labelColor=282828&style=for-the-badge&logo=github&logoColor=B16286">
          </a>
          <a = href="https://nixos.org">
-            <img src="https://img.shields.io/badge/NixOS-2405-blue.svg?style=for-the-badge&labelColor=282828&logo=NixOS&logoColor=458588&color=458588">
+            <img src="https://img.shields.io/badge/NixOS-24.05-blue.svg?style=for-the-badge&labelColor=282828&logo=NixOS&logoColor=458588&color=458588">
          </a>
          <a href="https://github.com/matteocavestri/nixos-config/blob/main/LICENSE">
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=GPL-V3&colorA=282828&colorB=98971A&logo=unlicense&logoColor=98971A&"/>
