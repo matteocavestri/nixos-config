@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./hardware-configuration.nix
     ../../system/driver/applegpu.nix
@@ -6,6 +6,7 @@
     ../../system/hardware/bluetooth.nix
     ../../system/hardware/iwd.nix
     ../../system/hardware/zram.nix
+    ../../system/pkgs/box64.nix
   ];
   # Nix settings
   nix.settings = {

@@ -1,13 +1,4 @@
-{
-  pkgs,
-  userSettings,
-  systemSettings,
-  ...
-}: {
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
+{userSettings, ...}: {
   imports = [
     (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix")
     ../minimal/configuration.nix

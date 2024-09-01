@@ -1,14 +1,6 @@
-{pkgs, ...}: {
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
+{
   imports = [
-    ../minimal/configuration.nix
-    ../../system/pkgs/container.nix
+    ../server/configuration.nix
     ../../system/pkgs/virtualization.nix
-    ../../system/pkgs/servermonitor.nix
-    ../../system/services/openssh.nix
-    ../../system/services/cockpit.nix
   ];
 }

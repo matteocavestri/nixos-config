@@ -1,8 +1,4 @@
-{pkgs, ...}: {
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;
-  programs.zsh.enable = true;
-
+{
   imports = [
     ../minimal/configuration.nix
     ../../system/pkgs/container.nix

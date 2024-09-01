@@ -16,6 +16,7 @@ in {
     ../../system/hardware/systemdboot.nix
     ../../system/hardware/touchpad.nix
     ../../system/hardware/zram.nix
+    ../../system/hardware/backlight.nix
   ];
   # Nix settings
   nix.settings = {

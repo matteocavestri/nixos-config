@@ -13,7 +13,7 @@
       font = userSettings.font + ":size=20";
       dpi-aware = "no";
       show-actions = "yes";
-      terminal = "${pkgs.alacritty}/bin/alacritty";
+      terminal = "${pkgs.kitty}/bin/kitty";
     };
     colors = {
       background = config.lib.stylix.colors.base00 + "bf";

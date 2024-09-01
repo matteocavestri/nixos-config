@@ -11,6 +11,9 @@
   environment = {
     systemPackages = with pkgs; [
       wayland
+      wl-clipboard
+      wl-clipboard-x11
+      xwaylandvideobridge
     ];
     sessionVariables = {
       XDG_SESSION_TYPE = "wayland";

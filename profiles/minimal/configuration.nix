@@ -10,6 +10,7 @@
   imports = [
     (./. + "../../../hardware" + ("/" + systemSettings.hardware) + "/config.nix")
     ../../system/security/gpg.nix
+    ../../system/config/nixconfig.nix
     ../../system/config/fonts.nix
     ../../system/config/users.nix
     ../../system/config/systemd.nix

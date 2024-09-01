@@ -15,5 +15,8 @@
       ]))
     pipx # Python package manager
     cargo # Rust package manager
+    clippy # Rust linter
+    lldb_18 # C++/Rust debugger
+    rustfmt # Rust formatter
   ];
 }

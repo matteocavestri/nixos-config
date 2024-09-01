@@ -3,9 +3,6 @@
   config,
   ...
 }: {
-  home.packages = with pkgs; [
-    wlogout
-  ];
   programs.wlogout = {
     enable = true;
     package = pkgs.wlogout;
@@ -56,7 +53,7 @@
       + ''        0.55); */
                 background: transparent
               }
-            
+        
               button {
                 color: #''
       + config.lib.stylix.colors.base0A

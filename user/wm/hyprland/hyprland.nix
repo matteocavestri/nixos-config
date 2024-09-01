@@ -20,8 +20,7 @@ in {
     ./hypr/hyprlock.nix
     ./utils/dunst.nix
     ./utils/swappy.nix
-    # ./ags/ags.nix
-    (import ../../pkgs/dmenu-scripts/networkmanager-dmenu.nix {
+    (import ./utils/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
     })

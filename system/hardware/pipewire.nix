@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = lib.mkForce false;
@@ -9,4 +13,10 @@
     alsa.enable = true;
     jack.enable = true;
   };
+  environment.systemPackages = with pkgs; [
+    wireplumber
+    pamixer
+    pavucontrol
+    playerctl
+  ];
 }

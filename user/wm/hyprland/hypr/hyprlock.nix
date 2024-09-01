@@ -1,12 +1,8 @@
 {
-  pkgs,
   config,
   userSettings,
   ...
 }: {
-  home.packages = with pkgs; [
-    hyprlock
-  ];
   programs.hyprlock = {
     enable = true;
     extraConfig =

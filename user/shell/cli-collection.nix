@@ -5,9 +5,7 @@
     onefetch
     cava
     killall
-    libnotify
     timer
-    brightnessctl
     gnugrep
     gnused
     bat
