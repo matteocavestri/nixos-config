@@ -10,7 +10,6 @@
     ../../user/pkgs/media/kdenlive.nix
     ../../user/pkgs/media/gimp.nix
     ../../user/pkgs/media/graphics-tools.nix
-    # TEMP
-    ../../user/pkgs/gaming/gaming-arm.nix
+    ../../user/pkgs/gaming/gaming.nix
   ];
 }

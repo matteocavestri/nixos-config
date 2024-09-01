@@ -5,6 +5,7 @@
     ../../user/pkgs/virtualization/virtualization.nix # Virtualization config
     ../../user/pkgs/editors/nevica.nix # Nevica editor import
     ../../user/pkgs/gaming/gaming.nix
+    ../../user/pkgs/gaming/gaming-proton.nix
     ../../user/pkgs/engineering/freecad.nix # Engineering pkgs
     ../../user/pkgs/engineering/octave.nix
     ../../user/pkgs/media/kdenlive.nix # Media pkgs
