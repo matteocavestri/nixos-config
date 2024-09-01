@@ -2,6 +2,7 @@
   imports = [
     ../minimal-gui/home.nix
     ../../user/pkgs/editors/nevica.nix # Nevica editor import
+    ../../user/pkgs/productivity/libreoffice.nix
     ../../user/pkgs/productivity/productivity.nix
     ../../user/pkgs/virtualization/virtualization.nix
     ../../user/pkgs/flatpak/flatpak.nix

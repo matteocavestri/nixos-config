@@ -12,6 +12,7 @@
     ../../user/pkgs/media/gimp.nix
     ../../user/pkgs/media/obs.nix
     ../../user/pkgs/media/mpv.nix
+    ../../user/pkgs/productivity/libreoffice.nix
     ../../user/pkgs/productivity/productivity.nix
     ../../user/pkgs/media/graphics-tools.nix
   ];
