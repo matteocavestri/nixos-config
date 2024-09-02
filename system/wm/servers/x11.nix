@@ -7,6 +7,8 @@
     ../../hardware/pipewire.nix
     ../../config/fonts.nix
     ../../services/dconf.nix
+    ../../services/dbus.nix
+    ../../services/gnome-keyring.nix
   ];
   # Configure X11
   services = {

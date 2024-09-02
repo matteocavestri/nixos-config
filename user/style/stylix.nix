@@ -48,46 +48,25 @@ in {
       };
     };
     targets = {
-      alacritty.enable = false;
       kde.enable = true;
       kitty.enable = true;
       gtk.enable = true;
+      gnome.enable = true;
+      nixvim.enable = true;
+      zellij.enable = true;
+      xfce.enable = true;
+      rofi.enable = true;
+      mangohud.enable = true;
+      lazygit.enable = true;
+      hyprland.enable = true;
+      fzf.enable = true;
+      fuzzel.enable = true;
+      firefox.enable = true;
+      dunst.enable = true;
+      bat.enable = true;
+      btop.enable = true;
     };
   };
-
-  home.file = {
-    ".config/qt5ct/colors/oomox-current.conf".source = config.lib.stylix.colors {
-      template = builtins.readFile ./oomox-current.conf.mustache;
-      extension = ".conf";
-    };
-    ".config/Trolltech.conf".source = config.lib.stylix.colors {
-      template = builtins.readFile ./Trolltech.conf.mustache;
-      extension = ".conf";
-    };
-    ".config/kdeglobals".source = config.lib.stylix.colors {
-      template = builtins.readFile ./Trolltech.conf.mustache;
-      extension = "";
-    };
-    ".config/qt5ct/qt5ct.conf".text = pkgs.lib.mkBefore (builtins.readFile ./qt5ct.conf);
-    ".currenttheme".text = userSettings.theme;
-    ".config/hypr/hyprpaper.conf".text =
-      ''
-        preload = ''
-      + config.stylix.image
-      + ''
-
-        wallpaper = ,''
-      + config.stylix.image
-      + ''
-      '';
-  };
-
-  home.packages = with pkgs; [
-    libsForQt5.qt5ct
-    libsForQt5.breeze-qt5
-    libsForQt5.breeze-icons
-    gnome.adwaita-icon-theme
-  ];
 
   qt = {
     enable = true;
@@ -96,9 +75,67 @@ in {
     platformTheme.name = "qt5ct";
   };
 
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      package = userSettings.cursorPkg;
+      name = userSettings.cursor;
+      size = 24;
+    };
+    iconTheme = {
+      package = userSettings.iconsPkg;
+      name = userSettings.icons;
+    };
+    gtk3.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+    gtk4.extraConfig = {
+      Settings = ''
+        gtk-application-prefer-dark-theme=1
+      '';
+    };
+  };
+
   fonts.fontconfig.defaultFonts = {
     monospace = [userSettings.font];
     sansSerif = [userSettings.font];
     serif = [userSettings.font];
+  };
+
+  home = {
+    packages = with pkgs; [
+      libsForQt5.qt5ct
+      libsForQt5.breeze-qt5
+      libsForQt5.breeze-icons
+      gnome.adwaita-icon-theme
+    ];
+    file = {
+      ".config/qt5ct/colors/oomox-current.conf".source = config.lib.stylix.colors {
+        template = builtins.readFile ./oomox-current.conf.mustache;
+        extension = ".conf";
+      };
+      ".config/Trolltech.conf".source = config.lib.stylix.colors {
+        template = builtins.readFile ./Trolltech.conf.mustache;
+        extension = ".conf";
+      };
+      ".config/kdeglobals".source = config.lib.stylix.colors {
+        template = builtins.readFile ./Trolltech.conf.mustache;
+        extension = "";
+      };
+      ".config/qt5ct/qt5ct.conf".text = pkgs.lib.mkBefore (builtins.readFile ./qt5ct.conf);
+      ".currenttheme".text = userSettings.theme;
+      ".config/hypr/hyprpaper.conf".text =
+        ''
+          preload = ''
+        + config.stylix.image
+        + ''
+
+          wallpaper = ,''
+        + config.stylix.image
+        + ''
+        '';
+    };
   };
 }
