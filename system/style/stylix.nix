@@ -19,7 +19,7 @@ in {
   ];
 
   stylix = {
-    enable = false;
+    enable = true;
     autoEnable = false;
     polarity = themePolarity;
     image = pkgs.fetchurl {
@@ -27,8 +27,11 @@ in {
       sha256 = backgroundSha256;
     };
     base16Scheme = ./. + themePath;
-    targets.gnome.enable = true;
-    targets.gtk.enable = true;
+    cursor = {
+      name = userSettings.cursor;
+      package = userSettings.cursorPkg;
+      size = 24;
+    };
     fonts = {
       monospace = {
         name = userSettings.font;
@@ -52,6 +55,12 @@ in {
         popups = 12;
         desktop = 12;
       };
+    };
+    targets = {
+      gnome.enable = true;
+      gtk.enable = true;
+      lightdm.enable = true;
+      nixos-icons.enable = true;
     };
   };
 }

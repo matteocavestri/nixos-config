@@ -16,6 +16,7 @@ in {
   ];
 
   stylix = {
+    enable = true;
     autoEnable = false;
     polarity = themePolarity;
     image = pkgs.fetchurl {
@@ -23,6 +24,11 @@ in {
       sha256 = backgroundSha256;
     };
     base16Scheme = ./. + themePath;
+    cursor = {
+      name = userSettings.cursor;
+      package = userSettings.cursorPkg;
+      size = 24;
+    };
     fonts = {
       monospace = {
         name = userSettings.font;
@@ -49,20 +55,15 @@ in {
     };
     targets = {
       kde.enable = true;
-      kitty.enable = true;
-      gtk.enable = true;
       gnome.enable = true;
-      nixvim.enable = true;
-      zellij.enable = true;
       xfce.enable = true;
-      rofi.enable = true;
+      gtk.enable = true;
+      kitty.enable = true;
+      nixvim.enable = true;
       mangohud.enable = true;
       lazygit.enable = true;
-      hyprland.enable = true;
       fzf.enable = true;
-      fuzzel.enable = true;
       firefox.enable = true;
-      dunst.enable = true;
       bat.enable = true;
       btop.enable = true;
     };
