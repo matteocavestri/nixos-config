@@ -14,6 +14,8 @@
     ../../user/pkgs/media/mpv.nix
     ../../user/pkgs/productivity/libreoffice.nix
     ../../user/pkgs/productivity/productivity.nix
+    ../../user/pkgs/productivity/groupware.nix
+    ../../user/pkgs/productivity/thunderbird.nix
     ../../user/pkgs/media/graphics-tools.nix
   ];
 }

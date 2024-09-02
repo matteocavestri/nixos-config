@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    protonmail-bridge
-    evince
+    endeavour
+    iotas
+    nextcloud-client
   ];
 }

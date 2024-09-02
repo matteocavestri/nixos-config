@@ -4,6 +4,8 @@
     ../../user/pkgs/editors/nevica.nix # Nevica editor import
     ../../user/pkgs/productivity/libreoffice.nix
     ../../user/pkgs/productivity/productivity.nix
+    ../../user/pkgs/productivity/groupware.nix
+    ../../user/pkgs/productivity/thunderbird.nix
     ../../user/pkgs/virtualization/virtualization.nix
     ../../user/pkgs/flatpak/flatpak.nix
     ../../user/pkgs/engineering/freecad.nix
