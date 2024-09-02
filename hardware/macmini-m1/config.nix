@@ -15,4 +15,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
+
+  systemd.services."app-pulseaudio@autostart" = {
+    enable = false;
+  };
 }

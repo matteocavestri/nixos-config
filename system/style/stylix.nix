@@ -7,10 +7,6 @@
 }: let
   themePath = "../../../themes/" + userSettings.theme + "/" + userSettings.theme + ".yaml";
   themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/polarity.txt"));
-  myLightDMTheme =
-    if themePolarity == "light"
-    then "Adwaita"
-    else "Adwaita-dark";
   backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/backgroundurl.txt");
   backgroundSha256 = builtins.readFile (./. + "../../../themes/" + ("/" + userSettings.theme) + "/backgroundsha256.txt");
 in {
@@ -57,10 +53,12 @@ in {
       };
     };
     targets = {
-      gnome.enable = true;
-      gtk.enable = true;
       lightdm.enable = true;
       nixos-icons.enable = true;
+      console.enable = true;
     };
+  };
+  environment.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 }

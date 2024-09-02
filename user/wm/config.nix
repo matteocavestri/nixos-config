@@ -14,4 +14,10 @@
     TERM = userSettings.term;
     BROWSER = userSettings.browser;
   };
+
+  fonts.fontconfig.defaultFonts = {
+    monospace = [userSettings.font];
+    sansSerif = [userSettings.font];
+    serif = [userSettings.font];
+  };
 }

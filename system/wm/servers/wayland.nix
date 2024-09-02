@@ -17,6 +17,7 @@
       wl-clipboard
       wl-clipboard-x11
       xwaylandvideobridge
+      wayland-utils
     ];
     sessionVariables = {
       XDG_SESSION_TYPE = "wayland";
