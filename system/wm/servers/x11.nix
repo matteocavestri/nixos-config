@@ -8,7 +8,6 @@
     ../../config/fonts.nix
     ../../services/dconf.nix
   ];
-
   # Configure X11
   services = {
     xserver = {
@@ -20,4 +19,7 @@
       touchpad.disableWhileTyping = true;
     };
   };
+  environment.systemPackages = with pkgs; [
+    xclip
+  ];
 }

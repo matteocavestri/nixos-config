@@ -86,16 +86,13 @@ in {
     libsForQt5.qt5ct
     pkgs.libsForQt5.breeze-qt5
     libsForQt5.breeze-icons
-    pkgs.noto-fonts-monochrome-emoji
-    pkgs.adwaita-qt
   ];
 
-  # TODO: Better implementation of qt style
   qt = {
     enable = true;
     style.package = pkgs.adwaita-qt;
     style.name = "adwaita-dark";
-    platformTheme.name = "kde";
+    platformTheme.name = "qt5ct";
   };
 
   fonts.fontconfig.defaultFonts = {
