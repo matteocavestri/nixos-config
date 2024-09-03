@@ -24,7 +24,7 @@
       username = "matteocavestri"; # Your username
       name = "Matteo Cavestri"; # For git config
       email = "matteo.cavestri@protonmail.ch"; # For git config
-      wm = "gnome"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
+      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       theme = "uwunicorn"; # See ./themes
       font = "Inconsolata Nerd Font"; # Your font name
       fontPkg = pkgs.inconsolata-nerdfont; # Your font package
@@ -141,5 +141,11 @@
 
     # ------------------ Doom Emacs --------------------------------------
     nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
+
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 }

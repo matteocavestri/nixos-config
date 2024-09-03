@@ -107,6 +107,13 @@ Set the parameters of `userSettings` and `systemSettings` in the flake.nix file 
 - Deepin
 - Lumina
 
+## Desktop Theming
+
+- Hyprland
+- Plasma
+- Gnome
+- Budgie
+
 ## Profiles (Only nix)
 
 **Base Profiles**:

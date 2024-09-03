@@ -11,7 +11,11 @@
       xkb.layout = systemSettings.keymap;
     };
   };
-  systemd.services."app-pulseaudio@autostart" = {
+  systemd.user.services."app-pulseaudio@autostart" = {
     enable = false;
+    serviceConfig = {
+      ExecStart = "/run/current-system/sw/bin/true";
+      Type = "oneshot";
+    };
   };
 }

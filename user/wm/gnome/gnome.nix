@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ../config.nix
+    ../../style/qt.nix
     ./extensions/blurmyshell.nix
     ./extensions/dashtodock.nix
   ];

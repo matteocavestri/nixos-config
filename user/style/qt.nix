@@ -1,4 +1,3 @@
-# Description: Stylix's kde integration
 {
   pkgs,
   config,
@@ -25,6 +24,7 @@ in {
       kdePackages.qt6ct
       breezeIconsFixed
       kdePackages.breeze
+      kdePackages.breeze.qt5
       gnome.adwaita-icon-theme
     ];
     file = {

@@ -361,11 +361,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1725190550,
-        "narHash": "sha256-wztoBEipe+oTrGeP7B7N+WP1FfRlLvJhFuiLJt4FYsQ=",
+        "lastModified": 1725380904,
+        "narHash": "sha256-RUPYxOT8SNquLj8HA61tTdzeNI7vVO0unnTt9fYy33g=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "c0a6c29b335f318c50205c5cf2f4109f68618eb2",
+        "rev": "46ad3e1484c65bd37b5e2ca2fb7d5e6bd4075d59",
         "type": "gitlab"
       },
       "original": {
@@ -797,11 +797,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1725310138,
-        "narHash": "sha256-LgX5xG/xdfWxie6ia9M+Fc825EH93kcwu5CFzFqIe5g=",
+        "lastModified": 1725367654,
+        "narHash": "sha256-1hiNRCEdSZLfyH2y06S+gqUbiSwbwdktStPSJuPesaM=",
         "ref": "refs/heads/main",
-        "rev": "8f9887b0c9443d6c2559feeec411daecb9780a97",
-        "revCount": 5181,
+        "rev": "9b54342baa27d8de0460e1103ec4c3cc65592ed8",
+        "revCount": 5182,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -1106,11 +1106,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1725324093,
-        "narHash": "sha256-mEwfIJggxnEJH8WJecdP/SphfBrVZp6YCHzKwnJlgLs=",
+        "lastModified": 1725378328,
+        "narHash": "sha256-Yohx+vneB71yrDcELds1Bcd/TIdp3mI85ivhbsOGATU=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "19a893c14d87f1b6a7e775b22ee84f08b32ea20e",
+        "rev": "b5e43cc6ced74afc64a54260ac6319124b79d684",
         "type": "github"
       },
       "original": {
@@ -1121,11 +1121,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1724878143,
-        "narHash": "sha256-UjpKo92iZ25M05kgSOw/Ti6VZwpgdlOa73zHj8OcaDk=",
+        "lastModified": 1725384549,
+        "narHash": "sha256-A9TMja7Ly70BOGcbcqJ0EUusQSFEQaKbrHJxNXfSFYY=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "95c3dfe6ef2e96ddc1ccdd7194e3cda02ca9a8ef",
+        "rev": "366ddc33ff1b93d95ef3809d12ce0fba74c8d316",
         "type": "github"
       },
       "original": {
@@ -1315,11 +1315,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1725333074,
-        "narHash": "sha256-vwXhoIirps8RZypJ+8Q6ovzTitVPyKCHZrPXzSx/KAI=",
+        "lastModified": 1725381339,
+        "narHash": "sha256-R2QrBQDg3PzZWYfnpu8x+65CpqE/jVxNGYX1C0zSzms=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "7b9661a80578edf02976885ecaf0554e312a781c",
+        "rev": "89f1914bb56bc44fdae5ef8fb51a5e1e48223b8e",
         "type": "github"
       },
       "original": {
@@ -1431,6 +1431,29 @@
         "type": "github"
       }
     },
+    "plasma-manager": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1725327224,
+        "narHash": "sha256-+cMfiE+zigDuChOFlhUH3yN7Yll9hr1LRBHsO09pqjY=",
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "rev": "3f1589c38428bd8121fd5deebd86ce4108b29d6e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "type": "github"
+      }
+    },
     "poetry2nix": {
       "inputs": {
         "flake-utils": "flake-utils_4",
@@ -1510,6 +1533,7 @@
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nurpkgs": "nurpkgs",
+        "plasma-manager": "plasma-manager",
         "pyprland": "pyprland",
         "stylix": "stylix"
       }
@@ -1538,11 +1562,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725157860,
-        "narHash": "sha256-DhqyM7XJYKj+WAEaYwMtXaYX66tA+lOd31sd5QkxLDM=",
+        "lastModified": 1725243956,
+        "narHash": "sha256-0A5ZP8uDCyBdYUzayZfy6JFdTefP79oZVAjyqA/yuSI=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "1fd72e343c6890f695243a37b367a1e3b90a49ee",
+        "rev": "a10c8092d5f82622be79ed4dd12289f72011f850",
         "type": "github"
       },
       "original": {

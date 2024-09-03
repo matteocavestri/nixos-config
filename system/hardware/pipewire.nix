@@ -20,6 +20,5 @@
     pamixer
     pavucontrol
     playerctl
-    pulseaudioFull
   ];
 }
