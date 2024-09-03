@@ -7,18 +7,17 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      jetbrains-mono
-      intel-one-mono
+      liberation_ttf
       inconsolata-nerdfont
       font-awesome
-      noto-fonts
       noto-fonts-emoji
+      # ibm-plex
     ];
     fontconfig = {
       defaultFonts = {
         serif = ["${userSettings.font}"];
         sansSerif = ["${userSettings.font}"];
-        monospace = ["Intel One Mono"];
+        monospace = ["Inconsolata Nerd Font Mono"];
       };
     };
   };
