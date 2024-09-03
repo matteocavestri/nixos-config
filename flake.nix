@@ -24,8 +24,8 @@
       username = "matteocavestri"; # Your username
       name = "Matteo Cavestri"; # For git config
       email = "matteo.cavestri@protonmail.ch"; # For git config
-      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
-      theme = "catppuccin-mocha"; # See ./themes
+      wm = "gnome"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
+      theme = "uwunicorn"; # See ./themes
       font = "Inconsolata Nerd Font"; # Your font name
       fontPkg = pkgs.inconsolata-nerdfont; # Your font package
       cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name
@@ -99,16 +99,21 @@
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # ------------------ Pyprland ----------------------------------------
-    pyprland.url = "github:hyprland-community/pyprland";
+    pyprland = {
+      url = "github:hyprland-community/pyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # ------------------ Stylix ------------------------------------------
-    stylix.url = "github:danth/stylix";
+    stylix.url = "github:danth/stylix/release-24.05";
 
     # ------------------ Firefox Addons ----------------------------------
     firefox-addons = {
@@ -117,7 +122,10 @@
     };
 
     # ------------------ Nevica ------------------------------------------
-    nevica.url = "github:matteocavestri/nevica";
+    nevica = {
+      url = "github:matteocavestri/nevica";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
 
     # ------------------ Cave --------------------------------------------
     cave.url = "github:matteocavestri/cave";

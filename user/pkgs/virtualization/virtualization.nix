@@ -4,6 +4,7 @@
     # Virtual Machines and wine
     libvirt
     virt-manager
+    virt-viewer
     qemu
     uefi-run
     swtpm

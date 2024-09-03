@@ -13,7 +13,8 @@
         apply-custom-theme = true;
         dock-position = "BOTTOM";
         background-opacity = 0.60;
-        dash-max-icon-size = 48;
+        dash-max-icon-size = 32;
+        height-fraction = 0.90;
       };
     };
   };

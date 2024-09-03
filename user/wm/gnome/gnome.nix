@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ../config.nix
     ./extensions/blurmyshell.nix
@@ -29,25 +25,21 @@
         enabled-extensions = [
           pkgs.gnomeExtensions.user-themes.extensionUuid
         ];
-        favourite-apps = [
+        favorite-apps = [
           "firefox.desktop"
-          "thunderbird.desktop"
-          "kitty.desktop"
           "org.gnome.Nautilus.desktop"
+          "thunderbird.desktop"
           "org.gnome.Calendar.desktop"
+          "org.gnome.World.Iotas.desktop"
+          "org.gnome.Todo.desktop"
           "startcenter.desktop"
-          "neovide.desktop"
+          "kitty.desktop"
           "org.gnome.Settings.desktop"
         ];
       };
       "org/gnome/desktop/interface" = {
         clock-format = "24h";
         clock-show-weekday = true;
-        color-scheme = "prefer-dark";
-      };
-      "org/gnome/desktop/background" = {
-        picture-uri = "file://" + config.stylix.image;
-        picture-uri-dark = "file://" + config.stylix.image;
       };
     };
   };

@@ -14,7 +14,7 @@ in {
   imports = [
     inputs.stylix.homeManagerModules.stylix
     ./gtk.nix
-    ./qt.nix
+    # ./qt.nix Deprecated
   ];
 
   stylix = {

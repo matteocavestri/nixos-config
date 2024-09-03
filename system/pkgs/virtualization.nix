@@ -7,8 +7,6 @@
     ../services/dconf.nix
   ];
   environment.systemPackages = with pkgs; [
-    virt-manager
-    virt-viewer
     spice
     spice-protocol
     win-virtio

@@ -54,11 +54,9 @@ in {
     };
     targets = {
       lightdm.enable = true;
+      gnome.enable = true;
       nixos-icons.enable = true;
       console.enable = true;
     };
-  };
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt5ct";
   };
 }

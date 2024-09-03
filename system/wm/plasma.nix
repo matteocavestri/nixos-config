@@ -11,9 +11,7 @@
       xkb.layout = systemSettings.keymap;
     };
   };
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = "adwaita-dark";
+  systemd.services."app-pulseaudio@autostart" = {
+    enable = false;
   };
 }

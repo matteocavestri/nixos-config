@@ -1,3 +1,4 @@
+# Description: Stylix's kde integration
 {
   pkgs,
   config,
