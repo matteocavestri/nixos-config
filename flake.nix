@@ -23,7 +23,7 @@
       };
       profile = {
         name = "personal"; # personal / server / work / hypervisor
-        hardware = "mbp-16-2"; # your hardware config
+        host = "mbp-16-2"; # your hardware config
       };
       monitor = {
         resolution = "2560x1600";
@@ -41,7 +41,7 @@
       };
       wm = "plasma"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       appearance = {
-        theme = "uwunicorn"; # See ./themes
+        theme = "catppuccin-mocha"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
         cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name
@@ -67,7 +67,7 @@
       ${systemSettings.host.hostname} = lib.nixosSystem {
         modules = [
           (./.
-            + "/profiles"
+            + "/profile/name"
             + ("/" + systemSettings.profile.name)
             + "/configuration.nix")
         ];
@@ -85,7 +85,7 @@
         inherit pkgs;
         modules = [
           (./.
-            + "/profiles"
+            + "/profile/name"
             + ("/" + systemSettings.profile.name)
             + "/home.nix")
         ];

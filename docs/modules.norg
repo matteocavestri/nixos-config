@@ -1,0 +1,14 @@
+* Modules and Profile
+** Profile
+*** System
+**** config/default
+**** config/optimization/default
+**** services
+**** security
+**** packages
+**** gui
+*** Home
+**** packages
+**** shell
+**** shell
+**** gui
