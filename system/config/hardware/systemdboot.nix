@@ -1,7 +1,4 @@
 {
-  # Use the systemd-boot EFI boot loader.
-  boot.loader = {
-    efi.efiSysMountPoint = "/boot";
-    systemd-boot.enable = true;
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = false;
 }

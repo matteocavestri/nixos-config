@@ -13,7 +13,6 @@
       nix = {
         system = "x86_64-linux"; # Your arch
         version = "24.05"; # NixOS version
-        hardware = "apple-t2"; # Your Nixos hardware (Only affects apple-t2)
       };
       host = {
         hostname = "nixos-t2"; # Your hostname
@@ -41,7 +40,7 @@
       };
       wm = "plasma"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       appearance = {
-        theme = "catppuccin-mocha"; # See ./themes
+        theme = "uwunicorn"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
         cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name

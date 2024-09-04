@@ -1,11 +1,11 @@
 {
   imports = [
-    ../../../system/config/hmconfig.nix
-    ../../../user/shell/sh.nix # Shell config
-    ../../../user/pkgs/coding/git.nix
-    ../../../user/pkgs/terminal/nh.nix # nh (nixos/homemanager) config
-    ../../../user/pkgs/terminal/lf.nix
-    ../../../user/pkgs/coding/compiler.nix
-    ../../../user/pkgs/coding/tools.nix
+    ../../../user/config/hmconfig.nix
+    ../../../user/shell/sh.nix
+    ../../../user/packages/coding/git.nix
+    ../../../user/packages/coding/compiler.nix
+    ../../../user/packages/coding/tools.nix
+    ../../../user/packages/terminal/nh.nix
+    ../../../user/packages/terminal/lf.nix
   ];
 }

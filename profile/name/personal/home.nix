@@ -1,21 +1,21 @@
 {
   imports = [
     ../minimal-gui/home.nix
-    ../../../user/pkgs/flatpak/flatpak.nix # Flatpak config
-    ../../../user/pkgs/virtualization/virtualization.nix # Virtualization config
-    ../../../user/pkgs/editors/nevica.nix # Nevica editor import
-    ../../../user/pkgs/gaming/gaming.nix
-    ../../../user/pkgs/gaming/gaming-proton.nix
-    ../../../user/pkgs/engineering/freecad.nix # Engineering pkgs
-    ../../../user/pkgs/engineering/octave.nix
-    ../../../user/pkgs/media/kdenlive.nix # Media pkgs
-    ../../../user/pkgs/media/gimp.nix
-    ../../../user/pkgs/media/obs.nix
-    ../../../user/pkgs/media/mpv.nix
-    ../../../user/pkgs/productivity/libreoffice.nix
-    ../../../user/pkgs/productivity/productivity.nix
-    ../../../user/pkgs/productivity/groupware.nix
-    ../../../user/pkgs/productivity/thunderbird.nix
-    ../../../user/pkgs/media/graphics-tools.nix
+    ../../../user/packages/flatpak/flatpak.nix # Flatpak config
+    ../../../user/packages/virtualization/virtualization.nix # Virtualization config
+    ../../../user/packages/editors/nevica.nix # Nevica editor import
+    ../../../user/packages/gaming/gaming.nix
+    ../../../user/packages/gaming/gaming-proton.nix
+    ../../../user/packages/engineering/freecad.nix # Engineering packages
+    ../../../user/packages/engineering/octave.nix
+    ../../../user/packages/media/kdenlive.nix # Media packages
+    ../../../user/packages/media/gimp.nix
+    ../../../user/packages/media/obs.nix
+    ../../../user/packages/media/mpv.nix
+    ../../../user/packages/productivity/libreoffice.nix
+    ../../../user/packages/productivity/productivity.nix
+    ../../../user/packages/productivity/groupware.nix
+    ../../../user/packages/productivity/thunderbird.nix
+    ../../../user/packages/media/graphics-tools.nix
   ];
 }

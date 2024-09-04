@@ -1,6 +1,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../../system/config/hardware/systemdboot.nix
     ../../../system/hardware/nvidia/nvidiagpu.nix
     ../../../system/hardware/virtual/qemuguest.nix
     ../../../system/config/hardware/networkmanager.nix
@@ -8,13 +9,6 @@
     ../../../system/services/virtualization/container-nvidia.nix
     ../../../system/services/systemd/nvidia-monitoring.nix
   ];
-  # Nix settings
-  nix.settings = {
-    experimental-features = ["nix-command" "flakes" "repl-flake"];
-  };
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false;
 
   networking.firewall.allowedTCPPorts = [
     22 # ssh

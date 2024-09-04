@@ -1,6 +1,6 @@
 {
   imports = [
     ../server/home.nix
-    ../../../user/pkgs/virtualization/virtualization.nix
+    ../../../user/packages/virtualization/virtualization.nix
   ];
 }

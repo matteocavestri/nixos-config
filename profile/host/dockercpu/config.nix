@@ -1,17 +1,11 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
+    ../../../system/config/hardware/systemdboot.nix
     ../../../system/hardware/virtual/qemuguest.nix
     ../../../system/config/hardware/networkmanager.nix
     ../../../system/config/optimization/zram.nix
   ];
-  # Nix settings
-  nix.settings = {
-    experimental-features = ["nix-command" "flakes" "repl-flake"];
-  };
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false;
 
   networking.firewall.allowedTCPPorts = [
     22 # ssh
