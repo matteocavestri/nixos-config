@@ -10,13 +10,13 @@
     client.enable = true;
     dbdserver = {
       enable = true;
-      dbdHost = systemSettings.hostname;
-      storageUser = userSettings.username;
+      dbdHost = systemSettings.host.hostname;
+      storageUser = userSettings.user.username;
     };
     package = pkgs.slurm;
-    controlMachine = systemSettings.hostname;
+    controlMachine = systemSettings.host.hostname;
     enableSrunX11 = true;
-    user = userSettings.username;
+    user = userSettings.user.username;
     stateSaveLocation = "/var/spool/slurmctld";
   };
 }

@@ -110,7 +110,7 @@
       + ''        )
               font_size = 25
               font_family = ''
-      + userSettings.font
+      + userSettings.appearance.font
       + ''
 
           rotate = 0 # degrees, counter-clockwise

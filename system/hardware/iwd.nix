@@ -4,7 +4,7 @@
   ...
 }: {
   networking = {
-    hostName = systemSettings.hostname; # Define your hostname.
+    hostName = systemSettings.host.hostname; # Define your hostname.
     networkmanager = {
       enable = true; # Easiest to use and most distros use this by default.
       wifi.backend = "iwd";
@@ -15,5 +15,5 @@
     };
     firewall.checkReversePath = false;
   };
-  users.users.${userSettings.username}.extraGroups = ["networkmanager"];
+  users.users.${userSettings.user.username}.extraGroups = ["networkmanager"];
 }

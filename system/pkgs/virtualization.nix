@@ -38,5 +38,5 @@
     spiceUSBRedirection.enable = true;
   };
   services.spice-vdagentd.enable = true;
-  users.users.${userSettings.username}.extraGroups = ["libvirtd"];
+  users.users.${userSettings.user.username}.extraGroups = ["libvirtd"];
 }

@@ -8,7 +8,7 @@
     desktopManager.plasma6.enable = true;
     xserver = {
       enable = true;
-      xkb.layout = systemSettings.keymap;
+      xkb.layout = systemSettings.host.keymap;
     };
   };
   systemd.user.services."app-pulseaudio@autostart" = {

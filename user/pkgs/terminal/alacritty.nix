@@ -42,7 +42,7 @@
       };
       font = {
         size = config.stylix.fonts.sizes.terminal;
-        normal.family = userSettings.font;
+        normal.family = userSettings.appearance.font;
       };
       window.opacity = lib.mkForce 0.85;
     };

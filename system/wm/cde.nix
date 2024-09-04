@@ -8,6 +8,6 @@
       enable = true;
       extraPackages = [];
     };
-    xkb.layout = systemSettings.keymap;
+    xkb.layout = systemSettings.host.keymap;
   };
 }

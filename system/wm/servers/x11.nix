@@ -15,7 +15,7 @@
     xserver = {
       enable = true;
       excludePackages = [pkgs.xterm];
-      xkb.layout = systemSettings.keymap;
+      xkb.layout = systemSettings.host.keymap;
     };
     libinput = {
       touchpad.disableWhileTyping = true;

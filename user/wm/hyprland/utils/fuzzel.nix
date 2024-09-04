@@ -10,7 +10,7 @@
   programs.fuzzel.enable = true;
   programs.fuzzel.settings = {
     main = {
-      font = userSettings.font + ":size=20";
+      font = userSettings.appearance.font + ":size=20";
       dpi-aware = "no";
       show-actions = "yes";
       terminal = "${pkgs.kitty}/bin/kitty";

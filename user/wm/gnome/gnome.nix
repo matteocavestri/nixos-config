@@ -42,6 +42,9 @@
         clock-format = "24h";
         clock-show-weekday = true;
       };
+      "org/gnome/mutter" = {
+        experimental-features = ["scale-monitor-framebuffer"];
+      };
     };
   };
 }

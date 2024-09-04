@@ -7,6 +7,6 @@
     nh
   ];
   home.sessionVariables = {
-    FLAKE = "$HOME/${userSettings.dotfilesDir}";
+    FLAKE = "$HOME/${userSettings.user.dotfilesDir}";
   };
 }

@@ -3,7 +3,7 @@
   userSettings,
   ...
 }: let
-  themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes" + ("/" + userSettings.theme) + "/polarity.txt"));
+  themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../../themes" + ("/" + userSettings.appearance.theme) + "/polarity.txt"));
   myLightDMTheme =
     if themePolarity == "light"
     then "Adwaita"

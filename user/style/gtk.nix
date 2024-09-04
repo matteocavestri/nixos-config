@@ -2,13 +2,13 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      package = userSettings.cursorPkg;
-      name = userSettings.cursor;
+      package = userSettings.appearance.cursorPkg;
+      name = userSettings.appearance.cursor;
       size = 24;
     };
     iconTheme = {
-      package = userSettings.iconsPkg;
-      name = userSettings.icons;
+      package = userSettings.appearance.iconsPkg;
+      name = userSettings.appearance.icons;
     };
   };
   dconf = {

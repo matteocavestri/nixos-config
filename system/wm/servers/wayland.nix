@@ -38,7 +38,7 @@
     xserver = {
       enable = true;
       xkb = {
-        layout = systemSettings.keymap;
+        layout = systemSettings.host.keymap;
         variant = "";
         options = "caps:escape";
       };

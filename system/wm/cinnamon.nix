@@ -6,7 +6,7 @@
   services.xserver = {
     enable = true;
     desktopManager.cinnamon.enable = true;
-    xkb.layout = systemSettings.keymap;
+    xkb.layout = systemSettings.host.keymap;
   };
   services.cinnamon.apps.enable = true;
 }

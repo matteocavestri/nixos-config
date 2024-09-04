@@ -1,4 +1,4 @@
 {systemSettings, ...}: {
-  system.stateVersion = systemSettings.version;
+  system.stateVersion = systemSettings.nix.version;
   nixpkgs.config.allowUnfree = true;
 }

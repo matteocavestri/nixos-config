@@ -173,7 +173,7 @@ with lib; {
         * {
         /* `otf-font-awesome` is required to be installed for icons */
         font-family: FontAwsome, ''
-      + userSettings.font
+      + userSettings.appearance.font
       + ''        ;
                 font-size: 16px;
                 /*border-radius: 8;*/

@@ -1,21 +1,21 @@
 {systemSettings, ...}: {
   # General settings
-  time.timeZone = systemSettings.timezone;
+  time.timeZone = systemSettings.host.timezone;
   i18n = {
-    defaultLocale = systemSettings.locale;
+    defaultLocale = systemSettings.host.locale;
     extraLocaleSettings = {
-      LC_ADDRESS = systemSettings.locale;
-      LC_IDENTIFICATION = systemSettings.locale;
-      LC_MEASUREMENT = systemSettings.locale;
-      LC_MONETARY = systemSettings.locale;
-      LC_NAME = systemSettings.locale;
-      LC_NUMERIC = systemSettings.locale;
-      LC_PAPER = systemSettings.locale;
-      LC_TELEPHONE = systemSettings.locale;
-      LC_TIME = systemSettings.locale;
+      LC_ADDRESS = systemSettings.host.locale;
+      LC_IDENTIFICATION = systemSettings.host.locale;
+      LC_MEASUREMENT = systemSettings.host.locale;
+      LC_MONETARY = systemSettings.host.locale;
+      LC_NAME = systemSettings.host.locale;
+      LC_NUMERIC = systemSettings.host.locale;
+      LC_PAPER = systemSettings.host.locale;
+      LC_TELEPHONE = systemSettings.host.locale;
+      LC_TIME = systemSettings.host.locale;
     };
   };
   console = {
-    keyMap = systemSettings.keymap;
+    keyMap = systemSettings.host.keymap;
   };
 }

@@ -15,8 +15,8 @@
     ];
     fontconfig = {
       defaultFonts = {
-        serif = ["${userSettings.font}"];
-        sansSerif = ["${userSettings.font}"];
+        serif = ["${userSettings.appearance.font}"];
+        sansSerif = ["${userSettings.appearance.font}"];
         monospace = ["Inconsolata Nerd Font Mono"];
       };
     };

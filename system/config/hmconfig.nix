@@ -4,13 +4,13 @@
   ...
 }: {
   home = {
-    username = userSettings.username;
-    homeDirectory = "/home/" + userSettings.username;
-    stateVersion = systemSettings.version;
+    username = userSettings.user.username;
+    homeDirectory = "/home/" + userSettings.user.username;
+    stateVersion = systemSettings.nix.version;
     sessionVariables = {
-      EDITOR = userSettings.editor;
-      TERM = userSettings.term;
-      BROWSER = userSettings.browser;
+      EDITOR = userSettings.environment.editor;
+      TERM = userSettings.environment.term;
+      BROWSER = userSettings.environment.browser;
     };
   };
 

@@ -8,7 +8,7 @@
   programs.zsh.enable = true;
 
   imports = [
-    (./. + "../../../hardware" + ("/" + systemSettings.hardware) + "/config.nix")
+    (./. + "../../../hardware" + ("/" + systemSettings.profile.hardware) + "/config.nix")
     ../../system/security/gpg.nix
     ../../system/security/sudo.nix
     ../../system/security/rtkit.nix

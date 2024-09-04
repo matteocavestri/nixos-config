@@ -6,10 +6,10 @@
   inputs,
   ...
 }: let
-  themePath = "../../../themes" + ("/" + userSettings.theme + "/" + userSettings.theme) + ".yaml";
-  themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/polarity.txt"));
-  backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.theme) + "/backgroundurl.txt");
-  backgroundSha256 = builtins.readFile (./. + "../../../themes/" + ("/" + userSettings.theme) + "/backgroundsha256.txt");
+  themePath = "../../../themes" + ("/" + userSettings.appearance.theme + "/" + userSettings.appearance.theme) + ".yaml";
+  themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../themes" + ("/" + userSettings.appearance.theme) + "/polarity.txt"));
+  backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.appearance.theme) + "/backgroundurl.txt");
+  backgroundSha256 = builtins.readFile (./. + "../../../themes/" + ("/" + userSettings.appearance.theme) + "/backgroundsha256.txt");
 in {
   imports = [
     inputs.stylix.homeManagerModules.stylix
@@ -26,22 +26,22 @@ in {
     };
     base16Scheme = ./. + themePath;
     cursor = {
-      name = userSettings.cursor;
-      package = userSettings.cursorPkg;
+      name = userSettings.appearance.cursor;
+      package = userSettings.appearance.cursorPkg;
       size = 24;
     };
     fonts = {
       monospace = {
-        name = userSettings.font;
-        package = userSettings.fontPkg;
+        name = userSettings.appearance.font;
+        package = userSettings.appearance.fontPkg;
       };
       serif = {
-        name = userSettings.font;
-        package = userSettings.fontPkg;
+        name = userSettings.appearance.font;
+        package = userSettings.appearance.fontPkg;
       };
       sansSerif = {
-        name = userSettings.font;
-        package = userSettings.fontPkg;
+        name = userSettings.appearance.font;
+        package = userSettings.appearance.fontPkg;
       };
       emoji = {
         name = "Noto Emoji";
@@ -68,7 +68,7 @@ in {
     };
   };
   home.file = {
-    ".currenttheme".text = userSettings.theme;
+    ".currenttheme".text = userSettings.appearance.theme;
     ".config/hypr/hyprpaper.conf".text =
       ''
         preload = ''

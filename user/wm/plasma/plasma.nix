@@ -27,7 +27,7 @@
         number = 8;
       };
     };
-    workspace.iconTheme = userSettings.icons;
+    workspace.iconTheme = userSettings.appearance.icons;
     powerdevil = {
       AC = {
         powerButtonAction = "lockScreen";

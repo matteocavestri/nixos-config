@@ -7,7 +7,7 @@
   substituters = ["https://cache.soopy.moe"];
 in {
   imports = [
-    inputs.nixos-hardware.nixosModules.${systemSettings.nixhw}
+    inputs.nixos-hardware.nixosModules.${systemSettings.nix.hardware}
     ./hardware-configuration.nix
     ../../system/driver/intelgpu.nix
     ../../system/hardware/bluetooth.nix

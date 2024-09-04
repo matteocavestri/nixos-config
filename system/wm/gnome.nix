@@ -11,7 +11,7 @@
       enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
-      xkb.layout = systemSettings.keymap;
+      xkb.layout = systemSettings.host.keymap;
     };
     udev.packages = with pkgs; [gnome.gnome-settings-daemon];
   };

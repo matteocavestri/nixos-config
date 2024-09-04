@@ -6,6 +6,6 @@
   services.xserver = {
     enable = true;
     desktopManager.deepin.enable = true;
-    xkb.layout = systemSettings.keymap;
+    xkb.layout = systemSettings.host.keymap;
   };
 }

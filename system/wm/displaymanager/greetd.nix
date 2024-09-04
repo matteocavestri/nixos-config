@@ -9,7 +9,7 @@
       default_session = {
         # TODO: pass variables
         command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-        user = "${userSettings.username}";
+        user = "${userSettings.user.username}";
       };
     };
   };

@@ -10,15 +10,21 @@
   } @ inputs: let
     # -------------------- SYSTEM SETTINGS ------------------------------
     systemSettings = {
-      system = "x86_64-linux"; # Your arch
-      version = "24.05"; # NixOS version
-      hostname = "nixos-t2"; # Your hostname
-      timezone = "Europe/Rome"; # Timezone config
-      locale = "it_IT.UTF-8"; # Locale config
-      keymap = "it"; # Global keymap
-      profile = "personal"; # personal / server / work / hypervisor
-      hardware = "mbp-16-2"; # your hardware config
-      nixhw = "apple-t2"; # Your Nixos hardware (Only affects apple-t2)
+      nix = {
+        system = "x86_64-linux"; # Your arch
+        version = "24.05"; # NixOS version
+        hardware = "apple-t2"; # Your Nixos hardware (Only affects apple-t2)
+      };
+      host = {
+        hostname = "nixos-t2"; # Your hostname
+        timezone = "Europe/Rome"; # Timezone config
+        locale = "it_IT.UTF-8"; # Locale config
+        keymap = "it"; # Global keymap
+      };
+      profile = {
+        name = "personal"; # personal / server / work / hypervisor
+        hardware = "mbp-16-2"; # your hardware config
+      };
       monitor = {
         resolution = "2560x1600";
         refreshRate = "60";
@@ -27,36 +33,42 @@
     };
     # -------------------- USER SETTINGS --------------------------------
     userSettings = {
-      username = "matteocavestri"; # Your username
-      name = "Matteo Cavestri"; # For git config
-      email = "matteo.cavestri@protonmail.ch"; # For git config
-      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
-      theme = "uwunicorn"; # See ./themes
-      font = "Inconsolata Nerd Font"; # Your font name
-      fontPkg = pkgs.inconsolata-nerdfont; # Your font package
-      cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name
-      cursorPkg =
-        pkgs.catppuccin-cursors.mochaDark; # Your cursor theme package
-      icons = "Papirus"; # See docs
-      iconsPkg = pkgs.papirus-icon-theme; # Your icons package
-      term = "kitty"; # Your default term (fix hyprland)
-      browser = "firefox"; # Only firefox
-      dotfilesDir = ".dotfiles"; # Your dotfiles dir (for cave helper)
-      editor = "nvim"; # Only neovim
+      user = {
+        username = "matteocavestri"; # Your username
+        name = "Matteo Cavestri"; # For git config
+        email = "matteo.cavestri@protonmail.ch"; # For git config
+        dotfilesDir = ".dotfiles"; # Your dotfiles dir (for cave helper)
+      };
+      wm = "plasma"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
+      appearance = {
+        theme = "uwunicorn"; # See ./themes
+        font = "Inconsolata Nerd Font"; # Your font name
+        fontPkg = pkgs.inconsolata-nerdfont; # Your font package
+        cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name
+        cursorPkg =
+          pkgs.catppuccin-cursors.mochaDark; # Your cursor theme package
+        icons = "Papirus"; # See docs
+        iconsPkg = pkgs.papirus-icon-theme; # Your icons package
+      };
+      environment = {
+        term = "kitty"; # Your default term (fix hyprland)
+        browser = "firefox"; # Only firefox
+        editor = "nvim"; # Only neovim
+      };
     };
     # -------------------------------------------------------------------
     lib = nixpkgs.lib;
-    pkgs = import nixpkgs {system = systemSettings.system;};
+    pkgs = import nixpkgs {system = systemSettings.nix.system;};
     pkgs-unstable =
-      import nixpkgs-unstable {system = systemSettings.system;};
+      import nixpkgs-unstable {system = systemSettings.nix.system;};
   in {
     # -------------------- NixOS Configuration --------------------------
     nixosConfigurations = {
-      ${systemSettings.hostname} = lib.nixosSystem {
+      ${systemSettings.host.hostname} = lib.nixosSystem {
         modules = [
           (./.
             + "/profiles"
-            + ("/" + systemSettings.profile)
+            + ("/" + systemSettings.profile.name)
             + "/configuration.nix")
         ];
         specialArgs = {
@@ -69,12 +81,12 @@
     };
     # ------------------- Home Manager Configuration ---------------------
     homeConfigurations = {
-      ${userSettings.username} = home-manager.lib.homeManagerConfiguration {
+      ${userSettings.user.username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           (./.
             + "/profiles"
-            + ("/" + systemSettings.profile)
+            + ("/" + systemSettings.profile.name)
             + "/home.nix")
         ];
         extraSpecialArgs = {

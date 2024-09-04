@@ -29,9 +29,9 @@
         SearchBar = "unified"; # alternative: "separate"
       };
     };
-    profiles."${userSettings.username}" = {
+    profiles."${userSettings.user.username}" = {
       id = 0;
-      extensions = with inputs.firefox-addons.packages."${systemSettings.system}"; [
+      extensions = with inputs.firefox-addons.packages."${systemSettings.nix.system}"; [
         bitwarden
         proton-vpn
         darkreader

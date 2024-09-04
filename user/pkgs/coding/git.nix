@@ -7,13 +7,13 @@
   programs.git = {
     enable = true;
     lfs.enable = true;
-    userName = userSettings.name;
-    userEmail = userSettings.email;
+    userName = userSettings.user.name;
+    userEmail = userSettings.user.email;
     extraConfig = {
       init.defaultBranch = "main";
       safe.directory = [
-        ("/home/" + userSettings.username + "/.dotfiles")
-        ("/home/" + userSettings.username + "/.dotfiles/.git")
+        ("/home/" + userSettings.user.username + "/.dotfiles")
+        ("/home/" + userSettings.user.username + "/.dotfiles/.git")
       ];
     };
   };

@@ -35,7 +35,7 @@ in {
     systemd.enable = true;
     settings = {
       "$mainMod" = "SUPER";
-      "$terminal" = userSettings.term;
+      "$terminal" = userSettings.environment.term;
       "$fileManager" = "kitty -e lf";
       "$menu" = "fuzzel";
       "$editor" = "kitty -e nvim";
@@ -51,7 +51,7 @@ in {
         "sleep 5 && libinput-gestures"
       ];
       input = {
-        kb_layout = systemSettings.keymap;
+        kb_layout = systemSettings.host.keymap;
         follow_mouse = 1;
         sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
         touchpad = {

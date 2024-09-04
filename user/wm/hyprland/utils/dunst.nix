@@ -13,7 +13,7 @@
         origin = "top-right";
         transparency = 10;
         frame_color = "#${config.lib.stylix.colors.base0E}";
-        font = "${userSettings.font}";
+        font = "${userSettings.appearance.font}";
       };
 
       urgency_normal = {
