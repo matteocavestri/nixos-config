@@ -13,6 +13,7 @@
     fd
     bc
     bottom
+    btop
     ripgrep
     fzf
     atac

@@ -14,5 +14,6 @@
     ../../user/pkgs/media/gimp.nix
     ../../user/pkgs/media/graphics-tools.nix
     ../../user/pkgs/gaming/gaming.nix
+    ../../user/pkgs/media/obs-minimal.nix
   ];
 }
