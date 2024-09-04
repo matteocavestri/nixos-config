@@ -1,0 +1,8 @@
+* Documentation Index  
+** System Components  
+** User Components  
+** {:appearance:}[Appearance]  
+   NixOS configuration supports full customization regarding global theme, cursor, font, icons, and wallpaper. All *GTK* and *QT* programs, as well as WM/DEs (*KDE*, *Gnome*, *Budgie*, and *Hyprland*), are supported.  
+   All aspects of graphical customization are covered in this {:$/appearance:}[file].  
+** {:profiles:}[Profiles]  
+

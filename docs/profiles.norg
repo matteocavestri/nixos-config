@@ -1,3 +1,13 @@
+@document.meta
+title: profiles
+description: NixOS config profiles documentation
+authors: matteocavestri
+categories: 
+created: 2024-09-04T18:36:11+0100
+updated: 2024-09-04T18:37:41+0100
+version: 1.1.1
+@end
+
 * System Configuration
 ** Profiles
 *** Full
