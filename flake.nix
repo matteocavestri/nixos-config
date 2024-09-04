@@ -11,6 +11,7 @@
     # -------------------- SYSTEM SETTINGS ------------------------------
     systemSettings = {
       system = "x86_64-linux"; # Your arch
+      version = "24.05"; # NixOS version
       hostname = "nixos-t2"; # Your hostname
       timezone = "Europe/Rome"; # Timezone config
       locale = "it_IT.UTF-8"; # Locale config
@@ -18,6 +19,11 @@
       profile = "personal"; # personal / server / work / hypervisor
       hardware = "mbp-16-2"; # your hardware config
       nixhw = "apple-t2"; # Your Nixos hardware (Only affects apple-t2)
+      monitor = {
+        resolution = "2560x1600";
+        refreshRate = "60";
+        scaling = "1.666";
+      };
     };
     # -------------------- USER SETTINGS --------------------------------
     userSettings = {

@@ -1,4 +1,4 @@
-{
-  system.stateVersion = "24.05";
+{systemSettings, ...}: {
+  system.stateVersion = systemSettings.version;
   nixpkgs.config.allowUnfree = true;
 }

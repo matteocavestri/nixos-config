@@ -1,8 +1,12 @@
-{userSettings, ...}: {
+{
+  userSettings,
+  systemSettings,
+  ...
+}: {
   home = {
     username = userSettings.username;
     homeDirectory = "/home/" + userSettings.username;
-    stateVersion = "24.05";
+    stateVersion = systemSettings.version;
     sessionVariables = {
       EDITOR = userSettings.editor;
       TERM = userSettings.term;

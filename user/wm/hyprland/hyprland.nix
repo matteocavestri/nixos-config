@@ -39,7 +39,7 @@ in {
       "$fileManager" = "kitty -e lf";
       "$menu" = "fuzzel";
       "$editor" = "kitty -e nvim";
-      monitor = ",2560x1600@60,auto,1.6";
+      monitor = ("," + systemSettings.monitor.resolution) + ("@" + systemSettings.monitor.refreshRate) + ",auto" + ("," + systemSettings.monitor.scaling);
       exec-once = [
         "dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY"
         "waybar"
