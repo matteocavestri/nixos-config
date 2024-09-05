@@ -16,7 +16,7 @@ in {
     ./cli-collection.nix
     ./zellij.nix
     ./fastfetch.nix
-    ./opm.nix
+    ./omp.nix
   ];
   # TODO: Edit colors in ls LS_COLORS
   programs = {

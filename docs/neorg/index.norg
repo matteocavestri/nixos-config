@@ -1,26 +1,11 @@
 * Documentation Index  
+** Capabilities
+  - {:$/modules/modules-list:}[Modules List] - List of all modules with a brief description. The list includes both NixOS modules (system) and Home Manager modules (user)
+** Documentation
+  - {:$/appearance:}[Appearance] - NixOS config appearance documentation
+  - {:$/profiles:}[Profiles] - NixOS config profiles documentation
+  - {:$/modules/system:}[System Modules] - System module documentation with a focus on explaining the submodules: config, gui, hardware, packages, security, and services
+  - {:$/modules/user:}[User Modules] - User module documentation with a focus on explaining the submodules: config, gui, packages, shell, and style
+** Uncategorised
+  - {:$/index:}[Documentation Index]
 
-** System Components  
-*** Config modules
-*** Hardware modules
-*** Services modules
-*** Security modules
-*** Packages modules
-*** WM modules
-
-** User Components
-*** Packages modules
-*** Shell modules
-*** Style modules
-*** WM modules
-
-** {:appearance:}[Appearance]  
-   NixOS configuration supports full customization regarding global theme, cursor, font, icons, and wallpaper. All *GTK* and *QT* programs, as well as WM/DEs (*KDE*, *Gnome*, *Budgie*, and *Hyprland*), are supported.  
-   All aspects of graphical customization are covered in this {:$/appearance:}[file].  
-
-** {:profiles:}[Profiles]  
-** {:$/structure:}[Structure]
-** Install
-** Special Tools
-** Special Drivers/Kernel
-** {:modules:}[Modules-WIP]
