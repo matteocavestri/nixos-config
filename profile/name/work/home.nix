@@ -9,6 +9,7 @@
     ../../../user/packages/productivity/groupware.nix
     ../../../user/packages/productivity/thunderbird.nix
     ../../../user/packages/engineering/freecad.nix
+    ../../../user/packages/engineering/kicad.nix
     ../../../user/packages/engineering/octave.nix
     ../../../user/packages/engineering/numbat.nix
     ../../../user/packages/media/kdenlive.nix
