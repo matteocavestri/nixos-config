@@ -18,5 +18,7 @@
     clippy # Rust linter
     lldb_18 # C++/Rust debugger
     rustfmt # Rust formatter
+    atac
+    sshs
   ];
 }

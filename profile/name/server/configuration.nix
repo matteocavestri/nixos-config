@@ -4,6 +4,5 @@
     ../../../system/security/openssh.nix
     ../../../system/services/virtualization/container.nix
     ../../../system/services/server/cockpit.nix
-    ../../../system/packages/servermonitor.nix
   ];
 }

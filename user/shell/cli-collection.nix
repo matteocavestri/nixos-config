@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     disfetch
     onefetch
-    cava
     killall
     timer
     gnugrep
@@ -16,9 +15,6 @@
     btop
     ripgrep
     fzf
-    atac
-    sshs
-    termshark
     lazygit
     zoxide
     oh-my-posh
@@ -28,19 +24,7 @@
     pandoc
     hwinfo
     pciutils
-    numbat
-    pass
     direnv
     nix-direnv
-    (pkgs.writeShellScriptBin "airplane-mode" ''
-      #!/bin/sh
-      connectivity="$(nmcli n connectivity)"
-      if [ "$connectivity" == "full" ]
-      then
-          nmcli n off
-      else
-          nmcli n on
-      fi
-    '')
   ];
 }

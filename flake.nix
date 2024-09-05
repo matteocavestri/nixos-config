@@ -147,17 +147,11 @@
     # ------------------ Cave --------------------------------------------
     cave.url = "github:matteocavestri/cave";
 
-    # ------------------ Ags ---------------------------------------------
-    ags.url = "github:Aylur/ags"; # Unused
-
     # ------------------ Cosmic ------------------------------------------
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # ------------------ Doom Emacs --------------------------------------
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
 
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
