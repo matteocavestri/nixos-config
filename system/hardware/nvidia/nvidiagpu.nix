@@ -46,6 +46,5 @@
     nvtopPackages.nvidia
     cudatoolkit
     cudaPackages.cudnn
-    nvitop
   ];
 }
