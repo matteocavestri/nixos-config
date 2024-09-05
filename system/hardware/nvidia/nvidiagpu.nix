@@ -44,7 +44,5 @@
   };
   environment.systemPackages = with pkgs; [
     nvtopPackages.nvidia
-    cudatoolkit
-    cudaPackages.cudnn
   ];
 }

@@ -16,6 +16,7 @@
     ripgrep
     fzf
     lazygit
+    lazydocker
     zoxide
     oh-my-posh
     tree-sitter

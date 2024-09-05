@@ -1,9 +1,8 @@
 {pkgs, ...}: {
   imports = [
-    ./dconf.nix
-    ./dbus.nix
+    ./podman.nix
   ];
   environment.systemPackages = with pkgs; [
-    pinentry-gtk2
+    distrobox
   ];
 }

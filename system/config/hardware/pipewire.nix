@@ -17,8 +17,5 @@
   };
   environment.systemPackages = with pkgs; [
     wireplumber
-    pamixer
-    pavucontrol
-    playerctl
   ];
 }
