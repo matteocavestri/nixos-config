@@ -19,5 +19,6 @@
     ../../../user/packages/coding/compiler.nix
     ../../../user/packages/coding/tools.nix
     ../../../user/packages/gaming/gaming.nix
+    ../../../user/packages/security/deepweb.nix
   ];
 }
