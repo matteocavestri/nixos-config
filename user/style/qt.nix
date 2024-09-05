@@ -26,6 +26,10 @@ in {
       kdePackages.breeze
       kdePackages.breeze.qt5
       gnome.adwaita-icon-theme
+      libsForQt5.qt5.qtbase
+      kdePackages.qtbase
+      kdePackages.qtwayland
+      libsForQt5.qt5.qtwayland
     ];
     file = {
       ".config/qt5ct/colors/oomox-current.conf".source = config.lib.stylix.colors {
