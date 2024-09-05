@@ -832,11 +832,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1725418684,
-        "narHash": "sha256-gjIRoVA34RjgFTkeQQVoJ6bReB6iS8bqVjpVYi7r9T8=",
+        "lastModified": 1725496574,
+        "narHash": "sha256-AKQzou6qxMDwCjWQEzpIpZkIDJE2A4VPCEa1gwjhz1w=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "f5cbf1777eeb5b082e175ed9ed6187f4ab5e3cb2",
+        "rev": "8af61db803a6e960be4650d7d4015886edbec5af",
         "type": "github"
       },
       "original": {
@@ -994,11 +994,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1725493538,
-        "narHash": "sha256-LQB6aPPGpXbXhnBqFbzpvzL7vlz9E+DpVVtfL4xUjZE=",
+        "lastModified": 1725495532,
+        "narHash": "sha256-lCjYVT9nG2+BXrauHb0+qjiYUsMhR0eSbmnffbJXyGg=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "9c51dd0ba8c6966f48ef5352096e6dab1b2d7c34",
+        "rev": "a4c010e3fedaac115139f18de86dee8973bda3e9",
         "type": "github"
       },
       "original": {
