@@ -4,7 +4,7 @@ description: List of all modules with a brief description. The list includes bot
 authors: matteocavestri
 categories: Capabilities
 created: 2024-09-06T00:45:21+0100
-updated: 2024-09-06T19:42:33+0100
+updated: 2024-09-07T00:45:14+0100
 version: 1.1.1
 @end
 
@@ -317,6 +317,8 @@ version: 1.1.1
        Configurations for Waybar
 ****** user.gui.hyprland.utils.wlogout
        Configurations for Wlogout
+****** user.gui.hyprland.utils.swayosd
+       Configurations for SwayOSD
 
 **** user.gui.lumina
      Configurations for the Lumina desktop environment
@@ -405,8 +407,6 @@ version: 1.1.1
       Configurations for graphics tools
 ***** user.packages.media.kdenlive
       Configurations for Kdenlive
-***** user.packages.media.mpv
-      Configurations for MPV
 ***** user.packages.media.obs-minimal
       Configurations for OBS Minimal
 ***** user.packages.media.obs
@@ -418,8 +418,6 @@ version: 1.1.1
       Configurations for Groupware (mail, notes, calendar, etc.)
 ***** user.packages.productivity.libreoffice
       Configurations for LibreOffice
-***** user.packages.productivity.productivity
-      General configurations for productivity
 ***** user.packages.productivity.thunderbird
       Configurations for Thunderbird
 

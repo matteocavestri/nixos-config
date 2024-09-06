@@ -7,6 +7,7 @@
     protontricks
     dxvk
     vkd3d
+    bottles
   ];
 
   home.sessionVariables = {

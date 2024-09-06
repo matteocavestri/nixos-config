@@ -20,6 +20,7 @@ in {
     ./hypr/hyprlock.nix
     ./utils/dunst.nix
     ./utils/swappy.nix
+    ./utils/swayosd.nix
     (import ./utils/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
@@ -48,6 +49,7 @@ in {
         "blueman-applet"
         "hypridle"
         "sleep 5 && libinput-gestures"
+        "swayosd-server"
       ];
       input = {
         kb_layout = systemSettings.host.keymap;
@@ -93,6 +95,7 @@ in {
         "opacity 0.85,class:^(org.gnome.Nautilus)$"
         "opacity 0.85,class:^(neovide)$"
         "opacity 0.85,class:^(neovide)$"
+        "float,class:^(Waydroid)$"
       ];
       layerrule = [
         "blur,waybar"
@@ -148,12 +151,14 @@ in {
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod SHIFT, B, exec, waybar"
         "$mainMod, I, exec, networkmanager_dmenu"
-        ",XF86MonBrightnessUp, exec, brightnessctl set +10%"
-        ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+        ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         ",XF86KbdBrightnessUp, exec, brightnessctl --device=:white:kbd_backlight set +10%"
         ",XF86KbdBrightnessDown, exec, brightnessctl --device=:white:kbd_backlight set 10%-"
-        ",XF86AudioRaiseVolume, exec, pamixer -i 10"
-        ",XF86AudioLowerVolume, exec, pamixer -d 10"
+        ",XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+        ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+        ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+        ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
@@ -250,7 +255,6 @@ in {
 
 
         bind = $mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -
-
       '';
   };
 }

@@ -1,11 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
-    inputs.pyprland.packages.${pkgs.system}.pyprland
-    python312Packages.aiofiles
+    pyprland
   ];
   home.file.".config/hypr/pyprland.toml".text = ''
     [pyprland]
@@ -18,7 +13,7 @@
     #include_special = false
 
     [scratchpads.term]
-    command = "alacritty --class scratchpad"
+    command = "kitty --class scratchpad"
     margin = 50
 
     [scratchpads.lf]
@@ -30,13 +25,7 @@
     margin = 50
 
     [scratchpads.btm]
-    command = "alacritty --class scratchpad -e btm"
+    command = "alacritty --class scratchpad -e btop"
     margin = 50
-
-    [scratchpads.pavucontrol]
-    command = "pavucontrol"
-    margin = 50
-    unfocus = "hide"
-    animation = "fromTop"
   '';
 }

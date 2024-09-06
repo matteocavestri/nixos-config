@@ -17,6 +17,8 @@
       gnome-connections
       endeavour
       iotas
+      evince
+      mission-center
       gnome.gnome-music
       tracker
       tracker-miners
