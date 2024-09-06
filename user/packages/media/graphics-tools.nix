@@ -4,5 +4,6 @@
     libva-utils
     vulkan-tools
     mesa-demos
+    cava
   ];
 }
