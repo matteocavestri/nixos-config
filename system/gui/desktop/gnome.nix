@@ -27,6 +27,10 @@
         tracker
         tracker-miners
         gnome-connections
+        gnome-text-editor
+        gnome-console
+        gnome-builder
+        loupe
       ])
       ++ (with pkgs.gnome; [
         file-roller
@@ -35,7 +39,14 @@
         gnome-weather
         gnome-clocks
         gnome-calendar
+        gnome-system-monitor
+        gnome-logs
+        dconf-editor
+        simple-scan
+        devhelp
+        gnome-maps
         nautilus
+        gnome-font-viewer
         gnome-calculator
         cheese # webcam tool
         gnome-music
@@ -48,6 +59,7 @@
         iagno # go game
         hitori # sudoku game
         atomix # puzzle game
+        yelp
       ]);
   };
 }

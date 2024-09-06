@@ -15,7 +15,6 @@
       gnome.nautilus
       gnome.gnome-calculator
       gnome-connections
-      gnome.eog
       endeavour
       iotas
       gnome.gnome-music
@@ -23,7 +22,10 @@
       tracker-miners
       snapshot
       baobab
-      gedit
+      loupe
+      gnome.gnome-font-viewer
+      gnome-text-editor
+      gnome.gnome-maps
       gnome.file-roller
       gnome.gnome-contacts
       gnome-online-accounts-gtk
