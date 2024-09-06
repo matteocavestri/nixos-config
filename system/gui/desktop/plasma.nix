@@ -1,10 +1,16 @@
-{systemSettings, ...}: {
+{
+  systemSettings,
+  pkgs,
+  ...
+}: {
   imports = [
     ../server/wayland.nix
   ];
   services = {
     displayManager.sddm.wayland.enable = true;
-    desktopManager.plasma6.enable = true;
+    desktopManager.plasma6 = {
+      enable = true;
+    };
     xserver = {
       enable = true;
       xkb.layout = systemSettings.host.keymap;
@@ -17,4 +23,16 @@
       Type = "oneshot";
     };
   };
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+    ark
+    elisa
+    gwenview
+    okular
+    kate
+    dolphin
+    dolphin-plugins
+    ffmpegthumbs
+    khelpcenter
+  ];
 }

@@ -22,8 +22,21 @@
         gnome-tour
         xterm
         gedit
+        snapshot
+        baobab
+        tracker
+        tracker-miners
+        gnome-connections
       ])
       ++ (with pkgs.gnome; [
+        file-roller
+        gnome-contacts
+        gnome-disk-utility
+        gnome-weather
+        gnome-clocks
+        gnome-calendar
+        nautilus
+        gnome-calculator
         cheese # webcam tool
         gnome-music
         gnome-terminal

@@ -1,0 +1,46 @@
+@document.meta
+title: Desktop Suite
+description: Desktop Suite of default programs
+authors: matteocavestri
+categories: Documentation
+created: 2024-09-06T15:26:24+0100
+updated: 2024-09-06T18:20:06+0100
+version: 1.1.1
+@end
+
+* Desktop Suite
+** File Manager
+   Nautilus
+** Browser
+   Firefox
+** Terminal
+   Kitty
+** Mail
+   Geary
+** Contacts
+   Gnome Contacts
+** Calendar
+   Gnome Calendar
+** Todo
+   Endeavour
+** Web Account
+   Gnome Online Accounts GTK
+** Phone Sync
+   WIP (KDE Connect)
+** Meteo
+   Gnome Weather
+** Text editor (general)
+   Gedit
+** Text editor (coding)
+   Nevica (only work and personal profiles)
+** Archive
+   Gnome File Roller
+** Camera
+   Gnome Snapshot
+** Music player
+   Gnome Music
+** Video Player
+   VLC
+** Office Suite
+   LibreOffice (only work and personal profiles)
+

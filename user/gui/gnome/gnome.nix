@@ -29,12 +29,13 @@
         favorite-apps = [
           "firefox.desktop"
           "org.gnome.Nautilus.desktop"
-          "thunderbird.desktop"
+          "org.gnome.Geary.desktop"
           "org.gnome.Calendar.desktop"
           "org.gnome.World.Iotas.desktop"
           "org.gnome.Todo.desktop"
           "startcenter.desktop"
           "kitty.desktop"
+          "org.gnome.Software.desktop"
           "org.gnome.Settings.desktop"
         ];
       };

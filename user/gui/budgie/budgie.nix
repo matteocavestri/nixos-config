@@ -1,14 +1,7 @@
 {
-  pkgs,
-  config,
-  ...
-}: {
   imports = [
     ../config.nix
     ../../style/qt.nix
-  ];
-  home.packages = [
-    pkgs.gnome.gnome-calendar
   ];
   dconf = {
     enable = true;

@@ -4,6 +4,7 @@
 ** Documentation
   - {:$/appearance:}[Appearance] - NixOS config appearance documentation
   - {:$/profiles:}[Profiles] - NixOS config profiles documentation
+  - {:$/modules/desktop-suite:}[Desktop Suite] - Desktop Suite of default programs
   - {:$/modules/system:}[System Modules] - System module documentation with a focus on explaining the submodules: config, gui, hardware, packages, security, and services
   - {:$/modules/user:}[User Modules] - User module documentation with a focus on explaining the submodules: config, gui, packages, shell, and style
 ** Uncategorised

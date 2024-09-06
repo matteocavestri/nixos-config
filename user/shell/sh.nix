@@ -10,6 +10,7 @@
     neofetch = "fastfetch";
     fetch = "disfetch";
     gitfetch = "onefetch";
+    nevica = "nix run github:matteocavestri/nevica#nevica-full";
   };
 in {
   imports = [

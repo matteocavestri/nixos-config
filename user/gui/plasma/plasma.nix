@@ -13,8 +13,6 @@
     ./shortcuts.nix
   ];
   home.packages = with pkgs; [
-    gnome.gnome-calendar
-    gnome.nautilus
     libsForQt5.qt5.qtbase
     kdePackages.qtbase
     kdePackages.qtwayland

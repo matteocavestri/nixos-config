@@ -16,12 +16,13 @@
               launchers = [
                 "applications:firefox.desktop"
                 "applications:org.gnome.Nautilus.desktop"
-                "applications:thunderbird.desktop"
+                "applications:org.gnome.Geary.desktop"
                 "applications:org.gnome.Calendar.desktop"
                 "applications:org.gnome.World.Iotas.desktop"
                 "applications:org.gnome.Todo.desktop"
                 "applications:startcenter.desktop"
                 "applications:kitty.desktop"
+                "applications:org.gnome.Software.desktop"
                 "applications:systemsettings.desktop"
               ];
             };

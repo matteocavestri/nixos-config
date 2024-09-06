@@ -10,9 +10,28 @@
 
   home = {
     packages = with pkgs; [
-      pamixer
-      pavucontrol
-      playerctl
+      glib
+      gnome.gnome-calendar
+      gnome.nautilus
+      gnome.gnome-calculator
+      gnome-connections
+      gnome.eog
+      endeavour
+      iotas
+      gnome.gnome-music
+      tracker
+      tracker-miners
+      snapshot
+      baobab
+      gedit
+      gnome.file-roller
+      gnome.gnome-contacts
+      gnome-online-accounts-gtk
+      gnome.gnome-disk-utility
+      gnome.gnome-weather
+      gnome.gnome-clocks
+      gnome.geary
+      vlc
     ];
     sessionVariables = {
       XCURSOR_THEME = config.gtk.cursorTheme.name;

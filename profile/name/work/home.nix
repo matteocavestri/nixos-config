@@ -2,7 +2,6 @@
   imports = [
     ../minimal-gui/home.nix
     ../../../user/packages/virtualization/virtualization.nix
-    ../../../user/packages/flatpak/flatpak.nix
     ../../../user/packages/editors/nevica.nix
     ../../../user/packages/productivity/libreoffice.nix
     ../../../user/packages/productivity/productivity.nix
