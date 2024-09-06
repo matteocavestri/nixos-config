@@ -11,7 +11,6 @@ in {
   imports = [
     ../config.nix
     ../../style/qt.nix
-    ./hypr/config.nix
     ./hypr/packages.nix
     ./hypr/hypridle.nix
     ./utils/fuzzel.nix

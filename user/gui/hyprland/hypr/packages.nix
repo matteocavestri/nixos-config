@@ -6,10 +6,6 @@
     hyprpicker
     hyprpaper
     hyprland-protocols
-    hyprlock
-    hypridle
-    dunst
-    libnotify
     pamixer
     pavucontrol
     playerctl
