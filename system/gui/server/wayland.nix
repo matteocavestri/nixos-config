@@ -38,7 +38,7 @@
       xkb = {
         layout = systemSettings.host.keymap;
         variant = "";
-        options = "caps:escape";
+        # options = "caps:escape"; # Useful for vim
       };
     };
   };
