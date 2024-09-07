@@ -45,7 +45,7 @@ in {
       "$editor" = "kitty -e nvim";
       monitor = ("," + systemSettings.monitor.resolution) + ("@" + systemSettings.monitor.refreshRate) + ",auto" + ("," + systemSettings.monitor.scaling);
       exec-once = [
-        "dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY"
+        "dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_SESSION_DESKTOP=Hyprland XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
         "waybar"
         "dunst"
         "hyprpaper"
