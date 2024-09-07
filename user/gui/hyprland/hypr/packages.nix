@@ -5,6 +5,8 @@
     hyprcursor
     hyprpaper
     hyprland-protocols
-    pavucontrol
+    pwvucontrol
+    pamixer
+    playerctl
   ];
 }

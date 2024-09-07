@@ -164,7 +164,7 @@ with lib; {
           format-icons = {
             default = ["" "" ""];
           };
-          "on-click" = "pavucontrol";
+          "on-click" = "pwvucontrol";
         };
       };
     };

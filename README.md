@@ -139,4 +139,4 @@ I have implemented my text editor based on Nixvim, which is available [here](htt
 - Freecad tries to use `cursor.pcf` --> see [Freecad Issue](https://github.com/FreeCAD/FreeCAD/issues/10514)
   - Solution: Change font --> `FreeCAD -> Edit -> Preferences -> Python -> Editor -> Display Items -> Text -> Family -> [SOME OTHER FONT]`
 - Missing glaxnimate module for kdenlive
-- Fix `nixhw` prop to be either string or null
+- Pwvucontrol doesn't work on Apple-T2 --> see [MacBook Bridge/T2 Linux Driver Issue](https://github.com/MCMrARM/mbp2018-bridge-drv/issues/5)

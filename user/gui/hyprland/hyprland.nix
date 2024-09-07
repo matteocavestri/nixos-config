@@ -34,7 +34,6 @@ in {
     package = pkgs.hyprland;
     plugins = [
       pkgs.hyprlandPlugins.hyprexpo
-      pkgs.hyprlandPlugins.hyprtrails
     ];
     xwayland.enable = true;
     systemd.enable = true;
@@ -129,7 +128,11 @@ in {
         "$mainMod, E, exec, $editor"
         "$mainMod, P, hyprexpo:expo, toggle"
         "$mainMod, A, exec, pypr toggle term"
+        "$mainMod, M, exec, pypr toggle music"
+        "$mainMod, V, exec, pypr toggle volume"
         "$mainMod, O, exec, pypr expose"
+        "$mainMod SHIFT, B, exec, waybar"
+        "$mainMod, I, exec, networkmanager_dmenu"
         # TODO: Write a bash script to do screenshots
         # "$mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -"
         "$mainMod, H, movefocus, l"
@@ -160,8 +163,6 @@ in {
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
-        "$mainMod SHIFT, B, exec, waybar"
-        "$mainMod, I, exec, networkmanager_dmenu"
         ",XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ",XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         ",XF86KbdBrightnessUp, exec, brightnessctl --device=:white:kbd_backlight set +10%"
@@ -198,9 +199,6 @@ in {
           gesture_fingers = 3;
           gesture_distance = 350;
           gesture_positive = false; # positive = swipe down. Negative = swipe up
-        };
-        hyprtrails = {
-          color = "rgba(${config.lib.stylix.colors.base08}55)";
         };
       };
     };
