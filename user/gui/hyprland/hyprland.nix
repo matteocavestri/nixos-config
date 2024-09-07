@@ -180,6 +180,10 @@ in {
         ",XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
         ",XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
         ",XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
+        ",XF86AudioPlay, exec, playerctl play-pause"
+        ",XF86AudioNext, exec, playerctl next"
+        ",XF86AudioPrev, exec, playerctl previous"
+        ",XF86Search, exec, $menu"
       ];
       bindm = [
         "$mainMod, mouse:272, movewindow"
