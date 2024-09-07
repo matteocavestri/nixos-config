@@ -1,10 +1,19 @@
-{userSettings, ...}: {
+{
+  userSettings,
+  pkgs,
+  lib,
+  ...
+}: {
   gtk = {
     enable = true;
     cursorTheme = {
       package = userSettings.appearance.cursorPkg;
       name = userSettings.appearance.cursor;
       size = 24;
+    };
+    theme = {
+      name = "adw-gtk3";
+      package = lib.mkForce pkgs.adw-gtk3;
     };
     iconTheme = {
       package = userSettings.appearance.iconsPkg;

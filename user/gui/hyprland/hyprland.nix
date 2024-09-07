@@ -96,7 +96,18 @@ in {
       xwayland = {
         force_zero_scaling = true;
       };
-      workspace = "special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false";
+      workspace = [
+        "special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false"
+        "1, persistent:true"
+        "2, persistent:true"
+        "3, persistent:true"
+        "4, persistent:true"
+        "5, persistent:true"
+        "6, persistent:true"
+        "7, persistent:true"
+        "8, persistent:true"
+        "9, persistent:true"
+      ];
       windowrulev2 = [
         "opacity 0.85,class:^(org.gnome.Nautilus)$"
         "opacity 0.85,class:^(org.gnome.Nautilus)$"
@@ -119,20 +130,18 @@ in {
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, Q, killactive"
-        "$mainMod, W, exec, $fileManager"
-        "$mainMod, F, togglefloating"
-        "$mainMod, R, exec, $menu"
-        "$mainMod, S, exec, firefox"
-        "$mainMod, D, exec, PWD=$HOME/.dotfiles kitty -e nvim ~/.dotfiles/"
-        "$mainMod, N, exec, PWD=HOME/notes/home kitty -e nvim ~/notes/home/index.norg"
-        "$mainMod, E, exec, $editor"
-        "$mainMod, P, hyprexpo:expo, toggle"
-        "$mainMod, A, exec, pypr toggle term"
+        "$mainMod, F, exec, $fileManager"
+        "$mainMod, W, togglefloating"
+        "$mainMod, S, exec, $menu"
+        "$mainMod, R, exec, firefox"
+        "$mainMod, N, exec, $editor"
+        "$mainMod, E, hyprexpo:expo, toggle"
+        "$mainMod, D, exec, pypr toggle term"
         "$mainMod, M, exec, pypr toggle music"
         "$mainMod, V, exec, pypr toggle volume"
         "$mainMod, O, exec, pypr expose"
-        "$mainMod SHIFT, B, exec, waybar"
         "$mainMod, I, exec, networkmanager_dmenu"
+        "$mainMod SHIFT, B, exec, waybar"
         # TODO: Write a bash script to do screenshots
         # "$mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -"
         "$mainMod, H, movefocus, l"

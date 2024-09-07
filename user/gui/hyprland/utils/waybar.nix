@@ -8,6 +8,8 @@
 with lib; {
   home.packages = with pkgs; [
     waybar
+    playerctl
+    pamixer
   ];
   programs.waybar = {
     enable = true;
@@ -49,21 +51,30 @@ with lib; {
         "hyprland/workspaces" = {
           format = "{icon}";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            active = "";
-            default = "";
-            urgent = "";
+            "1" = "󱚌";
+            "2" = "󰖟";
+            "3" = "";
+            "4" = "󰎄";
+            "5" = "󰋩";
+            "6" = "";
+            "7" = "󰄖";
+            "8" = "󰑴";
+            "9" = "󱎓";
+            scratch_term = "_";
+            scratch_music = "_";
           };
           on-click = "activate";
+          ignore-workspaces = ["scratch" "-"];
+          show-special = false;
+          all-outputs = false;
+          active-only = false;
         };
 
         "custom/os" = {
           format = " {} ";
           exec = ''echo "" '';
           interval = "once";
-          on-click = "rofi -show drun";
+          on-click = "fuzzel";
         };
 
         "custom/spacer" = {
@@ -77,7 +88,6 @@ with lib; {
           format-paused = " {status_icon} <i>{dynamic}</i>";
           player-icons = {
             "default" = "▶";
-            "mpv" = "🎵";
           };
           status-icons = {
             "paused" = "⏸";
@@ -89,8 +99,8 @@ with lib; {
         idle_inhibitor = {
           format = "{icon}";
           format-icons = {
-            activated = "";
-            deactivated = "";
+            activated = "󰅶";
+            deactivated = "󰾪";
           };
         };
 

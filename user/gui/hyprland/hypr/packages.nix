@@ -6,7 +6,5 @@
     hyprpaper
     hyprland-protocols
     pwvucontrol
-    pamixer
-    playerctl
   ];
 }
