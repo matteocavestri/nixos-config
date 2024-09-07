@@ -31,7 +31,10 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
-    plugins = [];
+    plugins = [
+      pkgs.hyprlandPlugins.hyprexpo
+      pkgs.hyprlandPlugins.hyprtrails
+    ];
     xwayland.enable = true;
     systemd.enable = true;
     settings = {
@@ -119,8 +122,9 @@ in {
         "$mainMod, R, exec, $menu"
         "$mainMod, S, exec, firefox"
         "$mainMod, D, exec, PWD=$HOME/.dotfiles kitty -e nvim ~/.dotfiles/"
-        "$mainMod, C, exec, PWD=HOME/notes/home kitty -e nvim ~/notes/home/index.norg"
+        "$mainMod, N, exec, PWD=HOME/notes/home kitty -e nvim ~/notes/home/index.norg"
         "$mainMod, E, exec, $editor"
+        "$mainMod, P, hyprexpo:expo, toggle"
         # TODO: Write a bash script to do screenshots
         # "$mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -"
         "$mainMod, H, movefocus, l"
@@ -140,7 +144,6 @@ in {
         "$mainMod, 7, workspace, 7"
         "$mainMod, 8, workspace, 8"
         "$mainMod, 9, workspace, 9"
-        "$mainMod, 0, workspace, 10"
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -150,7 +153,6 @@ in {
         "$mainMod SHIFT, 7, movetoworkspace, 7"
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
-        "$mainMod SHIFT, 0, movetoworkspace, 10"
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod SHIFT, B, exec, waybar"
@@ -181,6 +183,21 @@ in {
         "CLUTTER_BACKEND,wayland"
         "SDL_VIDEODRIVER,wayland"
       ];
+      plugin = {
+        hyprexpo = {
+          columns = 3;
+          gap_size = 50;
+          bg_col = "rgb(${config.lib.stylix.colors.base00})";
+          workspace_method = "first 1";
+          enable_gesture = true;
+          gesture_fingers = 3;
+          gesture_distance = 350;
+          gesture_positive = false; # positive = swipe down. Negative = swipe up
+        };
+        hyprtrails = {
+          color = "rgba(${config.lib.stylix.colors.base08}55)";
+        };
+      };
     };
     # TODO: Move extraConfig
     extraConfig =
