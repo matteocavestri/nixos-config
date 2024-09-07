@@ -4,7 +4,7 @@
   ];
   home.file.".config/hypr/pyprland.toml".text = ''
     [pyprland]
-    plugins = ["expose", "scratchpads", "magnify"]
+    plugins = ["expose", "scratchpads"]
 
     #[workspaces_follow_focus]
     #max_workspaces = 9
@@ -13,19 +13,11 @@
     #include_special = false
 
     [scratchpads.term]
-    command = "kitty --class scratchpad"
-    margin = 50
-
-    [scratchpads.lf]
-    command = "kitty --class scratchpad -e lf"
-    margin = 50
-
-    [scratchpads.numbat]
-    command = "alacritty --class scratchpad -e numbat"
-    margin = 50
-
-    [scratchpads.btm]
-    command = "alacritty --class scratchpad -e btop"
+    animation = "fromTop"
+    command = "kitty --class kitty-dropterm"
+    class = "kitty-dropterm"
+    size = "75% 60%"
+    max_size = "1920px 100%"
     margin = 50
   '';
 }

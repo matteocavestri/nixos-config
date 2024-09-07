@@ -22,6 +22,7 @@ in {
     ./utils/swappy.nix
     ./utils/swayosd.nix
     ./utils/wlsunset.nix
+    ./hypr/pyprland.nix
     (import ./utils/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
@@ -53,6 +54,7 @@ in {
         "blueman-applet"
         "hypridle"
         "sleep 5 && libinput-gestures"
+        "pypr"
       ];
       input = {
         kb_layout = systemSettings.host.keymap;
@@ -95,6 +97,7 @@ in {
       xwayland = {
         force_zero_scaling = true;
       };
+      workspace = "special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false";
       windowrulev2 = [
         "opacity 0.85,class:^(org.gnome.Nautilus)$"
         "opacity 0.85,class:^(org.gnome.Nautilus)$"
@@ -125,6 +128,8 @@ in {
         "$mainMod, N, exec, PWD=HOME/notes/home kitty -e nvim ~/notes/home/index.norg"
         "$mainMod, E, exec, $editor"
         "$mainMod, P, hyprexpo:expo, toggle"
+        "$mainMod, A, exec, pypr toggle term"
+        "$mainMod, O, exec, pypr expose"
         # TODO: Write a bash script to do screenshots
         # "$mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -"
         "$mainMod, H, movefocus, l"
