@@ -21,6 +21,7 @@ in {
     ./utils/dunst.nix
     ./utils/swappy.nix
     ./utils/swayosd.nix
+    ./utils/wlsunset.nix
     (import ./utils/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
@@ -116,8 +117,9 @@ in {
         "$mainMod, W, exec, $fileManager"
         "$mainMod, F, togglefloating"
         "$mainMod, R, exec, $menu"
-        "$mainMod, P, pseudo"
-        "$mainMod, D, exec, kitty -e nvim ~/.dotfiles/"
+        "$mainMod, S, exec, firefox"
+        "$mainMod, D, exec, PWD=$HOME/.dotfiles kitty -e nvim ~/.dotfiles/"
+        "$mainMod, C, exec, PWD=HOME/notes/home kitty -e nvim ~/notes/home/index.norg"
         "$mainMod, E, exec, $editor"
         # TODO: Write a bash script to do screenshots
         # "$mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -"

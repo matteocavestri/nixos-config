@@ -47,7 +47,7 @@
         vimium
       ];
       settings = {
-        "browser.startup.homepage" = "https://homepage.cavestrihome.com";
+        "browser.startup.homepage" = "https://duckduckgo.com";
         "browser.search.region" = "IT";
         "browser.search.isUS" = false;
         "distribution.searchplugins.defaultLocale" = "it-IT";
