@@ -49,7 +49,6 @@ in {
         "blueman-applet"
         "hypridle"
         "sleep 5 && libinput-gestures"
-        "swayosd-server"
       ];
       input = {
         kb_layout = systemSettings.host.keymap;
@@ -70,7 +69,9 @@ in {
       };
       animations = {
         enabled = true;
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        bezier = [
+          "myBezier, 0.05, 0.9, 0.1, 1.05"
+        ];
         animation = [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
@@ -112,19 +113,22 @@ in {
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, Q, killactive"
-        "$mainMod, M, exit"
         "$mainMod, W, exec, $fileManager"
         "$mainMod, F, togglefloating"
         "$mainMod, R, exec, $menu"
         "$mainMod, P, pseudo"
-        "$mainMod, J, togglesplit"
+        "$mainMod, D, exec, kitty -e nvim ~/.dotfiles/"
         "$mainMod, E, exec, $editor"
         # TODO: Write a bash script to do screenshots
         # "$mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -"
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
+        "$mainMod, H, movefocus, l"
+        "$mainMod, L, movefocus, r"
+        "$mainMod, K, movefocus, u"
+        "$mainMod, J, movefocus, d"
+        "$mainMod SHIFT, H, movewindow, l"
+        "$mainMod SHIFT, L, movewindow, r"
+        "$mainMod SHIFT, K, movewindow, u"
+        "$mainMod SHIFT, J, movewindow, d"
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
         "$mainMod, 3, workspace, 3"
@@ -145,8 +149,6 @@ in {
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-        "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
         "$mainMod SHIFT, B, exec, waybar"
@@ -176,9 +178,6 @@ in {
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "CLUTTER_BACKEND,wayland"
         "SDL_VIDEODRIVER,wayland"
-        # "QT_SCALE_FACTOR,1.6"
-        # "GDK_SCALE,1.6"
-        # "ELM_SCALE,1.6"
       ];
     };
     # TODO: Move extraConfig
