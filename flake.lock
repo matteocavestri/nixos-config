@@ -196,11 +196,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1725681805,
-        "narHash": "sha256-C5rRR+44HHuMvVYKyhP4eyZngMSgU9qluWl6vHueoFE=",
+        "lastModified": 1725783932,
+        "narHash": "sha256-ZrDE5yqkgiv0F34w1QFz1oZnNnReW0PEA6vjO6gx4Uc=",
         "owner": "rycee",
         "repo": "nur-expressions",
-        "rev": "ab7bc4bd780bffa2c6d92e4e6398e3b392b80525",
+        "rev": "58ac93a2ade218ea5e4dae38246030c7342b1eb4",
         "type": "gitlab"
       },
       "original": {
@@ -581,11 +581,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1725722063,
-        "narHash": "sha256-TP+WpKl6gc2NCe7OfyXWCz4oGBqYf/MSEf03ossVnXg=",
+        "lastModified": 1725752806,
+        "narHash": "sha256-UwmsA7O9Wofu6YWldyR8NDv1bzxNICIg85/uOrVq69Y=",
         "ref": "refs/heads/main",
-        "rev": "5ca48231287d67e75a3f21dbdbc47d6dc65752c4",
-        "revCount": 5193,
+        "rev": "312411fc7073143a8bf1fc3ba23ef403b7d15eee",
+        "revCount": 5195,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/hyprwm/Hyprland"
@@ -832,11 +832,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1725721432,
-        "narHash": "sha256-JNdPafrXF42ZOL5RkfHr385uBWsUQrPFenbzJRDXn74=",
+        "lastModified": 1725750857,
+        "narHash": "sha256-AMMyY/PR3nIEQh41qPyBsGm0OJIcA7tn7Ggw1nT1Zao=",
         "owner": "lilyinstarlight",
         "repo": "nixos-cosmic",
-        "rev": "678ba77a0115441b675ff10135b8fd40060c36c4",
+        "rev": "adfdee861bb4943e1e32c930d045593806f88339",
         "type": "github"
       },
       "original": {
@@ -994,11 +994,11 @@
     },
     "nurpkgs": {
       "locked": {
-        "lastModified": 1725720394,
-        "narHash": "sha256-DMNkkUAI1bpRCaLYs+RR8+DFqfOh0ScBn/jjCQ3P0e4=",
+        "lastModified": 1725806719,
+        "narHash": "sha256-A004Rs6GuOdUVxuzcqZiJt83Nk7yewJSqH/48A84W98=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "63fc93a575265d2764ad65817e0415c24cfc8801",
+        "rev": "4c904a5090c7c292d47024aa5e6af47d5f001081",
         "type": "github"
       },
       "original": {
@@ -1040,11 +1040,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725722592,
-        "narHash": "sha256-HOlKnZoB6TAS3Kda4cWXwDMyEphy2xpJFy6fFMsr7ec=",
+        "lastModified": 1725781027,
+        "narHash": "sha256-sSAnsV01kwY8N4/XPpl14fMH0SU7Zn6w8hxnZw7YPlo=",
         "owner": "nix-community",
         "repo": "plasma-manager",
-        "rev": "d909dcd13d1c9bcc0765f2dbf8243e423eae9f4e",
+        "rev": "3620206aec6d4d1ff0456ae1cf46e5b983121b6e",
         "type": "github"
       },
       "original": {

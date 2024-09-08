@@ -4,7 +4,7 @@ description: List of all modules with a brief description. The list includes bot
 authors: matteocavestri
 categories: Capabilities
 created: 2024-09-06T00:45:21+0100
-updated: 2024-09-08T15:36:14+0100
+updated: 2024-09-08T23:23:46+0100
 version: 1.1.1
 @end
 
@@ -86,6 +86,8 @@ version: 1.1.1
       Configurations for the Pantheon desktop environment
 ***** system.gui.desktop.plasma
       Configurations for the KDE Plasma desktop environment
+***** system.gui.desktop.sway
+      Configurations for the Sway window manager
 ***** system.gui.desktop.xfce
       Configurations for the XFCE desktop environment
 
@@ -351,6 +353,11 @@ version: 1.1.1
       Configurations for Plasma shortcuts
 ***** user.gui.plasma.top-panel
       Configurations for the top panel
+
+**** user.gui.sway
+     Configurations for the Sway window manager
+***** user.gui.sway.sway
+      Main configurations for Sway
 
 **** user.gui.xfce
      Configurations for the XFCE desktop environment

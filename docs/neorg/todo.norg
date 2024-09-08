@@ -4,18 +4,18 @@ description: Main Todo tracker
 authors: matteocavestri
 categories: Development
 created: 2024-09-08T13:08:27+0100
-updated: 2024-09-08T15:36:30+0100
+updated: 2024-09-08T17:31:09+0100
 version: 1.1.1
 @end
 
 
 * Todo - Issues
-  - ( ) Program used in scratchpads can't be used normally (Hyprland)
+  - (_) Program used in scratchpads can't be used normally (Hyprland)
   - ( ) systemSettings.nix.version can't change nixos version (All)
   - ( ) dnscrypt doesn't work in local network (All)
   - ( ) Slurm configuration doesn't work (All)
-  - ( ) Fix pinned apps in Gnome and Plasma (Profile:minimal-gui)
-  - ( ) Flatpak theming (All)
+  - ( ) Fix pinned apps in Plasma (Profile:minimal-gui)
+  - (?) Flatpak theming (All)
   - (x) Delete fixed suspend settings (KDE-Plasma)
 
 * Todo - Bugs
@@ -44,7 +44,7 @@ version: 1.1.1
   - ( ) Use rofi or an alternative for shutdown menu (Hyprland)
   - ( ) Write documentation (All)
   -- ( ) Neorg
-  --- ( ) Todos
+  --- (x) Todos
   --- ( ) Modules
   ---- ( ) User
   ---- ( ) System
