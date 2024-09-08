@@ -38,29 +38,6 @@
       };
     };
     workspace.iconTheme = userSettings.appearance.icons;
-    powerdevil = {
-      AC = {
-        powerButtonAction = "lockScreen";
-        autoSuspend.action = "nothing";
-        dimDisplay.enable = false;
-        turnOffDisplay.idleTimeout = "never";
-        whenLaptopLidClosed = "doNothing";
-      };
-      battery = {
-        powerButtonAction = "lockScreen";
-        autoSuspend.action = "nothing";
-        dimDisplay.enable = false;
-        turnOffDisplay.idleTimeout = "never";
-        whenLaptopLidClosed = "doNothing";
-      };
-      lowBattery = {
-        powerButtonAction = "lockScreen";
-        autoSuspend.action = "nothing";
-        dimDisplay.enable = false;
-        turnOffDisplay.idleTimeout = "never";
-        whenLaptopLidClosed = "doNothing";
-      };
-    };
     kscreenlocker = {
       lockOnResume = true;
       timeout = 10;

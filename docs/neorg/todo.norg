@@ -1,0 +1,59 @@
+@document.meta
+title: Todo
+description: Main Todo tracker 
+authors: matteocavestri
+categories: Development
+created: 2024-09-08T13:08:27+0100
+updated: 2024-09-08T13:44:25+0100
+version: 1.1.1
+@end
+
+
+* Todo - Issues
+  - ( ) Program used in scratchpads can't be used normally (Hyprland)
+  - ( ) systemSettings.nix.version can't change nixos version (All)
+  - ( ) dnscrypt doesn't work in local network (All)
+  - ( ) Slurm configuration doesn't work (All)
+  - ( ) Fix pinned apps in Gnome and Plasma (Profile:minimal-gui)
+  - ( ) Flatpak theming (All)
+  - (x) Delete fixed suspend settings (KDE-Plasma)
+
+* Todo - Bugs
+  - ( ) Pavucontrol or pwvucontrol crash pulseaudio on Apple-T2 (Apple-T2)
+  -- Tracker: {https://github.com/MCMrARM/mbp2018-bridge-drv/issues/5}[Github Issue]
+  - ( ) Asahi Kernel 6.10.6 broke GPU hardware acceleration (Apple Silicon)
+  -- tracker: {https://github.com/tpwrules/nixos-apple-silicon/issues/234}[Github Issue]
+
+* Todo - Hardware support
+  - ( ) Support for Raspberry Pi 4
+  - ( ) Support for Raspberry Pi 5
+  - ( ) Support for RK3588
+  - ( ) Support for Apple Silicon
+  -- ( ) GPU
+  --- (x) OpenGL
+  --- (-) Vulkan
+  --- ( ) OpenCL
+  --- ( ) Transcoding
+  -- (x) Audio
+  -- (x) Wifi
+  -- (-) NPU
+
+* Todo - Feature Requests
+  - ( ) Make custom eww bar (Hyprland)
+  - ( ) Implement swaync (Hyprland)
+  - ( ) Use rofi or an alternative for shutdown menu (Hyprland)
+  - ( ) Write documentation (All)
+  -- ( ) Neorg
+  --- ( ) Todos
+  --- ( ) Modules
+  ---- ( ) User
+  ---- ( ) System
+  --- ( ) Profiles
+  --- ( ) Appearance
+  --- ( ) Hardware
+  -- ( ) Markdown
+  --- ( ) Export all Neorg docs in markdown
+  -- ( ) Website
+  - ( ) Write an install script (All)
+  - ( ) Add support for impermanence (All)
+  - ( ) Gtk program as guide

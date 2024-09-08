@@ -1,6 +1,8 @@
 * Documentation Index  
 ** Capabilities
   - {:$/modules/modules-list:}[Modules List] - List of all modules with a brief description. The list includes both NixOS modules (system) and Home Manager modules (user)
+** Development
+  - {:$/todo:}[Todo] - Main Todo tracker
 ** Documentation
   - {:$/appearance:}[Appearance] - NixOS config appearance documentation
   - {:$/profiles:}[Profiles] - NixOS config profiles documentation
