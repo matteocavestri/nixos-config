@@ -30,7 +30,7 @@ with lib; {
         # Choose the order of the modules
         modules-left = ["custom/os" "cpu" "memory" "battery" "mpris"];
         modules-center = ["hyprland/workspaces"];
-        modules-right = ["tray" "idle_inhibitor" "pulseaudio" "backlight" "clock" "custom/power"];
+        modules-right = ["tray" "idle_inhibitor" "pulseaudio" "backlight" "clock" "custom/notification" "custom/power"];
 
         # Modules configuration
         "custom/power" = {
@@ -81,6 +81,27 @@ with lib; {
           format = "{}";
           exec = ''echo "|"'';
           interval = "once";
+        };
+
+        "custom/notification" = {
+          tooltip = false;
+          format = "{} {icon} ";
+          format-icons = {
+            notification = "<span foreground='red'><sup></sup></span>";
+            none = "";
+            dnd-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-none = "";
+            inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            inhibited-none = "";
+            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-inhibited-none = "";
+          };
+          return-type = "json";
+          exec-if = "which swaync-client";
+          exec = "swaync-client -swb";
+          on-click = "swaync-client -t -sw";
+          on-click-right = "swaync-client -d -sw";
+          escape = true;
         };
 
         mpris = {
@@ -403,6 +424,12 @@ with lib; {
               #idle_inhibitor.activated {
                   color: #''
       + config.lib.stylix.colors.base0F
+      + ''        ;
+              }
+
+              #custom-notification {
+                  color: #''
+      + config.lib.stylix.colors.base0B
       + ''        ;
               }
 

@@ -4,7 +4,7 @@ description: List of all modules with a brief description. The list includes bot
 authors: matteocavestri
 categories: Capabilities
 created: 2024-09-06T00:45:21+0100
-updated: 2024-09-07T02:52:16+0100
+updated: 2024-09-08T15:36:14+0100
 version: 1.1.1
 @end
 
@@ -313,6 +313,8 @@ version: 1.1.1
        Configurations for Rofi
 ****** user.gui.hyprland.utils.swappy
        Configurations for Swappy
+****** user.gui.hyprland.utils.swappy.swaync
+       Configurations for Swaync (Notification centre)
 ****** user.gui.hyprland.utils.swayosd
        Configurations for SwayOSD
 ****** user.gui.hyprland.utils.waybar

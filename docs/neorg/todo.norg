@@ -4,7 +4,7 @@ description: Main Todo tracker
 authors: matteocavestri
 categories: Development
 created: 2024-09-08T13:08:27+0100
-updated: 2024-09-08T13:44:25+0100
+updated: 2024-09-08T15:36:30+0100
 version: 1.1.1
 @end
 
@@ -40,7 +40,7 @@ version: 1.1.1
 
 * Todo - Feature Requests
   - ( ) Make custom eww bar (Hyprland)
-  - ( ) Implement swaync (Hyprland)
+  - (x) Implement swaync (Hyprland)
   - ( ) Use rofi or an alternative for shutdown menu (Hyprland)
   - ( ) Write documentation (All)
   -- ( ) Neorg

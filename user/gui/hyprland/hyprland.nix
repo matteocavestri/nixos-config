@@ -18,7 +18,7 @@ in {
     ./utils/waybar.nix
     ./utils/wlogout.nix
     ./hypr/hyprlock.nix
-    ./utils/dunst.nix
+    ./utils/swaync.nix
     ./utils/swappy.nix
     ./utils/swayosd.nix
     ./utils/wlsunset.nix
@@ -47,7 +47,6 @@ in {
       exec-once = [
         "dbus-update-activation-environment --systemd DISPLAY XAUTHORITY WAYLAND_DISPLAY XDG_SESSION_DESKTOP=Hyprland XDG_CURRENT_DESKTOP=Hyprland XDG_SESSION_TYPE=wayland"
         "waybar"
-        "dunst"
         "hyprpaper"
         "nm-applet"
         "blueman-applet"
