@@ -290,4 +290,12 @@ in {
         bind = $mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -
       '';
   };
+  dconf = {
+    enable = true;
+    settings = {
+      "org/gnome/desktop/wm/preferences" = {
+        button-layout = ":close";
+      };
+    };
+  };
 }
