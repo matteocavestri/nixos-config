@@ -12,7 +12,7 @@
       size = 24;
     };
     theme = {
-      name = "adw-gtk3";
+      name = lib.mkForce "adw-gtk3-dark";
       package = lib.mkForce pkgs.adw-gtk3;
     };
     iconTheme = {
@@ -25,7 +25,7 @@
     settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
-        gtk-theme = "adw-gtk3";
+        gtk-theme = "adw-gtk3-dark";
       };
     };
   };
