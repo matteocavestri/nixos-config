@@ -4,7 +4,7 @@ description: List of all modules with a brief description. The list includes bot
 authors: matteocavestri
 categories: Capabilities
 created: 2024-09-06T00:45:21+0100
-updated: 2024-09-08T23:23:46+0100
+updated: 2024-09-09T13:25:27+0100
 version: 1.1.1
 @end
 
@@ -36,6 +36,8 @@ version: 1.1.1
       Contains configurations for Bluetooth
 ***** system.config.hardware.graphics
       Contains default configurations for graphic acceleration
+***** system.config.hardware.iio
+      Contains configurations for IIO
 ***** system.config.hardware.iwd
       Contains configurations for wireless networks management through iwd
 ***** system.config.hardware.kernel-rust
