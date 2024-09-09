@@ -4,6 +4,7 @@
     ./zram.nix
     ./fonts.nix
     ./nix.nix
+    ./users.nix
   ];
 
   system.config = {
@@ -14,5 +15,6 @@
     flake.enable = lib.mkForce true;
     unfree.enable = lib.mkDefault false;
     linker.enable = lib.mkDefault true;
+    users.enable = lib.mkForce true;
   };
 }
