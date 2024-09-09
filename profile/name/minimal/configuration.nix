@@ -13,12 +13,14 @@
 
     # Configuration import
     ../../../system/config/default/default.nix
-    ../../../system/config/optimization/default.nix
+    # ../../../system/config/optimization/default.nix
 
     # Security import
     ../../../system/security/default.nix
 
     # Packages import
     ../../../system/packages/base.nix
+
+    ../../../nixosModules/config/default.nix
   ];
 }
