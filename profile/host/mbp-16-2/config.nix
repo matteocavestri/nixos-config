@@ -17,8 +17,11 @@ in {
     ../../../system/config/hardware/backlight.nix # Backlight
     ../../../system/hardware/apple/apple-t2.nix
     ../../../system/hardware/intel/intelgpu.nix # GPU
-    ../../../system/config/optimization/zram.nix # ZRAM
+    # ../../../system/config/optimization/zram.nix # ZRAM
   ];
+
+  system.config.zram.enable = true;
+
   # Nix settings
   nix.settings = {
     inherit substituters;
