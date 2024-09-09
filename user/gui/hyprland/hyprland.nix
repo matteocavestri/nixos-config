@@ -140,7 +140,7 @@ in {
         "$mainMod, V, exec, pypr toggle volume"
         "$mainMod, O, exec, pypr expose"
         "$mainMod, I, exec, networkmanager_dmenu"
-        "$mainMod SHIFT, B, exec, waybar"
+        "$mainMod SHIFT, B, exec, hypreload"
         # TODO: Write a bash script to do screenshots
         # "$mainMod, G, exec, grim -g "$(slurp)" - | swappy -f -"
         "$mainMod, H, movefocus, l"

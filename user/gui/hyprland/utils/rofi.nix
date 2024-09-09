@@ -21,7 +21,7 @@
          background:     #${base00};
          background-alt: #${base01};
          foreground:     #${base06};
-         selected:       #${base0B};
+         selected:       #${base0D};
          active:         #${base0A};
          urgent:         #${base08};
          border-colour:               @selected;

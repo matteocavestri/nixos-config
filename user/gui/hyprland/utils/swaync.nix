@@ -74,11 +74,11 @@
       + ","
       + ''        0.8);
              @define-color accent rgba(''
-      + config.lib.stylix.colors.base0B-rgb-r
+      + config.lib.stylix.colors.base0D-rgb-r
       + ", "
-      + config.lib.stylix.colors.base0B-rgb-g
+      + config.lib.stylix.colors.base0D-rgb-g
       + ", "
-      + config.lib.stylix.colors.base0B-rgb-b
+      + config.lib.stylix.colors.base0D-rgb-b
       + ","
       + ''        0.8);
              @define-color current-line #${config.lib.stylix.colors.base01};
