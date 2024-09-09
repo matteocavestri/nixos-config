@@ -2,8 +2,8 @@
   imports = [
     ./locale.nix
     ./zram.nix
-    ./garbagecollect.nix
     ./fonts.nix
+    ./nix.nix
   ];
 
   system.config = {
@@ -11,5 +11,8 @@
     zram.enable = lib.mkDefault false;
     garbagecollect.enable = lib.mkDefault true;
     fonts.enable = lib.mkDefault true;
+    flake.enable = lib.mkForce true;
+    unfree.enable = lib.mkDefault false;
+    linker.enable = lib.mkDefault true;
   };
 }
