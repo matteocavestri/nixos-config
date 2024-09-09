@@ -10,8 +10,8 @@ in {
     inputs.nixos-hardware.nixosModules.apple-t2 # NixOS Hardware import
     ./hardware-configuration.nix # NixOS Hardware configuration
     ../../../system/config/hardware/kernel-rust.nix # Kernel rust patch
-    ../../../system/config/hardware/wpa_supplicant.nix # WPA Supplicant
-    ../../../system/config/hardware/bluetooth.nix # Bluetooth
+    # ../../../system/config/hardware/wpa_supplicant.nix # WPA Supplicant
+    # ../../../system/config/hardware/bluetooth.nix # Bluetooth
     ../../../system/config/hardware/pipewire.nix # Audio
     ../../../system/config/hardware/touchpad.nix # Touchpad
     ../../../system/config/hardware/backlight.nix # Backlight
@@ -22,6 +22,9 @@ in {
   system.config = {
     zram.enable = true;
     unfree.enable = true;
+    network.wgsupport = true;
+    wifi.wpasupplicant = true;
+    bluetooth.enable = true;
   };
 
   # Nix settings
