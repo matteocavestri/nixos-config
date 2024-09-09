@@ -109,9 +109,12 @@ in {
       windowrulev2 = [
         "opacity 0.85,class:^(org.gnome.Nautilus)$"
         "opacity 0.85,class:^(org.gnome.Nautilus)$"
+        "opacity 0.85,class:^(org.gnome.Music)$"
+        "opacity 0.85,class:^(org.gnome.Music)$"
         "opacity 0.85,class:^(neovide)$"
         "opacity 0.85,class:^(neovide)$"
         "float,class:^(Waydroid)$"
+        "float,class:^(org.gnome.Calculator)"
       ];
       layerrule = [
         "blur,waybar"
