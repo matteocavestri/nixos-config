@@ -36,7 +36,7 @@ with lib; {
         "custom/power" = {
           format = "⏻";
           tooltip = false;
-          on-click = "wlogout -p layer-shell";
+          on-click = "rofi -show power-menu -modi power-menu:rofi-power-menu";
         };
 
         "hyprland/window" = {

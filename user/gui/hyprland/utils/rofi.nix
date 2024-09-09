@@ -4,7 +4,10 @@
   ...
 }: {
   home = {
-    packages = [pkgs.rofi-wayland];
+    packages = [
+      pkgs.rofi-wayland
+      pkgs.rofi-power-menu
+    ];
     file.".config/rofi/config.rasi".text = with config.lib.stylix.colors; ''
        /*****----- Configuration -----*****/
        configuration {

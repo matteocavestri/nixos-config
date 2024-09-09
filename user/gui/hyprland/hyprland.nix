@@ -16,7 +16,6 @@ in {
     ./utils/fuzzel.nix
     ./utils/rofi.nix
     ./utils/waybar.nix
-    ./utils/wlogout.nix
     ./hypr/hyprlock.nix
     ./utils/swaync.nix
     ./utils/swappy.nix

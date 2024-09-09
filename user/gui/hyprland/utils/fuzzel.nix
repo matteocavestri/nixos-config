@@ -19,10 +19,10 @@
       background = config.lib.stylix.colors.base00 + "bf";
       text = config.lib.stylix.colors.base07 + "ff";
       match = config.lib.stylix.colors.base05 + "ff";
-      selection = config.lib.stylix.colors.base0B + "ff";
+      selection = config.lib.stylix.colors.base0D + "ff";
       selection-text = config.lib.stylix.colors.base00 + "ff";
       selection-match = config.lib.stylix.colors.base05 + "ff";
-      border = config.lib.stylix.colors.base0B + "ff";
+      border = config.lib.stylix.colors.base0D + "ff";
     };
     border = {
       width = 3;
