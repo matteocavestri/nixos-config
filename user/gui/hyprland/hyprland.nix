@@ -41,7 +41,7 @@ in {
       "$mainMod" = "SUPER";
       "$terminal" = userSettings.environment.term;
       "$fileManager" = "kitty -e lf";
-      "$menu" = "fuzzel";
+      "$menu" = "rofi -show drun";
       "$editor" = "kitty -e nvim";
       monitor = ("," + systemSettings.monitor.resolution) + ("@" + systemSettings.monitor.refreshRate) + ",auto" + ("," + systemSettings.monitor.scaling);
       exec-once = [

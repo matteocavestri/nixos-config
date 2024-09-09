@@ -74,7 +74,7 @@ with lib; {
           format = " {} ";
           exec = ''echo "" '';
           interval = "once";
-          on-click = "fuzzel";
+          on-click = "rofi -show drun";
         };
 
         "custom/spacer" = {
