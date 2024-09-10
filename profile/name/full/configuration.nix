@@ -1,5 +1,0 @@
-{
-  imports = [
-    ../personal/configuration.nix
-  ];
-}
