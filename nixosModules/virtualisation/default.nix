@@ -5,6 +5,7 @@
     ./podman.nix
     ./wine.nix
     ./waydroid.nix
+    ./box64.nix
   ];
 
   system.virtualisation = {
@@ -24,5 +25,9 @@
       wayland = lib.mkDefault false;
     };
     waydroid.enable = lib.mkDefault false;
+    box64 = {
+      enable = lib.mkDefault false;
+      support16k = lib.mkDefault false;
+    };
   };
 }

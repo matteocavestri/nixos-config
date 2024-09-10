@@ -5,7 +5,14 @@
     ../../../system/config/hardware/iwd.nix
     ../../../system/config/hardware/bluetooth.nix
     ../../../system/config/optimization/zram.nix
-    ../../../system/services/transemu/box64-16k.nix
+    # ../../../system/services/transemu/box64-16k.nix
     ../../../system/hardware/apple/apple-silicon/default.nix
   ];
+
+  system = {
+    virtualisation.box64 = {
+      enable = true;
+      support16k = true;
+    };
+  };
 }
