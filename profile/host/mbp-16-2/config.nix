@@ -33,5 +33,8 @@
         substituters = true;
       };
     };
+    security = {
+      sudors.enable = true;
+    };
   };
 }

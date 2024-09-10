@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./server.nix
+    ./system.nix
   ];
 
   system.security = {
@@ -10,5 +11,7 @@
         password = lib.mkDefault true;
       };
     };
+    sudors.enable = lib.mkDefault false;
+    gpg.enable = lib.mkDefault true;
   };
 }

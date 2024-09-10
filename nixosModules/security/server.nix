@@ -7,7 +7,7 @@
     system.security.server = {
       openssh = {
         enable = lib.mkEnableOption "Enable OpenSSH server";
-        password = lib.mkPasswordOption "SSH password authentication";
+        password = lib.mkEnableOption "SSH password authentication";
       };
     };
   };
