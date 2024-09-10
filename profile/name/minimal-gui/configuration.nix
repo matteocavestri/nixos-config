@@ -2,7 +2,7 @@
   imports = [
     ../minimal/configuration.nix
     ../../../nixosModules/services/default.nix
-    ../../../system/services/packaging/flatpak.nix
+    # ../../../system/services/packaging/flatpak.nix
     (./. + "../../../../system/gui/desktop" + ("/" + userSettings.wm) + ".nix")
   ];
 
@@ -17,5 +17,6 @@
       gvfs.enable = true;
       online-accounts.enable = true;
     };
+    packages.packaging.flatpak.enable = true;
   };
 }
