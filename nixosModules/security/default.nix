@@ -3,6 +3,7 @@
     ./server.nix
     ./system.nix
     ./desktop.nix
+    ./network.nix
   ];
 
   system.security = {
@@ -16,5 +17,11 @@
     gpg.enable = lib.mkDefault true;
     gnome-keyring.enable = lib.mkDefault false;
     polkit.enable = lib.mkDefault false;
+    network = {
+      dnscrypt = {
+        enable = lib.mkDefault false;
+        ipv6 = lib.mkDefault false;
+      };
+    };
   };
 }
