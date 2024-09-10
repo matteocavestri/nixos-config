@@ -15,11 +15,12 @@
     ../../../nixosModules/system/default.nix
     ../../../nixosModules/hardware/default.nix
     ../../../nixosModules/security/default.nix
+    ../../../nixosModules/packages/default.nix
 
     # Security import
     # ../../../system/security/default.nix
 
     # Packages import
-    ../../../system/packages/base.nix
+    # ../../../system/packages/base.nix
   ];
 }
