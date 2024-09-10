@@ -38,5 +38,6 @@
       gnome-keyring.enable = true;
       polkit.enable = true; # Temporary, need to be called by WMs (aka Hyprland)
     };
+    packages.steam.enable = true;
   };
 }

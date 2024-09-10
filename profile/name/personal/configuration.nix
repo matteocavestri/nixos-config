@@ -3,6 +3,6 @@
     ../work/configuration.nix
     ../../../system/services/transemu/wine.nix
     ../../../system/services/transemu/waydroid.nix
-    ../../../system/packages/steam.nix
+    # ../../../system/packages/steam.nix
   ];
 }
