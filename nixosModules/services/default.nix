@@ -1,6 +1,7 @@
 {lib, ...}: {
   imports = [
     ./desktop.nix
+    ./quemuguest.nix
   ];
 
   system.services = {
@@ -8,5 +9,6 @@
     dbus.enable = lib.mkDefault false;
     gvfs.enable = lib.mkDefault false;
     online-accounts.enable = lib.mkDefault false;
+    qemuguest.enable = lib.mkDefault false;
   };
 }

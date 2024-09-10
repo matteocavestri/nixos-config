@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../../system/hardware/virtual/qemuguest.nix
   ];
 
   system = {
@@ -9,6 +8,7 @@
       zram.enable = true;
       unfree.enable = true;
     };
+    services.qemuguest.enable = true;
   };
 
   networking.firewall.allowedTCPPorts = [

@@ -4,7 +4,6 @@
     ../../../system/hardware/nvidia/nvidiagpu.nix
     ../../../system/hardware/nvidia/cuda.nix
     ../../../system/hardware/nvidia/cudnn.nix
-    ../../../system/hardware/virtual/qemuguest.nix
     ../../../system/services/systemd/nvidia-monitoring.nix
   ];
 
@@ -13,6 +12,7 @@
       zram.enable = true;
       unfree.enable = true;
     };
+    services.qemuguest.enable = true;
     virtualisation.docker.nvidiasupport = true;
   };
 
