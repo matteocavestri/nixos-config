@@ -46,5 +46,11 @@
         };
       };
     };
+
+    environment = lib.mkIf config.system.security.polkit.enable {
+      systemPackages = with pkgs; [
+        pinentry-gtk2
+      ];
+    };
   };
 }

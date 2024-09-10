@@ -5,12 +5,21 @@
   ...
 }: {
   imports = [
-    ../../../nixosModules/config/audio.nix
-    ../../services/desktop/default.nix
+    ../../../nixosModules/config/default.nix
+    ../../../nixosModules/services/default.nix
+    # ../../services/desktop/default.nix
     ../style/stylix.nix
   ];
-  # Enable pipewire
-  system.config.pipewire.enable = lib.mkForce true;
+  # Enable required modules
+  system = {
+    config.pipewire.enable = lib.mkForce true;
+    services = {
+      dbus.enable = lib.mkForce true;
+      dconf.enable = lib.mkForce true;
+      gvfs.enable = lib.mkForce true;
+    };
+  };
+
   # Configure wayland
   environment = {
     systemPackages = with pkgs; [
