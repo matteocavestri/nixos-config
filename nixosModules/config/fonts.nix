@@ -12,6 +12,8 @@
   config = lib.mkIf config.system.config.fonts.enable {
     fonts = {
       enableDefaultPackages = true;
+
+      # Default fonts for productivity and terminal (Nerd Fonts)
       packages = with pkgs; [
         liberation_ttf
         inconsolata-nerdfont
@@ -19,6 +21,8 @@
         noto-fonts-emoji
         # ibm-plex
       ];
+
+      # Default font configuration
       fontconfig = {
         defaultFonts = {
           serif = ["${userSettings.appearance.font}"];

@@ -9,6 +9,7 @@
   };
 
   config = lib.mkIf config.system.config.locale.enable {
+    # Full locale setup
     time.timeZone = systemSettings.host.timezone;
     i18n = {
       defaultLocale = systemSettings.host.locale;
@@ -24,6 +25,8 @@
         LC_TIME = systemSettings.host.locale;
       };
     };
+
+    # Console keymap
     console = {
       keyMap = systemSettings.host.keymap;
     };

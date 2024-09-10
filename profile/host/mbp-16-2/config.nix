@@ -8,19 +8,23 @@ in {
     ../../../system/hardware/intel/intelgpu.nix # GPU
   ];
 
-  system.config = {
-    zram.enable = true;
-    unfree.enable = true;
-    network.wgsupport = true;
-    wifi.wpasupplicant = true;
-    bluetooth.enable = true;
-    pipewire = {
-      enable = true;
-      alsa.support32 = true;
+  system = {
+    config = {
+      zram.enable = true;
+      unfree.enable = true;
+      network.wgsupport = true;
+      wifi.wpasupplicant = true;
+      bluetooth.enable = true;
+      pipewire = {
+        enable = true;
+        alsa.support32 = true;
+      };
+      touchpad.enable = true;
+      backlight.enable = true;
     };
-    touchpad.enable = true;
-    backlight.enable = true;
-    kernel.rustsupport = true;
+    system = {
+      kernel.rustsupport = true;
+    };
   };
 
   # Nix settings

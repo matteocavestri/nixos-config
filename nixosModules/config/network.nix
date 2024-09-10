@@ -26,6 +26,7 @@
       hostName = systemSettings.host.hostname;
       networkmanager = {
         enable = true;
+
         # Setup wifi backend (iwd, wpa_supplicant or null)
         wifi.backend =
           lib.mkIf config.system.config.wifi.iwd "iwd"
