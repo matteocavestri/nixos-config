@@ -7,6 +7,7 @@
     ./users.nix
     ./network.nix
     ./audio.nix
+    ./peripherals.nix
   ];
 
   system.config = {
@@ -32,5 +33,8 @@
       alsa.support32 = lib.mkDefault false;
     };
     pulseaudio.enable = lib.mkDefault false;
+    backlight.enable = lib.mkDefault false;
+    touchpad.enable = lib.mkDefault false;
+    iio.enable = lib.mkDefault false;
   };
 }

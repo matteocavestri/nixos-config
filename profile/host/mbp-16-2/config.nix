@@ -13,8 +13,8 @@ in {
     # ../../../system/config/hardware/wpa_supplicant.nix # WPA Supplicant
     # ../../../system/config/hardware/bluetooth.nix # Bluetooth
     # ../../../system/config/hardware/pipewire.nix # Audio
-    ../../../system/config/hardware/touchpad.nix # Touchpad
-    ../../../system/config/hardware/backlight.nix # Backlight
+    # ../../../system/config/hardware/touchpad.nix # Touchpad
+    # ../../../system/config/hardware/backlight.nix # Backlight
     ../../../system/hardware/apple/apple-t2.nix
     ../../../system/hardware/intel/intelgpu.nix # GPU
   ];
@@ -29,6 +29,8 @@ in {
       enable = true;
       alsa.support32 = true;
     };
+    touchpad.enable = true;
+    backlight.enable = true;
   };
 
   # Nix settings
