@@ -34,5 +34,6 @@
       };
     };
     packages.steam.enable = true;
+    virtualisation.wine.wayland = true;
   };
 }

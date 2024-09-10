@@ -2,8 +2,6 @@
   imports = [
     ../minimal-gui/configuration.nix
     ../../../nixosModules/virtualisation/default.nix
-
-    # ../../../system/services/packaging/appimage.nix
   ];
 
   system = {
