@@ -2,7 +2,6 @@
   imports = [
     ../minimal-gui/home.nix
     ../../../user/packages/virtualization/virtualization.nix
-    ../../../user/packages/editors/nevica.nix
     ../../../user/packages/productivity/libreoffice.nix
     ../../../user/packages/productivity/groupware.nix
     ../../../user/packages/engineering/freecad.nix
@@ -16,4 +15,12 @@
     ../../../user/packages/coding/compiler.nix
     ../../../user/packages/coding/tools.nix
   ];
+
+  user = {
+    packages = {
+      nevica = {
+        enable = true;
+      };
+    };
+  };
 }

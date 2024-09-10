@@ -13,7 +13,6 @@
       bluetooth.enable = true;
       pipewire = {
         enable = true;
-        alsa.support32 = true;
       };
       touchpad.enable = true;
       backlight.enable = true;

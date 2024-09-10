@@ -56,10 +56,9 @@
       };
     };
     # -------------------------------------------------------------------
-    lib = nixpkgs.lib;
-    pkgs = import nixpkgs {system = systemSettings.nix.system;};
-    pkgs-unstable =
-      import nixpkgs-unstable {system = systemSettings.nix.system;};
+    inherit (nixpkgs) lib;
+    pkgs = import nixpkgs {inherit (systemSettings.nix) system;};
+    pkgs-unstable = import nixpkgs-unstable {inherit (systemSettings.nix) system;};
   in {
     # -------------------- NixOS Configuration --------------------------
     nixosConfigurations = {
