@@ -4,6 +4,7 @@
     ./intelgpu.nix
     ./apple-t2.nix
     ./apple-silicon/default.nix
+    ./nvidia.nix
   ];
 
   system.hardware = {
@@ -18,6 +19,14 @@
         opencl = lib.mkDefault false;
         newgpu = lib.mkDefault false;
         monitoring = lib.mkDefault false;
+      };
+      nvidia = {
+        enable = lib.mkDefault false;
+        open = lib.mkDefault false;
+        nvidia-settings = lib.mkDefault false;
+        monitoring = lib.mkDefault false;
+        cuda = lib.mkDefault false;
+        cudnn = lib.mkDefault false;
       };
     };
     apple = {

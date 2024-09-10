@@ -1,15 +1,18 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../../system/hardware/nvidia/nvidiagpu.nix
-    ../../../system/hardware/nvidia/cuda.nix
-    ../../../system/hardware/nvidia/cudnn.nix
   ];
 
   system = {
     config = {
       zram.enable = true;
       unfree.enable = true;
+    };
+    hardware.gpu.nvidia = {
+      enable = true;
+      monitoring = true;
+      cuda = true;
+      cudnn = true;
     };
     services = {
       qemuguest.enable = true;
