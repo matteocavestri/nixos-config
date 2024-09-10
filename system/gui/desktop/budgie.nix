@@ -4,10 +4,10 @@
   pkgs-unstable,
   ...
 }: {
-  imports = [
-    ../display/lightdm.nix
-  ];
-  system.services.xorg.enable = true;
+  system.services = {
+    xorg.enable = true;
+    displaymanager.lightdm.enable = true;
+  };
   services.xserver = {
     enable = true;
     desktopManager.budgie.enable = true;

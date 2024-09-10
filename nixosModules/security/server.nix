@@ -13,6 +13,7 @@
   };
 
   config = {
+    # Openssh server configuration
     services.openssh = {
       enable = lib.mkIf config.system.security.server.openssh.enable true;
       settings = {

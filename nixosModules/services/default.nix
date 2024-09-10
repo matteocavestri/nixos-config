@@ -7,6 +7,7 @@
     ./wayland.nix
     ./xorg.nix
     ./styling.nix
+    ./displaymanager.nix
   ];
 
   system.services = {
@@ -21,5 +22,9 @@
     wayland.enable = lib.mkDefault false;
     xorg.enable = lib.mkDefault false;
     stylix.enable = lib.mkDefault false;
+    displaymanager = {
+      sddm.enable = lib.mkDefault false;
+      lightdm.enable = lib.mkDefault false;
+    };
   };
 }

@@ -38,6 +38,7 @@
       };
     };
 
+    # Use xdg desktop portal
     xdg.portal = {
       enable = true;
       xdgOpenUsePortal = true;

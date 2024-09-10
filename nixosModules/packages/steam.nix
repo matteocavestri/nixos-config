@@ -8,6 +8,7 @@
     system.packages.steam.enable = lib.mkEnableOption "Enable Steam";
   };
 
+  # Enable steam if selected. It also install a steam session.
   config = lib.mkIf config.system.packages.steam.enable {
     environment.systemPackages = with pkgs; [
       steam

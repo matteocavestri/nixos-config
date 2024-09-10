@@ -1,8 +1,8 @@
 {systemSettings, ...}: {
-  imports = [
-    ../display/lightdm.nix
-  ];
-  system.services.xorg.enable = true;
+  system.services = {
+    xorg.enable = true;
+    displayManager.lightdm.enable = true;
+  };
   services.xserver = {
     enable = true;
     desktopManager.mate.enable = true;

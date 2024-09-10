@@ -6,6 +6,7 @@
   inputs,
   ...
 }: let
+  # Import theme and background from /themes directory
   themePath = "../../../themes/" + userSettings.appearance.theme + "/" + userSettings.appearance.theme + ".yaml";
   themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../themes" + ("/" + userSettings.appearance.theme) + "/polarity.txt"));
   backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.appearance.theme) + "/backgroundurl.txt");
@@ -20,20 +21,27 @@ in {
   };
 
   config = lib.mkIf config.system.services.stylix.enable {
+    # Main stylix configuration
     stylix = {
       enable = true;
       autoEnable = false;
+
+      # Theme definition and backgound
       polarity = themePolarity;
       image = pkgs.fetchurl {
         url = backgroundUrl;
         sha256 = backgroundSha256;
       };
       base16Scheme = ./. + themePath;
+
+      # Cursor configuration
       cursor = {
         name = userSettings.appearance.cursor;
         package = userSettings.appearance.cursorPkg;
         size = 24;
       };
+
+      # Font configuration
       fonts = {
         monospace = {
           name = userSettings.appearance.font;
@@ -58,6 +66,8 @@ in {
           desktop = 12;
         };
       };
+
+      # Stylix targets
       targets = {
         lightdm.enable = true;
         gnome.enable = true;

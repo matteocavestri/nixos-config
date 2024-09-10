@@ -3,13 +3,12 @@
   lib,
   ...
 }: {
-  imports = [
-    ../display/sddm.nix
-  ];
-
   system = {
     security.polkit.enable = lib.mkForce true;
-    services.wayland.enable = true;
+    services = {
+      wayland.enable = true;
+      displaymanager.sddm.enable = true;
+    };
   };
 
   programs.hyprland = {

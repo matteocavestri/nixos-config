@@ -1,8 +1,8 @@
-{...}: {
-  imports = [
-    ../display/lightdm.nix
-  ];
-  system.services.xorg.enable = true;
+{
+  system.services = {
+    xorg.enable = true;
+    displayManager.lightdm.enable = true;
+  };
   # if you use pulseaudio
   nixpkgs.config.pulseaudio = true;
 

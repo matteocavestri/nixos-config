@@ -1,3 +1,4 @@
+# TODO: delete .server and .network and use directly the service
 {lib, ...}: {
   imports = [
     ./server.nix
