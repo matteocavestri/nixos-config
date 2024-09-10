@@ -39,10 +39,4 @@ in {
     trusted-substituters = substituters;
     trusted-public-keys = ["hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q="];
   };
-
-  # Use the systemd-boot EFI boot loader.
-  boot.loader = {
-    efi.efiSysMountPoint = "/boot";
-    systemd-boot.enable = true;
-  };
 }

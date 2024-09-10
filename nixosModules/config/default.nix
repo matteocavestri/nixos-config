@@ -8,6 +8,7 @@
     ./network.nix
     ./audio.nix
     ./peripherals.nix
+    ./bootloader.nix
   ];
 
   system.config = {
@@ -36,5 +37,6 @@
     backlight.enable = lib.mkDefault false;
     touchpad.enable = lib.mkDefault false;
     iio.enable = lib.mkDefault false;
+    boot.systemdboot.enable = lib.mkDefault true;
   };
 }
