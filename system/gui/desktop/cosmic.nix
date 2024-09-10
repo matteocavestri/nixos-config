@@ -5,8 +5,10 @@
 }: {
   imports = [
     inputs.nixos-cosmic.nixosModules.default
-    ../server/wayland.nix
   ];
+
+  system.services.wayland.enable = true;
+
   nix.settings = {
     substituters = ["https://cosmic.cachix.org/"];
     trusted-public-keys = ["cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="];

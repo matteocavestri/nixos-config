@@ -3,9 +3,8 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ../server/wayland.nix
-  ];
+  system.services.wayland.enable = true;
+
   services = {
     displayManager.sddm.wayland.enable = true;
     desktopManager.plasma6 = {

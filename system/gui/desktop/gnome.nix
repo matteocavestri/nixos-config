@@ -3,9 +3,8 @@
   systemSettings,
   ...
 }: {
-  imports = [
-    ../server/wayland.nix
-  ];
+  system.services.wayland.enable = true;
+
   services = {
     xserver = {
       enable = true;

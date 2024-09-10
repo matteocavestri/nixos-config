@@ -4,12 +4,13 @@
   ...
 }: {
   imports = [
-    ../server/wayland.nix
     ../display/sddm.nix
-    ../../../nixosModules/security/desktop.nix
   ];
 
-  system.security.polkit.enable = lib.mkForce true;
+  system = {
+    security.polkit.enable = lib.mkForce true;
+    services.wayland.enable = true;
+  };
 
   programs.sway = {
     enable = true;

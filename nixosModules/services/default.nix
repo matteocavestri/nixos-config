@@ -4,6 +4,7 @@
     ./quemuguest.nix
     ./server.nix
     ./slurm.nix
+    ./wayland.nix
   ];
 
   system.services = {
@@ -15,5 +16,6 @@
     cockpit.enable = lib.mkDefault false;
     nvidia-monitoring.enable = lib.mkDefault false;
     slurm.enable = lib.mkDefault false;
+    wayland.enable = lib.mkDefault false;
   };
 }
