@@ -5,7 +5,6 @@ in {
     inputs.nixos-hardware.nixosModules.apple-t2 # NixOS Hardware import
     ./hardware-configuration.nix # NixOS Hardware configuration
     ../../../system/hardware/apple/apple-t2.nix
-    ../../../system/hardware/intel/intelgpu.nix # GPU
   ];
 
   system = {
@@ -24,6 +23,14 @@ in {
     };
     system = {
       kernel.rustsupport = true;
+    };
+    hardware = {
+      gpu.intel = {
+        enable = true;
+        support32 = true;
+        opencl = true;
+        monitoring = true;
+      };
     };
   };
 

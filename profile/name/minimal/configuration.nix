@@ -13,6 +13,7 @@
 
     ../../../nixosModules/config/default.nix
     ../../../nixosModules/system/default.nix
+    ../../../nixosModules/hardware/default.nix
 
     # Security import
     ../../../system/security/default.nix
