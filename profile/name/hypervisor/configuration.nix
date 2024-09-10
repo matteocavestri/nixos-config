@@ -1,6 +1,15 @@
 {
   imports = [
     ../server/configuration.nix
-    ../../../system/services/virtualization/virtualization.nix
+    ../../../nixosModules/virtualisation/default.nix
   ];
+
+  system = {
+    virtualisation = {
+      qemu = {
+        enable = true;
+        winsupport = true;
+      };
+    };
+  };
 }
