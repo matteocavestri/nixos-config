@@ -38,9 +38,9 @@
         email = "matteo.cavestri@protonmail.ch"; # For git config
         dotfilesDir = ".dotfiles"; # Your dotfiles dir (for cave helper)
       };
-      wm = "sway"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
+      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       appearance = {
-        theme = "uwunicorn"; # See ./themes
+        theme = "solarized-dark"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
         cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name

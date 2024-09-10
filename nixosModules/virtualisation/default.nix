@@ -4,6 +4,7 @@
     ./docker.nix
     ./podman.nix
     ./wine.nix
+    ./waydroid.nix
   ];
 
   system.virtualisation = {
@@ -22,5 +23,6 @@
       support32 = lib.mkDefault false;
       wayland = lib.mkDefault false;
     };
+    waydroid.enable = lib.mkDefault false;
   };
 }

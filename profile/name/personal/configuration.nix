@@ -1,7 +1,6 @@
 {
   imports = [
     ../work/configuration.nix
-    ../../../system/services/transemu/waydroid.nix
   ];
 
   system = {
@@ -10,6 +9,7 @@
         enable = true;
         support32 = true;
       };
+      waydroid.enable = true;
     };
   };
 }

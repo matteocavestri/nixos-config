@@ -13,14 +13,17 @@
     };
   };
   config = lib.mkIf config.system.virtualisation.wine.enable {
+    # Install wine64 default packages
     environment.systemPackages = with pkgs;
       [
         wine64
         winetricks
       ]
+      # Install wine32 if needed
       ++ (lib.optionals config.system.virtualisation.wine.support32 [
         wine
       ])
+      # Install native wayland support if needed
       ++ (lib.optionals config.system.virtualisation.wine.wayland [
         wineWowPackages.waylandFull
       ]);
