@@ -2,6 +2,7 @@
   imports = [
     ./graphics.nix
     ./intelgpu.nix
+    ./apple-t2.nix
   ];
 
   system.hardware = {
@@ -16,6 +17,12 @@
         opencl = lib.mkDefault false;
         newgpu = lib.mkDefault false;
         monitoring = lib.mkDefault false;
+      };
+    };
+    apple = {
+      applet2 = {
+        enable = lib.mkDefault false;
+        substituters = lib.mkDefault false;
       };
     };
   };

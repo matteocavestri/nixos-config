@@ -1,10 +1,7 @@
-{inputs, ...}: let
-  substituters = ["https://cache.soopy.moe"];
-in {
+{inputs, ...}: {
   imports = [
     inputs.nixos-hardware.nixosModules.apple-t2 # NixOS Hardware import
     ./hardware-configuration.nix # NixOS Hardware configuration
-    ../../../system/hardware/apple/apple-t2.nix
   ];
 
   system = {
@@ -31,13 +28,10 @@ in {
         opencl = true;
         monitoring = true;
       };
+      apple.applet2 = {
+        enable = true;
+        substituters = true;
+      };
     };
-  };
-
-  # Nix settings
-  nix.settings = {
-    inherit substituters;
-    trusted-substituters = substituters;
-    trusted-public-keys = ["hydra.soopy.moe:IZ/bZ1XO3IfGtq66g+C85fxU/61tgXLaJ2MlcGGXU8Q="];
   };
 }
