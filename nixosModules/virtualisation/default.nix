@@ -2,6 +2,7 @@
   imports = [
     ./qemu.nix
     ./docker.nix
+    ./podman.nix
   ];
 
   system.virtualisation = {
@@ -13,5 +14,7 @@
       enable = lib.mkDefault false;
       nvidiasupport = lib.mkDefault false;
     };
+    podman.enable = lib.mkDefault false;
+    distrobox.enable = lib.mkDefault false;
   };
 }

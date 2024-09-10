@@ -21,7 +21,8 @@
         spice
         spice-protocol
       ]
-      ++ (lib.optionals (config.system.virtualisation.qemu.winsupport) [
+      # Install windows virtualisation support
+      ++ (lib.optionals config.system.virtualisation.qemu.winsupport [
         win-virtio
         win-spice
       ]);
