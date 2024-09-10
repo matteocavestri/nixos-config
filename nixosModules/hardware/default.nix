@@ -3,6 +3,7 @@
     ./graphics.nix
     ./intelgpu.nix
     ./apple-t2.nix
+    ./apple-silicon/default.nix
   ];
 
   system.hardware = {
@@ -25,5 +26,13 @@
         substituters = lib.mkDefault false;
       };
     };
+  };
+  hardware.asahi = {
+    enable = lib.mkDefault false;
+    withRust = lib.mkDefault true;
+    peripheralFirmwareDirectory = lib.mkDefault /etc/nixos/firmware;
+    useExperimentalGPUDriver = lib.mkDefault true;
+    experimentalGPUInstallMode = lib.mkDefault "replace";
+    setupAsahiSound = lib.mkDefault true;
   };
 }

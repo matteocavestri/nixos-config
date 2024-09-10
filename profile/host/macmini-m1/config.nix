@@ -1,7 +1,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../../system/hardware/apple/apple-silicon/default.nix
   ];
 
   system = {
@@ -21,4 +20,5 @@
       support16k = true;
     };
   };
+  hardware.asahi.enable = true;
 }
