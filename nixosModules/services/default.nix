@@ -3,6 +3,7 @@
     ./desktop.nix
     ./quemuguest.nix
     ./server.nix
+    ./slurm.nix
   ];
 
   system.services = {
@@ -13,5 +14,6 @@
     qemuguest.enable = lib.mkDefault false;
     cockpit.enable = lib.mkDefault false;
     nvidia-monitoring.enable = lib.mkDefault false;
+    slurm.enable = lib.mkDefault false;
   };
 }
