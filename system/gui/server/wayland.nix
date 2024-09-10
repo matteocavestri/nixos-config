@@ -1,13 +1,17 @@
 {
   pkgs,
   systemSettings,
+  lib,
   ...
 }: {
   imports = [
-    ../../config/hardware/pipewire.nix
+    # ../../config/hardware/pipewire.nix
+    ../../../nixosModules/config/audio.nix
     ../../services/desktop/default.nix
     ../style/stylix.nix
   ];
+  # Enable pipewire
+  system.config.pipewire.enable = lib.mkForce true;
   # Configure wayland
   environment = {
     systemPackages = with pkgs; [

@@ -6,6 +6,7 @@
     ./nix.nix
     ./users.nix
     ./network.nix
+    ./audio.nix
   ];
 
   system.config = {
@@ -26,5 +27,10 @@
       iwd = lib.mkDefault false;
     };
     bluetooth.enable = lib.mkDefault false;
+    pipewire = {
+      enable = lib.mkDefault false;
+      alsa.support32 = lib.mkDefault false;
+    };
+    pulseaudio.enable = lib.mkDefault false;
   };
 }

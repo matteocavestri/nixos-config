@@ -29,8 +29,7 @@
         # Setup wifi backend (iwd, wpa_supplicant or null)
         wifi.backend =
           lib.mkIf config.system.config.wifi.iwd "iwd"
-          // lib.mkIf config.system.config.wifi.wpasupplicant "wpa_supplicant"
-          // "wpa_supplicant";
+          // lib.mkIf config.system.config.wifi.wpasupplicant "wpa_supplicant";
       };
 
       # iwd wifi backend

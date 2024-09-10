@@ -1,13 +1,16 @@
 {
   pkgs,
   systemSettings,
+  lib,
   ...
 }: {
   imports = [
-    ../../config/hardware/pipewire.nix
+    ../../../nixosModules/config/audio.nix
     ../../services/desktop/default.nix
     ../style/stylix.nix
   ];
+
+  system.config.pipewire.enable = lib.mkForce true;
   # Configure X11
   services = {
     xserver = {
