@@ -5,6 +5,7 @@
     ./server.nix
     ./slurm.nix
     ./wayland.nix
+    ./xorg.nix
   ];
 
   system.services = {
@@ -17,5 +18,6 @@
     nvidia-monitoring.enable = lib.mkDefault false;
     slurm.enable = lib.mkDefault false;
     wayland.enable = lib.mkDefault false;
+    xorg.enable = lib.mkDefault false;
   };
 }

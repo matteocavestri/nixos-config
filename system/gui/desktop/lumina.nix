@@ -1,8 +1,8 @@
 {systemSettings, ...}: {
   imports = [
-    ../server/x11.nix
     ../display/lightdm.nix
   ];
+  system.services.xorg.enable = true;
   services.xserver = {
     enable = true;
     desktopManager.lumina.enable = true;
