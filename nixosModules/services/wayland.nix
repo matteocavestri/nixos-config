@@ -5,9 +5,6 @@
   config,
   ...
 }: {
-  imports = [
-    ../../system/gui/style/stylix.nix
-  ];
   options = {
     system.services.wayland.enable = lib.mkEnableOption "Enable wayland graphic server";
   };
@@ -19,6 +16,7 @@
         dbus.enable = lib.mkForce true;
         dconf.enable = lib.mkForce true;
         gvfs.enable = lib.mkForce true;
+        stylix.enable = true;
       };
     };
 

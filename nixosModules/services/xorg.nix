@@ -5,10 +5,6 @@
   config,
   ...
 }: {
-  imports = [
-    ../../system/gui/style/stylix.nix
-  ];
-
   options = {
     system.services.xorg.enable = lib.mkEnableOption "Enable Xorg Server";
   };
@@ -21,6 +17,7 @@
         dbus.enable = lib.mkForce true;
         dconf.enable = lib.mkForce true;
         gvfs.enable = lib.mkForce true;
+        stylix.enable = true;
       };
     };
 

@@ -6,6 +6,7 @@
     ./slurm.nix
     ./wayland.nix
     ./xorg.nix
+    ./styling.nix
   ];
 
   system.services = {
@@ -19,5 +20,6 @@
     slurm.enable = lib.mkDefault false;
     wayland.enable = lib.mkDefault false;
     xorg.enable = lib.mkDefault false;
+    stylix.enable = lib.mkDefault false;
   };
 }
