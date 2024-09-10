@@ -12,6 +12,10 @@
     ../../../system/services/systemd/nvidia-monitoring.nix
   ];
 
+  system = {
+    virtualisation.docker.nvidiasupport = true;
+  };
+
   networking.firewall.allowedTCPPorts = [
     22 # ssh
     2375 # docker sock (nextcloud)

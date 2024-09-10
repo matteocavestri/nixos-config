@@ -4,7 +4,7 @@
     ../../../nixosModules/virtualisation/default.nix
 
     ../../../system/services/packaging/appimage.nix
-    ../../../system/services/virtualization/docker.nix
+    # ../../../system/services/virtualization/docker.nix
     ../../../system/services/virtualization/podman.nix
     ../../../system/services/virtualization/distrobox.nix
   ];
@@ -15,6 +15,7 @@
         enable = true;
         winsupport = true;
       };
+      docker.enable = true;
     };
   };
 }
