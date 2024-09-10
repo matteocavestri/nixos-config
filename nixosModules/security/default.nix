@@ -2,6 +2,7 @@
   imports = [
     ./server.nix
     ./system.nix
+    ./desktop.nix
   ];
 
   system.security = {
@@ -13,5 +14,7 @@
     };
     sudors.enable = lib.mkDefault false;
     gpg.enable = lib.mkDefault true;
+    gnome-keyring.enable = lib.mkDefault false;
+    polkit.enable = lib.mkDefault false;
   };
 }
