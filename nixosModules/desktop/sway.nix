@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  # Dependency services
   system = {
     security.polkit.enable = lib.mkForce true;
     services = {
@@ -11,6 +12,7 @@
     };
   };
 
+  # Enable Sway Window manager
   programs.sway = {
     enable = true;
     package = pkgs.sway;

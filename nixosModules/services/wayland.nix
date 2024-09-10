@@ -53,6 +53,7 @@
           variant = "";
           # options = "caps:escape"; # Useful for vim
         };
+        excludePackages = [pkgs.xterm];
       };
     };
   };

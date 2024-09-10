@@ -22,7 +22,6 @@
     wine = {
       enable = lib.mkDefault false;
       support32 = lib.mkDefault false;
-      wayland = lib.mkDefault false;
     };
     waydroid.enable = lib.mkDefault false;
     box64 = {

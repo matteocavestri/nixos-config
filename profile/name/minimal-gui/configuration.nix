@@ -2,7 +2,7 @@
   imports = [
     ../minimal/configuration.nix
     ../../../nixosModules/services/default.nix
-    (./. + "../../../../system/gui/desktop" + ("/" + userSettings.wm) + ".nix")
+    (./. + "../../../../nixosModules/desktop" + ("/" + userSettings.wm) + ".nix")
   ];
 
   system = {

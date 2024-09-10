@@ -1,11 +1,12 @@
-{systemSettings, ...}: {
+{
+  # Dependency services
   system.services = {
     xorg.enable = true;
     displayManager.lightdm.enable = true;
   };
+
+  # Enable Mate desktop environment
   services.xserver = {
-    enable = true;
     desktopManager.mate.enable = true;
-    xkb.layout = systemSettings.host.keymap;
   };
 }

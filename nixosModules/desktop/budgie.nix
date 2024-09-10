@@ -1,18 +1,20 @@
 {
-  systemSettings,
   pkgs,
   pkgs-unstable,
   ...
 }: {
+  # Depencency services
   system.services = {
     xorg.enable = true;
     displaymanager.lightdm.enable = true;
   };
+
+  # Enable Budgie desktop environment
   services.xserver = {
-    enable = true;
     desktopManager.budgie.enable = true;
-    xkb.layout = systemSettings.host.keymap;
   };
+
+  # Exclude budgie packages (Home Manager config uses some std packages for all desktops)
   environment.budgie.excludePackages = with pkgs; [
     vlc
     mate.eom

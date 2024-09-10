@@ -1,12 +1,13 @@
-{systemSettings, ...}: {
+{
+  # Depencency services
   system.services = {
     xorg.enable = true;
     displayManager.lightdm.enable = true;
   };
+
+  # Enable Cinnamon desktop environment
   services.xserver = {
-    enable = true;
     desktopManager.cinnamon.enable = true;
-    xkb.layout = systemSettings.host.keymap;
   };
   services.cinnamon.apps.enable = true;
 }

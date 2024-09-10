@@ -1,11 +1,12 @@
-{systemSettings, ...}: {
+{
+  # Dependency sservices
   system.services = {
     xorg.enable = true;
     displayManager.lightdm.enable = true;
   };
+
+  # Enable Deepin desktop environment
   services.xserver = {
-    enable = true;
     desktopManager.deepin.enable = true;
-    xkb.layout = systemSettings.host.keymap;
   };
 }

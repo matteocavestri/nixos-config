@@ -1,19 +1,17 @@
-{
-  pkgs,
-  systemSettings,
-  ...
-}: {
+{pkgs, ...}: {
+  # Depencency services
   system.services.wayland.enable = true;
 
+  # Enable Gnome desktop environment and gdm display manager
   services = {
     xserver = {
-      enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
-      xkb.layout = systemSettings.host.keymap;
     };
     udev.packages = with pkgs; [gnome.gnome-settings-daemon];
   };
+
+  # Ignore gnome default packages
   environment = {
     gnome.excludePackages =
       (with pkgs; [

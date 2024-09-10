@@ -3,6 +3,7 @@
   lib,
   ...
 }: {
+  # Dependency services
   system = {
     security.polkit.enable = lib.mkForce true;
     services = {
@@ -11,6 +12,7 @@
     };
   };
 
+  # Enable Hyprland Window manager and xdg desktop portal hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
@@ -18,11 +20,14 @@
     portalPackage = pkgs.xdg-desktop-portal-hyprland;
   };
 
+  # Setup environment variables for hyprland
   environment = {
     sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       XDG_CURRENT_DESKTOP = "Hyprland";
     };
+
+    # Install dependencies for hyprland
     systemPackages = with pkgs; [
       libsForQt5.qt5.qtwayland
       qt6.qtwayland
@@ -30,14 +35,9 @@
       gsettings-desktop-schemas
       xdg-utils
     ];
+
+    # exclude packages from kde
     plasma5.excludePackages = [pkgs.kdePackages.systemsettings];
     plasma6.excludePackages = [pkgs.kdePackages.systemsettings];
-  };
-
-  xdg.portal.enable = true;
-
-  services = {
-    xserver.excludePackages = [pkgs.xterm];
-    gvfs.enable = true;
   };
 }

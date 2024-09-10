@@ -1,4 +1,3 @@
-# TODO: Wine wayland support need to be called from wayland if wine is enabled
 {
   lib,
   config,
@@ -9,7 +8,6 @@
     system.virtualisation.wine = {
       enable = lib.mkEnableOption "Enable Wine support";
       support32 = lib.mkEnableOption "Support 32-bit Wine";
-      wayland = lib.mkEnableOption "Support Wayland";
     };
   };
   config = lib.mkIf config.system.virtualisation.wine.enable {
@@ -24,7 +22,7 @@
         wine
       ])
       # Install native wayland support if needed
-      ++ (lib.optionals config.system.virtualisation.wine.wayland [
+      ++ (lib.optionals config.system.services.wayland.enable [
         wineWowPackages.waylandFull
       ]);
   };

@@ -11,5 +11,6 @@
       };
       waydroid.enable = true;
     };
+    packages.steam.enable = true;
   };
 }

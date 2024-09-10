@@ -26,12 +26,18 @@
       xserver = {
         enable = true;
         excludePackages = [pkgs.xterm];
+
+        # Configure keymap
         xkb.layout = systemSettings.host.keymap;
       };
+
+      # Disable touchpad while typing
       libinput = {
         touchpad.disableWhileTyping = true;
       };
     };
+
+    # Enable clipboard
     environment.systemPackages = with pkgs; [
       xclip
     ];
