@@ -3,8 +3,6 @@
     ../minimal/configuration.nix
     ../../../nixosModules/virtualisation/default.nix
     ../../../nixosModules/services/default.nix
-
-    ../../../system/services/server/cockpit.nix
   ];
 
   system = {
@@ -16,5 +14,6 @@
       docker.enable = true;
       podman.enable = true;
     };
+    services.cockpit.enable = true;
   };
 }
