@@ -1,9 +1,15 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
     ../server/wayland.nix
     ../display/sddm.nix
-    ../../security/polkit.nix
+    ../../../nixosModules/security/desktop.nix
   ];
+
+  system.security.polkit.enable = lib.mkForce true;
 
   programs.hyprland = {
     enable = true;

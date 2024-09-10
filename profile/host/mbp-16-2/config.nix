@@ -33,9 +33,6 @@
         substituters = true;
       };
     };
-    security = {
-      polkit.enable = true; # Temporary, need to be called by WMs (aka Hyprland)
-    };
     packages.steam.enable = true;
   };
 }

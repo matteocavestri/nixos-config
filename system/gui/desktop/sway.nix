@@ -1,9 +1,16 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../server/wayland.nix
     ../display/sddm.nix
-    ../../security/polkit.nix
+    ../../../nixosModules/security/desktop.nix
   ];
+
+  system.security.polkit.enable = lib.mkForce true;
+
   programs.sway = {
     enable = true;
     package = pkgs.sway;

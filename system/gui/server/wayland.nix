@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    # ../../config/hardware/pipewire.nix
     ../../../nixosModules/config/audio.nix
     ../../services/desktop/default.nix
     ../style/stylix.nix
