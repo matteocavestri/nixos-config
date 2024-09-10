@@ -1,11 +1,15 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../../system/config/hardware/systemdboot.nix
     ../../../system/hardware/virtual/qemuguest.nix
-    ../../../system/config/hardware/networkmanager.nix
-    ../../../system/config/optimization/zram.nix
   ];
+
+  system = {
+    config = {
+      zram.enable = true;
+      unfree.enable = true;
+    };
+  };
 
   networking.firewall.allowedTCPPorts = [
     22 # ssh

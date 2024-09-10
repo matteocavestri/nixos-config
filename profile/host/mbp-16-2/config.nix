@@ -18,9 +18,7 @@
       touchpad.enable = true;
       backlight.enable = true;
     };
-    system = {
-      kernel.rustsupport = true;
-    };
+    system.kernel.rustsupport = true;
     hardware = {
       gpu.intel = {
         enable = true;

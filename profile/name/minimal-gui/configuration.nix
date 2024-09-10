@@ -2,7 +2,6 @@
   imports = [
     ../minimal/configuration.nix
     ../../../nixosModules/services/default.nix
-    # ../../../system/services/packaging/flatpak.nix
     (./. + "../../../../system/gui/desktop" + ("/" + userSettings.wm) + ".nix")
   ];
 

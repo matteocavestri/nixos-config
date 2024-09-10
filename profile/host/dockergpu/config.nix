@@ -1,18 +1,18 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../../system/config/hardware/systemdboot.nix
     ../../../system/hardware/nvidia/nvidiagpu.nix
     ../../../system/hardware/nvidia/cuda.nix
     ../../../system/hardware/nvidia/cudnn.nix
     ../../../system/hardware/virtual/qemuguest.nix
-    ../../../system/config/hardware/networkmanager.nix
-    ../../../system/config/optimization/zram.nix
-    ../../../system/services/virtualization/docker-nvidia.nix
     ../../../system/services/systemd/nvidia-monitoring.nix
   ];
 
   system = {
+    config = {
+      zram.enable = true;
+      unfree.enable = true;
+    };
     virtualisation.docker.nvidiasupport = true;
   };
 
