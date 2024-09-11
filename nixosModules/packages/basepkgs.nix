@@ -17,6 +17,7 @@
         pkgs.vim
         pkgs.wget
         pkgs.git
+        pkgs.nh
         inputs.cave.packages.${pkgs.system}.cave # Cave is a nixos and homemanager utility for managing switch, boot, build and test
       ];
     };
