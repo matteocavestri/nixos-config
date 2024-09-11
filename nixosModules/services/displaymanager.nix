@@ -26,7 +26,7 @@ in {
   config = {
     services = {
       xserver = {
-        enable = lib.mkIf (config.system.services.wayland.enable || config.system.services.x11.enable) true;
+        enable = lib.mkIf (config.system.services.wayland.enable || config.system.services.xorg.enable) true;
         displayManager = {
           # Lightdm main configuration
           lightdm = lib.mkIf config.system.services.displaymanager.lightdm.enable {
