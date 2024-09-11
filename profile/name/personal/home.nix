@@ -1,12 +1,22 @@
 {
   imports = [
     ../work/home.nix
-    ../../../user/packages/gaming/gaming.nix
-    ../../../user/packages/gaming/gaming-proton.nix
     ../../../user/packages/security/termshark.nix
   ];
 
   user = {
-    packages.obs.withplugins = true;
+    packages = {
+      obs.withplugins = true;
+      minecraft.enable = true;
+      gamemode.enable = true;
+      mangohud.enable = true;
+      lutris.enable = true;
+      heroic.enable = true;
+    };
+    virtualisation.wine = {
+      enable = true;
+      bottles = true;
+      protonDir = true;
+    };
   };
 }

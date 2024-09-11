@@ -6,6 +6,7 @@
     ./engineering.nix
     ./media.nix
     ./productivity.nix
+    ./gaming.nix
   ];
 
   user.packages = {
@@ -43,5 +44,10 @@
     thunderbird.enable = lib.mkDefault false;
     nextcloud-client.enable = lib.mkDefault false;
     protonmail-bridge.enable = lib.mkDefault false;
+    minecraft.enable = lib.mkDefault false;
+    gamemode.enable = lib.mkDefault false;
+    mangohud.enable = lib.mkDefault false;
+    lutris.enable = lib.mkDefault false;
+    heroic.enable = lib.mkDefault false;
   };
 }
