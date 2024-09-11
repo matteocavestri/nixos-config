@@ -1,8 +1,8 @@
 {
   imports = [
     ../config.nix
-    ../../style/qt.nix
   ];
+  user.services.qtstyle.enable = true;
   stylix = {
     targets = {
       xfce.enable = true;

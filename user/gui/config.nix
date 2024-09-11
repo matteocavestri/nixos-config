@@ -4,9 +4,10 @@
   pkgs,
   ...
 }: {
-  imports = [
-    ../style/stylix.nix
-  ];
+  user.services = {
+    stylix.enable = true;
+    gtkstyle.enable = true;
+  };
 
   home = {
     packages = with pkgs; [

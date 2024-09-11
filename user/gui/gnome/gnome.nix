@@ -1,10 +1,12 @@
 {pkgs, ...}: {
   imports = [
     ../config.nix
-    ../../style/qt.nix
     ./extensions/blurmyshell.nix
     ./extensions/dashtodock.nix
   ];
+
+  user.services.qtstyle.enable = true;
+
   home = {
     packages = with pkgs; [
       gnome.gnome-tweaks

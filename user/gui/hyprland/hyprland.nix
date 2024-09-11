@@ -10,7 +10,6 @@
 in {
   imports = [
     ../config.nix
-    ../../style/qt.nix
     ./hypr/packages.nix
     ./hypr/hypridle.nix
     ./utils/fuzzel.nix
@@ -27,6 +26,8 @@ in {
       inherit config lib pkgs;
     })
   ];
+
+  user.services.qtstyle.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
