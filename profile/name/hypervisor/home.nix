@@ -1,6 +1,18 @@
 {
   imports = [
     ../server/home.nix
-    ../../../user/packages/virtualization/virtualization.nix
+    ../../../homeManagerModules/virtualisation/default.nix
   ];
+
+  user = {
+    virtualisation = {
+      qemu = {
+        enable = true;
+        virtmanager.enable = true;
+        tpm.enable = true;
+        uefi.enable = true;
+        defaultconnection = true;
+      };
+    };
+  };
 }

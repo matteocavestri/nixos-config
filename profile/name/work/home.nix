@@ -1,7 +1,7 @@
 {
   imports = [
     ../minimal-gui/home.nix
-    ../../../user/packages/virtualization/virtualization.nix
+    ../../../homeManagerModules/virtualisation/default.nix
   ];
 
   user = {
@@ -29,6 +29,15 @@
       libreoffice.enable = true;
       nextcloud-client.enable = true;
       protonmail-bridge.enable = true;
+    };
+    virtualisation = {
+      qemu = {
+        enable = true;
+        virtmanager.enable = true;
+        tpm.enable = true;
+        uefi.enable = true;
+        defaultconnection = true;
+      };
     };
   };
 }
