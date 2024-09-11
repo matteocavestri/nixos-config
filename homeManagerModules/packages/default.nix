@@ -9,6 +9,7 @@
     ./gaming.nix
     ./tuitools.nix
     ./terminal.nix
+    ./clitools.nix
   ];
 
   user.packages = {
@@ -57,5 +58,6 @@
     lf.enable = lib.mkDefault false;
     kitty.enable = lib.mkDefault false;
     alacritty.enable = lib.mkDefault false;
+    pass.enable = lib.mkDefault false;
   };
 }
