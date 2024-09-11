@@ -21,8 +21,8 @@
     hardware.pulseaudio.enable = lib.mkIf config.system.config.pulseaudio.enable true;
 
     # Pipewire configuration
-    services.pipewire = {
-      enable = lib.mkIf config.system.config.pipewire.enable true;
+    services.pipewire = lib.mkIf config.system.config.pipewire.enable {
+      enable = true;
       audio.enable = true;
       pulse.enable = true;
       alsa.enable = true;

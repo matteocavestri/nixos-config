@@ -15,5 +15,6 @@
       podman.enable = true;
     };
     services.cockpit.enable = true;
+    config.fonts.enable = false;
   };
 }
