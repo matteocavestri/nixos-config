@@ -1,7 +1,6 @@
 {
   imports = [
-    ../../../homeManagerModules/packages/default.nix
-
-    ../../../user/shell/sh.nix # Shell config
+    ../minimal/home.nix
+    ../../../homeManagerModules/virtualisation/default.nix
   ];
 }

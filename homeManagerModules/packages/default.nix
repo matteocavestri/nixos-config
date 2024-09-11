@@ -10,6 +10,8 @@
     ./tuitools.nix
     ./terminal.nix
     ./clitools.nix
+    ./common/default.nix
+    ./shell.nix
   ];
 
   user.packages = {
@@ -59,5 +61,15 @@
     kitty.enable = lib.mkDefault false;
     alacritty.enable = lib.mkDefault false;
     pass.enable = lib.mkDefault false;
+    neofetch.enable = lib.mkDefault false;
+    shell = {
+      bash.enable = lib.mkDefault true;
+      zsh.enable = lib.mkDefault false;
+      ohmyposh.enable = lib.mkDefault false;
+      direnv.enable = lib.mkDefault true;
+      defaultpkgs = lib.mkDefault true;
+    };
+    tmux.enable = lib.mkDefault false;
+    zellij.enable = lib.mkDefault false;
   };
 }

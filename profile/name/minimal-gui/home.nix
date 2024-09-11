@@ -12,6 +12,8 @@
         customizations = true;
       };
       kitty.enable = true;
+      shell.zsh.enable = true;
+      zellij.enable = true;
     };
   };
 }
