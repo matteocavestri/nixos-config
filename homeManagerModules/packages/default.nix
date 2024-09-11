@@ -4,6 +4,7 @@
     ./flatpak.nix
     ./code.nix
     ./engineering.nix
+    ./media.nix
   ];
 
   user.packages = {
@@ -30,5 +31,12 @@
     kicad.enable = lib.mkDefault false;
     numbat.enable = lib.mkDefault false;
     octave.enable = lib.mkDefault false;
+    gimp.enable = lib.mkDefault false;
+    kdenlive.enable = lib.mkDefault false;
+    obs = {
+      enable = lib.mkDefault false;
+      withplugins = lib.mkDefault false;
+    };
+    mediatools.enable = lib.mkDefault true;
   };
 }

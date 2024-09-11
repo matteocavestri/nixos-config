@@ -4,10 +4,10 @@
     ../../../user/packages/virtualization/virtualization.nix
     ../../../user/packages/productivity/libreoffice.nix
     ../../../user/packages/productivity/groupware.nix
-    ../../../user/packages/media/kdenlive.nix
-    ../../../user/packages/media/gimp.nix
-    ../../../user/packages/media/graphics-tools.nix
-    ../../../user/packages/media/obs-minimal.nix
+    # ../../../user/packages/media/kdenlive.nix
+    # ../../../user/packages/media/gimp.nix
+    # ../../../user/packages/media/graphics-tools.nix
+    # ../../../user/packages/media/obs-minimal.nix
   ];
 
   user = {
@@ -28,6 +28,10 @@
       kicad.enable = true;
       numbat.enable = true;
       octave.enable = true;
+      gimp.enable = true;
+      kdenlive.enable = true;
+      obs.enable = true;
+      mediatools.enable = true;
     };
   };
 }
