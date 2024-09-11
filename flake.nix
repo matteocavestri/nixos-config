@@ -11,23 +11,23 @@
     # -------------------- SYSTEM SETTINGS ------------------------------
     systemSettings = {
       nix = {
-        system = "x86_64-linux"; # Your arch
+        system = "aarch64-linux"; # Your arch
         version = "24.05"; # NixOS version
       };
       host = {
-        hostname = "nixos-t2"; # Your hostname
+        hostname = "nixos-asahi"; # Your hostname
         timezone = "Europe/Rome"; # Timezone config
         locale = "it_IT.UTF-8"; # Locale config
-        keymap = "it"; # Global keymap
+        keymap = "us"; # Global keymap
       };
       profile = {
-        name = "personal"; # personal / server / work / hypervisor
-        host = "mbp-16-2"; # your hardware config
+        name = "work"; # personal / server / work / hypervisor
+        host = "macmini-m1"; # your hardware config
       };
       monitor = {
-        resolution = "2560x1600";
-        refreshRate = "60";
-        scaling = "1.666";
+        resolution = "1920x1080";
+        refreshRate = "75";
+        scaling = "1";
       };
     };
     # -------------------- USER SETTINGS --------------------------------
@@ -38,7 +38,7 @@
         email = "matteo.cavestri@protonmail.ch"; # For git config
         dotfilesDir = ".dotfiles"; # Your dotfiles dir (for cave helper)
       };
-      wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
+      wm = "plasma"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       appearance = {
         theme = "solarized-dark"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
