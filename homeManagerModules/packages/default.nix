@@ -8,6 +8,7 @@
     ./productivity.nix
     ./gaming.nix
     ./tuitools.nix
+    ./terminal.nix
   ];
 
   user.packages = {
@@ -54,5 +55,7 @@
     sshs.enable = lib.mkDefault false;
     termshark.enable = lib.mkDefault false;
     lf.enable = lib.mkDefault false;
+    kitty.enable = lib.mkDefault false;
+    alacritty.enable = lib.mkDefault false;
   };
 }
