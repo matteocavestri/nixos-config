@@ -1,7 +1,6 @@
 {
   imports = [
     ../work/home.nix
-    ../../../user/packages/security/termshark.nix
   ];
 
   user = {

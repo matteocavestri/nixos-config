@@ -29,6 +29,8 @@
       libreoffice.enable = true;
       nextcloud-client.enable = true;
       protonmail-bridge.enable = true;
+      atac.enable = true;
+      sshs.enable = true;
     };
     virtualisation = {
       qemu = {

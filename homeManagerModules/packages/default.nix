@@ -7,6 +7,7 @@
     ./media.nix
     ./productivity.nix
     ./gaming.nix
+    ./tuitools.nix
   ];
 
   user.packages = {
@@ -49,5 +50,8 @@
     mangohud.enable = lib.mkDefault false;
     lutris.enable = lib.mkDefault false;
     heroic.enable = lib.mkDefault false;
+    atac.enable = lib.mkDefault false;
+    sshs.enable = lib.mkDefault false;
+    termshark.enable = lib.mkDefault false;
   };
 }
