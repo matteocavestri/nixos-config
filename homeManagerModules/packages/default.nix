@@ -3,6 +3,7 @@
     ./editor.nix
     ./flatpak.nix
     ./code.nix
+    ./engineering.nix
   ];
 
   user.packages = {
@@ -25,5 +26,9 @@
       python.enable = lib.mkDefault false;
     };
     git.enable = lib.mkDefault true;
+    freecad.enable = lib.mkDefault false;
+    kicad.enable = lib.mkDefault false;
+    numbat.enable = lib.mkDefault false;
+    octave.enable = lib.mkDefault false;
   };
 }
