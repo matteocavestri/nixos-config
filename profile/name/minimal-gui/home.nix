@@ -1,7 +1,6 @@
 {userSettings, ...}: {
   imports = [
     ../minimal/home.nix
-    (./. + "../../../../user/packages/browsers" + ("/" + userSettings.environment.browser) + ".nix") # Browser definition
     (./. + "../../../../user/gui" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
   ];
 
@@ -14,6 +13,7 @@
       kitty.enable = true;
       shell.zsh.enable = true;
       zellij.enable = true;
+      firefox.enable = true;
     };
   };
 }
