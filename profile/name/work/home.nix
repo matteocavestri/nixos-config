@@ -31,6 +31,7 @@
       protonmail-bridge.enable = true;
       atac.enable = true;
       sshs.enable = true;
+      lf.enable = true;
     };
     virtualisation = {
       qemu = {

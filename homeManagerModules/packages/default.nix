@@ -53,5 +53,6 @@
     atac.enable = lib.mkDefault false;
     sshs.enable = lib.mkDefault false;
     termshark.enable = lib.mkDefault false;
+    lf.enable = lib.mkDefault false;
   };
 }
