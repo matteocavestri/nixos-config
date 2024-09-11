@@ -13,6 +13,7 @@
     ./common/default.nix
     ./shell.nix
     ./browser.nix
+    ./desktopsuite.nix
   ];
 
   user.packages = {
@@ -73,5 +74,6 @@
     tmux.enable = lib.mkDefault false;
     zellij.enable = lib.mkDefault false;
     firefox.enable = lib.mkDefault false;
+    desktopsuite.enable = lib.mkDefault false;
   };
 }
