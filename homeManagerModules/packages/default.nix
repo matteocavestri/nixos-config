@@ -46,7 +46,7 @@
       enable = lib.mkDefault false;
       withplugins = lib.mkDefault false;
     };
-    mediatools.enable = lib.mkDefault true;
+    mediatools.enable = lib.mkDefault false;
     libreoffice.enable = lib.mkDefault false;
     thunderbird.enable = lib.mkDefault false;
     nextcloud-client.enable = lib.mkDefault false;
@@ -66,7 +66,7 @@
     neofetch.enable = lib.mkDefault false;
     shell = {
       bash.enable = lib.mkDefault true;
-      zsh.enable = lib.mkDefault false;
+      zsh.enable = lib.mkDefault true;
       ohmyposh.enable = lib.mkDefault false;
       direnv.enable = lib.mkDefault true;
       defaultpkgs = lib.mkDefault true;
