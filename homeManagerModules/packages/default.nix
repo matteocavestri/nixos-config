@@ -5,6 +5,7 @@
     ./code.nix
     ./engineering.nix
     ./media.nix
+    ./productivity.nix
   ];
 
   user.packages = {
@@ -38,5 +39,9 @@
       withplugins = lib.mkDefault false;
     };
     mediatools.enable = lib.mkDefault true;
+    libreoffice.enable = lib.mkDefault false;
+    thunderbird.enable = lib.mkDefault false;
+    nextcloud-client.enable = lib.mkDefault false;
+    protonmail-bridge.enable = lib.mkDefault false;
   };
 }

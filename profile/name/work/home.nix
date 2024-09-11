@@ -2,12 +2,6 @@
   imports = [
     ../minimal-gui/home.nix
     ../../../user/packages/virtualization/virtualization.nix
-    ../../../user/packages/productivity/libreoffice.nix
-    ../../../user/packages/productivity/groupware.nix
-    # ../../../user/packages/media/kdenlive.nix
-    # ../../../user/packages/media/gimp.nix
-    # ../../../user/packages/media/graphics-tools.nix
-    # ../../../user/packages/media/obs-minimal.nix
   ];
 
   user = {
@@ -32,6 +26,9 @@
       kdenlive.enable = true;
       obs.enable = true;
       mediatools.enable = true;
+      libreoffice.enable = true;
+      nextcloud-client.enable = true;
+      protonmail-bridge.enable = true;
     };
   };
 }
