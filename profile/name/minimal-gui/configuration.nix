@@ -1,8 +1,21 @@
 {userSettings, ...}: {
   imports = [
     ../minimal/configuration.nix
-    ../../../system/security/default-gui.nix
-    ../../../system/services/packaging/flatpak.nix
-    (./. + "../../../../system/gui/desktop" + ("/" + userSettings.wm) + ".nix")
+    ../../../nixosModules/services/default.nix
+    (./. + "../../../../nixosModules/desktop" + ("/" + userSettings.wm) + ".nix")
   ];
+
+  system = {
+    security = {
+      sudors.enable = true;
+      gnome-keyring.enable = true;
+    };
+    services = {
+      dconf.enable = true;
+      dbus.enable = true;
+      gvfs.enable = true;
+      online-accounts.enable = true;
+    };
+    packages.packaging.flatpak.enable = true;
+  };
 }

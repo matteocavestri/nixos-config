@@ -1,19 +1,46 @@
 {
   imports = [
     ../minimal-gui/home.nix
-    ../../../user/packages/virtualization/virtualization.nix
-    ../../../user/packages/editors/nevica.nix
-    ../../../user/packages/productivity/libreoffice.nix
-    ../../../user/packages/productivity/groupware.nix
-    ../../../user/packages/engineering/freecad.nix
-    ../../../user/packages/engineering/kicad.nix
-    ../../../user/packages/engineering/octave.nix
-    ../../../user/packages/engineering/numbat.nix
-    ../../../user/packages/media/kdenlive.nix
-    ../../../user/packages/media/gimp.nix
-    ../../../user/packages/media/graphics-tools.nix
-    ../../../user/packages/media/obs-minimal.nix
-    ../../../user/packages/coding/compiler.nix
-    ../../../user/packages/coding/tools.nix
+    ../../../homeManagerModules/virtualisation/default.nix
   ];
+
+  user = {
+    packages = {
+      nevica = {
+        enable = true;
+      };
+      langs = {
+        go.enable = true;
+        jvm.enable = true;
+        web.enable = true;
+        lua.enable = true;
+        rust.enable = true;
+        zig.enable = true;
+        python.enable = true;
+      };
+      freecad.enable = true;
+      kicad.enable = true;
+      numbat.enable = true;
+      octave.enable = true;
+      gimp.enable = true;
+      kdenlive.enable = true;
+      obs.enable = true;
+      mediatools.enable = true;
+      libreoffice.enable = true;
+      nextcloud-client.enable = true;
+      protonmail-bridge.enable = true;
+      atac.enable = true;
+      sshs.enable = true;
+      lf.enable = true;
+    };
+    virtualisation = {
+      qemu = {
+        enable = true;
+        virtmanager.enable = true;
+        tpm.enable = true;
+        uefi.enable = true;
+        defaultconnection = true;
+      };
+    };
+  };
 }

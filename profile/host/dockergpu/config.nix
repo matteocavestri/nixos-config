@@ -1,27 +1,33 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../../system/config/hardware/systemdboot.nix
-    ../../../system/hardware/nvidia/nvidiagpu.nix
-    ../../../system/hardware/nvidia/cuda.nix
-    ../../../system/hardware/nvidia/cudnn.nix
-    ../../../system/hardware/virtual/qemuguest.nix
-    ../../../system/config/hardware/networkmanager.nix
-    ../../../system/config/optimization/zram.nix
-    ../../../system/services/virtualization/docker-nvidia.nix
-    ../../../system/services/systemd/nvidia-monitoring.nix
   ];
 
+  system = {
+    config = {
+      zram.enable = true;
+      unfree.enable = true;
+    };
+    hardware.gpu.nvidia = {
+      enable = true;
+      monitoring = true;
+      cuda = true;
+      cudnn = true;
+    };
+    services = {
+      qemuguest.enable = true;
+      nvidia-monitoring.enable = true;
+    };
+    virtualisation.docker.nvidiasupport = true;
+  };
+
   networking.firewall.allowedTCPPorts = [
-    22 # ssh
     2375 # docker sock (nextcloud)
     7860 # stable diffusion
     8095 # owncast
     8096 # jellyfin
     9001 # portainer agent
     9090 # prometheus
-    9095 # cockpit
-    9835 # nvidia monitoring
     11434 # ollama
     23000 # appapi
     23001 # appapi-1

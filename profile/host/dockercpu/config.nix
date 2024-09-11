@@ -1,20 +1,22 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-    ../../../system/config/hardware/systemdboot.nix
-    ../../../system/hardware/virtual/qemuguest.nix
-    ../../../system/config/hardware/networkmanager.nix
-    ../../../system/config/optimization/zram.nix
   ];
 
+  system = {
+    config = {
+      zram.enable = true;
+      unfree.enable = true;
+    };
+    services.qemuguest.enable = true;
+  };
+
   networking.firewall.allowedTCPPorts = [
-    22 # ssh
     80 # http (traefik) --> external
     443 # https (traefik) --> external
     3100 # loki
     8065 # mattermost
     8443 # mattermost calls --> external
-    9095 # cockpit
     9091 # prometheus
     9099 # openwebui pipelines
     9998 # tika

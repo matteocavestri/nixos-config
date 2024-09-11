@@ -1,8 +1,16 @@
 {
   imports = [
     ../work/configuration.nix
-    ../../../system/services/transemu/wine.nix
-    ../../../system/services/transemu/waydroid.nix
-    ../../../system/packages/steam.nix
   ];
+
+  system = {
+    virtualisation = {
+      wine = {
+        enable = true;
+        support32 = true;
+      };
+      waydroid.enable = true;
+    };
+    packages.steam.enable = true;
+  };
 }

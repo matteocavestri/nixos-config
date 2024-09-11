@@ -1,4 +1,5 @@
 * Documentation Index  
+  THE DOC NEED A COMPLETE REWRITE
 ** Capabilities
   - {:$/modules/modules-list:}[Modules List] - List of all modules with a brief description. The list includes both NixOS modules (system) and Home Manager modules (user)
 ** Development

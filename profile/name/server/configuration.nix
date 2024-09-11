@@ -1,9 +1,19 @@
 {
   imports = [
     ../minimal/configuration.nix
-    ../../../system/security/openssh.nix
-    ../../../system/services/virtualization/docker.nix
-    ../../../system/services/virtualization/podman.nix
-    ../../../system/services/server/cockpit.nix
+    ../../../nixosModules/virtualisation/default.nix
+    ../../../nixosModules/services/default.nix
   ];
+
+  system = {
+    security = {
+      server.openssh.enable = true;
+      sudors.enable = true;
+    };
+    virtualisation = {
+      docker.enable = true;
+      podman.enable = true;
+    };
+    services.cockpit.enable = true;
+  };
 }

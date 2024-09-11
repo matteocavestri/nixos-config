@@ -1,10 +1,19 @@
 {
   imports = [
     ../minimal-gui/configuration.nix
-    ../../../system/services/packaging/appimage.nix
-    ../../../system/services/virtualization/docker.nix
-    ../../../system/services/virtualization/podman.nix
-    ../../../system/services/virtualization/distrobox.nix
-    ../../../system/services/virtualization/virtualization.nix
+    ../../../nixosModules/virtualisation/default.nix
   ];
+
+  system = {
+    virtualisation = {
+      qemu = {
+        enable = true;
+        winsupport = true;
+      };
+      docker.enable = true;
+      podman.enable = true;
+      distrobox.enable = true;
+    };
+    packages.packaging.appimage.enable = true;
+  };
 }

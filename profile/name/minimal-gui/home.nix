@@ -1,9 +1,20 @@
 {userSettings, ...}: {
   imports = [
     ../minimal/home.nix
-    ../../../user/packages/terminal/kitty.nix
-    ../../../user/packages/flatpak/flatpak.nix
-    (./. + "../../../../user/packages/browsers" + ("/" + userSettings.environment.browser) + ".nix") # Browser definition
-    (./. + "../../../../user/gui" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
+    ../../../homeManagerModules/services/default.nix
+    (./. + "../../../../homeManagerModules/desktop" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
   ];
+
+  user = {
+    packages = {
+      flatpak = {
+        enable = true;
+        customizations = true;
+      };
+      kitty.enable = true;
+      shell.zsh.enable = true;
+      zellij.enable = true;
+      firefox.enable = true;
+    };
+  };
 }
