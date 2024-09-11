@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  userSettings,
   ...
 }: let
   # My shell aliases
@@ -93,35 +94,42 @@ in {
       };
     };
 
-    # Default packages
-    home.packages = with pkgs;
-      lib.optionals config.user.packages.shell.defaultpkgs [
-        disfetch
-        onefetch
-        killall
-        timer
-        gnugrep
-        gnused
-        bat
-        eza
-        fd
-        bc
-        bottom
-        btop
-        ripgrep
-        fzf
-        lazygit
-        lazydocker
-        zoxide
-        oh-my-posh
-        tree-sitter
-        rsync
-        unzip
-        pandoc
-        hwinfo
-        pciutils
-        direnv
-        nix-direnv
-      ];
+    # Cave utility config
+    home = {
+      sessionVariables = lib.mkIf (config.user.packages.shell.zsh.enable || config.user.packages.shell.bash.enable) {
+        FLAKE = "$HOME/${userSettings.user.dotfilesDir}";
+      };
+
+      # Default packages
+      packages = with pkgs;
+        lib.optionals config.user.packages.shell.defaultpkgs [
+          disfetch
+          onefetch
+          killall
+          timer
+          gnugrep
+          gnused
+          bat
+          eza
+          fd
+          bc
+          bottom
+          btop
+          ripgrep
+          fzf
+          lazygit
+          lazydocker
+          zoxide
+          oh-my-posh
+          tree-sitter
+          rsync
+          unzip
+          pandoc
+          hwinfo
+          pciutils
+          direnv
+          nix-direnv
+        ];
+    };
   };
 }
