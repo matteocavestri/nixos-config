@@ -33,7 +33,7 @@ in {
       shell = {
         ohmyposh.enable = lib.mkIf config.user.packages.shell.zsh.enable true;
       };
-      neofetch.enable = lib.mkIf (config.user.packages.shell.zsh.enable || lib.mkIf config.user.packages.shell.bash.enable) true;
+      neofetch.enable = lib.mkIf config.user.packages.shell.bash.enable true;
       zellij.enable = lib.mkIf config.user.packages.shell.zsh.enable true;
     };
 
