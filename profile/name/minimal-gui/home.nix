@@ -2,7 +2,7 @@
   imports = [
     ../minimal/home.nix
     ../../../homeManagerModules/services/default.nix
-    (./. + "../../../../user/gui" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
+    (./. + "../../../../homeManagerModules/desktop" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
   ];
 
   user = {
