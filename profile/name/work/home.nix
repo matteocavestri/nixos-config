@@ -12,14 +12,21 @@
     ../../../user/packages/media/gimp.nix
     ../../../user/packages/media/graphics-tools.nix
     ../../../user/packages/media/obs-minimal.nix
-    ../../../user/packages/coding/compiler.nix
-    ../../../user/packages/coding/tools.nix
   ];
 
   user = {
     packages = {
       nevica = {
         enable = true;
+      };
+      langs = {
+        go.enable = true;
+        jvm.enable = true;
+        web.enable = true;
+        lua.enable = true;
+        rust.enable = true;
+        zig.enable = true;
+        python.enable = true;
       };
     };
   };
