@@ -27,7 +27,7 @@
         image {
           monitor =
           path = ''
-      + ../../common/images/nix-black-4k.png
+      + ../common/images/nix-black-4k.png
       + ''
           size = 150 # lesser side if not 1:1 ratio
           rounding = -1 # negative values mean circle

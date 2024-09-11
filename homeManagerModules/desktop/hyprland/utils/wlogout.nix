@@ -53,7 +53,7 @@
       + ''        0.55); */
                 background: transparent
               }
-            
+          
               button {
                 color: #''
       + config.lib.stylix.colors.base0A
@@ -96,25 +96,25 @@
 
               #logout {
                 background-image: url("''
-      + ../../common/wlogout/arrow-right-from-bracket-solid.svg
+      + ../common/wlogout/arrow-right-from-bracket-solid.svg
       + ''        ");
               }
 
               #shutdown {
                 background-image: url("''
-      + ../../common/wlogout/power-off-solid.svg
+      + ../common/wlogout/power-off-solid.svg
       + ''        ");
               }
 
               #reboot {
                 background-image: url("''
-      + ../../common/wlogout/rotate-right-solid.svg
+      + ../common/wlogout/rotate-right-solid.svg
       + ''        ");
               }
 
               #lock {
                 background-image: url("''
-      + ../../common/wlogout/lock-solid.svg
+      + ../common/wlogout/lock-solid.svg
       + ''        ");
               }
       '';
