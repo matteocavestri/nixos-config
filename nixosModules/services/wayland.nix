@@ -16,7 +16,6 @@
         dbus.enable = lib.mkForce true;
         dconf.enable = lib.mkForce true;
         gvfs.enable = lib.mkForce true;
-        stylix.enable = true;
       };
     };
 

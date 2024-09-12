@@ -110,7 +110,6 @@
       slurm.enable = lib.mkDefault false;
       wayland.enable = lib.mkDefault false;
       xorg.enable = lib.mkDefault false;
-      stylix.enable = lib.mkDefault true;
       displaymanager = {
         sddm.enable = lib.mkDefault false;
         lightdm.enable = lib.mkDefault false;

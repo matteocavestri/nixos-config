@@ -15,6 +15,12 @@
   inherit (systemSettings.monitor) resolution;
   screenWidth = builtins.isInt (builtins.elemAt (lib.splitString "x" resolution) 0);
   screenHeight = builtins.isInt (builtins.elemAt (lib.splitString "x" resolution) 1);
+  backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + userSettings.appearance.theme) + "/backgroundurl.txt");
+  backgroundSha256 = builtins.readFile (./. + "../../../themes/" + ("/" + userSettings.appearance.theme) + "/backgroundsha256.txt");
+  wallpaper = pkgs.fetchurl {
+    url = backgroundUrl;
+    sha256 = backgroundSha256;
+  };
 in {
   options = {
     system.services.displaymanager = {
@@ -79,7 +85,7 @@ in {
       systemPackages = with pkgs; [
         (sddm-chili-theme.override {
           themeConfig = {
-            background = config.stylix.image;
+            background = wallpaper;
             ScreenWidth = screenWidth;
             ScreenHeight = screenHeight;
             blur = true;

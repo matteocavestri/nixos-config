@@ -40,7 +40,7 @@
       };
       wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       appearance = {
-        theme = "solarized-dark"; # See ./themes
+        theme = "grigna-dark"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
         cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name
@@ -68,28 +68,26 @@
             + "/profile/name"
             + ("/" + systemSettings.profile.name)
             + "/configuration.nix")
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              users.${userSettings.user.username} = import (./.
+                + "/profile/name"
+                + ("/" + systemSettings.profile.name)
+                + "/home.nix");
+              extraSpecialArgs = {
+                inherit userSettings;
+                inherit systemSettings;
+                inherit inputs;
+                inherit pkgs-unstable;
+              };
+            };
+          }
         ];
         specialArgs = {
           inherit systemSettings;
           inherit userSettings;
-          inherit inputs;
-          inherit pkgs-unstable;
-        };
-      };
-    };
-    # ------------------- Home Manager Configuration ---------------------
-    homeConfigurations = {
-      ${userSettings.user.username} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [
-          (./.
-            + "/profile/name"
-            + ("/" + systemSettings.profile.name)
-            + "/home.nix")
-        ];
-        extraSpecialArgs = {
-          inherit userSettings;
-          inherit systemSettings;
           inherit inputs;
           inherit pkgs-unstable;
         };
