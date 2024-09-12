@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   # Depencency services
   system.services.wayland.enable = true;
+  hardware.pulseaudio.enable = false;
 
   # Enable Gnome desktop environment and gdm display manager
   services = {
