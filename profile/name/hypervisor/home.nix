@@ -1,6 +1,6 @@
 {
   imports = [
-    ../server/home.nix
+    ../minimal/home.nix
   ];
 
   user = {

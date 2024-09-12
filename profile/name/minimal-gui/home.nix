@@ -1,7 +1,6 @@
 {userSettings, ...}: {
   imports = [
     ../minimal/home.nix
-    ../../../homeManagerModules/services/default.nix
     (./. + "../../../../homeManagerModules/desktop" + ("/" + userSettings.wm + "/" + userSettings.wm) + ".nix") # Window manager import
   ];
 
