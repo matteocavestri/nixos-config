@@ -42,10 +42,8 @@
     # Hardware Default settings
     hardware = {
       gpu = {
-        opengl = {
-          enable = lib.mkDefault false;
-          support32 = lib.mkDefault false;
-        };
+        enable = lib.mkDefault false;
+        support32 = lib.mkDefault false;
         intel = {
           enable = lib.mkDefault false;
           support32 = lib.mkDefault false;

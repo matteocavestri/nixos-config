@@ -16,10 +16,11 @@
   };
 
   config = lib.mkIf config.system.hardware.gpu.nvidia.enable {
-    hardware.opengl = {
+    system.hardware.gpu = {
       enable = true;
-      driSupport32Bit = true;
+      support32 = true;
     };
+
     nixpkgs.config.allowUnfree = true;
 
     # Load nvidia driver for Xorg and Wayland

@@ -15,32 +15,30 @@
       };
     };
   };
-  config = {
+  config = lib.mkIf config.system.hardware.gpu.intel.enable {
+    system.hardware.gpu = {
+      enable = true;
+      support32 = lib.mkIf config.system.hardware.gpu.intel.support32 true;
+    };
+
     hardware = {
       opengl = {
-        # Intel GPU support
-        enable = lib.mkIf config.system.hardware.gpu.intel.enable (lib.mkDefault true);
-        driSupport = lib.mkIf config.system.hardware.gpu.intel.enable (lib.mkDefault true);
-
-        # 32-bit support
-        driSupport32Bit = lib.mkIf config.system.hardware.gpu.intel.support32 (lib.mkDefault true);
         extraPackages = with pkgs;
-        # Default intel GPU packages
-          (lib.optionals config.system.hardware.gpu.intel.enable [
+          [
             intel-vaapi-driver
             libvdpau-va-gl
             libGLU
-          ])
+          ]
           # Newer GPU drivers
-          ++ (lib.optionals (config.system.hardware.gpu.intel.enable && config.system.hardware.gpu.intel.newgpu) [
+          ++ (lib.optionals config.system.hardware.gpu.intel.newgpu [
             intel-media-driver
           ])
           # Legacy OpenCL driver
-          ++ (lib.optionals (config.system.hardware.gpu.intel.enable && !config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+          ++ (lib.optionals (!config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
             intel-ocl
           ])
           # New OpenCL driver
-          ++ (lib.optionals (config.system.hardware.gpu.intel.enable && config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+          ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
             intel-compute-runtime
           ]);
 
@@ -54,7 +52,7 @@
     environment = {
       systemPackages = lib.mkIf config.system.hardware.gpu.intel.monitoring [pkgs.nvtopPackages.intel];
       variables = {
-        VDPAU_DRIVER = lib.mkIf (config.hardware.opengl.enable && config.system.hardware.gpu.intel.enable) (lib.mkDefault "va_gl");
+        VDPAU_DRIVER = lib.mkIf config.system.hardware.gpu.intel.enable (lib.mkDefault "va_gl");
         # New GPUs use iHD, older only use i965
         LIBVA_DRIVER_NAME = lib.mkIf config.system.hardware.gpu.intel.enable (lib.mkDefault (
           if config.system.hardware.gpu.intel.newgpu
