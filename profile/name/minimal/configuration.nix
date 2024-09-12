@@ -10,10 +10,6 @@
   imports = [
     # Hardware configuration (systemSettings.profile.host)
     (./. + "../../../../profile/host" + ("/" + systemSettings.profile.host) + "/config.nix")
-    ../../../nixosModules/config/default.nix
-    ../../../nixosModules/system/default.nix
-    ../../../nixosModules/hardware/default.nix
-    ../../../nixosModules/security/default.nix
-    ../../../nixosModules/packages/default.nix
+    ../../../nixosModules/default.nix
   ];
 }

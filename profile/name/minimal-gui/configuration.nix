@@ -1,7 +1,6 @@
 {userSettings, ...}: {
   imports = [
     ../minimal/configuration.nix
-    ../../../nixosModules/services/default.nix
     (./. + "../../../../nixosModules/desktop" + ("/" + userSettings.wm) + ".nix")
   ];
 

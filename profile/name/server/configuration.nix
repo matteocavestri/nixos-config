@@ -1,8 +1,6 @@
 {
   imports = [
     ../minimal/configuration.nix
-    ../../../nixosModules/virtualisation/default.nix
-    ../../../nixosModules/services/default.nix
   ];
 
   system = {
