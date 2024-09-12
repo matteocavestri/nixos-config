@@ -16,39 +16,72 @@
     };
   };
   config = lib.mkIf config.system.hardware.gpu.intel.enable {
+    # Enable Mesa drivers and 32 bit support
     system.hardware.gpu = {
       enable = true;
       support32 = lib.mkIf config.system.hardware.gpu.intel.support32 true;
     };
 
-    hardware = {
-      opengl = {
-        extraPackages = with pkgs;
-          [
+    # Setup For 24.05 and older
+    hardware =
+      if lib.versionOlder (lib.versions.majorMinor lib.version) "24.11"
+      then {
+        opengl = {
+          extraPackages = with pkgs;
+            [
+              intel-vaapi-driver
+              libvdpau-va-gl
+              libGLU
+            ]
+            # Newer GPU drivers
+            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu [
+              intel-media-driver
+            ])
+            # Legacy OpenCL driver
+            ++ (lib.optionals (!config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+              intel-ocl
+            ])
+            # New OpenCL driver
+            ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+              intel-compute-runtime
+            ]);
+
+          # VA-API support for 32-bit
+          extraPackages32 = lib.optionals config.system.hardware.gpu.intel.support32 (with pkgs.pkgsi686Linux; [
             intel-vaapi-driver
-            libvdpau-va-gl
-            libGLU
-          ]
-          # Newer GPU drivers
-          ++ (lib.optionals config.system.hardware.gpu.intel.newgpu [
-            intel-media-driver
-          ])
-          # Legacy OpenCL driver
-          ++ (lib.optionals (!config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
-            intel-ocl
-          ])
-          # New OpenCL driver
-          ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
-            intel-compute-runtime
           ]);
+        };
+      }
+      else {
+        # Setup for 24.11 and newer
+        graphics = {
+          extraPackages = with pkgs;
+            [
+              intel-vaapi-driver
+              libvdpau-va-gl
+              libGLU
+            ]
+            # Newer GPU drivers
+            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu [
+              intel-media-driver
+            ])
+            # Legacy OpenCL driver
+            ++ (lib.optionals (!config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+              intel-ocl
+            ])
+            # New OpenCL driver
+            ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+              intel-compute-runtime
+            ]);
 
-        # VA-API support for 32-bit
-        extraPackages32 = lib.optionals config.system.hardware.gpu.intel.support32 (with pkgs.pkgsi686Linux; [
-          intel-vaapi-driver
-        ]);
+          # VA-API support for 32-bit
+          extraPackages32 = lib.optionals config.system.hardware.gpu.intel.support32 (with pkgs.pkgsi686Linux; [
+            intel-vaapi-driver
+          ]);
+        };
       };
-    };
 
+    # Setup intel environment and monitoring packages
     environment = {
       systemPackages = lib.mkIf config.system.hardware.gpu.intel.monitoring [pkgs.nvtopPackages.intel];
       variables = {
