@@ -9,6 +9,11 @@
 
   home = {
     packages = with pkgs; [
+      (
+        if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.11")
+        then gnome.gnome-tweaks
+        else gnome-tweaks
+      )
       gnome.gnome-tweaks
       gnomeExtensions.user-themes
     ];

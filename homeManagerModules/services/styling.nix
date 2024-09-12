@@ -112,7 +112,11 @@ in {
           breezeIconsFixed
           kdePackages.breeze
           kdePackages.breeze.qt5
-          gnome.adwaita-icon-theme
+          (
+            if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.11")
+            then gnome.adwaita-icon-theme
+            else adwaita-icon-theme
+          )
           libsForQt5.qt5.qtbase
           kdePackages.qtbase
           kdePackages.qtwayland
