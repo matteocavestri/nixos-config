@@ -16,9 +16,9 @@
       packages = lib.optionals config.user.packages.flatpak.enable [
         pkgs.flatpak
         (
-          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
-          then pkgs.gnome-software
-          else pkgs.gnome.gnome-software
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.11")
+          then pkgs.gnome.gnome-software
+          else pkgs.gnome-software
         )
       ];
 
