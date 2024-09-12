@@ -12,31 +12,79 @@
   config = lib.mkIf config.user.packages.desktopsuite.enable {
     home = {
       packages = with pkgs; [
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-calendar
+          else gnome.gnome-calendar
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then nautilus
+          else gnome.nautilus
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-calculator
+          else gnome.gnome-calculator
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-music
+          else gnome.gnome-music
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-font-viewer
+          else gnome.gnome-font-viewer
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-maps
+          else gnome.gnome-maps
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then file-roller
+          else gnome.file-roller
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-contacts
+          else gnome.gnome-contacts
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-disk-utility
+          else gnome.gnome-disk-utility
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-weather
+          else gnome.gnome-weather
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then gnome-clocks
+          else gnome.gnome-clocks
+        )
+        (
+          if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.05")
+          then geary
+          else gnome.geary
+        )
         glib
-        gnome.gnome-calendar
-        gnome.nautilus
-        gnome.gnome-calculator
         gnome-connections
         endeavour
         iotas
         evince
         mission-center
-        gnome.gnome-music
         tracker
         tracker-miners
         snapshot
         baobab
         loupe
-        gnome.gnome-font-viewer
         gnome-text-editor
-        gnome.gnome-maps
-        gnome.file-roller
-        gnome.gnome-contacts
         gnome-online-accounts-gtk
-        gnome.gnome-disk-utility
-        gnome.gnome-weather
-        gnome.gnome-clocks
-        gnome.geary
         vlc
       ];
     };
