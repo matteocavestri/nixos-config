@@ -23,7 +23,15 @@
     mate.engrampa
     mate.mate-calc
     mate.mate-system-monitor
-    gnome.gnome-terminal
-    pkgs-unstable.nemo
+    (
+      if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.11")
+      then gnome.gnome-terminal
+      else gnome-terminal
+    )
+    (
+      if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.11")
+      then pkgs-unstable.nemo
+      else nemo
+    )
   ];
 }

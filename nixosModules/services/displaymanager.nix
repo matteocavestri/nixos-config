@@ -23,6 +23,7 @@ in {
     };
   };
 
+  # Default configuration for 24.05
   config = lib.mkIf (config.system.services.displaymanager.lightdm.enable || config.system.services.displaymanager.sddm.enable) {
     services =
       if lib.versionOlder (lib.versions.majorMinor lib.version) "24.11"
@@ -48,8 +49,9 @@ in {
           };
         };
       }
+      # Override configuration for 24.11 and newer
       else {
-        xserver = lib.mkIf (config.system.services.lightdm.enable || config.system.services.xorg.enable) {
+        xserver = lib.mkIf (config.system.services.displaymanager.lightdm.enable || config.system.services.xorg.enable) {
           enable = true;
           displayManager = {
             # Lightdm main configuration
