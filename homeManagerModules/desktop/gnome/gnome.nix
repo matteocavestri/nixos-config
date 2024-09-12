@@ -14,7 +14,6 @@
         then gnome.gnome-tweaks
         else gnome-tweaks
       )
-      gnome.gnome-tweaks
       gnomeExtensions.user-themes
     ];
     sessionVariables = {
