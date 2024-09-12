@@ -1,0 +1,18 @@
+scheme: 'Grigna Sunset'
+author: 'Matteo Cavestri'
+base00: '5b453a' # Dark color from the mountains
+base01: 'a27246' # Sunset reflection on the mountains
+base02: 'e8ad77' # Color of the clouds
+base03: 'd37674' # Bright sky tones
+base04: 'ffcc99' # Lighter reflections in the sky
+base05: 'ffe3b6' # Brightest part of the sky near the sun
+base06: 'fff0d9' # Very light tone from the sunset sky
+base07: 'fff9e6' # Brightest highlights in the sky
+base08: 'e86b58' # Intense red-orange tones from the sky
+base09: 'ff8b56' # Orange reflections in the clouds
+base0A: 'ffd27b' # Golden reflections on the mountains
+base0B: 'e3b14d' # Warm yellow tone from sunset
+base0C: 'ffa76a' # Soft orange from lower clouds
+base0D: 'ffd8a2' # Light orange-pink from sunset clouds
+base0E: 'ff9984' # Warm pinkish tone
+base0F: 'ff7356' # Intense red-orange

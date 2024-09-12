@@ -1,0 +1,18 @@
+scheme: 'Grigna Dark'
+author: 'Matteo Cavestri'
+base00: '0f1934' # Darkest blue from the mountains
+base01: '111c3a' # Dark mountains with shadow
+base02: '3f1d35' # Red glow on the hut
+base03: '021e61' # Night sky
+base04: '063771' # Lighter part of the night sky
+base05: '0a417b' # Brighter stars in the sky
+base06: '1a568c' # Lighter blue hue from distant mountains
+base07: '2c6b9d' # Brightest point in the sky
+base08: 'c84741' # Red glow highlights from the hut
+base09: 'ff7757' # Reddish-orange from the hut reflection
+base0A: 'd47663' # Faded red reflection on the rocks
+base0B: '4a98b9' # Light blue from distant stars
+base0C: '3c79a4' # Blue tint on the rocks
+base0D: '518bba' # Light blue star reflection
+base0E: 'ff5a7a' # Warm reddish highlights
+base0F: 'ff2f4f' # Intense red from the hut lights
