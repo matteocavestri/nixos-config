@@ -181,21 +181,22 @@
   # Ignore gnome default packages
   environment = {
     gnome.excludePackages = let
+      # Lista dei pacchetti che possono avere il prefisso "gnome."
       packagesWithPrefix = [
-        "calendar"
+        "gnome-calendar"
         "nautilus"
-        "calculator"
-        "music"
-        "font-viewer"
-        "maps"
+        "gnome-calculator"
+        "gnome-music"
+        "gnome-font-viewer"
+        "gnome-maps"
         "file-roller"
-        "contacts"
-        "disk-utility"
-        "weather"
-        "clocks"
+        "gnome-contacts"
+        "gnome-disk-utility"
+        "gnome-weather"
+        "gnome-clocks"
         "geary"
-        "system-monitor"
-        "logs"
+        "gnome-system-monitor"
+        "gnome-logs"
         "dconf-editor"
         "simple-scan"
         "devhelp"
@@ -210,11 +211,13 @@
         "yelp"
       ];
 
+      # Funzione per aggiungere il prefisso "gnome." se necessario
       gnomePackage = pname:
         if lib.versionOlder (lib.versions.majorMinor lib.version) "24.11"
-        then pkgs.gnome."gnome-${pname}"
-        else pkgs."gnome-${pname}";
+        then pkgs.gnome."${pname}"
+        else pkgs."${pname}";
     in
+      # Applicazione del ciclo per gestire tutti i pacchetti
       (with pkgs; [
         gnome-photos
         gnome-tour
