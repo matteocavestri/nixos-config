@@ -14,9 +14,6 @@
   };
 
   config = {
-    # Sound is enabled if pipewire or pulseaudio are enabled
-    sound.enable = lib.mkIf (config.system.config.pipewire.enable || config.system.config.pulseaudio.enable) true;
-
     # Pulseaudio configuration
     hardware.pulseaudio.enable = lib.mkIf config.system.config.pulseaudio.enable true;
 

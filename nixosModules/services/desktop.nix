@@ -27,7 +27,6 @@
       # Online account activations
       gnome = lib.mkIf config.system.services.online-accounts.enable {
         gnome-online-accounts.enable = true;
-        gnome-online-miners.enable = true;
       };
     };
 
