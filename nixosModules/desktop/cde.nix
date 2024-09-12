@@ -2,7 +2,7 @@
   # Depencency services
   system.services = {
     xorg.enable = true;
-    displayManager.lightdm.enable = true;
+    displaymanager.lightdm.enable = true;
   };
 
   # Common Desktop Environment configuration

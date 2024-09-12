@@ -23,18 +23,44 @@ in {
     };
   };
 
-  config = {
-    services = {
-      xserver = {
-        enable = lib.mkIf (config.system.services.wayland.enable || config.system.services.xorg.enable) true;
-        displayManager = {
-          # Lightdm main configuration
-          lightdm = lib.mkIf config.system.services.displaymanager.lightdm.enable {
-            enable = true;
-            greeters.slick.enable = true;
-            greeters.slick.theme.name = myLightDMTheme;
-          };
+  config = lib.mkIf (config.system.services.displaymanager.lightdm.enable || config.system.services.displaymanager.sddm.enable) {
+    services =
+      if lib.versionOlder (lib.versions.majorMinor lib.version) "24.11"
+      then {
+        xserver = lib.mkIf (config.system.services.wayland.enable || config.system.services.xorg.enable) {
+          enable = true;
+          displayManager = {
+            # Lightdm main configuration
+            lightdm = lib.mkIf config.system.services.displaymanager.lightdm.enable {
+              enable = true;
+              greeters.slick.enable = true;
+              greeters.slick.theme.name = myLightDMTheme;
+            };
 
+            # Sddm main configuration
+            sddm = lib.mkIf config.system.services.displaymanager.sddm.enable {
+              enable = true;
+              wayland.enable = true;
+              enableHidpi = true;
+              theme = "chili";
+              package = pkgs.sddm;
+            };
+          };
+        };
+      }
+      else {
+        xserver = lib.mkIf (config.system.services.lightdm.enable || config.system.services.xorg.enable) {
+          enable = true;
+          displayManager = {
+            # Lightdm main configuration
+            lightdm = lib.mkIf config.system.services.displaymanager.lightdm.enable {
+              enable = true;
+              greeters.slick.enable = true;
+              greeters.slick.theme.name = myLightDMTheme;
+            };
+          };
+        };
+        displayManager = {
           # Sddm main configuration
           sddm = lib.mkIf config.system.services.displaymanager.sddm.enable {
             enable = true;
@@ -45,7 +71,6 @@ in {
           };
         };
       };
-    };
 
     # Sddm theme override for stylix background
     environment = lib.mkIf config.system.services.displaymanager.sddm.enable {
