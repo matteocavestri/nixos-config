@@ -15,7 +15,8 @@
         enable = lib.mkDefault false;
         support32 = lib.mkDefault false;
         opencl = lib.mkDefault false;
-        newgpu = lib.mkDefault false;
+        newgpu5 = lib.mkDefault false;
+        newgpu11 = lib.mkDefault false;
         monitoring = lib.mkDefault false;
       };
       nvidia = {

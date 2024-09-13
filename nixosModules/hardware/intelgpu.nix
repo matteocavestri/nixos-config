@@ -10,12 +10,18 @@
         enable = lib.mkEnableOption "Enable Intel GPU Hardware Acceleration";
         support32 = lib.mkEnableOption "Enable 32-bit VA-API for Intel";
         opencl = lib.mkEnableOption "Enable OpenCL for Intel";
-        newgpu = lib.mkEnableOption "Support for new GPU for Intel";
+        newgpu5 = lib.mkEnableOption "Support for new GPU for Intel (Broadwell +)";
+        newgpu11 = lib.mkEnableOption "Support for new GPU for Intel (Tiger Lake +)";
         monitoring = lib.mkEnableOption "Enable Intel GPU Monitoring";
       };
     };
   };
   config = lib.mkIf config.system.hardware.gpu.intel.enable {
+    # Override intel vaapi driver
+    nixpkgs.config.packageOverrides = pkgs: {
+      intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
+    };
+
     # Enable Mesa drivers and 32 bit support
     system.hardware.gpu = {
       enable = true;
@@ -28,56 +34,86 @@
       then {
         opengl = {
           extraPackages = with pkgs;
+          # Old intel GPU (before Broadwell) drivers
+            lib.optionals (! config.system.hardware.gpu.intel.newgpu5 && ! config.system.hardware.gpu.intel.newgpu11)
             [
-              intel-vaapi-driver
               libvdpau-va-gl
               libGLU
+              intel-vaapi-driver
+              intel-media-sdk
             ]
-            # Newer GPU drivers
-            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu [
+            # Newer GPU drivers (between Broadwell and Tiger Lake)
+            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu5 [
+              libvdpau-va-gl
+              libGLU
               intel-media-driver
+              intel-media-sdk
             ])
-            # Legacy OpenCL driver
-            ++ (lib.optionals (!config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+            # Newer GPU drivers (Tiger Lake +)
+            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu11 [
+              libvdpau-va-gl
+              libGLU
+              intel-media-driver
+              onevpl-intel-gpu
+            ])
+            # Legacy OpenCL driver (Before Tiger Lake)
+            ++ (lib.optionals config.system.hardware.gpu.intel.opencl [
               intel-ocl
-            ])
-            # New OpenCL driver
-            ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
               intel-compute-runtime
             ]);
 
           # VA-API support for 32-bit
-          extraPackages32 = lib.optionals config.system.hardware.gpu.intel.support32 (with pkgs.pkgsi686Linux; [
-            intel-vaapi-driver
-          ]);
+          extraPackages32 = with pkgs.pkgsi686Linux;
+            lib.optionals (config.system.hardware.gpu.intel.support32 && !config.system.hardware.gpu.intel.newgpu5 && !config.system.hardware.gpu.intel.newgpu11)
+            [
+              intel-vaapi-driver
+            ]
+            ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu5 || config.system.hardware.gpu.intel.newgpu11) [
+              intel-media-driver
+            ]);
         };
       }
       else {
         # Setup for 24.11 and newer
         graphics = {
           extraPackages = with pkgs;
+          # Old intel GPU (before Broadwell) drivers
+            lib.optionals (! config.system.hardware.gpu.intel.newgpu5 && ! config.system.hardware.gpu.intel.newgpu11)
             [
-              intel-vaapi-driver
               libvdpau-va-gl
               libGLU
+              intel-vaapi-driver
+              intel-media-sdk
             ]
-            # Newer GPU drivers
-            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu [
+            # Newer GPU drivers (between Broadwell and Tiger Lake)
+            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu5 [
+              libvdpau-va-gl
+              libGLU
               intel-media-driver
+              intel-media-sdk
             ])
-            # Legacy OpenCL driver
-            ++ (lib.optionals (!config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
+            # Newer GPU drivers (Tiger Lake +)
+            ++ (lib.optionals config.system.hardware.gpu.intel.newgpu11 [
+              libvdpau-va-gl
+              libGLU
+              intel-media-driver
+              vpl-gpu-rt
+            ])
+            # Legacy OpenCL driver (Before Tiger Lake)
+            ++ (lib.optionals config.system.hardware.gpu.intel.opencl [
               intel-ocl
-            ])
-            # New OpenCL driver
-            ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu && config.system.hardware.gpu.intel.opencl) [
               intel-compute-runtime
             ]);
 
           # VA-API support for 32-bit
-          extraPackages32 = lib.optionals config.system.hardware.gpu.intel.support32 (with pkgs.pkgsi686Linux; [
-            intel-vaapi-driver
-          ]);
+          extraPackages32 = with pkgs.pkgsi686Linux;
+            lib.optionals (config.system.hardware.gpu.intel.support32 && !config.system.hardware.gpu.intel.newgpu5 && !config.system.hardware.gpu.intel.newgpu11)
+            [
+              intel-vaapi-driver
+            ]
+            ++ (lib.optionals (config.system.hardware.gpu.intel.newgpu5 || config.system.hardware.gpu.intel.newgpu11) [
+              intel-media-driver
+            ]);
         };
       };
 
@@ -88,7 +124,7 @@
         VDPAU_DRIVER = lib.mkIf config.system.hardware.gpu.intel.enable (lib.mkDefault "va_gl");
         # New GPUs use iHD, older only use i965
         LIBVA_DRIVER_NAME = lib.mkIf config.system.hardware.gpu.intel.enable (lib.mkDefault (
-          if config.system.hardware.gpu.intel.newgpu
+          if (config.system.hardware.gpu.intel.newgpu5 || config.system.hardware.gpu.intel.newgpu11)
           then "iHD"
           else "i965"
         ));

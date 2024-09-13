@@ -24,6 +24,7 @@
         support32 = true;
         opencl = true;
         monitoring = true;
+        newgpu5 = true;
       };
       apple.applet2 = {
         enable = true;
