@@ -144,17 +144,6 @@ in {
         ".currenttheme" = lib.mkIf config.user.services.stylix.enable {
           text = userSettings.appearance.theme;
         };
-        # TODO: Move hyprpaper
-        ".config/hypr/hyprpaper.conf".text =
-          ''
-            preload = ''
-          + config.stylix.image
-          + ''
-
-            wallpaper = ,''
-          + config.stylix.image
-          + ''
-          '';
       };
     };
   };

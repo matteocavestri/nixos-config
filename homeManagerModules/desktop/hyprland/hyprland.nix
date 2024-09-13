@@ -21,6 +21,7 @@ in {
     ./utils/swayosd.nix
     ./utils/wlsunset.nix
     ./hypr/pyprland.nix
+    ./hypr/hyprpaper.nix
     (import ./utils/networkmanager-dmenu.nix {
       dmenu_command = "fuzzel -d";
       inherit config lib pkgs;
