@@ -115,6 +115,10 @@
         sddm.enable = lib.mkDefault false;
         lightdm.enable = lib.mkDefault false;
       };
+      printing = {
+        enable = lib.mkDefault false;
+        autodiscovery = lib.mkDefault false;
+      };
     };
 
     # System Default settings

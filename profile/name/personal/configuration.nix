@@ -14,6 +14,10 @@
       dbus.enable = true;
       gvfs.enable = true;
       online-accounts.enable = true;
+      printing = {
+        enable = true;
+        autodiscovery = true;
+      };
     };
     virtualisation = {
       qemu = {

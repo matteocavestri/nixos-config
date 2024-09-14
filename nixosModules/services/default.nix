@@ -7,6 +7,7 @@
     ./wayland.nix
     ./xorg.nix
     ./displaymanager.nix
+    ./printing.nix
   ];
 
   system.services = {
@@ -23,6 +24,10 @@
     displaymanager = {
       sddm.enable = lib.mkDefault false;
       lightdm.enable = lib.mkDefault false;
+    };
+    printing = {
+      enable = lib.mkDefault false;
+      autodiscovery = lib.mkDefault false;
     };
   };
 }
