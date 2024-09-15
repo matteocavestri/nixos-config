@@ -28,21 +28,28 @@ in {
     };
   };
 
+  # Main stylix configuration
   config = {
     stylix = lib.mkIf config.user.services.stylix.enable {
       enable = true;
       autoEnable = false;
+
+      # Theme definition
       polarity = themePolarity;
       image = pkgs.fetchurl {
         url = backgroundUrl;
         sha256 = backgroundSha256;
       };
       base16Scheme = ./. + themePath;
+
+      # Cursor theme
       cursor = {
         name = userSettings.appearance.cursor;
         package = userSettings.appearance.cursorPkg;
         size = 24;
       };
+
+      # Fonts configuration
       fonts = {
         monospace = {
           name = userSettings.appearance.font;
@@ -67,6 +74,8 @@ in {
           desktop = 12;
         };
       };
+
+      # Stylix targets
       targets = {
         kde.enable = true;
         gnome.enable = true;
@@ -81,6 +90,7 @@ in {
       };
     };
 
+    # Gtk styling
     gtk = lib.mkIf config.user.services.gtkstyle.enable {
       enable = true;
       cursorTheme = {
@@ -94,33 +104,17 @@ in {
       };
     };
 
+    # Qt styling (only works with qt5)
     qt = lib.mkIf config.user.services.qtstyle.enable {
       enable = true;
-      style.package = [
-        pkgs.adwaita-qt
-        pkgs.adwaita-qt6
-      ];
-      style.name = "adwaita-dark";
-      platformTheme.name = "qt5ct";
+      platformTheme.name = "qtct";
     };
 
     home = {
+      # Install adwaita-qt if qtstyle is enabled and apply qt5ct.conf theme
       packages = with pkgs;
         lib.optionals config.user.services.qtstyle.enable [
-          libsForQt5.qt5ct
-          kdePackages.qt6ct
-          breezeIconsFixed
-          kdePackages.breeze
-          kdePackages.breeze.qt5
-          (
-            if (lib.versionOlder (lib.versions.majorMinor lib.version) "24.11")
-            then gnome.adwaita-icon-theme
-            else adwaita-icon-theme
-          )
-          libsForQt5.qt5.qtbase
-          kdePackages.qtbase
-          kdePackages.qtwayland
-          libsForQt5.qt5.qtwayland
+          adwaita-qt
         ];
       file = {
         ".config/qt5ct/colors/oomox-current.conf" = lib.mkIf (config.user.services.qtstyle.enable && config.user.services.stylix.enable) {
@@ -129,17 +123,8 @@ in {
             extension = ".conf";
           };
         };
-        ".config/qt6ct/colors/oomox-current.conf" = lib.mkIf (config.user.services.qtstyle.enable && config.user.services.stylix.enable) {
-          source = config.lib.stylix.colors {
-            template = builtins.readFile ./common/oomox-current.conf.mustache;
-            extension = ".conf";
-          };
-        };
         ".config/qt5ct/qt5ct.conf" = lib.mkIf (config.user.services.qtstyle.enable && config.user.services.stylix.enable) {
           text = pkgs.lib.mkBefore (builtins.readFile ./common/qt5ct.conf);
-        };
-        ".config/qt6ct/qt6ct.conf" = lib.mkIf (config.user.services.qtstyle.enable && config.user.services.stylix.enable) {
-          text = pkgs.lib.mkBefore (builtins.readFile ./common/qt6ct.conf);
         };
         ".currenttheme" = lib.mkIf config.user.services.stylix.enable {
           text = userSettings.appearance.theme;
