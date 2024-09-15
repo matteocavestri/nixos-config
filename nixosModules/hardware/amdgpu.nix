@@ -10,7 +10,6 @@
         enable = lib.mkEnableOption "Enable Intel GPU Hardware Acceleration";
         support32 = lib.mkEnableOption "Enable 32-bit VA-API for Intel";
         opencl = lib.mkEnableOption "Enable OpenCL for Intel";
-        polaris = lib.mkEnableOption "Enable support for AMD Polaris GPUs";
         monitoring = lib.mkEnableOption "Enable Intel GPU Monitoring";
       };
     };
@@ -38,9 +37,9 @@
             [
               amdvlk
             ]
-            # Amd Rocm support for OpenCL
+            # AMD mesa Clover drivers for OpenCL
             ++ (lib.optionals config.system.hardware.gpu.amd.opencl [
-              rocmPackages.clr.icd
+              mesa.opencl
             ]);
 
           # Vulkan support for 32-bit
@@ -58,9 +57,9 @@
             [
               amdvlk
             ]
-            # Amd Rocm support for OpenCL
+            # AMD mesa Clover drivers for OpenCL
             ++ (lib.optionals config.system.hardware.gpu.amd.opencl [
-              rocmPackages.clr.icd
+              mesa.opencl
             ]);
 
           # Vulkan support for 32-bit
@@ -71,17 +70,9 @@
         };
       };
 
-    # Rocm support for Polaris (In general pre Vega GPUs) and install monitoring tool
+    # Install monitoring tool
     environment = {
       systemPackages = lib.mkIf config.system.hardware.gpu.amd.monitoring [pkgs.nvtopPackages.amd];
-      variables = lib.mkIf (config.system.hardware.gpu.amd.polaris && config.system.hardware.gpu.amd.opencl) {
-        ROC_ENABLE_PRE_VEGA = "1";
-      };
     };
-
-    # Export Hip library path
-    systemd.tmpfiles.rules = lib.mkIf config.system.hardware.gpu.amd.opencl [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
   };
 }
