@@ -17,15 +17,18 @@
     };
   };
   config = lib.mkIf config.system.hardware.gpu.intel.enable {
-    # Override intel vaapi driver
-    nixpkgs.config.packageOverrides = pkgs: {
-      intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
-    };
-
     # Enable Mesa drivers and 32 bit support
     system.hardware.gpu = {
       enable = true;
       support32 = lib.mkIf config.system.hardware.gpu.intel.support32 true;
+    };
+
+    # Apply modsetting for drivers
+    services.xserver.videoDrivers = ["modesetting"];
+
+    # Override intel vaapi driver
+    nixpkgs.config.packageOverrides = pkgs: {
+      intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
     };
 
     # Setup For 24.05 and older
@@ -56,9 +59,10 @@
               intel-media-driver
               onevpl-intel-gpu
             ])
-            # Legacy OpenCL driver (Before Tiger Lake)
+            # OpenCL drivers
             ++ (lib.optionals config.system.hardware.gpu.intel.opencl [
               intel-ocl
+              ocl-icd
               intel-compute-runtime
             ]);
 
@@ -99,9 +103,10 @@
               intel-media-driver
               vpl-gpu-rt
             ])
-            # Legacy OpenCL driver (Before Tiger Lake)
+            # OpenCL drivers
             ++ (lib.optionals config.system.hardware.gpu.intel.opencl [
               intel-ocl
+              ocl-icd
               intel-compute-runtime
             ]);
 
