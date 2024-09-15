@@ -60,6 +60,13 @@
           cuda = lib.mkDefault false;
           cudnn = lib.mkDefault false;
         };
+        amd = {
+          enable = lib.mkDefault false;
+          support32 = lib.mkDefault false;
+          opencl = lib.mkDefault false;
+          polaris = lib.mkDefault false;
+          monitoring = lib.mkDefault false;
+        };
       };
       apple = {
         applet2 = {
