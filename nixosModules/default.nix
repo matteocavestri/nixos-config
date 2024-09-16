@@ -73,6 +73,10 @@
           substituters = lib.mkDefault false;
         };
       };
+      peripherals = {
+        enable = lib.mkDefault false;
+        logitechWheel = lib.mkDefault false;
+      };
     };
 
     # Packages Default settings

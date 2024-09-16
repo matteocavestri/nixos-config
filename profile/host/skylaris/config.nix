@@ -19,6 +19,10 @@
         opencl = true;
         monitoring = true;
       };
+      peripherals = {
+        enable = true;
+        logitechWheel = true;
+      };
     };
   };
 }

@@ -6,6 +6,7 @@
     ./apple-silicon/default.nix
     ./nvidia.nix
     ./amdgpu.nix
+    ./peripherals.nix
   ];
 
   system.hardware = {
@@ -40,6 +41,10 @@
         enable = lib.mkDefault false;
         substituters = lib.mkDefault false;
       };
+    };
+    peripherals = {
+      enable = lib.mkDefault false;
+      logitechWheel = lib.mkDefault false;
     };
   };
   hardware.asahi = {
