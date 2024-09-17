@@ -64,6 +64,7 @@
     alacritty.enable = lib.mkDefault false;
     pass.enable = lib.mkDefault false;
     neofetch.enable = lib.mkDefault false;
+    kube.enable = lib.mkDefault false;
     shell = {
       bash.enable = lib.mkDefault true;
       zsh.enable = lib.mkDefault true;

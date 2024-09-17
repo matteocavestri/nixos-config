@@ -8,6 +8,7 @@
     user.packages = {
       pass.enable = lib.mkEnableOption "Install pass";
       neofetch.enable = lib.mkEnableOption "Enable neofetch";
+      kube.enable = lib.mkEnableOption "Enable kubectl and kubernetes tools";
     };
   };
   config = {
@@ -20,6 +21,12 @@
         # Install fastfetch as neofetch wrapper
         ++ (lib.optionals config.user.packages.neofetch.enable [
           fastfetch
+        ])
+        ++ (lib.optionals config.user.packages.kube.enable [
+          talosctl
+          kubectl
+          kubernetes-helm
+          helmfile
         ]);
 
       # Fastfetch config
