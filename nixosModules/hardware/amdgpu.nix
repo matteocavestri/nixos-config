@@ -47,7 +47,6 @@
             ++ (lib.optionals config.system.hardware.gpu.amd.rocm [
               rocmPackages.rocm-core
               rocmPackages.rocm-runtime
-              rocmPackages.clr
               rocmPackages.clr.icd
               rocmPackages.rocm-smi
               rocmPackages.rocminfo
@@ -76,7 +75,6 @@
             ++ (lib.optionals config.system.hardware.gpu.amd.rocm [
               rocmPackages.rocm-core
               rocmPackages.rocm-runtime
-              rocmPackages.clr
               rocmPackages.clr.icd
               rocmPackages.rocm-smi
               rocmPackages.rocminfo
