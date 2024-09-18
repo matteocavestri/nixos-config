@@ -8,8 +8,10 @@
     system.hardware.gpu = {
       amd = {
         enable = lib.mkEnableOption "Enable Intel GPU Hardware Acceleration";
-        support32 = lib.mkEnableOption "Enable 32-bit VA-API for Intel";
-        opencl = lib.mkEnableOption "Enable OpenCL for Intel";
+        support32 = lib.mkEnableOption "Enable 32-bit Vulkan Support";
+        opencl = lib.mkEnableOption "Enable OpenCL for AMD GPU (No rocm)";
+        rocm = lib.mkEnableOption "Enable ROCm for AMD GPU";
+        preVega = lib.mkEnableOption "Enable Pre Vega GPUs";
         monitoring = lib.mkEnableOption "Enable Intel GPU Monitoring";
       };
     };
@@ -38,8 +40,17 @@
               amdvlk
             ]
             # AMD mesa Clover drivers for OpenCL
-            ++ (lib.optionals config.system.hardware.gpu.amd.opencl [
+            ++ (lib.optionals (config.system.hardware.gpu.amd.opencl && ! config.system.hardware.gpu.amd.rocm) [
               mesa.opencl
+            ])
+            # Rocm packages
+            ++ (lib.optionals config.system.hardware.gpu.amd.rocm [
+              rocmPackages.rocm-core
+              rocmPackages.rocm-runtime
+              rocmPackages.clr
+              rocmPackages.clr.icd
+              rocmPackages.rocm-smi
+              rocmPackages.rocminfo
             ]);
 
           # Vulkan support for 32-bit
@@ -58,8 +69,17 @@
               amdvlk
             ]
             # AMD mesa Clover drivers for OpenCL
-            ++ (lib.optionals config.system.hardware.gpu.amd.opencl [
+            ++ (lib.optionals (config.system.hardware.gpu.amd.opencl && ! config.system.hardware.gpu.amd.rocm) [
               mesa.opencl
+            ])
+            # Rocm packages
+            ++ (lib.optionals config.system.hardware.gpu.amd.rocm [
+              rocmPackages.rocm-core
+              rocmPackages.rocm-runtime
+              rocmPackages.clr
+              rocmPackages.clr.icd
+              rocmPackages.rocm-smi
+              rocmPackages.rocminfo
             ]);
 
           # Vulkan support for 32-bit
@@ -73,6 +93,15 @@
     # Install monitoring tool
     environment = {
       systemPackages = lib.mkIf config.system.hardware.gpu.amd.monitoring [pkgs.nvtopPackages.amd];
+      # Setup Rocm for Pre Vega GPUs
+      variables = lib.mkIf (config.system.hardware.gpu.amd.rocm && config.system.hardware.gpu.amd.preVega) {
+        ROC_ENABLE_PRE_VEGA = "1";
+      };
     };
+
+    # Make Hip libraries linked to /opt/rocm/hip
+    systemd.tmpfiles.rules = lib.mkIf config.system.hardware.gpu.amd.rocm [
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+    ];
   };
 }
