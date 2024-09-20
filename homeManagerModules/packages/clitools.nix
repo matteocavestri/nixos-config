@@ -3,7 +3,23 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  # Install helm with plugins
+  my-kubernetes-helm = with pkgs;
+    wrapHelm kubernetes-helm {
+      plugins = with pkgs.kubernetes-helmPlugins; [
+        helm-secrets
+        helm-diff
+        helm-s3
+        helm-git
+      ];
+    };
+
+  # Wrap helmfile using helm plugins
+  my-helmfile = pkgs.helmfile-wrapped.override {
+    inherit (my-kubernetes-helm) pluginsDir;
+  };
+in {
   options = {
     user.packages = {
       pass.enable = lib.mkEnableOption "Install pass";
@@ -25,8 +41,8 @@
         ++ (lib.optionals config.user.packages.kube.enable [
           talosctl
           kubectl
-          kubernetes-helm
-          helmfile
+          my-kubernetes-helm
+          my-helmfile
         ]);
 
       # Fastfetch config
