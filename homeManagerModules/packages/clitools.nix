@@ -41,6 +41,7 @@ in {
         ++ (lib.optionals config.user.packages.kube.enable [
           talosctl
           kubectl
+          k9s
           my-kubernetes-helm
           my-helmfile
         ]);
