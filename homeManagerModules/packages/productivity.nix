@@ -16,7 +16,10 @@
     home.packages = with pkgs;
     # Install LibreOffice
       lib.optionals config.user.packages.libreoffice.enable [
-        libreoffice-qt6-still
+        libreoffice
+        hunspell
+        hunspellDicts.en_GB-large
+        hunspellDicts.it_IT
       ]
       # Install Thunderbird
       ++ (lib.optionals config.user.packages.thunderbird.enable [

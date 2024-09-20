@@ -64,6 +64,8 @@
           enable = lib.mkDefault false;
           support32 = lib.mkDefault false;
           opencl = lib.mkDefault false;
+          rocm = lib.mkDefault false;
+          preVega = lib.mkDefault false;
           monitoring = lib.mkDefault false;
         };
       };

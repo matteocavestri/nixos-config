@@ -1,11 +1,12 @@
 {
   pkgs,
   lib,
+  config,
   ...
 }: {
   # Depencency services
   system.services.wayland.enable = true;
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = lib.mkIf config.system.config.pipewire.enable false;
 
   # Enable Gnome desktop environment and gdm display manager
   services = {

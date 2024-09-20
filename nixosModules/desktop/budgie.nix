@@ -1,6 +1,8 @@
 {
   pkgs,
   pkgs-unstable,
+  config,
+  lib,
   ...
 }: {
   # Depencency services
@@ -8,6 +10,7 @@
     xorg.enable = true;
     displaymanager.lightdm.enable = true;
   };
+  hardware.pulseaudio.enable = lib.mkIf config.system.config.pipewire.enable false;
 
   # Enable Budgie desktop environment
   services.xserver = {
