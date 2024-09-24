@@ -42,6 +42,7 @@ in {
           talosctl
           kubectl
           k9s
+          kustomize
           my-kubernetes-helm
           my-helmfile
         ]);
