@@ -34,7 +34,7 @@
             if systemSettings.host.hostname == "k3s-0"
             then []
             else [
-              "--server https://homelab-0:6443"
+              "--server https://k3s-0:6443"
             ]
           ));
         clusterInit = systemSettings.host.hostname == "k3s-0";
