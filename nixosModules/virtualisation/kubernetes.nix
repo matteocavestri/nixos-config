@@ -29,6 +29,11 @@
             "--disable servicelb"
             "--disable traefik"
             "--disable local-storage"
+            "--kube-controller-manager-arg bind-address=0.0.0.0"
+            "--kube-proxy-arg metrics-bind-address=0.0.0.0"
+            "--kube-scheduler-arg bind-address=0.0.0.0"
+            "--etcd-expose-metrics true"
+            "--kublet-arg containerd=/run/k3s/containerd/containerd.sock"
           ]
           ++ (
             if systemSettings.host.hostname == "k3s-0"
