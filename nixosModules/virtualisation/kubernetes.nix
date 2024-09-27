@@ -53,15 +53,16 @@
       cifs-utils
       nfs-utils
     ];
-    networking.firewall = {
-      allowedTCPPorts = [
-        6443
-        2379
-        2380
-      ];
-      allowedUDPPorts = [
-        8472
-      ];
-    };
+    networking.firewall.enable = lib.mkForce false;
+    # networking.firewall = {
+    #   allowedTCPPorts = [
+    #     6443
+    #     2379
+    #     2380
+    #   ];
+    #   allowedUDPPorts = [
+    #     8472
+    #   ];
+    # };
   };
 }
