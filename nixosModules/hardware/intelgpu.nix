@@ -124,7 +124,10 @@
 
     # Setup intel environment and monitoring packages
     environment = {
-      systemPackages = lib.mkIf config.system.hardware.gpu.intel.monitoring [pkgs.nvtopPackages.intel];
+      systemPackages = lib.mkIf config.system.hardware.gpu.intel.monitoring [
+        pkgs.nvtopPackages.intel
+        pkgs.intel-gpu-tools
+      ];
       variables = {
         VDPAU_DRIVER = lib.mkIf config.system.hardware.gpu.intel.enable (lib.mkDefault "va_gl");
         # New GPUs use iHD, older only use i965
