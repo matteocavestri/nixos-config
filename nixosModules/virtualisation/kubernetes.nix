@@ -40,7 +40,7 @@
             if systemSettings.host.hostname == "k3s-01"
             then []
             else [
-              "--server https://k3s-01:6443"
+              "--server https://192.168.1.210:6443"
             ]
           ));
         clusterInit = systemSettings.host.hostname == "k3s-01";
