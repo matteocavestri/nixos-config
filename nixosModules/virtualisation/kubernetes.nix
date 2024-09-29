@@ -28,7 +28,6 @@
             "--disable servicelb"
             "--disable traefik"
             "--disable local-storage"
-            "--tls-san=192.168.1.210"
             "--kube-controller-manager-arg bind-address=0.0.0.0"
             "--kube-proxy-arg metrics-bind-address=0.0.0.0"
             "--kube-scheduler-arg bind-address=0.0.0.0"
@@ -39,6 +38,7 @@
             if systemSettings.host.hostname == "k3s-01"
             then [
               "--cluster-init"
+              "--tls-san=192.168.1.210"
             ]
             else [
               "--server https://192.168.1.210:6443"
