@@ -42,7 +42,6 @@
           ));
         clusterInit = lib.mkIf systemSettings.host.hostname == "k3s-01" true;
         serverAddr = lib.mkIf systemSettings.host.hostname != "k3s-01" "https://192.168.1.210:6443";
-        gracefulNodeShutdown.enable = true;
       };
       openiscsi = {
         enable = true;
