@@ -25,7 +25,6 @@
         tokenFile = /var/lib/rancher/k3s/server/token;
         extraFlags = toString ([
             "--write-kubeconfig-mode \"0644\""
-            "--cluster-init"
             "--disable servicelb"
             "--disable traefik"
             "--disable local-storage"
@@ -34,16 +33,17 @@
             "--kube-proxy-arg metrics-bind-address=0.0.0.0"
             "--kube-scheduler-arg bind-address=0.0.0.0"
             "--etcd-expose-metrics true"
-            "--kublet-arg containerd=/run/k3s/containerd/containerd.sock"
+            "--kubelet-arg containerd=/run/k3s/containerd/containerd.sock"
           ]
           ++ (
             if systemSettings.host.hostname == "k3s-01"
-            then []
+            then [
+              "--cluster-init"
+            ]
             else [
               "--server https://192.168.1.210:6443"
             ]
           ));
-        clusterInit = systemSettings.host.hostname == "k3s-01";
       };
       openiscsi = {
         enable = true;
