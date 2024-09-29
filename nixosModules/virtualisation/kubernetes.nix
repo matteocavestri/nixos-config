@@ -35,15 +35,14 @@
             "--kubelet-arg containerd=/run/k3s/containerd/containerd.sock"
           ]
           ++ (
-            if systemSettings.host.hostname == "k3s-01"
-            then [
-              "--cluster-init"
+            lib.mkIf systemSettings.host.hostname
+            == "k3s-01" [
               "--tls-san=192.168.1.210"
             ]
-            else [
-              "--server https://192.168.1.210:6443"
-            ]
           ));
+        clusterInit = lib.mkIf systemSettings.host.hostname == "k3s-01" true;
+        serverAddr = lib.mkIf systemSettings.host.hostname != "k3s-01" "https://192.168.1.210:6443";
+        gracefulNodeShutdown.enable = true;
       };
       openiscsi = {
         enable = true;
