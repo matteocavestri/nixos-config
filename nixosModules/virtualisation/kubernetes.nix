@@ -52,9 +52,8 @@
     };
     system.activationScripts.kubevip = lib.mkIf (systemSettings.host.hostname == "k3s-01") ''
       mkdir -p /var/lib/rancher/k3s/server/manifests/
-      curl -s https://kube-vip.io/manifests/rbac.yaml -o /var/lib/rancher/k3s/server/manifests/kube-vip.yaml
+      curl -s https://kube-vip.io/manifests/rbac.yaml -o /var/lib/rancher/k3s/server/manifests/kube-vip-rbac.yaml
       cat <<EOF >> /var/lib/rancher/k3s/server/manifests/kube-vip.yaml
-      ---
       apiVersion: apps/v1
       kind: DaemonSet
       metadata:
