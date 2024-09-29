@@ -61,7 +61,7 @@
             ])
             # OpenCL drivers
             ++ (lib.optionals config.system.hardware.gpu.intel.opencl [
-              intel-ocl
+              # intel-ocl
               ocl-icd
               intel-compute-runtime
             ]);
@@ -105,7 +105,7 @@
             ])
             # OpenCL drivers
             ++ (lib.optionals config.system.hardware.gpu.intel.opencl [
-              intel-ocl
+              # intel-ocl
               ocl-icd
               intel-compute-runtime
             ]);
