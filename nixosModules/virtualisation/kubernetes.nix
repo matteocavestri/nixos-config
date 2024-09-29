@@ -29,6 +29,7 @@
             "--disable servicelb"
             "--disable traefik"
             "--disable local-storage"
+            "--tls-san=192.168.1.210"
             "--kube-controller-manager-arg bind-address=0.0.0.0"
             "--kube-proxy-arg metrics-bind-address=0.0.0.0"
             "--kube-scheduler-arg bind-address=0.0.0.0"
@@ -36,13 +37,13 @@
             "--kublet-arg containerd=/run/k3s/containerd/containerd.sock"
           ]
           ++ (
-            if systemSettings.host.hostname == "k3s-0"
+            if systemSettings.host.hostname == "k3s-01"
             then []
             else [
-              "--server https://k3s-0:6443"
+              "--server https://k3s-01:6443"
             ]
           ));
-        clusterInit = systemSettings.host.hostname == "k3s-0";
+        clusterInit = systemSettings.host.hostname == "k3s-01";
       };
       openiscsi = {
         enable = true;
@@ -54,15 +55,5 @@
       nfs-utils
     ];
     networking.firewall.enable = lib.mkForce false;
-    # networking.firewall = {
-    #   allowedTCPPorts = [
-    #     6443
-    #     2379
-    #     2380
-    #   ];
-    #   allowedUDPPorts = [
-    #     8472
-    #   ];
-    # };
   };
 }
