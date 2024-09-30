@@ -39,11 +39,11 @@
             "--kube-controller-manager-arg=node-monitor-grace-period=30s"
             "--kube-controller-manager-arg=pod-eviction-timeout=2m"
           ]
-          ++ lib.mkOptional config.system.virtualisation.k3s.initServer [
+          ++ lib.optionals config.system.virtualisation.k3s.initServer [
             "--cluster-init"
             "--tls-san=192.168.1.210"
           ]
-          ++ lib.mkOptional config.system.virtualisation.k3s.addServer [
+          ++ lib.optionals config.system.virtualisation.k3s.addServer [
             "--server=https://192.168.1.210:6443"
           ]);
       };
