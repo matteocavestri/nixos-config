@@ -16,6 +16,6 @@
         newgpu5 = true;
       };
     };
-    virtualisation.k3s.addServer = true;
+    # virtualisation.k3s.addServer = true;
   };
 }
