@@ -26,21 +26,26 @@
         package = pkgs.k3s;
         role = "server";
         tokenFile = /var/lib/rancher/k3s/server/token;
-        extraFlags = toString [
-          "--write-kubeconfig-mode \"0644\""
-          "--disable servicelb"
-          "--disable traefik"
-          "--disable local-storage"
-          "--kube-controller-manager-arg bind-address=0.0.0.0"
-          "--kube-proxy-arg metrics-bind-address=0.0.0.0"
-          "--kube-scheduler-arg bind-address=0.0.0.0"
-          "--etcd-expose-metrics true"
-          "--kubelet-arg containerd=/run/k3s/containerd/containerd.sock"
-          "--kube-controller-manager-arg=node-monitor-grace-period=40s"
-          "--kube-controller-manager-arg=pod-eviction-timeout=5m"
-        ];
-        clusterInit = lib.mkIf config.system.virtualisation.k3s.initServer true;
-        serverAddr = lib.mkIf config.system.virtualisation.k3s.addServer "https://192.168.1.210:6443";
+        extraFlags = toString ([
+            "--write-kubeconfig-mode \"0644\""
+            "--disable servicelb"
+            "--disable traefik"
+            "--disable local-storage"
+            "--kube-controller-manager-arg bind-address=0.0.0.0"
+            "--kube-proxy-arg metrics-bind-address=0.0.0.0"
+            "--kube-scheduler-arg bind-address=0.0.0.0"
+            "--etcd-expose-metrics true"
+            "--kubelet-arg containerd=/run/k3s/containerd/containerd.sock"
+            "--kube-controller-manager-arg=node-monitor-grace-period=40s"
+            "--kube-controller-manager-arg=pod-eviction-timeout=5m"
+          ]
+          ++ lib.mkOptional config.system.virtualisation.k3s.initServer [
+            "--cluster-init"
+            "--tls-san=192.168.1.210"
+          ]
+          ++ lib.mkOptional config.system.virtualisation.k3s.addServer [
+            "--server=https://192.168.1.210:6443"
+          ]);
       };
       openiscsi = {
         enable = true;
