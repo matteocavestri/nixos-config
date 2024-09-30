@@ -16,5 +16,11 @@
         newgpu5 = true;
       };
     };
+    virtualisation.k3s.initServer = true;
   };
+
+  # Initialize Certificate for KubeVIP
+  services.k3s.extraFlags = toString [
+    "--tls-san=192.168.1.210"
+  ];
 }
