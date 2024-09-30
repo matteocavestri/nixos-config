@@ -9,8 +9,6 @@
     system.virtualisation = {
       k3s = {
         enable = lib.mkEnableOption "Enable k3s server";
-        initServer = lib.mkEnableOption "Initialize HA server";
-        addServer = lib.mkEnableOption "Option to add server to HA cluster";
       };
     };
   };
@@ -25,30 +23,24 @@
         enable = true;
         package = pkgs.k3s;
         role = "server";
+        # token = "secretToken"; # Use this for the first installation
         tokenFile = /var/lib/rancher/k3s/server/token;
-        extraFlags = toString ([
-            "--write-kubeconfig-mode \"0644\""
-            "--disable servicelb"
-            "--disable traefik"
-            "--disable local-storage"
-            "--kube-controller-manager-arg bind-address=0.0.0.0"
-            "--kube-proxy-arg metrics-bind-address=0.0.0.0"
-            "--kube-scheduler-arg bind-address=0.0.0.0"
-            "--etcd-expose-metrics true"
-            "--kubelet-arg containerd=/run/k3s/containerd/containerd.sock"
-            "--kube-controller-manager-arg=node-monitor-grace-period=30s"
-            "--kube-controller-manager-arg=pod-eviction-timeout=2m"
-          ]
-          ++ (
-            if config.networking.hostName == "k3s-01"
-            then [
-              "--cluster-init"
-              "--tls-san=192.168.1.210"
-            ]
-            else [
-              "--server https://192.168.1.210:6443"
-            ]
-          ));
+        extraFlags = toString [
+          "--cluster-init" # Use this arg only on the first node
+          "--tls-san=192.168.1.210" # Use this arg only on the first node
+          "--server https://192.168.1.210:6443" # Use this arg only on the other nodes
+          "--write-kubeconfig-mode \"0644\""
+          "--disable servicelb"
+          "--disable traefik"
+          "--disable local-storage"
+          "--kube-controller-manager-arg bind-address=0.0.0.0"
+          "--kube-proxy-arg metrics-bind-address=0.0.0.0"
+          "--kube-scheduler-arg bind-address=0.0.0.0"
+          "--etcd-expose-metrics true"
+          "--kubelet-arg containerd=/run/k3s/containerd/containerd.sock"
+          "--kube-controller-manager-arg=node-monitor-grace-period=30s"
+          "--kube-controller-manager-arg=pod-eviction-timeout=2m"
+        ];
       };
       openiscsi = {
         enable = true;

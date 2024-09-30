@@ -16,6 +16,5 @@
         newgpu5 = true;
       };
     };
-    virtualisation.k3s.initServer = true;
   };
 }

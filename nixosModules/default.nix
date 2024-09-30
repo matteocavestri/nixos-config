@@ -153,8 +153,6 @@
       distrobox.enable = lib.mkDefault false;
       k3s = {
         enable = lib.mkDefault false;
-        initServer = lib.mkDefault false;
-        addServer = lib.mkDefault false;
       };
       wine = {
         enable = lib.mkDefault false;
