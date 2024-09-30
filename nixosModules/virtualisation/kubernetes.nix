@@ -26,8 +26,7 @@
         package = pkgs.k3s;
         role = "server";
         tokenFile = /var/lib/rancher/k3s/server/token;
-        extraFlags = toString [
-          [
+        extraFlags = toString ([
             "--write-kubeconfig-mode \"0644\""
             "--disable servicelb"
             "--disable traefik"
@@ -40,17 +39,16 @@
             "--kube-controller-manager-arg=node-monitor-grace-period=30s"
             "--kube-controller-manager-arg=pod-eviction-timeout=2m"
           ]
-          (
-            if config.system.virtualisation.k3s.initServer
+          ++ (
+            if config.networking.hostName == "k3s-01"
             then [
               "--cluster-init"
               "--tls-san=192.168.1.210"
             ]
             else [
-              "--server=https://192.168.1.210:6443"
+              "--server https://192.168.1.210:6443"
             ]
-          )
-        ];
+          ));
       };
       openiscsi = {
         enable = true;
