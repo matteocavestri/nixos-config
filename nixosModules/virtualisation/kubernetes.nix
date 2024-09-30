@@ -10,7 +10,7 @@
       k3s = {
         enable = lib.mkEnableOption "Enable k3s server";
         initServer = lib.mkEnableOption "Initialize HA server";
-        addServer = lib.mkOption "Option to add server to HA cluster";
+        addServer = lib.mkEnableOption "Option to add server to HA cluster";
       };
     };
   };
