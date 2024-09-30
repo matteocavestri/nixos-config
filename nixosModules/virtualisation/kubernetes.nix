@@ -40,12 +40,12 @@
             "--kube-controller-manager-arg=pod-eviction-timeout=2m"
           ]
           ++ lib.optionals config.system.virtualisation.k3s.initServer [
-            "--cluster-init"
             "--tls-san=192.168.1.210"
           ]
           ++ lib.optionals config.system.virtualisation.k3s.addServer [
             "--server=https://192.168.1.210:6443"
           ]);
+        clusterInit = lib.mkIf config.system.virtualisation.k3s.initServer true;
       };
       openiscsi = {
         enable = true;
