@@ -44,7 +44,7 @@
           extensions = with inputs.firefox-addons.packages."${systemSettings.nix.system}"; [
             bitwarden
             proton-vpn
-            darkreader
+            # darkreader
             ff2mpv
             #  # auto-accepts cookies, use only with privacy-badger & ublock-origin
             i-dont-care-about-cookies
@@ -53,11 +53,11 @@
             to-deepl
             ublock-origin
             sidebery
-            unpaywall
+            # unpaywall
             vimium
           ];
           settings = {
-            "browser.startup.homepage" = "https://duckduckgo.com";
+            "browser.startup.homepage" = "https://searxng.cavestri.net";
             "browser.search.region" = "IT";
             "browser.search.isUS" = false;
             "distribution.searchplugins.defaultLocale" = "it-IT";
