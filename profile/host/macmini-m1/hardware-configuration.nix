@@ -8,18 +8,18 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "uas" "usbhid" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "usb_storage" "usbhid" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5c7e4d98-923f-43bc-95c9-7f4f99d645b7";
+    { device = "/dev/disk/by-uuid/546d2e0b-cd77-4332-8a5f-f84ee6834f68";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8565-1E1A";
+    { device = "/dev/disk/by-uuid/6F63-190D";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
@@ -32,6 +32,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.end0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enu1u4u4.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
