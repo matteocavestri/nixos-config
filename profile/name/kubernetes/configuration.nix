@@ -13,5 +13,6 @@
       k3s.enable = true;
     };
     config.fonts.enable = false;
+    system.kernel.increaseInotify = true;
   };
 }

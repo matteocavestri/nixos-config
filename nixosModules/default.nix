@@ -137,7 +137,10 @@
     # System Default settings
     system = {
       boot.systemdboot.enable = lib.mkDefault true;
-      kernel.rustsupport = lib.mkDefault false;
+      kernel = {
+        rustsupport = lib.mkDefault false;
+        increaseInotify = lib.mkDefault false;
+      };
     };
 
     # virtualisation Default settings
