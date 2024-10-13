@@ -13,6 +13,7 @@
         enable = lib.mkDefault false;
         password = lib.mkDefault true;
       };
+      increaseOpenFiles = lib.mkDefault false;
     };
     sudors.enable = lib.mkDefault false;
     gpg.enable = lib.mkDefault true;

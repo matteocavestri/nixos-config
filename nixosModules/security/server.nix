@@ -9,6 +9,7 @@
         enable = lib.mkEnableOption "Enable OpenSSH server";
         password = lib.mkEnableOption "SSH password authentication";
       };
+      increaseOpenFiles = lib.mkEnableOption "Increase max Open files to 8192";
     };
   };
 
@@ -23,6 +24,15 @@
     };
     networking.firewall.allowedTCPPorts = lib.mkIf config.system.security.server.openssh.enable [
       22
+    ];
+    # Max Opened files
+    security.pam.loginLimits = lib.mkIf config.system.security.server.increaseOpenFiles [
+      {
+        domain = "*";
+        type = "soft";
+        item = "nofile";
+        value = "8192";
+      }
     ];
   };
 }

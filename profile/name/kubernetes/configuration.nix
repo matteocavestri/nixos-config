@@ -6,6 +6,7 @@
   system = {
     security = {
       server.openssh.enable = true;
+      server.increaseOpenFiles = true;
       sudors.enable = true;
     };
     virtualisation = {
