@@ -18,6 +18,7 @@
     qemuguest.enable = lib.mkDefault false;
     cockpit.enable = lib.mkDefault false;
     nvidia-monitoring.enable = lib.mkDefault false;
+    nextcloud-ai-worker.enable = lib.mkDefault false;
     slurm.enable = lib.mkDefault false;
     wayland.enable = lib.mkDefault false;
     xorg.enable = lib.mkDefault false;
