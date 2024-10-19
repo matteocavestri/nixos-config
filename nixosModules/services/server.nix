@@ -47,10 +47,9 @@
         wantedBy = ["multi-user.target"];
 
         serviceConfig = {
-          ExecStart = "${pkgs.bash}/bin/bash -c 'set -e; while true; do docker exec -u www-data -it nextcloud-aio-nextcloud php occ background-job:worker -v -t 60 \"OC\\TaskProcessing\\SynchronousBackgroundJob\"; done'";
+          ExecStart = "docker exec --user www-data -it nextcloud-aio-nextcloud php occ background-job:worker -t 60 'OC\TaskProcessing\SynchronousBackgroundJob'";
           Restart = "always";
         };
-        instanced = true;
       };
     };
 
