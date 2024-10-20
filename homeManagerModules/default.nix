@@ -72,6 +72,7 @@
       tmux.enable = lib.mkDefault false;
       zellij.enable = lib.mkDefault false;
       firefox.enable = lib.mkDefault false;
+      librewolf.enable = lib.mkDefault false;
       desktopsuite.enable = lib.mkDefault false;
     };
 

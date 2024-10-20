@@ -10,30 +10,36 @@
   options = {
     user.packages = {
       firefox.enable = lib.mkEnableOption "Install and customize firefox";
+      librewolf.enable = lib.mkEnableOption "Install Librewolf";
     };
   };
 
   config = {
-    programs = lib.mkIf config.user.packages.firefox.enable {
-      firefox = {
+    programs = {
+      librewolf = lib.mkIf config.user.packages.librewolf.enable {
+        enable = true;
+        package = pkgs.librewolf;
+        settings = {};
+      };
+      firefox = lib.mkIf config.user.packages.firefox.enable {
         enable = true;
         package = pkgs.wrapFirefox pkgs.firefox-unwrapped {
           extraPolicies = {
             DisableTelemetry = true;
             DisableFirefoxStudies = true;
-            #EnableTrackingProtection = {
-            #  Value= true;
-            #  Locked = true;
-            #  Cryptomining = true;
-            #  Fingerprinting = true;
-            #};
+            EnableTrackingProtection = {
+              Value = true;
+              Locked = true;
+              Cryptomining = true;
+              Fingerprinting = true;
+            };
             DisablePocket = true;
             DisableFirefoxAccounts = true;
             DisableAccounts = true;
             #DisableFirefoxScreenshots = true;
             #OverrideFirstRunPage = "";
             #OverridePostUpdatePage = "";
-            #DontCheckDefaultBrowser = true;
+            DontCheckDefaultBrowser = true;
             DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
             DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
             SearchBar = "unified"; # alternative: "separate"
@@ -44,16 +50,13 @@
           extensions = with inputs.firefox-addons.packages."${systemSettings.nix.system}"; [
             bitwarden
             proton-vpn
-            # darkreader
             ff2mpv
-            #  # auto-accepts cookies, use only with privacy-badger & ublock-origin
             i-dont-care-about-cookies
             link-cleaner
             privacy-badger
             to-deepl
             ublock-origin
             sidebery
-            # unpaywall
             vimium
           ];
           settings = {

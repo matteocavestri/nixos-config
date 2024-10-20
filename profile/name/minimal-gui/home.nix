@@ -13,7 +13,7 @@
       kitty.enable = true;
       shell.zsh.enable = true;
       zellij.enable = true;
-      firefox.enable = true;
+      librewolf.enable = true;
     };
   };
 }
