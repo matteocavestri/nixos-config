@@ -25,7 +25,7 @@
         auto-optimise-store = lib.mkIf config.system.config.garbagecollect.enable true;
 
         # Activate flakes (lib.mkForce true) because my config needs flakes
-        experimental-features = lib.mkIf config.system.config.flake.enable ["nix-command" "flakes" "repl-flake"];
+        experimental-features = lib.mkIf config.system.config.flake.enable ["nix-command" "flakes"];
       };
 
       # Main garbage collection settings
