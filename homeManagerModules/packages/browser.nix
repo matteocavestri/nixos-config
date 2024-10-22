@@ -11,10 +11,14 @@
     user.packages = {
       firefox.enable = lib.mkEnableOption "Install and customize firefox";
       librewolf.enable = lib.mkEnableOption "Install Librewolf";
+      torBrowser.enable = lib.mkEnableOption "Install Tor Browser";
     };
   };
 
   config = {
+    home.packages = lib.optionals config.user.packages.torBrowser.enable [
+      pkgs.tor-browser
+    ];
     programs = {
       librewolf = lib.mkIf config.user.packages.librewolf.enable {
         enable = true;

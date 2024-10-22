@@ -13,7 +13,7 @@
       kitty.enable = true;
       shell.zsh.enable = true;
       zellij.enable = true;
-      librewolf.enable = true;
+      torBrowser.enable = true;
       nevica = {
         enable = true;
       };
