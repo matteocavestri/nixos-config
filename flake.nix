@@ -40,12 +40,12 @@
       };
       wm = "hyprland"; # gnome / hyprland / cinnamon / pantheon / cde / xfce / plasma / cosmic / mate / budgie / deepin / lumina
       appearance = {
-        theme = "grigna-dark"; # See ./themes
+        theme = "everforest"; # See ./themes
         font = "Inconsolata Nerd Font"; # Your font name
         fontPkg = pkgs.inconsolata-nerdfont; # Your font package
-        cursor = "catppuccin-mocha-dark-cursors"; # Your cursor theme name
+        cursor = "Pokemon"; # Your cursor theme name
         cursorPkg =
-          pkgs.catppuccin-cursors.mochaDark; # Your cursor theme package
+          pkgs.pokemon-cursor; # Your cursor theme package
         icons = "Papirus"; # See docs
         iconsPkg = pkgs.papirus-icon-theme; # Your icons package
       };
