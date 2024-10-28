@@ -30,7 +30,7 @@
     (lib.mkIf (isMode "replace") {
       # replace the Mesa linked into system packages with the Asahi version
       # without rebuilding them to avoid rebuilding the world.
-      system.replaceDependencies.replacements = [
+      system.replaceRuntimeDependencies = [
         { original = pkgs.mesa;
           replacement = config.hardware.asahi.pkgs.mesa-asahi-edge;
         }

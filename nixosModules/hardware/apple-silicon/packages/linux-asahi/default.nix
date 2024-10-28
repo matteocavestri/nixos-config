@@ -4,7 +4,7 @@
 , writeShellScriptBin
 , writeText
 , linuxPackagesFor
-, withRust ? true
+, withRust ? false
 , _kernelPatches ? [ ]
 }:
 
@@ -86,7 +86,7 @@ let
     (linuxKernel.manualConfig rec {
       inherit stdenv lib;
 
-      version = "6.11.2-asahi";
+      version = "6.11.4-asahi";
       modDirVersion = version;
       extraMeta.branch = "6.11";
 
@@ -94,8 +94,8 @@ let
         # tracking: https://github.com/AsahiLinux/linux/tree/asahi-wip (w/ fedora verification)
         owner = "AsahiLinux";
         repo = "linux";
-        rev = "asahi-6.11.2-1";
-        hash = "sha256-lhYlHvNHQgDCVQUHJDAbOuUYGXdHxdDCRDReS4GmOko=";
+        rev = "asahi-6.11.4-1";
+        hash = "sha256-2etcnFXJP6KiVzdSeM+gY2VnC+fSQY/cO0IFt5KzF4E=";
       };
 
       kernelPatches = [
@@ -114,12 +114,8 @@ let
         rustfmt
         rustc
       ];
-      NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -march=armv8.5-a+fp16+fp16fml+aes+sha2+sha3+nosve+nosve2+nomemtag+norng+nosm4+nof32mm+nof64mm";
       RUST_LIB_SRC = rustPlatform.rustLibSrc;
-      hardeningEnable = [ "pic" "format" "fortify" "stackprotector" ];
-      hardeningDisable = [ "bindnow" "pie" "relro" ];
     } else {});
 
   linux-asahi = (callPackage linux-asahi-pkg { });
 in lib.recurseIntoAttrs (linuxPackagesFor linux-asahi)
-
