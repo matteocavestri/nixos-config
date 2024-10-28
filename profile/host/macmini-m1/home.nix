@@ -6,5 +6,6 @@
     kube.enable = true;
     librewolf.enable = true;
     torBrowser.enable = lib.mkForce false;
+    nevica.neovide = lib.mkForce true;
   };
 }

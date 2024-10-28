@@ -3,6 +3,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: {
   options = {
@@ -34,6 +35,9 @@
         dates = "weekly";
         options = "--delete-older-than 30d";
       };
+
+      # Setup Nix path
+      nixPath = lib.mkIf config.system.config.flake.enable ["nixpkgs=${inputs.nixpkgs}"];
     };
 
     # Allow unfree software from nixpkgs
