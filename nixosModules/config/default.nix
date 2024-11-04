@@ -17,8 +17,10 @@
     username = "neve";
 
     # Nix Configurations
-    linker.enable = true;
-    garbageCollect.enable = true;
+    nix = {
+      linker.enable = true;
+      garbageCollect.enable = true;
+    };
 
     # Peripherals Configurations
     peripherals = {

@@ -14,16 +14,18 @@
         default = "24.11";
       };
 
-      # Configure dynamic linker for libraries and packages
-      linker.enable = lib.mkOption {
-        type = types.bool;
-        default = true;
-      };
+      nix = {
+        # Configure dynamic linker for libraries and packages
+        linker.enable = lib.mkOption {
+          type = types.bool;
+          default = true;
+        };
 
-      # Setup Nix Garbage collector to delete-older-than 30 days
-      garbageCollect.enable = lib.mkOption {
-        type = types.bool;
-        default = true;
+        # Setup Nix Garbage collector to delete-older-than 30 days
+        garbageCollect.enable = lib.mkOption {
+          type = types.bool;
+          default = true;
+        };
       };
     };
   };
@@ -40,7 +42,7 @@
         # Activate flakes
         experimental-features = ["nix-command" "flakes"];
         # Optimize store if set
-        auto-optimise-store = lib.mkIf config.neve.config.garbageCollect.enable true;
+        auto-optimise-store = lib.mkIf config.neve.config.nix.garbageCollect.enable true;
       };
 
       # Main garbage collection settings
@@ -53,7 +55,7 @@
     # nixpkgs.config.allowUnfree = lib.mkIf config.system.config.unfree.enable true;
 
     # Dynamic linker setup for libraries and packages
-    systemd = lib.mkIf config.neve.config.linker.enable {
+    systemd = lib.mkIf config.neve.config.nix.linker.enable {
       tmpfiles = {
         rules = [
           "L+ /lib/${builtins.baseNameOf pkgs.stdenv.cc.bintools.dynamicLinker} - - - - ${pkgs.stdenv.cc.bintools.dynamicLinker}"
