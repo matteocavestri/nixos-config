@@ -9,8 +9,8 @@
     cpu.enable = false;
     gpu = {
       enable = false;
-      version = "";
-      monitoring = false;
+      version = "1";
+      monitoring.enable = false;
     };
   };
 }

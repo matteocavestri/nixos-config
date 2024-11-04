@@ -17,11 +17,11 @@
       # Tiger Lake generation (11) changes Vaapi and QuickSync Driver
       version = lib.mkOption {
         type = types.str;
-        default = "";
+        default = "1";
       };
 
       # Enable IntelGPU Monitoring
-      monitoring = lib.mkOption {
+      monitoring.enable = lib.mkOption {
         type = types.bool;
         default = false;
       };
