@@ -2,6 +2,7 @@
   imports = [
     ./intel
     ./mesa
+    ./apple
   ];
 
   # Default values
@@ -18,5 +19,14 @@
 
     # Generic Mesa GPU support
     gpu.enable = true;
+
+    # Apple Devices and SoC support
+    apple = {
+      apple-t2 = {
+        enable = false;
+        enableAppleSetOsLoader = false;
+        enableTinyDfr = true;
+      };
+    };
   };
 }
