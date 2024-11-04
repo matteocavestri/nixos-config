@@ -34,7 +34,7 @@ in {
     enable = true;
     package = pkgs.hyprland;
     plugins = [
-      pkgs.hyprlandPlugins.hyprexpo
+      # pkgs.hyprlandPlugins.hyprexpo
     ];
     xwayland.enable = true;
     systemd.enable = true;
@@ -96,6 +96,9 @@ in {
       xwayland = {
         force_zero_scaling = true;
       };
+      render = {
+        explicit_sync = 0;
+      };
       workspace = [
         "special:exposed,gapsout:60,gapsin:30,bordersize:5,border:true,shadow:false"
         "1, persistent:true"
@@ -138,7 +141,7 @@ in {
         "$mainMod, R, exec, $menu"
         "$mainMod, S, exec, firefox"
         "$mainMod, N, exec, $editor"
-        "$mainMod, E, hyprexpo:expo, toggle"
+        # "$mainMod, E, hyprexpo:expo, toggle"
         "$mainMod, D, exec, pypr toggle term"
         "$mainMod, M, exec, pypr toggle music"
         "$mainMod, V, exec, pypr toggle volume"
@@ -206,16 +209,16 @@ in {
         "SDL_VIDEODRIVER,wayland"
       ];
       plugin = {
-        hyprexpo = {
-          columns = 3;
-          gap_size = 50;
-          bg_col = "rgb(${config.lib.stylix.colors.base00})";
-          workspace_method = "first 1";
-          enable_gesture = true;
-          gesture_fingers = 3;
-          gesture_distance = 350;
-          gesture_positive = false; # positive = swipe down. Negative = swipe up
-        };
+        # hyprexpo = {
+        #   columns = 3;
+        #   gap_size = 50;
+        #   bg_col = "rgb(${config.lib.stylix.colors.base00})";
+        #   workspace_method = "first 1";
+        #   enable_gesture = true;
+        #   gesture_fingers = 3;
+        #   gesture_distance = 350;
+        #   gesture_positive = false; # positive = swipe down. Negative = swipe up
+        # };
       };
     };
     # TODO: Move extraConfig

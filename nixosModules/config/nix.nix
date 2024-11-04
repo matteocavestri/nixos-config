@@ -1,54 +1,62 @@
 {
-  systemSettings,
   lib,
+  types,
   config,
   pkgs,
   inputs,
   ...
 }: {
   options = {
-    system.config = {
-      flake.enable = lib.mkEnableOption "Enable Flake Support";
-      unfree.enable = lib.mkEnableOption "Enable unfree software";
-      linker.enable = lib.mkEnableOption "Enable dynamic linker in /lib /lib64";
-      garbagecollect.enable = lib.mkEnableOption "Enable Nix garbage collection";
+    neve.config = {
+      # Configure default nix version
+      systemVersion = lib.mkOption {
+        types = types.str;
+        default = "24.11";
+      };
+
+      # Configure dynamic linker for libraries and packages
+      linker.enable = lib.mkOption {
+        type = types.bool;
+        default = true;
+      };
+
+      # Setup Nix Garbage collector to delete-older-than 30 days
+      garbageCollect.enable = lib.mkOption {
+        type = types.bool;
+        default = true;
+      };
     };
   };
 
   config = {
     # Setup system version by default
-    system.stateVersion = systemSettings.nix.version;
+    system.stateVersion = config.neve.config.systemVersion;
     nix = {
+      # Setup default nixpkgs as this flake
+      nixPath = ["nixpkgs=${inputs.nixpkgs}"];
       settings = {
+        # Setup root group as trusted user
         trusted-users = ["@wheel"];
-
+        # Activate flakes
+        experimental-features = ["nix-command" "flakes"];
         # Optimize store if set
-        auto-optimise-store = lib.mkIf config.system.config.garbagecollect.enable true;
-
-        # Activate flakes (lib.mkForce true) because my config needs flakes
-        experimental-features = lib.mkIf config.system.config.flake.enable ["nix-command" "flakes"];
+        auto-optimise-store = lib.mkIf config.neve.config.garbageCollect.enable true;
       };
 
       # Main garbage collection settings
-      gc = lib.mkIf config.system.config.garbagecollect.enable {
+      gc = lib.mkIf config.neve.config.garbageCollect.enable {
         automatic = true;
         dates = "weekly";
         options = "--delete-older-than 30d";
       };
-
-      # Setup Nix path
-      nixPath = lib.mkIf config.system.config.flake.enable ["nixpkgs=${inputs.nixpkgs}"];
     };
+    # nixpkgs.config.allowUnfree = lib.mkIf config.system.config.unfree.enable true;
 
-    # Allow unfree software from nixpkgs
-    nixpkgs.config.allowUnfree = lib.mkIf config.system.config.unfree.enable true;
-
-    # Dynamic linker from /lib /lib64
-    systemd = lib.mkIf config.system.config.linker.enable {
+    # Dynamic linker setup for libraries and packages
+    systemd = lib.mkIf config.neve.config.linker.enable {
       tmpfiles = {
         rules = [
           "L+ /lib/${builtins.baseNameOf pkgs.stdenv.cc.bintools.dynamicLinker} - - - - ${pkgs.stdenv.cc.bintools.dynamicLinker}"
-          "L+ /lib64 - - - - /lib"
           "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
         ];
       };

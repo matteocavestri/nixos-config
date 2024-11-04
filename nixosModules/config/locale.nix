@@ -2,33 +2,54 @@
   systemSettings,
   lib,
   config,
+  types,
   ...
 }: {
   options = {
-    system.config.locale.enable = lib.mkEnableOption "Enable locale configuration";
-  };
+    neve.config = {
+      # Setup the system locale (Address type, numeric, telephone, time, monetary...)
+      locale = lib.mkOption {
+        type = types.str;
+        default = "en_US.UTF-8";
+      };
 
-  config = lib.mkIf config.system.config.locale.enable {
-    # Full locale setup
-    time.timeZone = systemSettings.host.timezone;
-    i18n = {
-      defaultLocale = systemSettings.host.locale;
-      extraLocaleSettings = {
-        LC_ADDRESS = systemSettings.host.locale;
-        LC_IDENTIFICATION = systemSettings.host.locale;
-        LC_MEASUREMENT = systemSettings.host.locale;
-        LC_MONETARY = systemSettings.host.locale;
-        LC_NAME = systemSettings.host.locale;
-        LC_NUMERIC = systemSettings.host.locale;
-        LC_PAPER = systemSettings.host.locale;
-        LC_TELEPHONE = systemSettings.host.locale;
-        LC_TIME = systemSettings.host.locale;
+      # Setup the keyboard layout
+      keyboardLayout = lib.mkOption {
+        type = types.str;
+        default = "us";
+      };
+
+      # Setup the system timezone
+      timezone = lib.mkOption {
+        type = types.str;
+        default = "Europe/London";
       };
     };
+  };
 
-    # Console keymap
+  config = {
+    # Timezone config
+    time.timeZone = config.neve.config.timezone;
+
+    # Keyboard layout setup
     console = {
-      keyMap = systemSettings.host.keymap;
+      keyMap = config.neve.config.keyboardLayout;
+    };
+
+    # System locale setup
+    i18n = {
+      defaultLocale = config.neve.config.locale;
+      extraLocaleSettings = {
+        LC_ADDRESS = config.neve.config.locale;
+        LC_IDENTIFICATION = config.neve.config.locale;
+        LC_MEASUREMENT = config.neve.config.locale;
+        LC_MONETARY = config.neve.config.locale;
+        LC_NAME = config.neve.config.locale;
+        LC_NUMERIC = config.neve.config.locale;
+        LC_PAPER = config.neve.config.locale;
+        LC_TELEPHONE = config.neve.config.locale;
+        LC_TIME = config.neve.config.locale;
+      };
     };
   };
 }

@@ -1,20 +1,16 @@
 {
+  userSettings,
   config,
-  types,
   lib,
   ...
 }: {
   options = {
-    # Default Username ( You can override it from custom )
-    neve.config.username = lib.mkOption {
-      type = types.str;
-      default = "neve";
-    };
+    system.config.users.enable = lib.mkEnableOption "Enable a user account";
   };
 
-  config = {
+  config = lib.mkIf config.system.config.users.enable {
     # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.${config.neve.config.username} = {
+    users.users.${userSettings.user.username} = {
       isNormalUser = true;
       extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
       packages = [];
