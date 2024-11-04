@@ -50,7 +50,7 @@
 
     graphics = {
       extraPackages = with pkgs;
-      # Conditionally add driver based on GPU version
+      # Intel graphics driver for GPUs older than Tiger Lake (AKA 11st gen)
         lib.optionals (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" == -1) [
           # OpenGL Driver
           libvdpau-va-gl
@@ -62,6 +62,7 @@
           # Intel OpenCL Driver
           ocl-icd
         ]
+        # Intel graphics driver for GPUs newer than Tiger Lake
         ++ lib.optionals (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" != -1) [
           # OpenGL Driver
           libvdpau-va-gl
@@ -74,7 +75,7 @@
           ocl-icd
         ];
 
-      # VA-API support for 32-bit
+      # VA-API support for 32-bit for both before and after Tiger Lake
       extraPackages32 = with pkgs.pkgsi686Linux;
         lib.optionals (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" == -1)
         [
