@@ -52,7 +52,6 @@
         options = "--delete-older-than 30d";
       };
     };
-    # nixpkgs.config.allowUnfree = lib.mkIf config.system.config.unfree.enable true;
 
     # Dynamic linker setup for libraries and packages
     systemd = lib.mkIf config.neve.config.nix.linker.enable {

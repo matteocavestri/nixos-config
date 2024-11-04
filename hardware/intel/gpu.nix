@@ -1,0 +1,108 @@
+{
+  lib,
+  config,
+  pkgs,
+  types,
+  ...
+}: {
+  options = {
+    neve.hardware.intel.gpu = {
+      # Enable Intel GPU Support
+      enable = lib.mkOption {
+        type = types.bool;
+        default = false;
+      };
+
+      # Intel GPU Version (1st to ...)
+      # Tiger Lake generation (11) changes Vaapi and QuickSync Driver
+      version = lib.mkOption {
+        type = types.str;
+        default = "";
+      };
+
+      # Enable IntelGPU Monitoring
+      monitoring = lib.mkOption {
+        type = types.bool;
+        default = false;
+      };
+    };
+  };
+  config = lib.mkIf config.neve.hardware.intel.gpu.enable {
+    # Enable Mesa drivers and 32 bit support
+    system.hardware.gpu = {
+      enable = true;
+      support32 = true;
+    };
+
+    # Apply xserver video drivers
+    services.xserver.videoDrivers = [
+      "i915"
+      "intel"
+    ];
+
+    # Enable Unfree packages (Needed for QuickSync support)
+    nixpkgs.config.allowUnfree = true;
+
+    # Override intel vaapi driver
+    nixpkgs.config.packageOverrides = pkgs: {
+      intel-vaapi-driver = pkgs.intel-vaapi-driver.override {enableHybridCodec = true;};
+    };
+
+    graphics = {
+      extraPackages = with pkgs;
+      # Conditionally add driver based on GPU version
+        lib.optionals (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" == -1) [
+          # OpenGL Driver
+          libvdpau-va-gl
+          libGLU
+          # Intel Vaapi Driver
+          intel-vaapi-driver
+          # Intel QuickSync Driver (Unfree)
+          intel-media-sdk
+          # Intel OpenCL Driver
+          ocl-icd
+        ]
+        ++ lib.optionals (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" != -1) [
+          # OpenGL Driver
+          libvdpau-va-gl
+          libGLU
+          # Vaapi driver
+          intel-media-driver
+          # Intel QuickSync Driver (Unfree)
+          vpl-gpu-rt
+          # Intel OpenCL Driver
+          ocl-icd
+        ];
+
+      # VA-API support for 32-bit
+      extraPackages32 = with pkgs.pkgsi686Linux;
+        lib.optionals (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" == -1)
+        [
+          intel-vaapi-driver
+        ]
+        ++ lib.optionals (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" != -1) [
+          intel-media-driver
+        ];
+    };
+
+    # Setup intel environment and monitoring packages
+    environment = {
+      systemPackages = lib.mkIf config.neve.hardware.intel.gpu.monitoring [
+        pkgs.nvtopPackages.intel
+        pkgs.intel-gpu-tools
+      ];
+      variables = {
+        # Video Decode and Presentation API for Unix
+        VDPAU_DRIVER = "va_gl";
+        # New GPUs use iHD, older only use i965
+        LIBVA_DRIVER_NAME = lib.mkDefault (
+          if (builtins.compareVersions config.neve.hardware.intel.gpu.version "11" != -1)
+          then "iHD"
+          else "i965"
+        );
+        # OpenCL vendors path
+        OCL_ICD_VENDORS = "/run/opengl-driver/etc/OpenCL/vendors";
+      };
+    };
+  };
+}
