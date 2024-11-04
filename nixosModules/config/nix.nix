@@ -30,6 +30,7 @@
     };
   };
 
+  # Nix Package manager configurations
   config = {
     # Setup system version by default
     system.stateVersion = config.neve.config.systemVersion;

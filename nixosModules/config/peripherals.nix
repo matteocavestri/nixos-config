@@ -27,6 +27,7 @@
     };
   };
 
+  # Configurations for sensors and embedeed peripherals
   config = {
     # Enable support for trackpads
     services.libinput.enable = lib.mkIf config.neve.config.peripherals.touchpad.enable true;

@@ -27,6 +27,8 @@
       };
     };
   };
+
+  # Intel GPU Configuration
   config = lib.mkIf config.neve.hardware.intel.gpu.enable {
     # Enable Mesa drivers and 32 bit support
     system.hardware.gpu = {

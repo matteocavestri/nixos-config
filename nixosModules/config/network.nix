@@ -32,6 +32,7 @@
     };
   };
 
+  # Networking Configurations
   config = {
     # It adds default user to networkmanager group
     users.users.${config.neve.config.username}.extraGroups = ["networkmanager"];

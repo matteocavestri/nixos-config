@@ -1,5 +1,4 @@
 {
-  systemSettings,
   lib,
   config,
   types,
@@ -27,6 +26,7 @@
     };
   };
 
+  # Locale, language and layout configurations
   config = {
     # Timezone config
     time.timeZone = config.neve.config.timezone;

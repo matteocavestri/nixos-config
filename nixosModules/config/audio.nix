@@ -28,6 +28,7 @@
     };
   };
 
+  # Audio Configurations
   config = {
     # Pulseaudio configuration
     hardware.pulseaudio.enable = lib.mkIf config.neve.config.audio.pulseaudio.enable true;

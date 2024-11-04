@@ -11,6 +11,8 @@
       default = false;
     };
   };
+
+  # Intel CPU Configurations
   config = lib.mkIf config.neve.hardware.intel.cpu.enable {
     # Enable Intel KVM Support
     boot.kernelModules = ["kvm-intel"];
