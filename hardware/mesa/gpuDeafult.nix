@@ -1,13 +1,12 @@
 {
   lib,
   config,
-  types,
   ...
 }: {
   options = {
     # Install and enable mesa default drivers
     neve.hardware.gpu.enable = lib.mkOption {
-      type = types.bool;
+      type = lib.types.bool;
       default = true;
     };
   };

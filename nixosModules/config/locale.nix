@@ -1,26 +1,25 @@
 {
   lib,
   config,
-  types,
   ...
 }: {
   options = {
     neve.config = {
       # Setup the system locale (Address type, numeric, telephone, time, monetary...)
       locale = lib.mkOption {
-        type = types.str;
+        type = lib.types.str;
         default = "en_US.UTF-8";
       };
 
       # Setup the keyboard layout
       keyboardLayout = lib.mkOption {
-        type = types.str;
+        type = lib.types.str;
         default = "us";
       };
 
       # Setup the system timezone
       timezone = lib.mkOption {
-        type = types.str;
+        type = lib.types.str;
         default = "Europe/London";
       };
     };

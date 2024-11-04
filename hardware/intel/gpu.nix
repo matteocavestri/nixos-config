@@ -2,27 +2,26 @@
   lib,
   config,
   pkgs,
-  types,
   ...
 }: {
   options = {
     neve.hardware.intel.gpu = {
       # Enable Intel GPU Support
       enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = false;
       };
 
       # Intel GPU Version (1st to ...)
       # Tiger Lake generation (11) changes Vaapi and QuickSync Driver
       version = lib.mkOption {
-        type = types.str;
+        type = lib.types.str;
         default = "1";
       };
 
       # Enable IntelGPU Monitoring
       monitoring.enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = false;
       };
     };

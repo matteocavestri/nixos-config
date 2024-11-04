@@ -2,26 +2,25 @@
   lib,
   config,
   pkgs,
-  types,
   ...
 }: {
   options = {
     neve.config.peripherals = {
       # Enable display brightness control
       backlight.enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = false;
       };
 
       # Enable touchpad and gesture support (Enabled by default)
       touchpad.enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = true;
       };
 
       # Enable iio sensors (brightness, accelerometer, light...)
       iio.enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = false;
       };
     };

@@ -1,13 +1,12 @@
 {
   config,
-  types,
   lib,
   ...
 }: {
   options = {
     # Default Username ( You can override it from custom )
     neve.config.username = lib.mkOption {
-      type = types.str;
+      type = lib.types.str;
       default = "neve";
     };
   };

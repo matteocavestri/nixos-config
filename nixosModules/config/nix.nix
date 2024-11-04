@@ -1,6 +1,5 @@
 {
   lib,
-  types,
   config,
   pkgs,
   inputs,
@@ -10,20 +9,20 @@
     neve.config = {
       # Configure default nix version
       systemVersion = lib.mkOption {
-        types = types.str;
+        types = lib.types.str;
         default = "24.11";
       };
 
       nix = {
         # Configure dynamic linker for libraries and packages
         linker.enable = lib.mkOption {
-          type = types.bool;
+          type = lib.types.bool;
           default = true;
         };
 
         # Setup Nix Garbage collector to delete-older-than 30 days
         garbageCollect.enable = lib.mkOption {
-          type = types.bool;
+          type = lib.types.bool;
           default = true;
         };
       };

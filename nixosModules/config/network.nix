@@ -1,32 +1,31 @@
 {
   lib,
   config,
-  types,
   ...
 }: {
   options = {
     neve.config.network = {
       # Setup default network Hostname
       hostname = lib.mkOption {
-        type = types.str;
+        type = lib.types.str;
         default = "nixos";
       };
 
       # Enable Wireguard Client Support (checkReversePath set to false)
       wireguardSupport.enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = true;
       };
 
       # wifiBackend (iwd by default --> Better WPA3 support than wpasupplicant)
       wifiBackend = lib.mkOption {
-        type = types.str;
+        type = lib.types.str;
         default = "iwd";
       };
 
       # Enable Bluetooth support
       bluetooth.enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = false;
       };
     };

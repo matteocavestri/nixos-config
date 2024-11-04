@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  types,
   ...
 }: {
   options = {
@@ -9,20 +8,20 @@
       pipewire = {
         # Enable Pipewire support as audio/video backend
         enable = lib.mkOption {
-          type = types.bool;
+          type = lib.types.bool;
           default = false;
         };
 
         # Enable Asa 32 Bit support
         alsa32.enable = lib.mkOption {
-          type = types.bool;
+          type = lib.types.bool;
           default = false;
         };
       };
 
       # Enable Pulseaudio as audio backend
       pulseaudio.enable = lib.mkOption {
-        type = types.bool;
+        type = lib.types.bool;
         default = false;
       };
     };

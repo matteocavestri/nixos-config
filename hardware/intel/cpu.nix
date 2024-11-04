@@ -1,13 +1,12 @@
 {
   lib,
   config,
-  types,
   ...
 }: {
   options = {
     # Enable Intel CPU optimizations
     neve.hardware.intel.cpu.enable = lib.mkOption {
-      type = types.bool;
+      type = lib.types.bool;
       default = false;
     };
   };
