@@ -7,11 +7,11 @@
     neve.system.bootloader = {
       systemdBoot.enable = lib.mkOption {
         type = lib.types.bool;
-        default = true;
+        default = false;
       };
       grub2.enable = lib.mkOption {
         type = lib.types.bool;
-        default = false;
+        default = true;
       };
     };
   };

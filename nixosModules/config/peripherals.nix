@@ -15,7 +15,7 @@
       # Enable touchpad and gesture support (Enabled by default)
       touchpad.enable = lib.mkOption {
         type = lib.types.bool;
-        default = true;
+        default = false;
       };
 
       # Enable iio sensors (brightness, accelerometer, light...)

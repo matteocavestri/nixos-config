@@ -30,12 +30,6 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    # ------------------ Firefox Addons ----------------------------------
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # ------------------ Nevica ------------------------------------------
     nevica = {
       url = "github:matteocavestri/nevica";

@@ -1,0 +1,24 @@
+{
+  lib,
+  config,
+  ...
+}: {
+  options = {
+    neve.desktop.gnome = {
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+      };
+    };
+  };
+
+  config = lib.mkIf config.neve.desktop.gnome.enable {
+    services = {
+      xserver = {
+        displayManager.gdm.enable = true;
+        desktopManager.gnome.enable = true;
+      };
+    };
+    programs.dconf.enable = true;
+  };
+}

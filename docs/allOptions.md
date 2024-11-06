@@ -48,7 +48,7 @@
 # Peripherals Configurations
     peripherals = {
       backlight.enable = false;
-      touchpad.enable = true;
+      touchpad.enable = false;
       iio.enable = false;
     };
 
@@ -76,8 +76,8 @@
 
 # Bootloader settings
     bootloader = {
-      systemdBoot.enable = true;
-      grub2.enable = false;
+      systemdBoot.enable = false;
+      grub2.enable = true;
     };
 
 # Kernel Settings
@@ -90,5 +90,10 @@
     zram.enable = false;
   };
 
+
+# ----- DESKTOP -----
+    neve.desktop = {
+        gnome.enable = false;
+    };
 }
 ```
