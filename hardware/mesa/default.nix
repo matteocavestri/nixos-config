@@ -3,5 +3,5 @@
     ./gpuDeafult.nix
   ];
 
-  neve.hardware.gpu.enable = true;
+  neve.hardware.gpu.enable = false;
 }

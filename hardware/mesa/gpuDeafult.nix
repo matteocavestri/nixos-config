@@ -7,7 +7,7 @@
     # Install and enable mesa default drivers
     neve.hardware.gpu.enable = lib.mkOption {
       type = lib.types.bool;
-      default = true;
+      default = false;
     };
   };
 

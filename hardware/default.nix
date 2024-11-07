@@ -18,7 +18,7 @@
     };
 
     # Generic Mesa GPU support
-    gpu.enable = true;
+    gpu.enable = false;
 
     # Apple Devices and SoC support
     apple = {
