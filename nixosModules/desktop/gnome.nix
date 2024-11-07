@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {
@@ -21,5 +22,9 @@
       };
     };
     programs.dconf.enable = true;
+
+    environment.gnome.excludePackages = with pkgs; [
+      xterm
+    ];
   };
 }

@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   options = {
@@ -17,7 +18,10 @@
     users.users.${config.neve.config.username} = {
       isNormalUser = true;
       extraGroups = ["wheel"]; # Enable ‘sudo’ for the user.
-      packages = [];
+      packages = [
+        pkgs.git
+        pkgs.firefox
+      ];
     };
   };
 }
