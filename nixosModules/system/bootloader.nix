@@ -28,13 +28,13 @@
       systemd-boot = lib.mkIf (config.neve.system.bootloader.systemdBoot.enable && !config.neve.system.bootloader.grub2.enable) {
         enable = true;
       };
-    };
 
-    # Grub2 configuration
-    grub = lib.mkIf (config.neve.system.bootloader.grub2.enable && !config.neve.system.bootloader.systemdBoot.enable) {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
+      # Grub2 configuration
+      grub = lib.mkIf (config.neve.system.bootloader.grub2.enable && !config.neve.system.bootloader.systemdBoot.enable) {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+      };
     };
   };
 }

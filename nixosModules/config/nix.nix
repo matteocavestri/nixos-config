@@ -9,7 +9,7 @@
     neve.config = {
       # Configure default nix version
       systemVersion = lib.mkOption {
-        types = lib.types.str;
+        type = lib.types.str;
         default = "24.11";
       };
 
@@ -46,7 +46,7 @@
       };
 
       # Main garbage collection settings
-      gc = lib.mkIf config.neve.config.garbageCollect.enable {
+      gc = lib.mkIf config.neve.config.nix.garbageCollect.enable {
         automatic = true;
         dates = "weekly";
         options = "--delete-older-than 30d";

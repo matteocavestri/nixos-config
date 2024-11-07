@@ -5,6 +5,7 @@
     ./users.nix
     ./peripherals.nix
     ./network.nix
+    ./audio.nix
   ];
 
   # Default values
@@ -39,7 +40,7 @@
 
     # Audio Configurations
     audio = {
-      pulseaudio = false;
+      pulseaudio.enable = false;
       pipewire = {
         enable = false;
         alsa32.enable = false;

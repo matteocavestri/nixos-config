@@ -17,8 +17,6 @@
       graphics = {
         # Enable generic graphics support
         enable = true;
-        # Enable 32-bit graphics support
-        enable32Bit = true;
       };
     };
   };

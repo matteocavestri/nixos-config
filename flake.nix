@@ -7,12 +7,14 @@
   } @ inputs: let
     # -------------------------------------------------------------------
     inherit (nixpkgs) lib;
-    pkgs = import nixpkgs;
-    pkgs-unstable = import nixpkgs-unstable;
+    currentSystem = "aarch64-linux";
+    pkgs = import nixpkgs {system = currentSystem;};
+    pkgs-unstable = import nixpkgs-unstable {system = currentSystem;};
   in {
     # -------------------- NixOS Configuration --------------------------
     nixosConfigurations = {
       desktop = lib.nixosSystem {
+        system = currentSystem;
         modules = [
           ./profiles/desktop.nix
         ];
