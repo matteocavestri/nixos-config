@@ -56,6 +56,6 @@ in
       description = "The most basic dynamic function row daemon possible";
       homepage = "https://github.com/kekrby/tiny-dfr";
       license = with licenses; [asl20 bsd3 cc0 isc lgpl21Plus mit mpl20 unicode-dfs-2016 asl20 asl20-llvm mit unlicense];
-      maintainers = [Matteo Cavestri];
+      maintainers = [];
     };
   }

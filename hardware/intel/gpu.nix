@@ -86,7 +86,7 @@
 
     # Setup intel environment and monitoring packages
     environment = {
-      systemPackages = lib.mkIf config.neve.hardware.intel.gpu.monitoring [
+      systemPackages = lib.mkIf config.neve.hardware.intel.gpu.monitoring.enable [
         pkgs.nvtopPackages.intel
         pkgs.intel-gpu-tools
       ];

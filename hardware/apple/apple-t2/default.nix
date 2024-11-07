@@ -56,9 +56,7 @@
       install -D bootx64_silent.efi $out/bootx64.efi
     '';
   };
-
   # Make the code shorter
-  t2Cfg = config.neve.hardware.apple.apple-t2;
 in {
   # Apple T2 Options definition
   options = {
@@ -84,7 +82,7 @@ in {
   };
 
   # Apple T2 Configurations
-  config = lib.mkIf t2Cfg.enable (
+  config = lib.mkIf config.neve.hardware.apple.apple-t2.enable (
     lib.mkMerge [
       {
         # For keyboard and touchbar
@@ -125,7 +123,7 @@ in {
           }))
         ];
       }
-      (lib.mkIf t2Cfg.enableAppleSetOsLoader {
+      (lib.mkIf config.neve.hardware.apple.apple-t2.enableAppleSetOsLoader {
         # Activation script to install apple-set-os-loader in order to unlock the iGPU
         system.activationScripts.appleSetOsLoader = ''
           if [[ -e /boot/efi/efi/boot/bootx64_original.efi ]]; then
@@ -149,7 +147,7 @@ in {
           options apple-gmux force_igd=y
         '';
       })
-      (lib.mkIf t2Cfg.enableTinyDfr {
+      (lib.mkIf config.neve.hardware.apple.apple-t2.enableTinyDfr {
         services.udev.packages = [tiny-dfrPackage];
 
         systemd.services.tiny-dfr = {
